@@ -217,7 +217,19 @@ window.CONTENT = {
     above:      { bg: "над", en: "above / over", pic: "⬆️", say: "nad" },
     nextto:     { bg: "до", en: "next to", pic: "↔️", say: "do" },
     behind:     { bg: "зад", en: "behind", pic: "🫣", say: "zad", hint: "зад sounds like 'sad' – hiding behind something!" },
-    between:    { bg: "между", en: "between", pic: "⏸️", say: "MEZH-doo", hint: "Like 'middle' – between two things." }
+    between:    { bg: "между", en: "between", pic: "⏸️", say: "MEZH-doo", hint: "Like 'middle' – between two things." },
+
+    // ---------- Unit 17: Clothes & shopping ----------
+    tshirt:     { bg: "тениска", en: "T-shirt", pic: "🎽", say: "TE-nis-ka", hint: "Tennis players wear a тениска!" },
+    shoes:      { bg: "обувки", en: "shoes", pic: "👟", say: "o-BOOV-ki" },
+    jacket:     { bg: "яке", en: "jacket", pic: "🧥", say: "YA-ke", hint: "YA-ke sounds like 'jacket' with the end chopped off!" },
+    hat:        { bg: "шапка", en: "hat / cap", pic: "🧢", say: "SHAP-ka", hint: "Your шапка gives your head a SHAPE!" },
+    trousers:   { bg: "панталон", en: "trousers", pic: "👖", say: "pan-ta-LON", hint: "Like 'pantaloons' – or 'pants'!" },
+    ilike:      { bg: "харесва ми", en: "I like it", pic: "😍", say: "ha-RES-va mee" },
+    idontlike:  { bg: "не ми харесва", en: "I don't like it", pic: "😖", say: "ne mee ha-RES-va" },
+    newword:    { bg: "нов", en: "new", pic: "✨", say: "nov", hint: "Sounds like 'new' – and like 'novel', something new!" },
+    old:        { bg: "стар", en: "old", pic: "🕸️", say: "star", hint: "Stars are very, very OLD!" },
+    size:       { bg: "размер", en: "size", pic: "📏", say: "raz-MER" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -373,7 +385,17 @@ window.CONTENT = {
     s_myroom:         { bg: "Това е моята стая.", en: "This is my room.", gap: "стая" },
     s_bednext:        { bg: "Леглото е до прозореца.", en: "The bed is next to the window.", gap: "до" },
     s_ballbehind:     { bg: "Топката е зад вратата.", en: "The ball is behind the door.", gap: "зад" },
-    s_dogbetween:     { bg: "Кучето спи между стола и леглото.", en: "The dog is sleeping between the chair and the bed.", gap: "между" }
+    s_dogbetween:     { bg: "Кучето спи между стола и леглото.", en: "The dog is sleeping between the chair and the bed.", gap: "между" },
+
+    // Unit 17
+    t_bluehat:        { bg: "Моята шапка е синя.", en: "My hat is blue." },
+    t_shoesunder:     { bg: "Обувките са под леглото.", en: "The shoes are under the bed." },
+    t_likejacket:     { bg: "Харесва ми якето.", en: "I like the jacket." },
+    t_dontlikehat:    { bg: "Не ми харесва тази шапка.", en: "I don't like this hat." },
+    s_blueshirt:      { bg: "Харесва ми синята тениска.", en: "I like the blue T-shirt.", gap: "синята" },
+    s_jacketprice:    { bg: "Колко струва якето?", en: "How much is the jacket?", gap: "якето" },
+    s_newshoes:       { bg: "Новите ми обувки са червени.", en: "My new shoes are red.", gap: "червени" },
+    s_iwantit:        { bg: "Тениската? Искам я!", en: "The T-shirt? I want it!", gap: "я", note: "Check: natural way to say 'I want it' about a T-shirt?" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -389,6 +411,9 @@ window.CONTENT = {
     tip_da: { title: "No 'to' in Bulgarian!", text: "Bulgarian has no 'to drink' or 'to eat'. Instead you say 'I want that I drink': искам да пия. After да, use the normal 'I' form of the verb: искам да ям (I want to eat), искам да играя (I want to play)." },
     tip_my: { title: "'My' matches the word", text: "моят хол – my living room (masculine) · моята стая – my room (feminine) · моето легло – my bed (neuter) · моите книги – my books (plural)" },
     tip_where: { title: "Where is it?", text: "в – in · на – on · под – under · над – above · до – next to · зад – behind · между – between. Then add 'the': под леглото (under the bed), до прозореца (next to the window)." },
+    tip_colours2: { title: "Colours match the clothes", text: "син панталон – blue trousers (masculine) · синя шапка – a blue hat (feminine) · синьо яке – a blue jacket (neuter) · сини обувки – blue shoes (plural)" },
+    tip_like: { title: "'It pleases me'", text: "харесва ми really means 'it pleases me', so the thing you like does the 'pleasing': Харесва ми якето (I like the jacket). For more than one thing it becomes харесват: Харесват ми обувките (I like the shoes). To say no: Не ми харесва." },
+    tip_it: { title: "Short words for 'it'", text: "го – it (masculine or neuter) · я – it (feminine) · ги – them. They go next to the verb: Искам го (I want it – the jacket) · Искам я (I want it – the T-shirt) · Искам ги (I want them – the shoes)." },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -614,7 +639,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Section 2 onwards – Units 15–16 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Section 2 onwards – Units 15–17 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -651,13 +676,13 @@ window.CONTENT = {
       description: "Name clothes, describe them and buy them.",
       objectives: ["Name everyday clothes", "Describe clothes by colour", "Say what you like and ask the price"],
       vocab: "Clothes and shops",
-      grammar: ["Adjective agreement revisited: червена тениска, червено яке, червени обувки", "Short pronouns: Харесва ми. Искам го."],
-      sample: { words: [["тениска", "T-shirt"], ["обувки", "shoes"], ["яке", "jacket"]], sentences: [["Харесва ми синята тениска.", "I like the blue T-shirt."], ["Колко струва?", "How much is it?"]] },
+      grammar: ["Adjective agreement revisited: синя шапка, синьо яке, сини обувки", "харесва ми – 'it pleases me'", "Short pronouns: го, я, ги (it, them)"],
+      fact: "Bulgarian football fans call Levski Sofia 'сините' (the blues) and CSKA Sofia 'червените' (the reds) – after the colour of their kits!",
       lessons: [
-        { id: "u17l1", title: "Clothes", type: "words", status: "planned", plan: "Introduce: тениска, обувки, яке, шапка, панталон" },
-        { id: "u17l2", title: "What I like", type: "words", status: "planned", plan: "Practise: Харесва ми синята тениска." },
-        { id: "u17l3", title: "At the shop", type: "sentences", status: "planned", plan: "Apply: buy a football shirt" },
-        { id: "u17boss", title: "Shopping review", type: "boss", status: "planned", plan: "Review: clothes with Colours (Unit 6)" }
+        { id: "u17l1", title: "Clothes", type: "words", words: ["tshirt", "shoes", "jacket", "hat", "trousers"], sentences: ["t_bluehat", "t_shoesunder"], tips: ["tip_colours2"] },
+        { id: "u17l2", title: "What I like", type: "words", words: ["ilike", "idontlike", "newword", "old", "size"], sentences: ["t_likejacket", "t_dontlikehat"], tips: ["tip_like"] },
+        { id: "u17l3", title: "At the shop", type: "sentences", sentences: ["s_blueshirt", "s_jacketprice", "s_newshoes", "s_iwantit"], tips: ["tip_it"] },
+        { id: "u17boss", title: "Style Star", type: "boss" }
       ]
     },
     {

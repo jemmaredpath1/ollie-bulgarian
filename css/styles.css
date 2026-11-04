@@ -444,7 +444,7 @@ h3 { margin: 0 0 10px; font-size: 19px; }
 .sample-list .bgw { font-size: 18px; }
 .muted { color: var(--muted); font-size: 14px; }
 
-.tip-card { text-align: left; align-items: stretch; }
+.teach-card.tip-card { text-align: left; align-items: stretch; }
 .tip-title { font-size: 24px; font-weight: 900; color: #6cc4f5; }
 .tip-text { font-size: 19px; line-height: 1.5; margin: 4px 0 0; }
 .tip-list { margin: 6px 0 0; padding-left: 20px; font-size: 19px; line-height: 1.6; }
