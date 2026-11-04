@@ -281,7 +281,19 @@ window.CONTENT = {
     sing:       { bg: "пея", en: "I sing", pic: "🎤", say: "PE-ya" },
     hobby:      { bg: "хоби", en: "hobby", pic: "🎯", say: "HO-bi", hint: "Same as 'hobby'!" },
     fun:        { bg: "забавно", en: "fun", pic: "🤪", say: "za-BAV-no" },
-    boring:     { bg: "скучно", en: "boring", pic: "🥱", say: "SKOOCH-no" }
+    boring:     { bg: "скучно", en: "boring", pic: "🥱", say: "SKOOCH-no" },
+
+    // ---------- Unit 22: Jobs ----------
+    teacher:    { bg: "учител", en: "teacher", pic: "🧑‍🏫", say: "oo-CHEE-tel", hint: "From уча (I learn) – the person who helps you learn!" },
+    doctor:     { bg: "лекар", en: "doctor", pic: "🩺", say: "LE-kar" },
+    firefighter:{ bg: "пожарникар", en: "firefighter", pic: "🧑‍🚒", say: "po-zhar-ni-KAR", hint: "From пожар – a big fire!" },
+    footballer: { bg: "футболист", en: "footballer", pic: "⭐", say: "fut-bo-LEEST", hint: "футбол + ист = a football person!" },
+    chef:       { bg: "готвач", en: "cook / chef", pic: "🧑‍🍳", say: "got-VACH", hint: "From готвя – I cook." },
+    police:     { bg: "полицай", en: "police officer", pic: "👮", say: "po-li-TSAY", hint: "Sounds like 'police'!" },
+    vet:        { bg: "ветеринар", en: "vet", pic: "🐕‍🦺", say: "ve-te-ri-NAR", hint: "Like 'veterinary' – a vet!" },
+    pilot:      { bg: "пилот", en: "pilot", pic: "🧑‍✈️", say: "pi-LOT", hint: "Same as 'pilot'!" },
+    work:       { bg: "работя", en: "I work", pic: "💼", say: "ra-BO-tya", hint: "Sounds a bit like 'robot' – robots work hard!" },
+    become:     { bg: "стана", en: "(to) become", pic: "🦋", say: "STA-na", hint: "Used after да: искам да стана… – I want to become…" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -487,7 +499,17 @@ window.CONTENT = {
     s_likedoing:      { bg: "Какво обичаш да правиш?", en: "What do you like doing?", gap: "правиш" },
     s_playminecraft:  { bg: "Обичам да играя Майнкрафт.", en: "I love playing Minecraft.", gap: "играя" },
     s_nodance:        { bg: "Не обичам да танцувам.", en: "I don't like dancing.", gap: "танцувам" },
-    s_favhobby:       { bg: "Футболът е моето любимо хоби.", en: "Football is my favourite hobby.", gap: "любимо", note: "Check: natural? (любимо agrees with хоби, which is neuter)" }
+    s_favhobby:       { bg: "Футболът е моето любимо хоби.", en: "Football is my favourite hobby.", gap: "любимо", note: "Check: natural? (любимо agrees with хоби, which is neuter)" },
+
+    // Unit 22
+    t_mumdoctor:      { bg: "Мама е лекар.", en: "Mum is a doctor." },
+    t_goodteacher:    { bg: "Учителят е добър.", en: "The teacher is good." },
+    t_dadhospital:    { bg: "Татко работи в болница.", en: "Dad works in a hospital." },
+    t_becomevet:      { bg: "Искам да стана ветеринар.", en: "I want to become a vet." },
+    s_whatbecome:     { bg: "Какъв искаш да станеш?", en: "What do you want to be?", gap: "станеш" },
+    s_wantfootballer: { bg: "Искам да стана футболист.", en: "I want to become a footballer.", gap: "футболист" },
+    s_auntteacher:    { bg: "Леля ми е учителка.", en: "My aunt is a teacher.", gap: "учителка" },
+    s_chefpizza:      { bg: "Готвачът прави пица.", en: "The chef makes pizza.", gap: "прави" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -515,6 +537,8 @@ window.CONTENT = {
     tip_play: { title: "Another verb pattern", text: "аз играя · ти играеш · той / тя играе · ние играем · вие играете · те играят. And one more: аз уча · ти учиш · той учи · ние учим · вие учите · те учат." },
     tip_love_doing: { title: "I love doing…", text: "To say you love or like DOING something, use обичам да + verb: Обичам да чета (I love reading) · Обичам да играя (I love playing) · Не обичам да танцувам (I don't like dancing)." },
     tip_fun: { title: "Is it fun?", text: "Забавно е! – It's fun! · Скучно е. – It's boring. · Харесва ми да рисувам. – I like drawing. · Кое е твоето любимо хоби? – What's your favourite hobby?" },
+    tip_jobs: { title: "Jobs for him and her", text: "Many jobs have a 'he' word and a 'she' word: учител / учителка · готвач / готвачка · лекар / лекарка. And there's no 'a': Мама е лекар. – Mum is a doctor.", note: "Check: is 'лекар' or 'лекарка' more natural for a woman doctor?" },
+    tip_become: { title: "What do you want to be?", text: "Какъв искаш да станеш? – asking a boy · Каква искаш да станеш? – asking a girl · Искам да стана пилот. – I want to be a pilot." },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -740,7 +764,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Section 2 onwards – Units 15–21 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Section 2 (Units 15–22) is playable; Sections 3–5 are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -852,13 +876,13 @@ window.CONTENT = {
       description: "Name jobs and say what you want to be.",
       objectives: ["Name common jobs", "Say what family members do", "Say what you want to be"],
       vocab: "Jobs and workplaces",
-      grammar: ["Male and female job words: учител / учителка", "искам да стана… – I want to become…"],
-      sample: { words: [["лекар", "doctor"], ["пожарникар", "firefighter"], ["футболист", "footballer"]], sentences: [["Майка ми е лекар.", "My mum is a doctor."], ["Искам да стана футболист.", "I want to become a footballer."]] },
+      grammar: ["Male and female job words: учител / учителка", "No 'a': Мама е лекар.", "искам да стана… – I want to become…"],
+      fact: "Hristo Stoichkov was a футболист – and later he became the треньор (coach) of Bulgaria's national team!",
       lessons: [
-        { id: "u22l1", title: "Jobs", type: "words", status: "planned", plan: "Introduce: учител, лекар, пожарникар, футболист, готвач" },
-        { id: "u22l2", title: "What do they do?", type: "words", status: "planned", plan: "Practise: Майка ми е лекар." },
-        { id: "u22l3", title: "When I grow up", type: "sentences", status: "planned", plan: "Apply: talk about your dream job" },
-        { id: "u22boss", title: "Jobs review", type: "boss", status: "planned", plan: "Review: family (Unit 5)" }
+        { id: "u22l1", title: "Jobs", type: "words", words: ["teacher", "doctor", "firefighter", "footballer", "chef"], sentences: ["t_mumdoctor", "t_goodteacher"], tips: ["tip_jobs"] },
+        { id: "u22l2", title: "What do they do?", type: "words", words: ["police", "vet", "pilot", "work", "become"], sentences: ["t_dadhospital", "t_becomevet"], tips: ["tip_become"] },
+        { id: "u22l3", title: "When I grow up", type: "sentences", sentences: ["s_whatbecome", "s_wantfootballer", "s_auntteacher", "s_chefpizza"] },
+        { id: "u22boss", title: "Dream Job", type: "boss" }
       ]
     },
     {
