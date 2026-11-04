@@ -242,7 +242,22 @@ window.CONTENT = {
     money:      { bg: "пари", en: "money", pic: "💰", say: "pa-REE", hint: "Save your пари for a trip to Paris!" },
     costs:      { bg: "струва", en: "it costs", pic: "🔖", say: "STROO-va" },
     expensive:  { bg: "скъпо", en: "expensive", pic: "😱", say: "SKUH-po" },
-    cheap:      { bg: "евтино", en: "cheap", pic: "😌", say: "EV-ti-no" }
+    cheap:      { bg: "евтино", en: "cheap", pic: "😌", say: "EV-ti-no" },
+
+    // ---------- Unit 19: Days & time ----------
+    monday:     { bg: "понеделник", en: "Monday", pic: "Mon", say: "po-ne-DEL-nik", hint: "It comes after неделя (Sunday): по-неделя-ник!" },
+    tuesday:    { bg: "вторник", en: "Tuesday", pic: "Tue", say: "FTOR-nik", hint: "From втори – the second day." },
+    wednesday:  { bg: "сряда", en: "Wednesday", pic: "Wed", say: "SRYA-da", hint: "сряда means 'middle' – the middle of the week!" },
+    thursday:   { bg: "четвъртък", en: "Thursday", pic: "Thu", say: "chet-VUHR-tuhk", hint: "From четири – the fourth day." },
+    friday:     { bg: "петък", en: "Friday", pic: "Fri", say: "PE-tuhk", hint: "From пет – the fifth day." },
+    saturday:   { bg: "събота", en: "Saturday", pic: "Sat", say: "SUH-bo-ta", hint: "Sounds a bit like 'Saturday' – S…b…t!" },
+    sunday:     { bg: "неделя", en: "Sunday", pic: "Sun", say: "ne-DE-lya", hint: "Think 'no work day' – the day off!" },
+    today:      { bg: "днес", en: "today", pic: "📅", say: "dnes" },
+    tomorrow:   { bg: "утре", en: "tomorrow", pic: "🌄", say: "OO-tre", hint: "Like утро (morning) – tomorrow morning!" },
+    yesterday:  { bg: "вчера", en: "yesterday", pic: "⏮️", say: "FCHE-ra" },
+    hour:       { bg: "час", en: "hour / o'clock", pic: "🕐", say: "chas", hint: "Remember часовник (watch)? It shows the час!" },
+    half:       { bg: "половина", en: "half", pic: "🌗", say: "po-lo-VEE-na" },
+    week:       { bg: "седмица", en: "week", pic: "🗓️", say: "SED-mi-tsa", hint: "From седем – seven days!" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -418,7 +433,17 @@ window.CONTENT = {
     s_twentyeuro:     { bg: "Имам двадесет евро.", en: "I have twenty euros.", gap: "двадесет" },
     s_ballcosts:      { bg: "Топката струва петнадесет евро.", en: "The ball costs fifteen euros.", gap: "струва" },
     s_cheapshirt:     { bg: "Тази тениска е евтина.", en: "This T-shirt is cheap.", gap: "евтина" },
-    s_paycard:        { bg: "Може ли да платя с карта?", en: "Can I pay by card?", gap: "карта" }
+    s_paycard:        { bg: "Може ли да платя с карта?", en: "Can I pay by card?", gap: "карта" },
+
+    // Unit 19
+    t_satmatch:       { bg: "В събота имам мач.", en: "On Saturday I have a match." },
+    t_lovefriday:     { bg: "Обичам петък!", en: "I love Friday!" },
+    t_whattime:       { bg: "Колко е часът?", en: "What time is it?" },
+    t_halfthree:      { bg: "Часът е три и половина.", en: "It's half past three." },
+    s_todaymonday:    { bg: "Днес е понеделник.", en: "Today is Monday.", gap: "понеделник" },
+    s_swimtuesday:    { bg: "Във вторник плувам.", en: "On Tuesday I swim.", gap: "вторник" },
+    s_matchfive:      { bg: "Мачът е в пет часа.", en: "The match is at five o'clock.", gap: "часа" },
+    s_tomorrowsat:    { bg: "Утре е събота!", en: "Tomorrow is Saturday!", gap: "събота" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -439,6 +464,8 @@ window.CONTENT = {
     tip_it: { title: "Short words for 'it'", text: "го – it (masculine or neuter) · я – it (feminine) · ги – them. They go next to the verb: Искам го (I want it – the jacket) · Искам я (I want it – the T-shirt) · Искам ги (I want them – the shoes)." },
     tip_tens: { title: "Counting in tens", text: "Most tens are 'number + десет': тридесет (30) · четиридесет (40) · петдесет (50) · шестдесет (60) · седемдесет (70) · осемдесет (80) · деветдесет (90) · сто (100). For the numbers in between, add и (and): двадесет и едно (21) · тридесет и пет (35)." },
     tip_money: { title: "Talking about money", text: "евро never changes: едно евро · пет евро. Cents take the counting ending: един цент · два цента · петдесет цента. A price like €5.50 is пет евро и петдесет цента.", note: "Check: is 'цента' the usual counting form, and do people say 'цент' or 'евроцент'?" },
+    tip_days: { title: "On Monday, on Tuesday…", text: "Days don't take a capital letter in Bulgarian. 'On' a day is в: в понеделник, в събота. Before a word starting with в or ф, в becomes във: във вторник." },
+    tip_time: { title: "Telling the time", text: "Колко е часът? – What time is it? · Часът е три. – It's three o'clock. · Три и половина. – Half past three. · в пет часа – at five o'clock" },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -664,7 +691,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Section 2 onwards – Units 15–18 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Section 2 onwards – Units 15–19 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -731,13 +758,13 @@ window.CONTENT = {
       description: "Say the days of the week and tell the time.",
       objectives: ["Say the days of the week", "Tell the time on the hour and half hour", "Say when something happens"],
       vocab: "Days, times, today and tomorrow",
-      grammar: ["в + day: в събота", "Часът е… – It's … o'clock"],
-      sample: { words: [["понеделник", "Monday"], ["събота", "Saturday"], ["днес", "today"]], sentences: [["Колко е часът?", "What time is it?"], ["В събота имам мач.", "On Saturday I have a match."]] },
+      grammar: ["в / във + day: в събота, във вторник", "Часът е… – It's … o'clock", "Counting form again: в пет часа"],
+      fact: "The Bulgarian week starts on Monday – and the day names hide numbers: вторник comes from 'second', четвъртък from 'four' and петък from 'five'!",
       lessons: [
-        { id: "u19l1", title: "Days of the week", type: "words", status: "planned", plan: "Introduce: понеделник … неделя, днес, утре" },
-        { id: "u19l2", title: "What time is it?", type: "words", status: "planned", plan: "Practise: Колко е часът? Часът е три." },
-        { id: "u19l3", title: "My week", type: "sentences", status: "planned", plan: "Apply: plan your week of football and swimming" },
-        { id: "u19boss", title: "Time review", type: "boss", status: "planned", plan: "Review: numbers (Units 3 and 14)" }
+        { id: "u19l1", title: "Days of the week", type: "words", words: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"], sentences: ["t_satmatch", "t_lovefriday"], tips: ["tip_days"] },
+        { id: "u19l2", title: "What time is it?", type: "words", words: ["today", "tomorrow", "yesterday", "hour", "half", "week"], sentences: ["t_whattime", "t_halfthree"], tips: ["tip_time"] },
+        { id: "u19l3", title: "My week", type: "sentences", sentences: ["s_todaymonday", "s_swimtuesday", "s_matchfive", "s_tomorrowsat"] },
+        { id: "u19boss", title: "Time Lord", type: "boss" }
       ]
     },
     {

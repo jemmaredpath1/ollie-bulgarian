@@ -575,7 +575,10 @@
     if (cands.length < n) {
       cands = cands.concat(Object.keys(C.words).filter(id => id !== correctId && !cands.includes(id) && word(id).pic !== c.pic));
     }
-    return shuffle(cands).slice(0, n);
+    // Mostly pick words from the same lesson (other days, other numbers…) so you can't guess by topic.
+    const siblings = LESSONS.filter(l => (l.words || []).includes(correctId)).flatMap(l => l.words);
+    const close = shuffle(cands.filter(id => siblings.includes(id))).slice(0, n - 1);
+    return close.concat(shuffle(cands.filter(id => !close.includes(id))).slice(0, n - close.length));
   }
 
   const WORD_TYPES = ['picture', 'listen', 'bg2en', 'en2bg'];
