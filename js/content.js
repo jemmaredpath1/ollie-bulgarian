@@ -205,7 +205,19 @@ window.CONTENT = {
     bill:       { bg: "сметка", en: "bill", pic: "🧾", say: "SMET-ka" },
     menu:       { bg: "меню", en: "menu", pic: "📋", say: "me-NYU", hint: "Just like 'menu'!" },
     waiter:     { bg: "сервитьор", en: "waiter", pic: "🤵", say: "ser-vi-TYOR", hint: "He SERVes you: ser-vi-TYOR!" },
-    drink:      { bg: "пия", en: "I drink", pic: "🥤", say: "PEE-ya" }
+    drink:      { bg: "пия", en: "I drink", pic: "🥤", say: "PEE-ya" },
+
+    // ---------- Unit 16: My home ----------
+    room:       { bg: "стая", en: "room", pic: "🧸", say: "STA-ya", hint: "Your стая is where your toys STAY!" },
+    kitchen:    { bg: "кухня", en: "kitchen", pic: "🍳", say: "KOOH-nya", hint: "Sounds a bit like 'cook-nya' – where you cook!" },
+    bathroom:   { bg: "баня", en: "bathroom", pic: "🛁", say: "BA-nya", hint: "Sounds like 'banya' – a bath!" },
+    livingroom: { bg: "хол", en: "living room", pic: "🛋️", say: "hol", hint: "Like a 'hall' where the family sits." },
+    garden:     { bg: "градина", en: "garden", pic: "🌻", say: "gra-DEE-na", hint: "Sounds a bit like 'garden-a'!" },
+    under:      { bg: "под", en: "under", pic: "⬇️", say: "pod" },
+    above:      { bg: "над", en: "above / over", pic: "⬆️", say: "nad" },
+    nextto:     { bg: "до", en: "next to", pic: "↔️", say: "do" },
+    behind:     { bg: "зад", en: "behind", pic: "🫣", say: "zad", hint: "зад sounds like 'sad' – hiding behind something!" },
+    between:    { bg: "между", en: "between", pic: "⏸️", say: "MEZH-doo", hint: "Like 'middle' – between two things." }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -351,7 +363,17 @@ window.CONTENT = {
     s_wouldlike:      { bg: "Какво ще желаете?", en: "What would you like?", gap: "Какво", note: "Check: natural for a waiter talking to a child and parent?" },
     s_order:          { bg: "Един горещ шоколад и една торта, моля.", en: "One hot chocolate and one cake, please.", gap: "една" },
     s_howmuchcake:    { bg: "Колко струва тортата?", en: "How much is the cake?", gap: "струва" },
-    s_thebill:        { bg: "Може ли сметката, моля?", en: "Can we have the bill, please?", gap: "сметката" }
+    s_thebill:        { bg: "Може ли сметката, моля?", en: "Can we have the bill, please?", gap: "сметката" },
+
+    // Unit 16
+    t_mumkitchen:     { bg: "Мама е в кухнята.", en: "Mum is in the kitchen." },
+    t_smallroom:      { bg: "Моята стая е малка.", en: "My room is small." },
+    t_catunder:       { bg: "Котката е под масата.", en: "The cat is under the table." },
+    t_lampabove:      { bg: "Лампата е над леглото.", en: "The lamp is above the bed." },
+    s_myroom:         { bg: "Това е моята стая.", en: "This is my room.", gap: "стая" },
+    s_bednext:        { bg: "Леглото е до прозореца.", en: "The bed is next to the window.", gap: "до" },
+    s_ballbehind:     { bg: "Топката е зад вратата.", en: "The ball is behind the door.", gap: "зад" },
+    s_dogbetween:     { bg: "Кучето спи между стола и леглото.", en: "The dog is sleeping between the chair and the bed.", gap: "между" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -365,6 +387,8 @@ window.CONTENT = {
     tip_teens: { title: "Making 11 to 20", text: "11–19 are built as 'one-on-ten': един-на-десет → единадесет, два-на-десет → дванадесет. 20 is 'two tens': двадесет. In everyday speech people shorten them – единайсет, дванайсет, двайсет – so you'll hear both." },
     tip_one: { title: "One, but which one?", text: "'One' changes to match the word: един сок · една торта · едно кафе. And there's no word for 'a' – you just say the thing: Искам сок (I want a juice)." },
     tip_da: { title: "No 'to' in Bulgarian!", text: "Bulgarian has no 'to drink' or 'to eat'. Instead you say 'I want that I drink': искам да пия. After да, use the normal 'I' form of the verb: искам да ям (I want to eat), искам да играя (I want to play)." },
+    tip_my: { title: "'My' matches the word", text: "моят хол – my living room (masculine) · моята стая – my room (feminine) · моето легло – my bed (neuter) · моите книги – my books (plural)" },
+    tip_where: { title: "Where is it?", text: "в – in · на – on · под – under · над – above · до – next to · зад – behind · между – between. Then add 'the': под леглото (under the bed), до прозореца (next to the window)." },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -590,7 +614,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Section 2 onwards – Unit 15 is playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Section 2 onwards – Units 15–16 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -612,13 +636,13 @@ window.CONTENT = {
       description: "Talk about the rooms in your home and where things are.",
       objectives: ["Name rooms and furniture", "Say where things are with в, на, под, до", "Describe your bedroom"],
       vocab: "Rooms and furniture",
-      grammar: ["Prepositions: в, на, под, над, до, зад", "'The' revisited: стаята, кухнята", "Possession: моята стая"],
-      sample: { words: [["стая", "room"], ["кухня", "kitchen"], ["градина", "garden"]], sentences: [["Моята стая е малка.", "My room is small."], ["Котката е под леглото.", "The cat is under the bed."]] },
+      grammar: ["Prepositions: в, на, под, над, до, зад, между", "'The' revisited: стаята, кухнята", "'My' agreement: моят / моята / моето / моите"],
+      fact: "Lots of Bulgarian families have a вила – a little holiday house in the countryside or the mountains for weekends.",
       lessons: [
-        { id: "u16l1", title: "Rooms", type: "words", status: "planned", plan: "Introduce: стая, кухня, баня, градина, хол" },
-        { id: "u16l2", title: "Where is it?", type: "words", status: "planned", plan: "Practise: Котката е под леглото." },
-        { id: "u16l3", title: "My bedroom", type: "sentences", status: "planned", plan: "Apply: describe your room to a friend" },
-        { id: "u16boss", title: "Home review", type: "boss", status: "planned", plan: "Review: home words with Everyday things (Unit 13)" }
+        { id: "u16l1", title: "Rooms", type: "words", words: ["room", "kitchen", "bathroom", "livingroom", "garden"], sentences: ["t_mumkitchen", "t_smallroom"], tips: ["tip_my"] },
+        { id: "u16l2", title: "Where is it?", type: "words", words: ["under", "above", "nextto", "behind", "between"], sentences: ["t_catunder", "t_lampabove"], tips: ["tip_where"] },
+        { id: "u16l3", title: "My bedroom", type: "sentences", sentences: ["s_myroom", "s_bednext", "s_ballbehind", "s_dogbetween"] },
+        { id: "u16boss", title: "Home Hero", type: "boss" }
       ]
     },
     {
