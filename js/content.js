@@ -341,7 +341,19 @@ window.CONTENT = {
     plane:      { bg: "самолет", en: "plane", pic: "✈️", say: "sa-mo-LET", hint: "сам (by itself) + лети (flies) – it flies by itself!" },
     airport:    { bg: "летище", en: "airport", pic: "🛫", say: "le-TEE-shte", hint: "From лети (flies) – where planes fly from." },
     travel:     { bg: "пътувам", en: "I travel", pic: "🌍", say: "puh-TOO-vam", hint: "From път – a road or a journey." },
-    city:       { bg: "град", en: "town / city", pic: "🌆", say: "grad", hint: "Like Belgrade – the 'white city'!" }
+    city:       { bg: "град", en: "town / city", pic: "🌆", say: "grad", hint: "Like Belgrade – the 'white city'!" },
+
+    // ---------- Unit 27: At the hotel ----------
+    hotel:      { bg: "хотел", en: "hotel", pic: "🏨", say: "ho-TEL", hint: "Same as 'hotel'!" },
+    booking:    { bg: "резервация", en: "booking", pic: "🗒️", say: "re-zer-VA-tsi-ya", hint: "Like 'reservation'!" },
+    reception:  { bg: "рецепция", en: "reception", pic: "🛎️", say: "re-TSEP-tsi-ya", hint: "Like 'reception'!" },
+    lift:       { bg: "асансьор", en: "lift", pic: "🛗", say: "a-san-SYOR", hint: "Like 'ascend' – it goes up!" },
+    floor:      { bg: "етаж", en: "floor (level)", pic: "🏢", say: "e-TAZH" },
+    hotelbreakfast: { bg: "закуска", en: "breakfast", pic: "🥐", say: "za-KOOS-ka", hint: "Remember закусвам (I have breakfast)?" },
+    pillow:     { bg: "възглавница", en: "pillow", pic: "☁️", say: "vuhz-GLAV-ni-tsa", hint: "From глава (head) – where you put your head!" },
+    shower:     { bg: "душ", en: "shower", pic: "🚿", say: "doosh" },
+    view:       { bg: "гледка", en: "view", pic: "🖼️", say: "GLED-ka", hint: "From гледам (I watch) – something to look at." },
+    quiet:      { bg: "тихо", en: "quiet", pic: "🤫", say: "TEE-ho", hint: "Shh – тихо!" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -597,7 +609,17 @@ window.CONTENT = {
     s_twotickets:     { bg: "Два билета за Варна, моля.", en: "Two tickets to Varna, please.", gap: "билета" },
     s_seasummer:      { bg: "Отиваме на море през лятото.", en: "We're going to the seaside in the summer.", gap: "море" },
     s_bigairport:     { bg: "Летището е много голямо.", en: "The airport is very big.", gap: "голямо" },
-    s_loveholiday:    { bg: "Обичам ваканцията!", en: "I love the holidays!", gap: "ваканцията" }
+    s_loveholiday:    { bg: "Обичам ваканцията!", en: "I love the holidays!", gap: "ваканцията" },
+
+    // Unit 27
+    t_hotelsea:       { bg: "Хотелът е до морето.", en: "The hotel is next to the sea." },
+    t_thirdfloor:     { bg: "Стаята е на третия етаж.", en: "The room is on the third floor." },
+    t_breakfasteight: { bg: "Закуската е в осем часа.", en: "Breakfast is at eight o'clock." },
+    t_showerbroken:   { bg: "Душът не работи.", en: "The shower doesn't work." },
+    s_havebooking:    { bg: "Имаме резервация.", en: "We have a booking.", gap: "резервация" },
+    s_morepillow:     { bg: "Може ли още една възглавница?", en: "Could we have another pillow?", gap: "възглавница" },
+    s_seaview:        { bg: "Стаята има гледка към морето.", en: "The room has a view of the sea.", gap: "гледка" },
+    s_wherelift:      { bg: "Къде е асансьорът?", en: "Where is the lift?", gap: "асансьорът" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -635,6 +657,8 @@ window.CONTENT = {
     tip_drive: { title: "карам – drive or ride", text: "карам кола – I drive a car · карам колело – I ride a bike · Татко кара кола. – Dad drives a car." },
     tip_for: { title: "за – for", text: "билет за Варна – a ticket to Varna (word for word: 'for Varna') · подарък за мама – a present for mum · Два билета за София, моля. – Two tickets to Sofia, please." },
     tip_we: { title: "We're going!", text: "For family plans, use the 'we' form: отиваме – we're going · пътуваме – we travel · летим – we fly. You can leave out ние: Отиваме на море!" },
+    tip_have: { title: "имам – to have", text: "имам – I have · имаш – you have · има – he / she has · имаме – we have · имате – you have (more than one) · имат – they have" },
+    tip_mayi: { title: "Asking politely", text: "Може ли…? is the polite way to ask for something: Може ли още една възглавница? (Could we have another pillow?) · Може ли ключа? (Can I have the key?) Add моля to be extra polite." },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -860,7 +884,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Sections 2–5: Units 15–26 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Sections 2–5: Units 15–27 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -1047,13 +1071,13 @@ window.CONTENT = {
       description: "Check in and ask for things on holiday.",
       objectives: ["Say you have a booking", "Ask about your room", "Ask for something you need"],
       vocab: "Hotels and holiday rooms",
-      grammar: ["Може ли…? revisited", "имаме – we have"],
-      sample: { words: [["хотел", "hotel"], ["резервация", "booking"], ["асансьор", "lift"]], sentences: [["Имаме резервация.", "We have a booking."], ["Може ли още една възглавница?", "Could we have another pillow?"]] },
+      grammar: ["имам in full: имаме резервация", "Може ли…? revisited", "Problems: … не работи (… doesn't work)"],
+      fact: "In winter, Bulgarian mountain hotels fill up with skiers – Bansko and Borovets are famous ski resorts!",
       lessons: [
-        { id: "u27l1", title: "Check in", type: "words", status: "planned", plan: "Introduce: хотел, резервация, асансьор, басейн, закуска" },
-        { id: "u27l2", title: "Our room", type: "words", status: "planned", plan: "Practise: Имаме резервация." },
-        { id: "u27l3", title: "Can we have…?", type: "sentences", status: "planned", plan: "Apply: ask for a pillow and the pool times" },
-        { id: "u27boss", title: "Hotel review", type: "boss", status: "planned", plan: "Review: home (Unit 16)" }
+        { id: "u27l1", title: "Check in", type: "words", words: ["hotel", "booking", "reception", "lift", "floor"], sentences: ["t_hotelsea", "t_thirdfloor"], tips: ["tip_have"] },
+        { id: "u27l2", title: "Our room", type: "words", words: ["hotelbreakfast", "pillow", "shower", "view", "quiet"], sentences: ["t_breakfasteight", "t_showerbroken"], tips: ["tip_mayi"] },
+        { id: "u27l3", title: "Can we have…?", type: "sentences", sentences: ["s_havebooking", "s_morepillow", "s_seaview", "s_wherelift"] },
+        { id: "u27boss", title: "Five-Star Guest", type: "boss" }
       ]
     },
     {
