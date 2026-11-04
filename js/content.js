@@ -150,7 +150,7 @@ window.CONTENT = {
     tasty:      { bg: "вкусно", en: "tasty", pic: "😋", say: "VKOOS-no" },
 
     // ---------- Unit 11: All about me ----------
-    callme:     { bg: "казвам се", en: "my name is", pic: "🏷️", say: "KAZ-vam se", hint: "Word for word it means 'I call myself'." },
+    callme:     { bg: "казвам се", en: "my name is", pic: "📛", say: "KAZ-vam se", hint: "Word for word it means 'I call myself'." },
     boy:        { bg: "момче", en: "boy", pic: "🧒", say: "mom-CHE" },
     girl:       { bg: "момиче", en: "girl", pic: "👧", say: "mo-MEE-che", hint: "момче + и = момиче. Boy and girl differ by one letter!" },
     youare:     { bg: "ти си", en: "you are", pic: "👉", say: "tee see", picQuiz: false },
@@ -203,23 +203,23 @@ window.CONTENT = {
     hotchoc:    { bg: "горещ шоколад", en: "hot chocolate", pic: "☕", say: "go-RESHT sho-ko-LAD", hint: "горещ = hot, шоколад = chocolate." },
     cake:       { bg: "торта", en: "cake", pic: "🍰", say: "TOR-ta", hint: "Like a 'torte' – a fancy cake!" },
     sandwich:   { bg: "сандвич", en: "sandwich", pic: "🥪", say: "SAND-vich", hint: "Just 'sandwich'!" },
-    canihave:   { bg: "може ли", en: "can I have…? / may I…?", pic: "🤚", say: "MO-zhe lee", hint: "The polite way to ask: Може ли менюто? – Can I have the menu?" },
+    canihave:   { bg: "може ли", en: "can I have…? / may I…?", pic: "🤚", say: "MO-zhe lee", hint: "The polite way to ask: Може ли менюто? – Can I have the menu?", picQuiz: false },
     bill:       { bg: "сметка", en: "bill", pic: "🧾", say: "SMET-ka" },
     menu:       { bg: "меню", en: "menu", pic: "📋", say: "me-NYU", hint: "Just like 'menu'!" },
     waiter:     { bg: "сервитьор", en: "waiter", pic: "🤵", say: "ser-vi-TYOR", hint: "He SERVes you: ser-vi-TYOR!" },
     drink:      { bg: "пия", en: "I drink", pic: "🥤", say: "PEE-ya" },
 
     // ---------- Unit 16: My home ----------
-    room:       { bg: "стая", en: "room", pic: "🧸", say: "STA-ya", hint: "Your стая is where your toys STAY!" },
+    room:       { bg: "стая", en: "room", pic: "🧸", say: "STA-ya", hint: "Your стая is where your toys STAY!", picQuiz: false },
     kitchen:    { bg: "кухня", en: "kitchen", pic: "🍳", say: "KOOH-nya", hint: "Sounds a bit like 'cook-nya' – where you cook!" },
     bathroom:   { bg: "баня", en: "bathroom", pic: "🛁", say: "BA-nya", hint: "Sounds like 'banya' – a bath!" },
     livingroom: { bg: "хол", en: "living room", pic: "🛋️", say: "hol", hint: "Like a 'hall' where the family sits." },
     garden:     { bg: "градина", en: "garden", pic: "🌻", say: "gra-DEE-na", hint: "Sounds a bit like 'garden-a'!" },
-    under:      { bg: "под", en: "under", pic: "⬇️", say: "pod" },
-    above:      { bg: "над", en: "above / over", pic: "⬆️", say: "nad" },
-    nextto:     { bg: "до", en: "next to", pic: "↔️", say: "do" },
-    behind:     { bg: "зад", en: "behind", pic: "🫣", say: "zad", hint: "зад sounds like 'sad' – hiding behind something!" },
-    between:    { bg: "между", en: "between", pic: "⏸️", say: "MEZH-doo", hint: "Like 'middle' – between two things." },
+    under:      { bg: "под", en: "under", pic: "⬇️", say: "pod", picQuiz: false },
+    above:      { bg: "над", en: "above / over", pic: "⬆️", say: "nad", picQuiz: false },
+    nextto:     { bg: "до", en: "next to", pic: "↔️", say: "do", picQuiz: false },
+    behind:     { bg: "зад", en: "behind", pic: "🫣", say: "zad", hint: "зад sounds like 'sad' – hiding behind something!", picQuiz: false },
+    between:    { bg: "между", en: "between", pic: "⏸️", say: "MEZH-doo", hint: "Like 'middle' – between two things.", picQuiz: false },
 
     // ---------- Unit 17: Clothes & shopping ----------
     tshirt:     { bg: "тениска", en: "T-shirt", pic: "🎽", say: "TE-nis-ka", hint: "Tennis players wear a тениска!" },
@@ -229,8 +229,8 @@ window.CONTENT = {
     trousers:   { bg: "панталон", en: "trousers", pic: "👖", say: "pan-ta-LON", hint: "Like 'pantaloons' – or 'pants'!" },
     ilike:      { bg: "харесва ми", en: "I like it", pic: "😍", say: "ha-RES-va mee" },
     idontlike:  { bg: "не ми харесва", en: "I don't like it", pic: "😖", say: "ne mee ha-RES-va" },
-    newword:    { bg: "нов", en: "new", pic: "✨", say: "nov", hint: "Sounds like 'new' – and like 'novel', something new!" },
-    old:        { bg: "стар", en: "old", pic: "🕸️", say: "star", hint: "Stars are very, very OLD!" },
+    newword:    { bg: "нов", en: "new", pic: "🆕", say: "nov", hint: "Sounds like 'new' – and like 'novel', something new!" },
+    old:        { bg: "стар", en: "old", pic: "🏚️", say: "star", hint: "Stars are very, very OLD!" },
     size:       { bg: "размер", en: "size", pic: "📏", say: "raz-MER" },
 
     // ---------- Unit 18: Numbers & money ----------
@@ -242,9 +242,9 @@ window.CONTENT = {
     euro:       { bg: "евро", en: "euro", pic: "💶", say: "EV-ro", hint: "Just like 'euro'!" },
     cent:       { bg: "цент", en: "cent", pic: "🪙", say: "tsent", hint: "Just like 'cent'!" },
     money:      { bg: "пари", en: "money", pic: "💰", say: "pa-REE", hint: "Save your пари for a trip to Paris!" },
-    costs:      { bg: "струва", en: "it costs", pic: "🔖", say: "STROO-va" },
-    expensive:  { bg: "скъпо", en: "expensive", pic: "😱", say: "SKUH-po" },
-    cheap:      { bg: "евтино", en: "cheap", pic: "😌", say: "EV-ti-no" },
+    costs:      { bg: "струва", en: "it costs", pic: "🏷️", say: "STROO-va" },
+    expensive:  { bg: "скъпо", en: "expensive", pic: "💸", say: "SKUH-po" },
+    cheap:      { bg: "евтино", en: "cheap", pic: "😌", say: "EV-ti-no", picQuiz: false },
 
     // ---------- Unit 19: Days & time ----------
     monday:     { bg: "понеделник", en: "Monday", pic: "Mon", say: "po-ne-DEL-nik", hint: "It comes after неделя (Sunday): по-неделя-ник!" },
@@ -254,15 +254,15 @@ window.CONTENT = {
     friday:     { bg: "петък", en: "Friday", pic: "Fri", say: "PE-tuhk", hint: "From пет – the fifth day." },
     saturday:   { bg: "събота", en: "Saturday", pic: "Sat", say: "SUH-bo-ta", hint: "Sounds a bit like 'Saturday' – S…b…t!" },
     sunday:     { bg: "неделя", en: "Sunday", pic: "Sun", say: "ne-DE-lya", hint: "Think 'no work day' – the day off!" },
-    today:      { bg: "днес", en: "today", pic: "📅", say: "dnes" },
-    tomorrow:   { bg: "утре", en: "tomorrow", pic: "🌄", say: "OO-tre", hint: "Like утро (morning) – tomorrow morning!" },
-    yesterday:  { bg: "вчера", en: "yesterday", pic: "⏮️", say: "FCHE-ra" },
+    today:      { bg: "днес", en: "today", pic: "📅", say: "dnes", picQuiz: false },
+    tomorrow:   { bg: "утре", en: "tomorrow", pic: "🌄", say: "OO-tre", hint: "Like утро (morning) – tomorrow morning!", picQuiz: false },
+    yesterday:  { bg: "вчера", en: "yesterday", pic: "⏮️", say: "FCHE-ra", picQuiz: false },
     hour:       { bg: "час", en: "hour / o'clock", pic: "🕐", say: "chas", hint: "Remember часовник (watch)? It shows the час!" },
-    half:       { bg: "половина", en: "half", pic: "🌗", say: "po-lo-VEE-na" },
+    half:       { bg: "половина", en: "half", pic: "½", say: "po-lo-VEE-na" },
     week:       { bg: "седмица", en: "week", pic: "🗓️", say: "SED-mi-tsa", hint: "From седем – seven days!" },
 
     // ---------- Unit 20: My day ----------
-    getup:      { bg: "ставам", en: "I get up", pic: "🌞", say: "STA-vam", hint: "STAnd up – ставам!" },
+    getup:      { bg: "ставам", en: "I get up", pic: "🛏️⬆️", say: "STA-vam", hint: "STAnd up – ставам!" },
     breakfast:  { bg: "закусвам", en: "I have breakfast", pic: "🥣", say: "za-KOOS-vam", hint: "Have a little 'snack' first thing – za-KOOS-vam!" },
     wash:       { bg: "мия се", en: "I wash (myself)", pic: "🧼", say: "MEE-ya se" },
     getdressed: { bg: "обличам се", en: "I get dressed", pic: "👔", say: "ob-LEE-cham se" },
@@ -281,7 +281,7 @@ window.CONTENT = {
     game:       { bg: "игра", en: "game", pic: "🕹️", say: "ig-RA", hint: "играя = I play, игра = a game." },
     dance:      { bg: "танцувам", en: "I dance", pic: "💃", say: "tan-TSOO-vam", hint: "Sounds like 'dance'!" },
     sing:       { bg: "пея", en: "I sing", pic: "🎤", say: "PE-ya" },
-    hobby:      { bg: "хоби", en: "hobby", pic: "🎯", say: "HO-bi", hint: "Same as 'hobby'!" },
+    hobby:      { bg: "хоби", en: "hobby", pic: "🎯", say: "HO-bi", hint: "Same as 'hobby'!", picQuiz: false },
     fun:        { bg: "забавно", en: "fun", pic: "🤪", say: "za-BAV-no" },
     boring:     { bg: "скучно", en: "boring", pic: "🥱", say: "SKOOCH-no" },
 
@@ -289,13 +289,13 @@ window.CONTENT = {
     teacher:    { bg: "учител", en: "teacher", pic: "🧑‍🏫", say: "oo-CHEE-tel", hint: "From уча (I learn) – the person who helps you learn!" },
     doctor:     { bg: "лекар", en: "doctor", pic: "🩺", say: "LE-kar" },
     firefighter:{ bg: "пожарникар", en: "firefighter", pic: "🧑‍🚒", say: "po-zhar-ni-KAR", hint: "From пожар – a big fire!" },
-    footballer: { bg: "футболист", en: "footballer", pic: "⭐", say: "fut-bo-LEEST", hint: "футбол + ист = a football person!" },
+    footballer: { bg: "футболист", en: "footballer", pic: "⚽⭐", say: "fut-bo-LEEST", hint: "футбол + ист = a football person!" },
     chef:       { bg: "готвач", en: "cook / chef", pic: "🧑‍🍳", say: "got-VACH", hint: "From готвя – I cook." },
     police:     { bg: "полицай", en: "police officer", pic: "👮", say: "po-li-TSAY", hint: "Sounds like 'police'!" },
     vet:        { bg: "ветеринар", en: "vet", pic: "🐕‍🦺", say: "ve-te-ri-NAR", hint: "Like 'veterinary' – a vet!" },
     pilot:      { bg: "пилот", en: "pilot", pic: "🧑‍✈️", say: "pi-LOT", hint: "Same as 'pilot'!" },
     work:       { bg: "работя", en: "I work", pic: "💼", say: "ra-BO-tya", hint: "Sounds a bit like 'robot' – robots work hard!" },
-    become:     { bg: "стана", en: "(to) become", pic: "🦋", say: "STA-na", hint: "Used after да: искам да стана… – I want to become…" },
+    become:     { bg: "стана", en: "(to) become", pic: "🦋", say: "STA-na", hint: "Used after да: искам да стана… – I want to become…", picQuiz: false },
 
     // ---------- Unit 23: Around town ----------
     shop:       { bg: "магазин", en: "shop", pic: "🏪", say: "ma-ga-ZEEN", hint: "Looks like 'magazine' – but it's a shop!" },
@@ -303,23 +303,23 @@ window.CONTENT = {
     hospital:   { bg: "болница", en: "hospital", pic: "🏥", say: "BOL-ni-tsa", hint: "From болен (ill) – where ill people go." },
     station:    { bg: "гара", en: "station", pic: "🚉", say: "GA-ra", hint: "Sounds like 'garage' – where trains park!" },
     library:    { bg: "библиотека", en: "library", pic: "🏛️", say: "bib-li-o-TE-ka", hint: "Like 'bibliography' – a place full of books." },
-    going:      { bg: "отивам", en: "I'm going", pic: "🚶", say: "o-TEE-vam" },
+    going:      { bg: "отивам", en: "I'm going", pic: "🚶➡️", say: "o-TEE-vam" },
     school:     { bg: "училище", en: "school", pic: "🏫", say: "oo-CHEE-li-shte", hint: "From уча – the place where you learn!" },
     cinema:     { bg: "кино", en: "cinema", pic: "🎬", say: "KEE-no", hint: "Like 'cinema' – кино!" },
-    thereis:    { bg: "има", en: "there is / there are", pic: "✅", say: "EE-ma", hint: "The same word as 'he / she has'!" },
-    thereisnt:  { bg: "няма", en: "there isn't / there aren't", pic: "🚫", say: "NYA-ma", hint: "не + има = няма." },
+    thereis:    { bg: "има", en: "there is / there are", pic: "✅", say: "EE-ma", hint: "The same word as 'he / she has'!", picQuiz: false },
+    thereisnt:  { bg: "няма", en: "there isn't / there aren't", pic: "🚫", say: "NYA-ma", hint: "не + има = няма.", picQuiz: false },
 
     // ---------- Unit 24: Directions ----------
     left:       { bg: "наляво", en: "(to the) left", pic: "⬅️", say: "na-LYA-vo", hint: "ляв means 'left'." },
     right:      { bg: "надясно", en: "(to the) right", pic: "➡️", say: "na-DYAS-no", hint: "десен means 'right'." },
     straight:   { bg: "направо", en: "straight on", pic: "🔼", say: "na-PRA-vo", hint: "прав means 'straight'." },
-    corner:     { bg: "ъгъл", en: "corner", pic: "📐", say: "UH-guhl", hint: "Sounds like 'angle' – a corner is an angle!" },
+    corner:     { bg: "ъгъл", en: "corner", pic: "📐", say: "UH-guhl", hint: "Sounds like 'angle' – a corner is an angle!", picQuiz: false },
     street:     { bg: "улица", en: "street", pic: "🛣️", say: "OO-li-tsa" },
-    excuseme:   { bg: "извинете", en: "excuse me", pic: "🙇", say: "iz-vi-NE-te", hint: "The polite way to stop someone and ask." },
+    excuseme:   { bg: "извинете", en: "excuse me", pic: "🙇", say: "iz-vi-NE-te", hint: "The polite way to stop someone and ask.", picQuiz: false },
     turn:       { bg: "завий", en: "turn!", pic: "↩️", say: "za-VEEY" },
     gocmd:      { bg: "върви", en: "walk! / go!", pic: "👣", say: "vuhr-VEE" },
     stop:       { bg: "спри", en: "stop!", pic: "🛑", say: "spree", hint: "Stop your shopping SPREE!" },
-    opposite:   { bg: "срещу", en: "opposite", pic: "🪞", say: "sresh-TOO" },
+    opposite:   { bg: "срещу", en: "opposite", pic: "🪞", say: "sresh-TOO", picQuiz: false },
 
     // ---------- Unit 25: Getting about ----------
     bus:        { bg: "автобус", en: "bus", pic: "🚌", say: "av-to-BOOS", hint: "Like 'autobus' – a bus!" },
@@ -330,7 +330,7 @@ window.CONTENT = {
     busstop:    { bg: "спирка", en: "stop (bus / tram)", pic: "🚏", say: "SPEER-ka", hint: "From спри (stop!) – the bus stops here!" },
     onfoot:     { bg: "пеша", en: "on foot", pic: "🥾", say: "pe-SHA", hint: "Like 'pedestrian' – someone on foot." },
     car:        { bg: "кола", en: "car", pic: "🚗", say: "ko-LA", hint: "Not the drink – a car!" },
-    drive:      { bg: "карам", en: "I drive / I ride", pic: "🛞", say: "KA-ram", hint: "Think 'car' – карам!" },
+    drive:      { bg: "карам", en: "I drive / I ride", pic: "🚙💨", say: "KA-ram", hint: "Think 'car' – карам!" },
     wait:       { bg: "чакам", en: "I wait", pic: "⏳", say: "CHA-kam", hint: "CHAt while you wait – CHA-kam!" },
 
     // ---------- Unit 26: Travel & tickets ----------
@@ -347,14 +347,14 @@ window.CONTENT = {
 
     // ---------- Unit 27: At the hotel ----------
     hotel:      { bg: "хотел", en: "hotel", pic: "🏨", say: "ho-TEL", hint: "Same as 'hotel'!" },
-    booking:    { bg: "резервация", en: "booking", pic: "🗒️", say: "re-zer-VA-tsi-ya", hint: "Like 'reservation'!" },
+    booking:    { bg: "резервация", en: "booking", pic: "🗒️", say: "re-zer-VA-tsi-ya", hint: "Like 'reservation'!", picQuiz: false },
     reception:  { bg: "рецепция", en: "reception", pic: "🛎️", say: "re-TSEP-tsi-ya", hint: "Like 'reception'!" },
     lift:       { bg: "асансьор", en: "lift", pic: "🛗", say: "a-san-SYOR", hint: "Like 'ascend' – it goes up!" },
-    floor:      { bg: "етаж", en: "floor (level)", pic: "🏢", say: "e-TAZH" },
+    floor:      { bg: "етаж", en: "floor (level)", pic: "🏢", say: "e-TAZH", picQuiz: false },
     hotelbreakfast: { bg: "закуска", en: "breakfast", pic: "🥐", say: "za-KOOS-ka", hint: "Remember закусвам (I have breakfast)?" },
-    pillow:     { bg: "възглавница", en: "pillow", pic: "☁️", say: "vuhz-GLAV-ni-tsa", hint: "From глава (head) – where you put your head!" },
+    pillow:     { bg: "възглавница", en: "pillow", pic: "☁️", say: "vuhz-GLAV-ni-tsa", hint: "From глава (head) – where you put your head!", picQuiz: false },
     shower:     { bg: "душ", en: "shower", pic: "🚿", say: "doosh" },
-    view:       { bg: "гледка", en: "view", pic: "🖼️", say: "GLED-ka", hint: "From гледам (I watch) – something to look at." },
+    view:       { bg: "гледка", en: "view", pic: "🖼️", say: "GLED-ka", hint: "From гледам (I watch) – something to look at.", picQuiz: false },
     quiet:      { bg: "тихо", en: "quiet", pic: "🤫", say: "TEE-ho", hint: "Shh – тихо!" },
 
     // ---------- Unit 28: Weather & seasons ----------
@@ -371,15 +371,15 @@ window.CONTENT = {
     cold:       { bg: "студено", en: "cold", pic: "🥶", say: "stoo-DE-no" },
 
     // ---------- Unit 29: Making plans ----------
-    letsgo:     { bg: "хайде", en: "let's / come on", pic: "🙌", say: "HAY-de", hint: "HAY-de – 'Hey, let's go!'" },
+    letsgo:     { bg: "хайде", en: "let's / come on", pic: "🙌", say: "HAY-de", hint: "HAY-de – 'Hey, let's go!'", picQuiz: false },
     together:   { bg: "заедно", en: "together", pic: "👫", say: "za-ED-no" },
-    free:       { bg: "свободен", en: "free (not busy)", pic: "🕊️", say: "svo-BO-den" },
-    meetup:     { bg: "среща", en: "meeting / meet-up", pic: "🫂", say: "SRESH-ta" },
-    later:      { bg: "после", en: "later / afterwards", pic: "⏭️", say: "POS-le", hint: "Like 'post-' – after!" },
-    ofcourse:   { bg: "разбира се", en: "of course", pic: "👌", say: "raz-BEE-ra se" },
-    maybe:      { bg: "може би", en: "maybe", pic: "❔", say: "MO-zhe bee", hint: "може (can) + би (would) = maybe!" },
+    free:       { bg: "свободен", en: "free (not busy)", pic: "🕊️", say: "svo-BO-den", picQuiz: false },
+    meetup:     { bg: "среща", en: "meeting / meet-up", pic: "🫂", say: "SRESH-ta", picQuiz: false },
+    later:      { bg: "после", en: "later / afterwards", pic: "⏭️", say: "POS-le", hint: "Like 'post-' – after!", picQuiz: false },
+    ofcourse:   { bg: "разбира се", en: "of course", pic: "👌", say: "raz-BEE-ra se", picQuiz: false },
+    maybe:      { bg: "може би", en: "maybe", pic: "❔", say: "MO-zhe bee", hint: "може (can) + би (would) = maybe!", picQuiz: false },
     sorry:      { bg: "съжалявам", en: "sorry", pic: "😔", say: "suh-zha-LYA-vam", hint: "Say it with a sad face: suh-zha-LYA-vam." },
-    busy:       { bg: "зает", en: "busy", pic: "🗂️", say: "za-ET" },
+    busy:       { bg: "зает", en: "busy", pic: "🗂️", say: "za-ET", picQuiz: false },
     great:      { bg: "страхотно", en: "great!", pic: "🤩", say: "stra-HOT-no" },
 
     // ---------- Unit 30: Asking for help ----------
@@ -388,7 +388,7 @@ window.CONTENT = {
     problem:    { bg: "проблем", en: "problem", pic: "⚠️", say: "prob-LEM", hint: "Same as 'problem'!" },
     lost:       { bg: "изгубен", en: "lost", pic: "😵‍💫", say: "iz-GOO-ben" },
     careful:    { bg: "внимание", en: "careful! / attention", pic: "🚧", say: "vni-MA-ni-e" },
-    ilost:      { bg: "изгубих", en: "I lost", pic: "🫥", say: "iz-GOO-bih", hint: "изгубих = I lost, изгубен = lost." },
+    ilost:      { bg: "изгубих", en: "I lost", pic: "🫥", say: "iz-GOO-bih", hint: "изгубих = I lost, изгубен = lost.", picQuiz: false },
     ifound:     { bg: "намерих", en: "I found", pic: "🔎", say: "na-ME-rih", hint: "Remember 'Намерих диамант!' from Build & Mine?" },
     helpme:     { bg: "помогнете ми", en: "help me (polite)", pic: "🆘", say: "po-mog-NE-te mee" },
     scared:     { bg: "страх ме е", en: "I'm scared", pic: "😨", say: "STRAH me e", hint: "Word for word: 'fear is me'." },
