@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="26" fill="#00966E"/>
+  <rect y="80" width="120" height="40" fill="#D62612"/>
+  <rect y="40" width="120" height="40" fill="#00966E"/>
+  <rect width="120" height="40" fill="#ffffff"/>
+  <g transform="translate(10 12) scale(.84)">
+    <ellipse cx="26" cy="54" rx="13" ry="25" fill="#7a4a24" transform="rotate(18 26 54)"/>
+    <ellipse cx="94" cy="54" rx="13" ry="25" fill="#7a4a24" transform="rotate(-18 94 54)"/>
+    <circle cx="60" cy="60" r="38" fill="#d9954f"/>
+    <ellipse cx="76" cy="44" rx="11" ry="9" fill="#b9763a"/>
+    <ellipse cx="60" cy="77" rx="24" ry="18" fill="#f6dcb8"/>
+    <circle cx="45" cy="54" r="6" fill="#2b1a10"/><circle cx="47" cy="52" r="2" fill="#fff"/>
+    <circle cx="75" cy="54" r="6" fill="#2b1a10"/><circle cx="77" cy="52" r="2" fill="#fff"/>
+    <ellipse cx="60" cy="68" rx="8" ry="6" fill="#2b1a10"/>
+    <path d="M51 78 Q60 85 69 78" stroke="#2b1a10" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M55 81 Q55 95 60 95 Q65 95 65 81 Z" fill="#ef6b7b"/>
+  </g>
+</svg>
