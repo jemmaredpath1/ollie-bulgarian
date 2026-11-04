@@ -534,6 +534,9 @@ h3 { margin: 0 0 10px; font-size: 19px; }
 .choices.pics .choice .pic { font-size: 60px; }
 .choice .en { font-size: 19px; font-weight: 800; }
 .choice .bgw, .bgw { font-size: 22px; font-weight: 800; }
+.choices.pics .choice .pic.multi, .choice .pic.multi { font-size: 40px; letter-spacing: -4px; }
+.teach-pic.multi { font-size: 64px; }
+.prompt-pic.multi { font-size: 44px; }
 .choice.selected { border-color: var(--blue); background: rgba(45,156,219,.25); border-bottom-color: var(--blue-dark); }
 .choice.right { border-color: var(--green); background: var(--good-bg); }
 .choice.wrong { border-color: var(--red); background: var(--bad-bg); }

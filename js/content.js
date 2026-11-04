@@ -12,6 +12,8 @@
 //            Without one, the device's Bulgarian voice is used.
 //
 //    note  – (optional) something a Bulgarian speaker should double-check
+//    picQuiz – set to false for words a picture can't really show
+//            (please, why…): they skip 'Tap the right picture' questions
 //
 //  Units belong to a section and have: description, objectives
 //  ("By the end, you can…"), vocab and grammar targets, and lessons.
@@ -25,27 +27,27 @@
 window.CONTENT = {
   words: {
     // ---------- Unit 1: Hello! ----------
-    hello:      { bg: "здравей", en: "hello", pic: "🙋", say: "zdra-VEY", hint: "Shout it like a cheer: hoo-RAY, zdra-VEY!" },
-    bye:        { bg: "чао", en: "bye", pic: "👋", say: "CHA-o", hint: "Just like 'ciao' in Italian!" },
+    hello:      { bg: "здравей", en: "hello", pic: "👋", say: "zdra-VEY", hint: "Shout it like a cheer: hoo-RAY, zdra-VEY!" },
+    bye:        { bg: "чао", en: "bye", pic: "🚶💨", say: "CHA-o", hint: "Just like 'ciao' in Italian!" },
     morning:    { bg: "добро утро", en: "good morning", pic: "🌅", say: "dob-RO OO-tro" },
     night:      { bg: "лека нощ", en: "good night", pic: "🌙", say: "LE-ka nosht", hint: "'Nosht' sounds like 'not' – it's NOT daytime!" },
-    thanks:     { bg: "благодаря", en: "thank you", pic: "🙏", say: "bla-go-dar-YA", hint: "Blah… go… dare ya… THANKS!" },
-    please:     { bg: "моля", en: "please", pic: "🥺", say: "MO-lya", hint: "Imagine a little mole saying 'MO-lya, please!'" },
+    thanks:     { bg: "благодаря", en: "thank you", pic: "🙏", say: "bla-go-dar-YA", hint: "Blah… go… dare ya… THANKS!", picQuiz: false },
+    please:     { bg: "моля", en: "please", pic: "🥺", say: "MO-lya", hint: "Imagine a little mole saying 'MO-lya, please!'", picQuiz: false },
     yes:        { bg: "да", en: "yes", pic: "👍", say: "da", hint: "'Da' sounds like 'yeah'. Bulgarians SHAKE their head for yes!" },
     no:         { bg: "не", en: "no", pic: "👎", say: "ne", hint: "'Ne' sounds like 'nay'. Bulgarians NOD their head for no!" },
-    iam:        { bg: "аз съм", en: "I am", pic: "👦", say: "az suhm" },
-    howareyou:  { bg: "как си", en: "how are you", pic: "🤔", say: "kak see" },
+    iam:        { bg: "аз съм", en: "I am", pic: "🪪", say: "az suhm", picQuiz: false },
+    howareyou:  { bg: "как си", en: "how are you", pic: "🙂❓", say: "kak see", picQuiz: false },
     fine:       { bg: "добре", en: "fine / good", pic: "😊", say: "dob-RE" },
 
     // ---------- Unit 2: My Dog ----------
     dog:        { bg: "куче", en: "dog", pic: "🐕", say: "KOO-che", hint: "A cuddly coochie-coo dog: KOO-che!" },
-    puppy:      { bg: "кученце", en: "puppy", pic: "🐶", say: "KOO-chen-tse", hint: "A little куче = кученце." },
+    puppy:      { bg: "кученце", en: "puppy", pic: "🐶🍼", say: "KOO-chen-tse", hint: "A little куче = кученце." },
     paw:        { bg: "лапа", en: "paw", pic: "🐾", say: "LA-pa", hint: "The dog puts its LA-pa on your lap!" },
-    tail:       { bg: "опашка", en: "tail", pic: "〰️", say: "o-PASH-ka", hint: "A wagging tail goes pash-pash-pash!" },
+    tail:       { bg: "опашка", en: "tail", pic: "〰️", say: "o-PASH-ka", hint: "A wagging tail goes pash-pash-pash!", picQuiz: false },
     bone:       { bg: "кокал", en: "bone", pic: "🦴", say: "KO-kal", hint: "A hungry dog CALLS for a KO-kal." },
     ball:       { bg: "топка", en: "ball", pic: "🎾", say: "TOP-ka", hint: "Throw the TOP-ka over the TOP of the fence!" },
-    barks:      { bg: "лае", en: "barks", pic: "💬", say: "LA-e" },
-    runs:       { bg: "бяга", en: "runs", pic: "💨", say: "BYA-ga", hint: "The dog runs off: BYE-ga!" },
+    barks:      { bg: "лае", en: "barks", pic: "🐕💬", say: "LA-e" },
+    runs:       { bg: "бяга", en: "runs", pic: "🐕💨", say: "BYA-ga", hint: "The dog runs off: BYE-ga!" },
     big:        { bg: "голям", en: "big", pic: "🐘", say: "go-LYAM" },
     small:      { bg: "малък", en: "small", pic: "🐭", say: "MA-luhk" },
     walk:       { bg: "разходка", en: "walk", pic: "🦮", say: "raz-HOD-ka" },
@@ -66,10 +68,10 @@ window.CONTENT = {
     // ---------- Unit 4: Football ----------
     football:   { bg: "футбол", en: "football", pic: "⚽", say: "FUT-bol", hint: "Nearly the same as 'football'!" },
     goal:       { bg: "гол", en: "goal", pic: "🥅", say: "gol", hint: "Easy – it's just 'goal'!" },
-    team:       { bg: "отбор", en: "team", pic: "👕", say: "ot-BOR" },
+    team:       { bg: "отбор", en: "team", pic: "👥", say: "ot-BOR" },
     keeper:     { bg: "вратар", en: "goalkeeper", pic: "🧤", say: "vra-TAR", hint: "врата means 'door' – the keeper guards the door!" },
     match:      { bg: "мач", en: "match", pic: "🏟️", say: "mach", hint: "Just like 'match'!" },
-    player:     { bg: "играч", en: "player", pic: "🏃", say: "ig-RACH" },
+    player:     { bg: "играч", en: "player", pic: "🏃⚽", say: "ig-RACH" },
     kick:       { bg: "ритам", en: "I kick", pic: "🦵", say: "REE-tam" },
     win:        { bg: "печеля", en: "I win", pic: "🏆", say: "pe-CHE-lya" },
     referee:    { bg: "съдия", en: "referee", pic: "🟨", say: "suh-DEE-ya" },
@@ -100,14 +102,14 @@ window.CONTENT = {
     brown:      { bg: "кафяв", en: "brown", pic: "🟤", say: "ka-FYAV", hint: "Brown like CAFÉ coffee: ka-FYAV!" },
 
     // ---------- Unit 7: Swimming ----------
-    swim:       { bg: "плувам", en: "I swim", pic: "🤽", say: "PLOO-vam" },
-    pool:       { bg: "басейн", en: "pool", pic: "🏊", say: "ba-SEYN", hint: "Sounds like 'basin' – a giant basin of water!" },
+    swim:       { bg: "плувам", en: "I swim", pic: "🏊", say: "PLOO-vam" },
+    pool:       { bg: "басейн", en: "pool", pic: "💦", say: "ba-SEYN", hint: "Sounds like 'basin' – a giant basin of water!", picQuiz: false },
     water:      { bg: "вода", en: "water", pic: "💧", say: "vo-DA", hint: "Sounds like 'water' with a V: vo-DA!" },
-    fast:       { bg: "бързо", en: "fast", pic: "⚡", say: "BUHR-zo" },
+    fast:       { bg: "бързо", en: "fast", pic: "🏎️", say: "BUHR-zo" },
     slow:       { bg: "бавно", en: "slowly", pic: "🐌", say: "BAV-no" },
     sea:        { bg: "море", en: "sea", pic: "🌊", say: "mo-RE", hint: "Like 'marine' – things in the sea!" },
     goggles:    { bg: "очила", en: "goggles / glasses", pic: "🥽", say: "o-chi-LA", hint: "очи means 'eyes' – очила go on your eyes!" },
-    jump:       { bg: "скачам", en: "I jump", pic: "🤸", say: "SKA-cham" },
+    jump:       { bg: "скачам", en: "I jump", pic: "🦘", say: "SKA-cham" },
     fish:       { bg: "риба", en: "fish", pic: "🐟", say: "REE-ba", hint: "A fish swims in the REE-ver!" },
     beach:      { bg: "плаж", en: "beach", pic: "🏖️", say: "plazh", hint: "Like 'plage', the French word for beach." },
 
@@ -121,7 +123,7 @@ window.CONTENT = {
     dig:        { bg: "копая", en: "I dig", pic: "🕳️", say: "ko-PA-ya" },
     diamond:    { bg: "диамант", en: "diamond", pic: "💎", say: "di-a-MANT", hint: "Just like 'diamond'!" },
     zombie:     { bg: "зомби", en: "zombie", pic: "🧟", say: "ZOM-bee", hint: "Same as 'zombie'!" },
-    cave:       { bg: "пещера", en: "cave", pic: "🦇", say: "pe-SHTE-ra" },
+    cave:       { bg: "пещера", en: "cave", pic: "🦇", say: "pe-SHTE-ra", picQuiz: false },
 
     // ---------- Unit 9: Animals ----------
     cat:        { bg: "котка", en: "cat", pic: "🐈", say: "KOT-ka", hint: "KOT-ka sounds a bit like 'cat'!" },
@@ -144,32 +146,32 @@ window.CONTENT = {
     banitsa:    { bg: "баница", en: "banitsa (cheese pastry)", pic: "🥧", say: "BA-ni-tsa", hint: "A yummy Bulgarian pastry – many Bulgarians eat it for breakfast!" },
     pizza:      { bg: "пица", en: "pizza", pic: "🍕", say: "PEE-tsa", hint: "Just pizza!" },
     icecream:   { bg: "сладолед", en: "ice cream", pic: "🍦", say: "sla-do-LED", hint: "сладък (sweet) + лед (ice) = sweet ice!" },
-    want:       { bg: "искам", en: "I want", pic: "🤲", say: "EES-kam" },
-    tasty:      { bg: "вкусно", en: "tasty", pic: "🤤", say: "VKOOS-no" },
+    want:       { bg: "искам", en: "I want", pic: "🤲", say: "EES-kam", picQuiz: false },
+    tasty:      { bg: "вкусно", en: "tasty", pic: "😋", say: "VKOOS-no" },
 
     // ---------- Unit 11: All about me ----------
     callme:     { bg: "казвам се", en: "my name is", pic: "🏷️", say: "KAZ-vam se", hint: "Word for word it means 'I call myself'." },
     boy:        { bg: "момче", en: "boy", pic: "🧒", say: "mom-CHE" },
     girl:       { bg: "момиче", en: "girl", pic: "👧", say: "mo-MEE-che", hint: "момче + и = момиче. Boy and girl differ by one letter!" },
-    youare:     { bg: "ти си", en: "you are", pic: "👉", say: "tee see" },
+    youare:     { bg: "ти си", en: "you are", pic: "👉", say: "tee see", picQuiz: false },
     years:      { bg: "години", en: "years (old)", pic: "🎂", say: "go-DEE-ni" },
-    from:       { bg: "от", en: "from", pic: "📍", say: "ot" },
+    from:       { bg: "от", en: "from", pic: "📍", say: "ot", picQuiz: false },
     england:    { bg: "Англия", en: "England", pic: "💂", say: "AN-gli-ya", note: "Assumes Ollie lives in England – change if not." },
     bulgaria:   { bg: "България", en: "Bulgaria", pic: "🇧🇬", say: "buhl-GA-ri-ya" },
     live:       { bg: "живея", en: "I live", pic: "🏡", say: "zhi-VE-ya" },
     speak:      { bg: "говоря", en: "I speak", pic: "🗣️", say: "go-vo-RYA" },
 
     // ---------- Unit 12: Asking questions ----------
-    who:        { bg: "кой", en: "who", pic: "🕵️", say: "koy" },
-    what:       { bg: "какво", en: "what", pic: "❓", say: "kak-VO" },
-    where:      { bg: "къде", en: "where", pic: "🗺️", say: "kuh-DE" },
-    when:       { bg: "кога", en: "when", pic: "⏰", say: "ko-GA" },
-    why:        { bg: "защо", en: "why", pic: "🤷", say: "zash-TO" },
-    howmany:    { bg: "колко", en: "how many / how much", pic: "🧮", say: "KOL-ko" },
-    this:       { bg: "това", en: "this", pic: "👇", say: "to-VA" },
-    know:       { bg: "знам", en: "I know", pic: "💡", say: "znam" },
-    understand: { bg: "разбирам", en: "I understand", pic: "🧠", say: "raz-BEE-ram" },
-    youhave:    { bg: "имаш", en: "you have", pic: "🫴", say: "EE-mash", hint: "имам = I have, имаш = you have." },
+    who:        { bg: "кой", en: "who", pic: "🕵️", say: "koy", picQuiz: false },
+    what:       { bg: "какво", en: "what", pic: "❓", say: "kak-VO", picQuiz: false },
+    where:      { bg: "къде", en: "where", pic: "🗺️", say: "kuh-DE", picQuiz: false },
+    when:       { bg: "кога", en: "when", pic: "⏰", say: "ko-GA", picQuiz: false },
+    why:        { bg: "защо", en: "why", pic: "🤷", say: "zash-TO", picQuiz: false },
+    howmany:    { bg: "колко", en: "how many / how much", pic: "🧮", say: "KOL-ko", picQuiz: false },
+    this:       { bg: "това", en: "this", pic: "👇", say: "to-VA", picQuiz: false },
+    know:       { bg: "знам", en: "I know", pic: "💡", say: "znam", picQuiz: false },
+    understand: { bg: "разбирам", en: "I understand", pic: "🧠", say: "raz-BEE-ram", picQuiz: false },
+    youhave:    { bg: "имаш", en: "you have", pic: "🫴", say: "EE-mash", hint: "имам = I have, имаш = you have.", picQuiz: false },
 
     // ---------- Unit 13: Everyday things ----------
     bag:        { bg: "чанта", en: "bag", pic: "🎒", say: "CHAN-ta" },

@@ -585,6 +585,8 @@
   }
 
   const WORD_TYPES = ['picture', 'listen', 'bg2en', 'en2bg'];
+  // Words a picture can't really show (please, why…) skip picture-only questions.
+  const typesFor = id => word(id).picQuiz === false ? WORD_TYPES.filter(t => t !== 'picture') : WORD_TYPES;
 
   function wordQuestion(type, id, pool) {
     return { type, id, options: shuffle([id, ...distractors(id, pool, 3)]) };
@@ -632,7 +634,7 @@
     if (lesson.type === 'words') {
       const later = [];
       lesson.words.forEach(id => {
-        const types = shuffle(WORD_TYPES);
+        const types = shuffle(typesFor(id));
         if (firstTime) qs.push({ type: 'teach', id });
         qs.push(wordQuestion(types[0], id, pool));
         later.push(wordQuestion(types[1], id, pool));
@@ -660,11 +662,11 @@
       }
     } else { // boss
       const u = lesson.unit;
-      shuffle(u.words).slice(0, 7).forEach(id => qs.push(wordQuestion(pick(WORD_TYPES), id, pool)));
+      shuffle(u.words).slice(0, 7).forEach(id => qs.push(wordQuestion(pick(typesFor(id)), id, pool)));
       shuffle(u.sentences).slice(0, 3).forEach(sid => qs.push(tilesQuestion(sid, lesson)));
       // Bring back a few words from earlier units too.
       const earlier = pool.filter(id => !u.words.includes(id));
-      shuffle(earlier).slice(0, 3).forEach(id => qs.push(wordQuestion(pick(WORD_TYPES), id, pool)));
+      shuffle(earlier).slice(0, 3).forEach(id => qs.push(wordQuestion(pick(typesFor(id)), id, pool)));
       if (speakingOn()) qs.push({ type: 'speak', id: pick(u.words) });
       const mixed = shuffle(qs);
       mixed.push(pairsQuestion(shuffle(u.words), pool));
@@ -686,7 +688,7 @@
     const finished = LESSONS.filter(l => state.done[l.id]);
     const context = finished[finished.length - 1];
     const sentences = shuffle([...new Set(finished.flatMap(l => l.sentences || []))]).slice(0, 2);
-    const qs = words.slice(0, 8).map(id => wordQuestion(pick(WORD_TYPES), id, words));
+    const qs = words.slice(0, 8).map(id => wordQuestion(pick(typesFor(id)), id, words));
     sentences.forEach(sid => qs.push(tilesQuestion(sid, context)));
     const queue = shuffle(qs);
     if (words.length >= 5) queue.push(pairsQuestion(shuffle(words.slice(0, 10)), words));
@@ -809,8 +811,13 @@
     return grid;
   }
 
-  const picLabel = id => h('span', { class: 'pic' }, word(id).pic);
-  const picEnLabel = id => [h('span', { class: 'pic' }, word(id).pic), h('span', { class: 'en' }, word(id).en)];
+  // Pictures made of two emoji (🐶🍼) are drawn a bit smaller so they fit.
+  const isMultiPic = pic => (window.Intl && Intl.Segmenter
+    ? [...new Intl.Segmenter().segment(pic)].length
+    : [...pic].length) > 1 && !/^\d+$/.test(pic);
+  const picClass = (base, pic) => isMultiPic(pic) ? `${base} multi` : base;
+  const picLabel = id => h('span', { class: picClass('pic', word(id).pic) }, word(id).pic);
+  const picEnLabel = id => [h('span', { class: picClass('pic', word(id).pic) }, word(id).pic), h('span', { class: 'en' }, word(id).en)];
   const enLabel = id => h('span', { class: 'en' }, word(id).en);
   const bgLabel = id => h('span', { class: 'bgw' }, word(id).bg);
 
@@ -821,7 +828,7 @@
       body.append(
         h('div', { class: 'q-label new' }, '✨ New word!'),
         h('div', { class: 'teach-card' },
-          h('div', { class: 'teach-pic' }, w.pic),
+          h('div', { class: picClass('teach-pic', w.pic) }, w.pic),
           h('div', { class: 'teach-bg' }, w.bg),
           showSay() ? h('div', { class: 'teach-say' }, `say: ${w.say}`) : null,
           h('div', { class: 'teach-en' }, w.en),
@@ -912,7 +919,7 @@
       const w = word(q.id);
       body.append(
         h('div', { class: 'q-label' }, 'How do you say this in Bulgarian?'),
-        h('div', { class: 'prompt' }, h('span', { class: 'prompt-pic' }, w.pic), h('span', { class: 'prompt-en' }, w.en))
+        h('div', { class: 'prompt' }, h('span', { class: picClass('prompt-pic', w.pic) }, w.pic), h('span', { class: 'prompt-en' }, w.en))
       );
       const grid = choiceGrid(q.options, bgLabel, ctx, id => sayWord(id), 'list');
       body.append(grid);
