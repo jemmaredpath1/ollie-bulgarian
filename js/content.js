@@ -293,7 +293,19 @@ window.CONTENT = {
     vet:        { bg: "ветеринар", en: "vet", pic: "🐕‍🦺", say: "ve-te-ri-NAR", hint: "Like 'veterinary' – a vet!" },
     pilot:      { bg: "пилот", en: "pilot", pic: "🧑‍✈️", say: "pi-LOT", hint: "Same as 'pilot'!" },
     work:       { bg: "работя", en: "I work", pic: "💼", say: "ra-BO-tya", hint: "Sounds a bit like 'robot' – robots work hard!" },
-    become:     { bg: "стана", en: "(to) become", pic: "🦋", say: "STA-na", hint: "Used after да: искам да стана… – I want to become…" }
+    become:     { bg: "стана", en: "(to) become", pic: "🦋", say: "STA-na", hint: "Used after да: искам да стана… – I want to become…" },
+
+    // ---------- Unit 23: Around town ----------
+    shop:       { bg: "магазин", en: "shop", pic: "🏪", say: "ma-ga-ZEEN", hint: "Looks like 'magazine' – but it's a shop!" },
+    park:       { bg: "парк", en: "park", pic: "🏞️", say: "park", hint: "Same as 'park'!" },
+    hospital:   { bg: "болница", en: "hospital", pic: "🏥", say: "BOL-ni-tsa", hint: "From болен (ill) – where ill people go." },
+    station:    { bg: "гара", en: "station", pic: "🚉", say: "GA-ra", hint: "Sounds like 'garage' – where trains park!" },
+    library:    { bg: "библиотека", en: "library", pic: "🏛️", say: "bib-li-o-TE-ka", hint: "Like 'bibliography' – a place full of books." },
+    going:      { bg: "отивам", en: "I'm going", pic: "🚶", say: "o-TEE-vam" },
+    school:     { bg: "училище", en: "school", pic: "🏫", say: "oo-CHEE-li-shte", hint: "From уча – the place where you learn!" },
+    cinema:     { bg: "кино", en: "cinema", pic: "🎬", say: "KEE-no", hint: "Like 'cinema' – кино!" },
+    thereis:    { bg: "има", en: "there is / there are", pic: "✅", say: "EE-ma", hint: "The same word as 'he / she has'!" },
+    thereisnt:  { bg: "няма", en: "there isn't / there aren't", pic: "🚫", say: "NYA-ma", hint: "не + има = няма." }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -509,7 +521,17 @@ window.CONTENT = {
     s_whatbecome:     { bg: "Какъв искаш да станеш?", en: "What do you want to be?", gap: "станеш" },
     s_wantfootballer: { bg: "Искам да стана футболист.", en: "I want to become a footballer.", gap: "футболист" },
     s_auntteacher:    { bg: "Леля ми е учителка.", en: "My aunt is a teacher.", gap: "учителка" },
-    s_chefpizza:      { bg: "Готвачът прави пица.", en: "The chef makes pizza.", gap: "прави" }
+    s_chefpizza:      { bg: "Готвачът прави пица.", en: "The chef makes pizza.", gap: "прави" },
+
+    // Unit 23
+    t_bigshop:        { bg: "Магазинът е голям.", en: "The shop is big." },
+    t_trainstation:   { bg: "Влакът е на гарата.", en: "The train is at the station." },
+    t_goingschool:    { bg: "Отивам на училище.", en: "I'm going to school." },
+    t_cinematown:     { bg: "Има кино в града.", en: "There's a cinema in the town." },
+    s_shopnearby:     { bg: "Има ли магазин наблизо?", en: "Is there a shop nearby?", gap: "магазин" },
+    s_parkdog:        { bg: "Отивам в парка с кучето.", en: "I'm going to the park with the dog.", gap: "парка" },
+    s_nolibrary:      { bg: "Тук няма библиотека.", en: "There's no library here.", gap: "няма" },
+    s_wherehospital:  { bg: "Къде е болницата?", en: "Where is the hospital?", gap: "болницата" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -539,6 +561,8 @@ window.CONTENT = {
     tip_fun: { title: "Is it fun?", text: "Забавно е! – It's fun! · Скучно е. – It's boring. · Харесва ми да рисувам. – I like drawing. · Кое е твоето любимо хоби? – What's your favourite hobby?" },
     tip_jobs: { title: "Jobs for him and her", text: "Many jobs have a 'he' word and a 'she' word: учител / учителка · готвач / готвачка · лекар / лекарка. And there's no 'a': Мама е лекар. – Mum is a doctor.", note: "Check: is 'лекар' or 'лекарка' more natural for a woman doctor?" },
     tip_become: { title: "What do you want to be?", text: "Какъв искаш да станеш? – asking a boy · Каква искаш да станеш? – asking a girl · Искам да стана пилот. – I want to be a pilot." },
+    tip_going: { title: "Going to… в or на?", text: "Use в for places you go into: отивам в парка, в магазина. Use на for events and some places: отивам на училище, на кино, на море, на гарата.", note: "Check: is this simple в / на rule OK for a 10-year-old?" },
+    tip_ima: { title: "There is… there isn't", text: "има – there is / there are · няма – there isn't / there aren't · Има ли магазин наблизо? – Is there a shop nearby? · Тук няма парк. – There's no park here." },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -764,7 +788,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Section 2 (Units 15–22) is playable; Sections 3–5 are PLANNED (outlines + unchecked samples) =====
+    // ===== Sections 2–5: Units 15–23 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -891,13 +915,13 @@ window.CONTENT = {
       description: "Name places in town and say where you're going.",
       objectives: ["Name places in town", "Say where you're going", "Ask if there's a place nearby"],
       vocab: "Places in town",
-      grammar: ["отивам в / на…", "има / няма – there is / there isn't"],
-      sample: { words: [["магазин", "shop"], ["парк", "park"], ["гара", "station"]], sentences: [["Отивам в парка.", "I'm going to the park."], ["Има ли магазин наблизо?", "Is there a shop nearby?"]] },
+      grammar: ["отивам в / на…", "има / няма – there is / there isn't", "Questions with ли revisited: Има ли…?"],
+      fact: "Sofia, Bulgaria's capital, is one of the oldest cities in Europe. Its motto is 'Расте, но не старее' – 'It grows, but does not grow old'!",
       lessons: [
-        { id: "u23l1", title: "Places", type: "words", status: "planned", plan: "Introduce: магазин, парк, болница, гара, библиотека" },
-        { id: "u23l2", title: "Where are you going?", type: "words", status: "planned", plan: "Practise: Отивам в парка." },
-        { id: "u23l3", title: "Is there a…?", type: "sentences", status: "planned", plan: "Apply: plan a trip around town" },
-        { id: "u23boss", title: "Town review", type: "boss", status: "planned", plan: "Review: questions (Unit 12)" }
+        { id: "u23l1", title: "Places", type: "words", words: ["shop", "park", "hospital", "station", "library"], sentences: ["t_bigshop", "t_trainstation"], tips: ["tip_going"] },
+        { id: "u23l2", title: "Where are you going?", type: "words", words: ["going", "school", "cinema", "thereis", "thereisnt"], sentences: ["t_goingschool", "t_cinematown"], tips: ["tip_ima"] },
+        { id: "u23l3", title: "Is there a…?", type: "sentences", sentences: ["s_shopnearby", "s_parkdog", "s_nolibrary", "s_wherehospital"] },
+        { id: "u23boss", title: "Town Explorer", type: "boss" }
       ]
     },
     {
