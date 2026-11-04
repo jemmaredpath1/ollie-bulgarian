@@ -257,7 +257,19 @@ window.CONTENT = {
     yesterday:  { bg: "вчера", en: "yesterday", pic: "⏮️", say: "FCHE-ra" },
     hour:       { bg: "час", en: "hour / o'clock", pic: "🕐", say: "chas", hint: "Remember часовник (watch)? It shows the час!" },
     half:       { bg: "половина", en: "half", pic: "🌗", say: "po-lo-VEE-na" },
-    week:       { bg: "седмица", en: "week", pic: "🗓️", say: "SED-mi-tsa", hint: "From седем – seven days!" }
+    week:       { bg: "седмица", en: "week", pic: "🗓️", say: "SED-mi-tsa", hint: "From седем – seven days!" },
+
+    // ---------- Unit 20: My day ----------
+    getup:      { bg: "ставам", en: "I get up", pic: "🌞", say: "STA-vam", hint: "STAnd up – ставам!" },
+    breakfast:  { bg: "закусвам", en: "I have breakfast", pic: "🥣", say: "za-KOOS-vam", hint: "Have a little 'snack' first thing – za-KOOS-vam!" },
+    wash:       { bg: "мия се", en: "I wash (myself)", pic: "🧼", say: "MEE-ya se" },
+    getdressed: { bg: "обличам се", en: "I get dressed", pic: "👔", say: "ob-LEE-cham se" },
+    teeth:      { bg: "мия си зъбите", en: "I brush my teeth", pic: "🪥", say: "MEE-ya si ZUH-bi-te", hint: "Word for word: 'I wash my teeth'." },
+    study:      { bg: "уча", en: "I study / I learn", pic: "📚", say: "OO-cha" },
+    play:       { bg: "играя", en: "I play", pic: "🎲", say: "ig-RA-ya", hint: "A player is an играч – and he играе!" },
+    watch:      { bg: "гледам", en: "I watch", pic: "📺", say: "GLE-dam", hint: "GLE-dam – I GLance at the TV!" },
+    dinner:     { bg: "вечерям", en: "I have dinner", pic: "🍝", say: "ve-CHE-ryam", hint: "From вечер (evening) – the evening meal." },
+    gotobed:    { bg: "лягам си", en: "I go to bed", pic: "😴", say: "LYA-gam si" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -443,7 +455,17 @@ window.CONTENT = {
     s_todaymonday:    { bg: "Днес е понеделник.", en: "Today is Monday.", gap: "понеделник" },
     s_swimtuesday:    { bg: "Във вторник плувам.", en: "On Tuesday I swim.", gap: "вторник" },
     s_matchfive:      { bg: "Мачът е в пет часа.", en: "The match is at five o'clock.", gap: "часа" },
-    s_tomorrowsat:    { bg: "Утре е събота!", en: "Tomorrow is Saturday!", gap: "събота" }
+    s_tomorrowsat:    { bg: "Утре е събота!", en: "Tomorrow is Saturday!", gap: "събота" },
+
+    // Unit 20
+    t_upatseven:      { bg: "Ставам в седем часа.", en: "I get up at seven o'clock." },
+    t_dressfast:      { bg: "Обличам се бързо.", en: "I get dressed quickly." },
+    t_afterschool:    { bg: "След училище играя футбол.", en: "After school I play football." },
+    t_bedatnine:      { bg: "Лягам си в девет часа.", en: "I go to bed at nine o'clock." },
+    s_getupearly:     { bg: "Ставаш ли рано?", en: "Do you get up early?", gap: "Ставаш" },
+    s_brotherwatches: { bg: "Брат ми гледа телевизия.", en: "My brother watches TV.", gap: "гледа" },
+    s_dinnerseven:    { bg: "Ние вечеряме в седем.", en: "We have dinner at seven.", gap: "вечеряме" },
+    s_dogsleeps:      { bg: "Кучето спи в моята стая.", en: "The dog sleeps in my room.", gap: "спи" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -466,6 +488,9 @@ window.CONTENT = {
     tip_money: { title: "Talking about money", text: "евро never changes: едно евро · пет евро. Cents take the counting ending: един цент · два цента · петдесет цента. A price like €5.50 is пет евро и петдесет цента.", note: "Check: is 'цента' the usual counting form, and do people say 'цент' or 'евроцент'?" },
     tip_days: { title: "On Monday, on Tuesday…", text: "Days don't take a capital letter in Bulgarian. 'On' a day is в: в понеделник, в събота. Before a word starting with в or ф, в becomes във: във вторник." },
     tip_time: { title: "Telling the time", text: "Колко е часът? – What time is it? · Часът е три. – It's three o'clock. · Три и половина. – Half past three. · в пет часа – at five o'clock" },
+    tip_present: { title: "Verbs change for each person", text: "аз ставам – I get up · ти ставаш – you get up · той / тя става – he / she gets up · ние ставаме – we get up · вие ставате – you get up (more than one) · те стават – they get up" },
+    tip_se: { title: "Verbs with се and си", text: "Some verbs come with се or си, a bit like 'myself': мия се (I wash), обличам се (I get dressed), лягам си (I go to bed). се / си never starts a sentence: Мия се. or Аз се мия." },
+    tip_play: { title: "Another verb pattern", text: "аз играя · ти играеш · той / тя играе · ние играем · вие играете · те играят. And one more: аз уча · ти учиш · той учи · ние учим · вие учите · те учат." },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -691,7 +716,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Section 2 onwards – Units 15–19 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Section 2 onwards – Units 15–20 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -773,13 +798,13 @@ window.CONTENT = {
       description: "Describe your daily routine.",
       objectives: ["Describe your morning and evening", "Say when you do things", "Say what someone else does"],
       vocab: "Daily routine verbs",
-      grammar: ["Present-tense patterns: аз ставам, ти ставаш, той става", "Verbs with се / си: мия се, лягам си"],
-      sample: { words: [["ставам", "I get up"], ["закусвам", "I have breakfast"], ["лягам си", "I go to bed"]], sentences: [["Ставам в седем часа.", "I get up at seven o'clock."], ["След училище играя футбол.", "After school I play football."]] },
+      grammar: ["Present-tense patterns: аз ставам, ти ставаш, той става…", "Verbs with се / си: мия се, лягам си", "Second pattern: играя / играеш, уча / учиш"],
+      fact: "Some Bulgarian schools have two 'shifts' – one group of children goes to school in the morning and another in the afternoon!",
       lessons: [
-        { id: "u20l1", title: "Morning", type: "words", status: "planned", plan: "Introduce: ставам, закусвам, мия се, обличам се, лягам си" },
-        { id: "u20l2", title: "After school", type: "words", status: "planned", plan: "Practise: Ставам в седем часа." },
-        { id: "u20l3", title: "My whole day", type: "sentences", status: "planned", plan: "Apply: tell a friend about your day" },
-        { id: "u20boss", title: "Routine review", type: "boss", status: "planned", plan: "Review: times (Unit 19)" }
+        { id: "u20l1", title: "Morning", type: "words", words: ["getup", "breakfast", "wash", "getdressed", "teeth"], sentences: ["t_upatseven", "t_dressfast"], tips: ["tip_present"] },
+        { id: "u20l2", title: "After school", type: "words", words: ["study", "play", "watch", "dinner", "gotobed"], sentences: ["t_afterschool", "t_bedatnine"], tips: ["tip_se"] },
+        { id: "u20l3", title: "My whole day", type: "sentences", sentences: ["s_getupearly", "s_brotherwatches", "s_dinnerseven", "s_dogsleeps"], tips: ["tip_play"] },
+        { id: "u20boss", title: "Routine Rocket", type: "boss" }
       ]
     },
     {
