@@ -229,7 +229,20 @@ window.CONTENT = {
     idontlike:  { bg: "не ми харесва", en: "I don't like it", pic: "😖", say: "ne mee ha-RES-va" },
     newword:    { bg: "нов", en: "new", pic: "✨", say: "nov", hint: "Sounds like 'new' – and like 'novel', something new!" },
     old:        { bg: "стар", en: "old", pic: "🕸️", say: "star", hint: "Stars are very, very OLD!" },
-    size:       { bg: "размер", en: "size", pic: "📏", say: "raz-MER" }
+    size:       { bg: "размер", en: "size", pic: "📏", say: "raz-MER" },
+
+    // ---------- Unit 18: Numbers & money ----------
+    n30:        { bg: "тридесет", en: "thirty", pic: "30", say: "TREE-de-set", hint: "три + десет = three tens." },
+    n40:        { bg: "четиридесет", en: "forty", pic: "40", say: "che-TEE-ri-de-set", note: "Check the stress." },
+    n50:        { bg: "петдесет", en: "fifty", pic: "50", say: "pet-de-SET", hint: "пет + десет = five tens." },
+    n60:        { bg: "шестдесет", en: "sixty", pic: "60", say: "shest-de-SET" },
+    n100:       { bg: "сто", en: "a hundred", pic: "100", say: "sto", hint: "100 cents in a euro – сто!" },
+    euro:       { bg: "евро", en: "euro", pic: "💶", say: "EV-ro", hint: "Just like 'euro'!" },
+    cent:       { bg: "цент", en: "cent", pic: "🪙", say: "tsent", hint: "Just like 'cent'!" },
+    money:      { bg: "пари", en: "money", pic: "💰", say: "pa-REE", hint: "Save your пари for a trip to Paris!" },
+    costs:      { bg: "струва", en: "it costs", pic: "🔖", say: "STROO-va" },
+    expensive:  { bg: "скъпо", en: "expensive", pic: "😱", say: "SKUH-po" },
+    cheap:      { bg: "евтино", en: "cheap", pic: "😌", say: "EV-ti-no" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -395,7 +408,17 @@ window.CONTENT = {
     s_blueshirt:      { bg: "Харесва ми синята тениска.", en: "I like the blue T-shirt.", gap: "синята" },
     s_jacketprice:    { bg: "Колко струва якето?", en: "How much is the jacket?", gap: "якето" },
     s_newshoes:       { bg: "Новите ми обувки са червени.", en: "My new shoes are red.", gap: "червени" },
-    s_iwantit:        { bg: "Тениската? Искам я!", en: "The T-shirt? I want it!", gap: "я", note: "Check: natural way to say 'I want it' about a T-shirt?" }
+    s_iwantit:        { bg: "Тениската? Искам я!", en: "The T-shirt? I want it!", gap: "я", note: "Check: natural way to say 'I want it' about a T-shirt?" },
+
+    // Unit 18
+    t_thirtyfive:     { bg: "Тридесет и пет.", en: "Thirty-five." },
+    t_hundredpoints:  { bg: "Сто точки!", en: "A hundred points!" },
+    t_fiveeuro:       { bg: "Това струва пет евро.", en: "This costs five euros." },
+    t_tooexpensive:   { bg: "Много е скъпо!", en: "It's very expensive!" },
+    s_twentyeuro:     { bg: "Имам двадесет евро.", en: "I have twenty euros.", gap: "двадесет" },
+    s_ballcosts:      { bg: "Топката струва петнадесет евро.", en: "The ball costs fifteen euros.", gap: "струва" },
+    s_cheapshirt:     { bg: "Тази тениска е евтина.", en: "This T-shirt is cheap.", gap: "евтина" },
+    s_paycard:        { bg: "Може ли да платя с карта?", en: "Can I pay by card?", gap: "карта" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -414,6 +437,8 @@ window.CONTENT = {
     tip_colours2: { title: "Colours match the clothes", text: "син панталон – blue trousers (masculine) · синя шапка – a blue hat (feminine) · синьо яке – a blue jacket (neuter) · сини обувки – blue shoes (plural)" },
     tip_like: { title: "'It pleases me'", text: "харесва ми really means 'it pleases me', so the thing you like does the 'pleasing': Харесва ми якето (I like the jacket). For more than one thing it becomes харесват: Харесват ми обувките (I like the shoes). To say no: Не ми харесва." },
     tip_it: { title: "Short words for 'it'", text: "го – it (masculine or neuter) · я – it (feminine) · ги – them. They go next to the verb: Искам го (I want it – the jacket) · Искам я (I want it – the T-shirt) · Искам ги (I want them – the shoes)." },
+    tip_tens: { title: "Counting in tens", text: "Most tens are 'number + десет': тридесет (30) · четиридесет (40) · петдесет (50) · шестдесет (60) · седемдесет (70) · осемдесет (80) · деветдесет (90) · сто (100). For the numbers in between, add и (and): двадесет и едно (21) · тридесет и пет (35)." },
+    tip_money: { title: "Talking about money", text: "евро never changes: едно евро · пет евро. Cents take the counting ending: един цент · два цента · петдесет цента. A price like €5.50 is пет евро и петдесет цента.", note: "Check: is 'цента' the usual counting form, and do people say 'цент' or 'евроцент'?" },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -639,7 +664,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Section 2 onwards – Units 15–17 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Section 2 onwards – Units 15–18 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -690,14 +715,14 @@ window.CONTENT = {
       section: "s2",
       description: "Count to 100 and talk about prices.",
       objectives: ["Count in tens up to 100", "Understand prices in euro and cents", "Pay and ask how much something costs"],
-      vocab: "Numbers 20–100, prices",
-      grammar: ["Tens with и: двадесет и едно", "Counting form revisited: два евро? (check)"],
-      sample: { words: [["петдесет", "fifty"], ["сто", "a hundred"], ["евро", "euro"]], sentences: [["Струва пет евро.", "It costs five euros."], ["Двадесет и едно.", "Twenty-one."]] },
+      vocab: "Numbers 30–100, money and prices",
+      grammar: ["Tens with и: двадесет и едно", "Counting form revisited: два цента", "Adjective agreement: евтина тениска"],
+      fact: "Bulgarian euro coins have their own designs – one shows the Madara Rider, a horseman carved into a cliff more than 1,000 years ago!",
       lessons: [
-        { id: "u18l1", title: "Counting to 100", type: "words", status: "planned", plan: "Introduce: тридесет, четиридесет, петдесет, сто, евро, цент" },
-        { id: "u18l2", title: "Prices", type: "words", status: "planned", plan: "Practise: Струва пет евро." },
-        { id: "u18l3", title: "Pocket money", type: "sentences", status: "planned", plan: "Apply: buy snacks with pocket money" },
-        { id: "u18boss", title: "Money review", type: "boss", status: "planned", plan: "Review: numbers 0–20 (Units 3 and 14)" }
+        { id: "u18l1", title: "Counting to 100", type: "words", words: ["n30", "n40", "n50", "n60", "n100"], sentences: ["t_thirtyfive", "t_hundredpoints"], tips: ["tip_tens"] },
+        { id: "u18l2", title: "Prices", type: "words", words: ["euro", "cent", "money", "costs", "expensive", "cheap"], sentences: ["t_fiveeuro", "t_tooexpensive"], tips: ["tip_money"] },
+        { id: "u18l3", title: "Pocket money", type: "sentences", sentences: ["s_twentyeuro", "s_ballcosts", "s_cheapshirt", "s_paycard"] },
+        { id: "u18boss", title: "Money Master", type: "boss" }
       ]
     },
     {

@@ -180,10 +180,19 @@
   const speakingOn = () => state.speaking !== false;
   const showSay = () => state.showSay !== false;
 
-  const DIGITS = ['нула', 'едно', 'две', 'три', 'четири', 'пет', 'шест', 'седем', 'осем', 'девет', 'десет'];
+  // Recognisers often write numbers as digits ("35"), so turn them back into words.
+  const ONES = ['нула', 'едно', 'две', 'три', 'четири', 'пет', 'шест', 'седем', 'осем', 'девет'];
+  const TEENS = ['десет', 'единадесет', 'дванадесет', 'тринадесет', 'четиринадесет', 'петнадесет', 'шестнадесет', 'седемнадесет', 'осемнадесет', 'деветнадесет'];
+  const TENS = ['', '', 'двадесет', 'тридесет', 'четиридесет', 'петдесет', 'шестдесет', 'седемдесет', 'осемдесет', 'деветдесет'];
+  function numberWords(n) {
+    if (n < 10) return ONES[n];
+    if (n < 20) return TEENS[n - 10];
+    if (n < 100) return TENS[Math.floor(n / 10)] + (n % 10 ? ' и ' + ONES[n % 10] : '');
+    return n === 100 ? 'сто' : String(n);
+  }
   function cleanSpeech(t) {
     return norm(t)
-      .replace(/\b(10|[0-9])\b/g, d => DIGITS[+d])
+      .replace(/\d+/g, d => numberWords(+d))
       .replace(/[.,!?¡¿"'„“”–-]/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
