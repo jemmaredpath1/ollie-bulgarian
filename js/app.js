@@ -403,17 +403,19 @@
               h('span', {}, `${doneCount}/${playable.length}`))
       ));
 
+      // Planned units are a compact grid of cards, each opening its outline.
+      const plannedGrid = list => h('div', { class: 'planned-grid' }, list.map(u =>
+        h('button', { class: 'unit-card planned', onclick: () => renderUnit(u), 'aria-label': `Unit ${unitNumber(u)}: ${u.title} – coming soon. See what it will teach.` },
+          h('span', { class: 'unit-card-emoji', 'aria-hidden': 'true' }, u.emoji),
+          h('span', {}, h('span', { class: 'unit-label' }, `Unit ${unitNumber(u)}`), h('span', { class: 'unit-card-title' }, u.title))
+        )));
+
       if (comingSoon) {
-        // Planned sections are a compact list of unit cards, each opening its outline.
-        path.append(h('div', { class: 'planned-grid' }, units.map(u =>
-          h('button', { class: 'unit-card planned', onclick: () => renderUnit(u), 'aria-label': `Unit ${unitNumber(u)}: ${u.title} – coming soon. See what it will teach.` },
-            h('span', { class: 'unit-card-emoji', 'aria-hidden': 'true' }, u.emoji),
-            h('span', {}, h('span', { class: 'unit-label' }, `Unit ${unitNumber(u)}`), h('span', { class: 'unit-card-title' }, u.title))
-          ))));
+        path.append(plannedGrid(units));
         return;
       }
 
-      units.forEach(u => {
+      units.filter(u => !u.planned).forEach(u => {
         const unitDone = !u.planned && u.lessons.every(l => isPlanned(l) || state.done[l.id]);
         path.append(h('button', {
           class: `unit-banner c-${u.color} ${u.planned ? 'planned' : ''}`,
@@ -444,6 +446,11 @@
           ));
         });
       });
+
+      const later = units.filter(u => u.planned);
+      if (later.length) {
+        path.append(h('div', { class: 'planned-head' }, h('span', { class: 'tag planned' }, '🕒 Coming soon in this section')), plannedGrid(later));
+      }
     });
 
     if (firstOpen === -1) {

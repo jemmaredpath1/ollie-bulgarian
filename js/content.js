@@ -193,7 +193,19 @@ window.CONTENT = {
     n17:        { bg: "седемнадесет", en: "seventeen", pic: "17", say: "se-dem-NA-de-set" },
     n18:        { bg: "осемнадесет", en: "eighteen", pic: "18", say: "o-sem-NA-de-set" },
     n19:        { bg: "деветнадесет", en: "nineteen", pic: "19", say: "de-vet-NA-de-set" },
-    n20:        { bg: "двадесет", en: "twenty", pic: "20", say: "DVA-de-set", hint: "два-десет = 'two tens'." }
+    n20:        { bg: "двадесет", en: "twenty", pic: "20", say: "DVA-de-set", hint: "два-десет = 'two tens'." },
+
+    // ---------- Unit 15: At the café ----------
+    juice:      { bg: "сок", en: "juice", pic: "🧃", say: "sok", hint: "Sounds like 'soak' – soak up the juice!" },
+    tea:        { bg: "чай", en: "tea", pic: "🍵", say: "chay", hint: "Just like 'chai'!" },
+    hotchoc:    { bg: "горещ шоколад", en: "hot chocolate", pic: "☕", say: "go-RESHT sho-ko-LAD", hint: "горещ = hot, шоколад = chocolate." },
+    cake:       { bg: "торта", en: "cake", pic: "🍰", say: "TOR-ta", hint: "Like a 'torte' – a fancy cake!" },
+    sandwich:   { bg: "сандвич", en: "sandwich", pic: "🥪", say: "SAND-vich", hint: "Just 'sandwich'!" },
+    canihave:   { bg: "може ли", en: "can I have…? / may I…?", pic: "🤚", say: "MO-zhe lee", hint: "The polite way to ask: Може ли менюто? – Can I have the menu?" },
+    bill:       { bg: "сметка", en: "bill", pic: "🧾", say: "SMET-ka" },
+    menu:       { bg: "меню", en: "menu", pic: "📋", say: "me-NYU", hint: "Just like 'menu'!" },
+    waiter:     { bg: "сервитьор", en: "waiter", pic: "🤵", say: "ser-vi-TYOR", hint: "He SERVes you: ser-vi-TYOR!" },
+    drink:      { bg: "пия", en: "I drink", pic: "🥤", say: "PEE-ya" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -329,7 +341,17 @@ window.CONTENT = {
     s_tenfive:        { bg: "Десет и пет прави петнадесет.", en: "Ten and five makes fifteen.", gap: "петнадесет", note: "Check: is 'прави' the natural word for sums here?" },
     s_eleventeam:     { bg: "В отбора има единадесет играчи.", en: "There are eleven players in the team.", gap: "единадесет" },
     s_brother13:      { bg: "Брат ми е на тринадесет години.", en: "My brother is thirteen.", gap: "тринадесет" },
-    s_sixteenfour:    { bg: "Шестнадесет и четири прави двадесет.", en: "Sixteen and four makes twenty.", gap: "двадесет", note: "Check: is 'прави' the natural word for sums here?" }
+    s_sixteenfour:    { bg: "Шестнадесет и четири прави двадесет.", en: "Sixteen and four makes twenty.", gap: "двадесет", note: "Check: is 'прави' the natural word for sums here?" },
+
+    // Unit 15
+    t_onejuice:       { bg: "Един сок, моля.", en: "One juice, please." },
+    t_tastycake:      { bg: "Тортата е вкусна.", en: "The cake is tasty." },
+    t_menuplease:     { bg: "Може ли менюто?", en: "Can I have the menu?" },
+    t_drinktea:       { bg: "Искам да пия чай.", en: "I want to drink tea." },
+    s_wouldlike:      { bg: "Какво ще желаете?", en: "What would you like?", gap: "Какво", note: "Check: natural for a waiter talking to a child and parent?" },
+    s_order:          { bg: "Един горещ шоколад и една торта, моля.", en: "One hot chocolate and one cake, please.", gap: "една" },
+    s_howmuchcake:    { bg: "Колко струва тортата?", en: "How much is the cake?", gap: "струва" },
+    s_thebill:        { bg: "Може ли сметката, моля?", en: "Can we have the bill, please?", gap: "сметката" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -341,6 +363,8 @@ window.CONTENT = {
     tip_gender: { title: "He, she or it?", text: "Every Bulgarian noun is masculine, feminine or neuter. Usually: ends in a consonant → masculine (молив, телефон); ends in -а or -я → feminine (книга, чанта); ends in -о or -е → neuter (легло, куче)." },
     tip_article: { title: "'The' goes on the end!", text: "Bulgarian sticks 'the' onto the END of the word: книга → книгата (the book), легло → леглото (the bed), книги → книгите (the books). Masculine words take -ът or -а: столът / стола (the chair). Good news: Bulgarian nouns don't change their endings for different cases like Russian ones do.", note: "Check: the simplified -ът / -а explanation." },
     tip_teens: { title: "Making 11 to 20", text: "11–19 are built as 'one-on-ten': един-на-десет → единадесет, два-на-десет → дванадесет. 20 is 'two tens': двадесет. In everyday speech people shorten them – единайсет, дванайсет, двайсет – so you'll hear both." },
+    tip_one: { title: "One, but which one?", text: "'One' changes to match the word: един сок · една торта · едно кафе. And there's no word for 'a' – you just say the thing: Искам сок (I want a juice)." },
+    tip_da: { title: "No 'to' in Bulgarian!", text: "Bulgarian has no 'to drink' or 'to eat'. Instead you say 'I want that I drink': искам да пия. After да, use the normal 'I' form of the verb: искам да ям (I want to eat), искам да играя (I want to play)." },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -566,20 +590,20 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Sections 2–5 – PLANNED: outlines and unchecked sample Bulgarian only =====
+    // ===== Section 2 onwards – Unit 15 is playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
       description: "Order drinks and snacks politely.",
       objectives: ["Order a drink or a snack politely", "Ask 'Can I have…?'", "Say what you want to eat or drink"],
       vocab: "Drinks, snacks, polite requests",
-      grammar: ["Може ли…? – Can I have…?", "First да-construction: искам да пия (I want to drink)"],
-      sample: { words: [["сок", "juice"], ["торта", "cake"], ["горещ шоколад", "hot chocolate"]], sentences: [["Един сок, моля.", "A juice, please."], ["Може ли сметката?", "Could we have the bill?"], ["Искам да пия вода.", "I want to drink water."]] },
+      grammar: ["Може ли…? – Can I have…?", "един / една / едно – 'one' matches the word", "No 'to': искам да пия (I want to drink)"],
+      fact: "When Bulgarians hand you something, they often say 'Заповядайте!' – it means 'Here you are!' or 'Help yourself!'",
       lessons: [
-        { id: "u15l1", title: "Drinks & snacks", type: "words", status: "planned", plan: "Introduce: сок, чай, горещ шоколад, торта, сандвич" },
-        { id: "u15l2", title: "Can I have…?", type: "words", status: "planned", plan: "Practise: Искам…, моля / Може ли…?" },
-        { id: "u15l3", title: "Ordering", type: "sentences", status: "planned", plan: "Apply: order for yourself and a friend at a café" },
-        { id: "u15boss", title: "Café review", type: "boss", status: "planned", plan: "Review: café words with Food & Drink (Unit 10)" }
+        { id: "u15l1", title: "Drinks & snacks", type: "words", words: ["juice", "tea", "hotchoc", "cake", "sandwich"], sentences: ["t_onejuice", "t_tastycake"], tips: ["tip_one"] },
+        { id: "u15l2", title: "Can I have…?", type: "words", words: ["canihave", "bill", "menu", "waiter", "drink"], sentences: ["t_menuplease", "t_drinktea"], tips: ["tip_da"] },
+        { id: "u15l3", title: "Ordering", type: "sentences", sentences: ["s_wouldlike", "s_order", "s_howmuchcake", "s_thebill"] },
+        { id: "u15boss", title: "Café Champion", type: "boss" }
       ]
     },
     {
