@@ -8,15 +8,21 @@
   const XP_PER_LEVEL = 100;
   const app = document.getElementById('app');
 
-  // Every lesson in play order, each knowing its unit.
+  // Lessons marked status: "planned" are outlines only: never playable, never counted.
+  const isPlanned = l => l.status === 'planned';
+
+  // Every playable lesson in play order, each knowing its unit.
   const LESSONS = [];
-  C.units.forEach(u => u.lessons.forEach(l => { l.unit = u; LESSONS.push(l); }));
+  C.units.forEach(u => u.lessons.forEach(l => { l.unit = u; if (!isPlanned(l)) LESSONS.push(l); }));
 
   // Every word list a unit uses (for boss rounds and distractors).
   C.units.forEach(u => {
-    u.words = u.lessons.flatMap(l => l.words || []);
-    u.sentences = u.lessons.flatMap(l => l.sentences || []);
+    const playable = u.lessons.filter(l => !isPlanned(l));
+    u.planned = playable.length === 0;
+    u.words = playable.flatMap(l => l.words || []);
+    u.sentences = playable.flatMap(l => l.sentences || []);
   });
+  const unitNumber = u => C.units.indexOf(u) + 1;
 
   // ================= Saved progress =================
   const freshState = () => ({
@@ -172,6 +178,7 @@
   const Recognizer = window.SpeechRecognition || window.webkitSpeechRecognition;
   let recognitionWorks = !!Recognizer;
   const speakingOn = () => state.speaking !== false;
+  const showSay = () => state.showSay !== false;
 
   const DIGITS = ['нула', 'едно', 'две', 'три', 'четири', 'пет', 'шест', 'седем', 'осем', 'девет', 'десет'];
   function cleanSpeech(t) {
@@ -340,6 +347,24 @@
     `Здравей, Оли! Let's level up 💪`
   ];
 
+  // Where Ollie is up to: the first playable lesson he hasn't finished (-1 = all done).
+  const firstOpenIndex = () => LESSONS.findIndex(l => !state.done[l.id]);
+
+  function lessonStatus(l) {
+    if (isPlanned(l)) return 'planned';
+    if (state.done[l.id]) return 'done';
+    const first = firstOpenIndex();
+    return first === -1 || LESSONS.indexOf(l) <= first ? 'available' : 'locked';
+  }
+
+  const STATUS_LABEL = { done: 'Done', available: 'Ready to play', locked: 'Locked', planned: 'Coming soon' };
+  // Tips written as "a – b · c – d" read best as a list.
+  const tipBody = text => text.includes(' · ')
+    ? h('ul', { class: 'tip-list' }, text.split(' · ').map(t => h('li', {}, t)))
+    : h('p', { class: 'tip-text' }, text);
+
+  const lessonIcon = l => l.type === 'boss' ? '🏆' : l.type === 'sentences' ? '💬' : '⭐';
+
   function renderPath(message) {
     const streak = currentStreak();
     const lvl = level();
@@ -355,49 +380,158 @@
       h('button', { class: 'icon-btn', 'aria-label': 'Settings', onclick: renderSettings }, '⚙️')
     );
 
-    const firstOpen = LESSONS.findIndex(l => !state.done[l.id]);
+    const firstOpen = firstOpenIndex();
+    const next = LESSONS[firstOpen];
     const path = h('div', { class: 'path' });
     const offsets = [0, 1, 2, 1, 0, -1, -2, -1];
     let n = 0;
 
-    C.units.forEach(u => {
-      const unitDone = u.lessons.every(l => state.done[l.id]);
-      path.append(h('div', { class: `unit-banner c-${u.color}` },
-        h('div', { class: 'unit-emoji' }, u.emoji),
-        h('div', {},
-          h('div', { class: 'unit-label' }, `Unit ${C.units.indexOf(u) + 1}`),
-          h('div', { class: 'unit-title' }, u.title)
-        ),
-        unitDone ? h('div', { class: 'unit-done' }, '🏅') : null
+    C.sections.forEach((sec, si) => {
+      const units = C.units.filter(u => u.section === sec.id);
+      const playable = units.flatMap(u => u.lessons.filter(l => !isPlanned(l)));
+      const doneCount = playable.filter(l => state.done[l.id]).length;
+      const comingSoon = playable.length === 0;
+
+      path.append(h('div', { class: 'section-head' },
+        h('div', { class: 'section-label' }, `Section ${si + 1}`),
+        h('h2', {}, sec.title),
+        h('p', {}, sec.description),
+        comingSoon
+          ? h('span', { class: 'tag planned' }, '🕒 Coming soon')
+          : h('div', { class: 'section-progress', 'aria-label': `${doneCount} of ${playable.length} lessons done` },
+              h('div', { class: 'xpbar' }, h('div', { class: 'xpfill', style: `width:${Math.round(doneCount / playable.length * 100)}%` })),
+              h('span', {}, `${doneCount}/${playable.length}`))
       ));
 
-      u.lessons.forEach(l => {
-        const i = LESSONS.indexOf(l);
-        const done = !!state.done[l.id];
-        const open = i <= firstOpen || firstOpen === -1 || done;
-        const current = i === firstOpen;
-        const icon = l.type === 'boss' ? '🏆' : l.type === 'sentences' ? '💬' : '⭐';
-        const shift = offsets[n++ % offsets.length] * 48;
+      if (comingSoon) {
+        // Planned sections are a compact list of unit cards, each opening its outline.
+        path.append(h('div', { class: 'planned-grid' }, units.map(u =>
+          h('button', { class: 'unit-card planned', onclick: () => renderUnit(u), 'aria-label': `Unit ${unitNumber(u)}: ${u.title} – coming soon. See what it will teach.` },
+            h('span', { class: 'unit-card-emoji', 'aria-hidden': 'true' }, u.emoji),
+            h('span', {}, h('span', { class: 'unit-label' }, `Unit ${unitNumber(u)}`), h('span', { class: 'unit-card-title' }, u.title))
+          ))));
+        return;
+      }
 
-        path.append(h('div', { class: 'node-row', style: `transform:translateX(${shift}px)` },
-          current ? h('div', { class: 'start-tag' }, 'START') : null,
-          h('button', {
-            class: `node c-${u.color} ${done ? 'done' : ''} ${open ? '' : 'locked'} ${current ? 'current' : ''} ${l.type === 'boss' ? 'boss' : ''}`,
-            'aria-label': `${l.title}${done ? ' (done)' : open ? '' : ' (locked)'}`,
-            onclick: () => open ? startLesson(l) : lockedMessage()
-          }, open ? (done ? '✓' : icon) : '🔒'),
-          h('div', { class: 'node-title' }, l.title)
+      units.forEach(u => {
+        const unitDone = !u.planned && u.lessons.every(l => isPlanned(l) || state.done[l.id]);
+        path.append(h('button', {
+          class: `unit-banner c-${u.color} ${u.planned ? 'planned' : ''}`,
+          onclick: () => renderUnit(u),
+          'aria-label': `Unit ${unitNumber(u)}: ${u.title} – ${u.description} Open unit details.`
+        },
+          h('div', { class: 'unit-emoji', 'aria-hidden': 'true' }, u.emoji),
+          h('div', { class: 'unit-text' },
+            h('div', { class: 'unit-label' }, `Unit ${unitNumber(u)}`),
+            h('div', { class: 'unit-title' }, u.title),
+            h('div', { class: 'unit-desc' }, u.description)
+          ),
+          unitDone ? h('div', { class: 'unit-done' }, '🏅') : h('div', { class: 'unit-info', 'aria-hidden': 'true' }, 'ⓘ')
         ));
+
+        u.lessons.forEach(l => {
+          const st = lessonStatus(l);
+          const current = l === next;
+          const shift = offsets[n++ % offsets.length] * 48;
+          path.append(h('div', { class: 'node-row', style: `transform:translateX(${shift}px)` },
+            current ? h('div', { class: 'start-tag' }, 'START') : null,
+            h('button', {
+              class: `node c-${u.color} ${st} ${current ? 'current' : ''} ${l.type === 'boss' ? 'boss' : ''}`,
+              'aria-label': `${l.title} – ${STATUS_LABEL[st]}`,
+              onclick: () => st === 'planned' ? renderUnit(u) : st === 'locked' ? lockedMessage() : startLesson(l)
+            }, st === 'done' ? '✓' : st === 'locked' ? '🔒' : st === 'planned' ? '🕒' : lessonIcon(l)),
+            h('div', { class: 'node-title' }, l.title)
+          ));
+        });
       });
     });
 
     if (firstOpen === -1) {
-      path.append(h('div', { class: 'more-soon' }, '🎉 You finished every unit! Amazing! More adventures coming soon…'));
+      path.append(h('div', { class: 'more-soon' }, '🎉 You finished every lesson that\'s ready! More units are on the way…'));
     }
+
+    // Continue where you left off, or practise earlier words.
+    const actions = h('div', { class: 'home-actions' },
+      next ? h('button', { class: 'continue-card', onclick: () => startLesson(next) },
+        h('span', { class: 'continue-label' }, Object.keys(state.done).length ? 'Continue' : 'Start here'),
+        h('span', { class: 'continue-title' }, `${next.unit.emoji} Unit ${unitNumber(next.unit)} · ${next.title}`),
+        h('span', { class: 'continue-go', 'aria-hidden': 'true' }, '▶')
+      ) : null,
+      reviewableWords().length >= 4
+        ? h('button', { class: 'btn review-btn', onclick: startReview }, '🔁 Review')
+        : null
+    );
 
     const hero = dogSays(message || pick(greetings()), 'happy', 84);
     hero.id = 'hero';
-    show(h('section', { class: 'screen home' }, top, h('div', { class: 'hero-wrap' }, hero, h('div', { class: 'dog-name' }, state.dogName)), path));
+    show(h('section', { class: 'screen home' }, top,
+      h('div', { class: 'hero-wrap' }, hero, h('div', { class: 'dog-name' }, state.dogName)),
+      actions, path));
+  }
+
+  // ---------- Unit page: what a unit teaches, and its lessons ----------
+  function renderUnit(u) {
+    const back = () => { document.removeEventListener('keydown', onKey); renderPath(); };
+    const onKey = e => { if (e.key === 'Escape') back(); };
+    document.addEventListener('keydown', onKey);
+
+    const sec = C.sections.find(x => x.id === u.section);
+    const heading = h('h1', { tabindex: '-1' }, u.title);
+    const tips = [...new Set(u.lessons.flatMap(l => l.tips || []))].map(id => C.tips[id]).filter(Boolean);
+
+    const lessonRow = l => {
+      const st = lessonStatus(l);
+      return h('li', { class: `lesson-row ${st}` },
+        h('span', { class: 'lesson-ico', 'aria-hidden': 'true' }, st === 'done' ? '✅' : st === 'locked' ? '🔒' : st === 'planned' ? '🕒' : lessonIcon(l)),
+        h('span', { class: 'lesson-info' },
+          h('span', { class: 'lesson-name' }, l.title),
+          h('span', { class: 'lesson-status' }, STATUS_LABEL[st]),
+          l.plan ? h('span', { class: 'lesson-plan' }, l.plan) : null
+        ),
+        st === 'available' || st === 'done'
+          ? h('button', { class: `btn small ${st === 'available' ? 'primary' : ''}`, onclick: () => { document.removeEventListener('keydown', onKey); startLesson(l); } },
+              st === 'done' ? 'Play again' : 'Start')
+          : null
+      );
+    };
+
+    show(h('section', { class: 'screen unit-page' },
+      h('div', { class: 'lesson-top' },
+        h('button', { class: 'icon-btn', 'aria-label': 'Back to the path', onclick: back }, '←'),
+        h('span', { class: 'crumb' }, `Section ${C.sections.indexOf(sec) + 1} · ${sec.title}`)
+      ),
+      h('div', { class: `unit-hero c-${u.color} ${u.planned ? 'planned' : ''}` },
+        h('div', { class: 'unit-emoji', 'aria-hidden': 'true' }, u.emoji),
+        h('div', {}, h('div', { class: 'unit-label' }, `Unit ${unitNumber(u)}${u.planned ? ' · Coming soon' : ''}`), heading)
+      ),
+      h('p', { class: 'unit-intro' }, u.description),
+      h('div', { class: 'panel' },
+        h('h3', {}, 'By the end, you can…'),
+        h('ul', { class: 'objectives' }, u.objectives.map(o => h('li', {}, o)))
+      ),
+      h('div', { class: 'panel' },
+        h('h3', {}, 'What you\'ll learn'),
+        h('p', {}, h('strong', {}, 'Words: '), u.vocab),
+        h('p', {}, h('strong', {}, 'Grammar: '), u.grammar.join(' · '))
+      ),
+      h('div', { class: 'panel' },
+        h('h3', {}, 'Lessons'),
+        h('ol', { class: 'lesson-list' }, u.lessons.map(lessonRow))
+      ),
+      tips.length ? h('div', { class: 'panel' },
+        h('h3', {}, '📝 Grammar notes'),
+        tips.map(t => h('details', { class: 'tip-details' }, h('summary', {}, t.title), tipBody(t.text)))
+      ) : null,
+      u.sample ? h('div', { class: 'panel sample' },
+        h('h3', {}, 'Sneak preview'),
+        h('p', { class: 'muted' }, '⚠️ Sample Bulgarian for a lesson that isn\'t built yet – not checked by a Bulgarian speaker.'),
+        h('ul', { class: 'sample-list' },
+          u.sample.words.map(([bg, en]) => h('li', {}, h('span', { class: 'bgw' }, bg), ` – ${en}`)),
+          u.sample.sentences.map(([bg, en]) => h('li', {}, h('span', { class: 'bgw' }, bg), ` – ${en}`)))
+      ) : null,
+      u.fact ? h('div', { class: 'fact' }, h('strong', {}, '🇧🇬 Did you know? '), u.fact) : null
+    ));
+    heading.focus();
   }
 
   function lockedMessage() {
@@ -471,6 +605,7 @@
     const firstTime = !state.done[lesson.id];
     const pool = knownWordsUpTo(lesson);
     const qs = [];
+    if (firstTime) (lesson.tips || []).forEach(tid => qs.push({ type: 'tip', tid }));
 
     if (lesson.type === 'words') {
       const later = [];
@@ -505,12 +640,38 @@
       const u = lesson.unit;
       shuffle(u.words).slice(0, 7).forEach(id => qs.push(wordQuestion(pick(WORD_TYPES), id, pool)));
       shuffle(u.sentences).slice(0, 3).forEach(sid => qs.push(tilesQuestion(sid, lesson)));
+      // Bring back a few words from earlier units too.
+      const earlier = pool.filter(id => !u.words.includes(id));
+      shuffle(earlier).slice(0, 3).forEach(id => qs.push(wordQuestion(pick(WORD_TYPES), id, pool)));
       if (speakingOn()) qs.push({ type: 'speak', id: pick(u.words) });
       const mixed = shuffle(qs);
       mixed.push(pairsQuestion(shuffle(u.words), pool));
       return mixed;
     }
     return qs;
+  }
+
+  // ================= Review: practise earlier words =================
+  // Words from finished lessons, trickiest first.
+  function reviewableWords() {
+    const met = [...new Set(LESSONS.filter(l => state.done[l.id]).flatMap(l => l.type === 'boss' ? [] : (l.words || [])))];
+    const score = id => { const w = state.words[id] || { right: 0, wrong: 0 }; return w.wrong * 2 - w.right * 0.5 + Math.random(); };
+    return met.sort((a, b) => score(b) - score(a));
+  }
+
+  function startReview() {
+    const words = reviewableWords();
+    const finished = LESSONS.filter(l => state.done[l.id]);
+    const context = finished[finished.length - 1];
+    const sentences = shuffle([...new Set(finished.flatMap(l => l.sentences || []))]).slice(0, 2);
+    const qs = words.slice(0, 8).map(id => wordQuestion(pick(WORD_TYPES), id, words));
+    sentences.forEach(sid => qs.push(tilesQuestion(sid, context)));
+    const queue = shuffle(qs);
+    if (words.length >= 5) queue.push(pairsQuestion(shuffle(words.slice(0, 10)), words));
+    sfx.tap();
+    toast('🔁 Review time – your trickiest words first!');
+    S = { lesson: { id: 'review', type: 'review', title: 'Review', unit: context.unit }, queue, done: 0, right: 0, wrong: 0, combo: 0, q: null };
+    nextQuestion();
   }
 
   // ================= Playing a lesson =================
@@ -640,7 +801,7 @@
         h('div', { class: 'teach-card' },
           h('div', { class: 'teach-pic' }, w.pic),
           h('div', { class: 'teach-bg' }, w.bg),
-          h('div', { class: 'teach-say' }, `say: ${w.say}`),
+          showSay() ? h('div', { class: 'teach-say' }, `say: ${w.say}`) : null,
           h('div', { class: 'teach-en' }, w.en),
           speakerButtons(slow => sayWord(q.id, slow))
         ),
@@ -667,6 +828,21 @@
       ctx.ready();
       ctx.onCheck = () => { sfx.tap(); S.done++; nextQuestion(); };
       setTimeout(() => saySentence(q.sid), 250);
+    },
+
+    // A short grammar note.
+    tip(q, body, ctx) {
+      const t = C.tips[q.tid];
+      body.append(
+        h('div', { class: 'q-label new' }, '📝 Grammar tip'),
+        h('div', { class: 'teach-card tip-card' },
+          h('div', { class: 'tip-title' }, t.title),
+          tipBody(t.text)
+        )
+      );
+      ctx.checkBtn.textContent = 'Got it!';
+      ctx.ready();
+      ctx.onCheck = () => { sfx.tap(); S.done++; nextQuestion(); };
     },
 
     // See the Bulgarian word, tap the picture.
@@ -827,7 +1003,7 @@
         h('div', { class: 'prompt column' },
           q.id ? h('span', { class: 'prompt-pic' }, item.pic) : null,
           h('span', { class: q.id ? 'prompt-bg' : 'prompt-bg sentence' }, item.bg),
-          h('span', { class: 'teach-say' }, q.id ? `say: ${item.say}` : item.en),
+          q.id ? (showSay() ? h('span', { class: 'teach-say' }, `say: ${item.say}`) : null) : h('span', { class: 'teach-say' }, item.en),
           speakerButtons(say)
         ),
         mic, status
@@ -948,13 +1124,16 @@
     const scoredCount = S.right + S.wrong;
     const accuracy = scoredCount ? Math.round((S.right / scoredCount) * 100) : 100;
     const perfect = S.wrong === 0;
-    const firstTime = !state.done[l.id];
-    const earned = 10 + (perfect ? 5 : 0) + (l.type === 'boss' ? 10 : 0);
+    const isReview = l.type === 'review';
+    const firstTime = !isReview && !state.done[l.id];
+    const earned = isReview ? 5 + (perfect ? 5 : 0) : 10 + (perfect ? 5 : 0) + (l.type === 'boss' ? 10 : 0);
 
     const oldLevel = level();
     state.xp += earned;
-    const prev = state.done[l.id] || { best: 0, plays: 0 };
-    state.done[l.id] = { best: Math.max(prev.best, accuracy), plays: prev.plays + 1 };
+    if (!isReview) {
+      const prev = state.done[l.id] || { best: 0, plays: 0 };
+      state.done[l.id] = { best: Math.max(prev.best, accuracy), plays: prev.plays + 1 };
+    }
 
     const t = today();
     if (state.lastDay !== t) {
@@ -969,7 +1148,7 @@
     (levelUp ? sfx.level : sfx.win)();
     confetti();
 
-    const title = unitDone ? `🏅 Unit ${C.units.indexOf(l.unit) + 1} complete!` : perfect ? 'Perfect lesson! 🌟' : 'Lesson complete!';
+    const title = unitDone ? `🏅 Unit ${unitNumber(l.unit)} complete!` : isReview ? 'Review complete! 🔁' : perfect ? 'Perfect lesson! 🌟' : 'Lesson complete!';
     const dogLine = perfect ? `${state.dogName}: "Wow, no mistakes! Бау-бау!"` : `${state.dogName}: "Great work, Ollie!"`;
 
     show(h('section', { class: 'screen finish' },
@@ -982,7 +1161,7 @@
         h('div', { class: 'stat-card c-green' }, h('div', { class: 'stat-top' }, 'Correct'), h('div', { class: 'stat-val' }, `${accuracy}%`)),
         h('div', { class: 'stat-card c-red' }, h('div', { class: 'stat-top' }, 'Streak'), h('div', { class: 'stat-val' }, `🔥${currentStreak()}`))
       ),
-      (unitDone || Math.random() < 0.5) ? h('div', { class: 'fact' }, h('strong', {}, '🇧🇬 Did you know? '), l.unit.fact) : null,
+      (unitDone || Math.random() < 0.5) && l.unit.fact ? h('div', { class: 'fact' }, h('strong', {}, '🇧🇬 Did you know? '), l.unit.fact) : null,
       h('button', { class: 'btn big primary', onclick: () => { S = null; renderPath(); } }, 'Continue')
     ));
   }
@@ -1042,6 +1221,9 @@
         h('label', { class: 'switch' },
           h('input', { type: 'checkbox', checked: speakingOn(), onchange: e => { state.speaking = e.target.checked; saveState(); } }),
           ' "Say it!" speaking practice'),
+        h('label', { class: 'switch' },
+          h('input', { type: 'checkbox', checked: showSay(), onchange: e => { state.showSay = e.target.checked; saveState(); } }),
+          ' Show pronunciation help ("say: zdra-VEY")'),
         h('p', {}, Recognizer
           ? '🎤 Speaking: this device can listen and check what Ollie says (if it understands Bulgarian; otherwise it records him to compare).'
           : '🎤 Speaking: this browser can\'t check speech, so Ollie records himself and compares with the dog.'),
@@ -1050,7 +1232,7 @@
       ),
       h('div', { class: 'panel' },
         h('h3', {}, '👩 For grown-ups'),
-        h('p', {}, `Words practised: ${Object.keys(state.words).length} · Lessons done: ${Object.keys(state.done).length} of ${LESSONS.length} · XP: ${state.xp}`),
+        h('p', {}, `Words practised: ${Object.keys(state.words).length} · Lessons done: ${LESSONS.filter(l => state.done[l.id]).length} of ${LESSONS.length} · XP: ${state.xp}`),
         trickyWords(),
         h('div', { class: 'row' },
           h('button', { class: 'btn', onclick: exportProgress }, '💾 Back up progress'),
