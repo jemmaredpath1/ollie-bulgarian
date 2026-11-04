@@ -317,7 +317,19 @@ window.CONTENT = {
     turn:       { bg: "завий", en: "turn!", pic: "↩️", say: "za-VEEY" },
     gocmd:      { bg: "върви", en: "walk! / go!", pic: "👣", say: "vuhr-VEE" },
     stop:       { bg: "спри", en: "stop!", pic: "🛑", say: "spree", hint: "Stop your shopping SPREE!" },
-    opposite:   { bg: "срещу", en: "opposite", pic: "🪞", say: "sresh-TOO" }
+    opposite:   { bg: "срещу", en: "opposite", pic: "🪞", say: "sresh-TOO" },
+
+    // ---------- Unit 25: Getting about ----------
+    bus:        { bg: "автобус", en: "bus", pic: "🚌", say: "av-to-BOOS", hint: "Like 'autobus' – a bus!" },
+    train:      { bg: "влак", en: "train", pic: "🚆", say: "vlak" },
+    metro:      { bg: "метро", en: "underground / metro", pic: "🚇", say: "met-RO", hint: "Like 'metro'!" },
+    taxi:       { bg: "такси", en: "taxi", pic: "🚕", say: "tak-SEE", hint: "Same as 'taxi'!" },
+    tram:       { bg: "трамвай", en: "tram", pic: "🚋", say: "tram-VAY", hint: "Like 'tramway' – a tram!" },
+    busstop:    { bg: "спирка", en: "stop (bus / tram)", pic: "🚏", say: "SPEER-ka", hint: "From спри (stop!) – the bus stops here!" },
+    onfoot:     { bg: "пеша", en: "on foot", pic: "🥾", say: "pe-SHA", hint: "Like 'pedestrian' – someone on foot." },
+    car:        { bg: "кола", en: "car", pic: "🚗", say: "ko-LA", hint: "Not the drink – a car!" },
+    drive:      { bg: "карам", en: "I drive / I ride", pic: "🛞", say: "KA-ram", hint: "Think 'car' – карам!" },
+    wait:       { bg: "чакам", en: "I wait", pic: "⏳", say: "CHA-kam", hint: "CHAt while you wait – CHA-kam!" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -553,7 +565,17 @@ window.CONTENT = {
     s_wherestadium:   { bg: "Извинете, къде е стадионът?", en: "Excuse me, where is the stadium?", gap: "стадионът" },
     s_goright:        { bg: "Върви направо и завий надясно.", en: "Go straight on and turn right.", gap: "надясно" },
     s_oncorner:       { bg: "Стадионът е на ъгъла.", en: "The stadium is on the corner.", gap: "ъгъла" },
-    s_oppschool:      { bg: "Той е срещу училището.", en: "It's opposite the school.", gap: "срещу" }
+    s_oppschool:      { bg: "Той е срещу училището.", en: "It's opposite the school.", gap: "срещу" },
+
+    // Unit 25
+    t_fasttrain:      { bg: "Влакът е бърз.", en: "The train is fast." },
+    t_buscoming:      { bg: "Автобусът идва!", en: "The bus is coming!" },
+    t_waitstop:       { bg: "Чакам на спирката.", en: "I'm waiting at the stop." },
+    t_mumcar:         { bg: "Мама кара кола.", en: "Mum drives a car." },
+    s_walkschool:     { bg: "Ходя на училище пеша.", en: "I walk to school.", gap: "пеша" },
+    s_busnine:        { bg: "Чакам автобус номер девет.", en: "I'm waiting for bus number nine.", gap: "девет" },
+    s_sofiametro:     { bg: "В София има метро.", en: "There's an underground in Sofia.", gap: "метро" },
+    s_seabytrain:     { bg: "Отиваме на море с влак.", en: "We're going to the seaside by train.", gap: "влак" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -587,6 +609,8 @@ window.CONTENT = {
     tip_ima: { title: "There is… there isn't", text: "има – there is / there are · няма – there isn't / there aren't · Има ли магазин наблизо? – Is there a shop nearby? · Тук няма парк. – There's no park here." },
     tip_directions: { title: "Which way?", text: "наляво – (to the) left · надясно – (to the) right · направо – straight on · на ъгъла – on the corner · срещу – opposite" },
     tip_command: { title: "Telling someone what to do", text: "Commands are short: завий! (turn!) · върви! (go!) · спри! (stop!). To be polite, or to talk to more than one person, add -те: завийте, вървете, спрете." },
+    tip_with: { title: "By bus, by train…", text: "To say how you travel, use с: с автобус · с влак · с метро · с кола. Before a word starting with с or з, it becomes със: със самолет (by plane). Walking is just пеша: ходя пеша (I walk)." },
+    tip_drive: { title: "карам – drive or ride", text: "карам кола – I drive a car · карам колело – I ride a bike · Татко кара кола. – Dad drives a car." },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -812,7 +836,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Sections 2–5: Units 15–24 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Sections 2–5: Units 15–25 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -969,13 +993,13 @@ window.CONTENT = {
       description: "Talk about buses, trains and how you travel.",
       objectives: ["Name kinds of transport", "Say how you get to places", "Understand stops and bus numbers"],
       vocab: "Public transport",
-      grammar: ["с + transport: с автобус, с влак", "пеша – on foot"],
-      sample: { words: [["автобус", "bus"], ["влак", "train"], ["спирка", "stop"]], sentences: [["Ходя на училище пеша.", "I walk to school."], ["Чакам автобуса.", "I'm waiting for the bus."]] },
+      grammar: ["с + transport: с автобус, със самолет", "пеша – on foot", "карам – drive / ride"],
+      fact: "Sofia's metro opened in 1998 – and while digging the tunnels, builders found the ruins of an ancient Roman town right under the city centre!",
       lessons: [
-        { id: "u25l1", title: "Transport", type: "words", status: "planned", plan: "Introduce: автобус, влак, метро, спирка, колело" },
-        { id: "u25l2", title: "How do you get there?", type: "words", status: "planned", plan: "Practise: Ходя на училище пеша." },
-        { id: "u25l3", title: "On the bus", type: "sentences", status: "planned", plan: "Apply: catch the right bus" },
-        { id: "u25boss", title: "Transport review", type: "boss", status: "planned", plan: "Review: numbers 11–20 (Unit 14)" }
+        { id: "u25l1", title: "Transport", type: "words", words: ["bus", "train", "metro", "taxi", "tram"], sentences: ["t_fasttrain", "t_buscoming"], tips: ["tip_with"] },
+        { id: "u25l2", title: "How do you get there?", type: "words", words: ["busstop", "onfoot", "car", "drive", "wait"], sentences: ["t_waitstop", "t_mumcar"], tips: ["tip_drive"] },
+        { id: "u25l3", title: "On the bus", type: "sentences", sentences: ["s_walkschool", "s_busnine", "s_sofiametro", "s_seabytrain"] },
+        { id: "u25boss", title: "Ticket to Ride", type: "boss" }
       ]
     },
     {
