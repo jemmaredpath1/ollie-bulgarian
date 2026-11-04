@@ -305,7 +305,19 @@ window.CONTENT = {
     school:     { bg: "училище", en: "school", pic: "🏫", say: "oo-CHEE-li-shte", hint: "From уча – the place where you learn!" },
     cinema:     { bg: "кино", en: "cinema", pic: "🎬", say: "KEE-no", hint: "Like 'cinema' – кино!" },
     thereis:    { bg: "има", en: "there is / there are", pic: "✅", say: "EE-ma", hint: "The same word as 'he / she has'!" },
-    thereisnt:  { bg: "няма", en: "there isn't / there aren't", pic: "🚫", say: "NYA-ma", hint: "не + има = няма." }
+    thereisnt:  { bg: "няма", en: "there isn't / there aren't", pic: "🚫", say: "NYA-ma", hint: "не + има = няма." },
+
+    // ---------- Unit 24: Directions ----------
+    left:       { bg: "наляво", en: "(to the) left", pic: "⬅️", say: "na-LYA-vo", hint: "ляв means 'left'." },
+    right:      { bg: "надясно", en: "(to the) right", pic: "➡️", say: "na-DYAS-no", hint: "десен means 'right'." },
+    straight:   { bg: "направо", en: "straight on", pic: "🔼", say: "na-PRA-vo", hint: "прав means 'straight'." },
+    corner:     { bg: "ъгъл", en: "corner", pic: "📐", say: "UH-guhl", hint: "Sounds like 'angle' – a corner is an angle!" },
+    street:     { bg: "улица", en: "street", pic: "🛣️", say: "OO-li-tsa" },
+    excuseme:   { bg: "извинете", en: "excuse me", pic: "🙇", say: "iz-vi-NE-te", hint: "The polite way to stop someone and ask." },
+    turn:       { bg: "завий", en: "turn!", pic: "↩️", say: "za-VEEY" },
+    gocmd:      { bg: "върви", en: "walk! / go!", pic: "👣", say: "vuhr-VEE" },
+    stop:       { bg: "спри", en: "stop!", pic: "🛑", say: "spree", hint: "Stop your shopping SPREE!" },
+    opposite:   { bg: "срещу", en: "opposite", pic: "🪞", say: "sresh-TOO" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -531,7 +543,17 @@ window.CONTENT = {
     s_shopnearby:     { bg: "Има ли магазин наблизо?", en: "Is there a shop nearby?", gap: "магазин" },
     s_parkdog:        { bg: "Отивам в парка с кучето.", en: "I'm going to the park with the dog.", gap: "парка" },
     s_nolibrary:      { bg: "Тук няма библиотека.", en: "There's no library here.", gap: "няма" },
-    s_wherehospital:  { bg: "Къде е болницата?", en: "Where is the hospital?", gap: "болницата" }
+    s_wherehospital:  { bg: "Къде е болницата?", en: "Where is the hospital?", gap: "болницата" },
+
+    // Unit 24
+    t_shopleft:       { bg: "Магазинът е наляво.", en: "The shop is on the left." },
+    t_longstreet:     { bg: "Улицата е много дълга.", en: "The street is very long." },
+    t_wherepark:      { bg: "Извинете, къде е паркът?", en: "Excuse me, where is the park?" },
+    t_stopred:        { bg: "Спри! Червено е!", en: "Stop! It's red!" },
+    s_wherestadium:   { bg: "Извинете, къде е стадионът?", en: "Excuse me, where is the stadium?", gap: "стадионът" },
+    s_goright:        { bg: "Върви направо и завий надясно.", en: "Go straight on and turn right.", gap: "надясно" },
+    s_oncorner:       { bg: "Стадионът е на ъгъла.", en: "The stadium is on the corner.", gap: "ъгъла" },
+    s_oppschool:      { bg: "Той е срещу училището.", en: "It's opposite the school.", gap: "срещу" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -563,6 +585,8 @@ window.CONTENT = {
     tip_become: { title: "What do you want to be?", text: "Какъв искаш да станеш? – asking a boy · Каква искаш да станеш? – asking a girl · Искам да стана пилот. – I want to be a pilot." },
     tip_going: { title: "Going to… в or на?", text: "Use в for places you go into: отивам в парка, в магазина. Use на for events and some places: отивам на училище, на кино, на море, на гарата.", note: "Check: is this simple в / на rule OK for a 10-year-old?" },
     tip_ima: { title: "There is… there isn't", text: "има – there is / there are · няма – there isn't / there aren't · Има ли магазин наблизо? – Is there a shop nearby? · Тук няма парк. – There's no park here." },
+    tip_directions: { title: "Which way?", text: "наляво – (to the) left · надясно – (to the) right · направо – straight on · на ъгъла – on the corner · срещу – opposite" },
+    tip_command: { title: "Telling someone what to do", text: "Commands are short: завий! (turn!) · върви! (go!) · спри! (stop!). To be polite, or to talk to more than one person, add -те: завийте, вървете, спрете." },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -788,7 +812,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Sections 2–5: Units 15–23 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Sections 2–5: Units 15–24 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -930,13 +954,13 @@ window.CONTENT = {
       description: "Ask the way and follow simple directions.",
       objectives: ["Ask the way politely", "Understand left, right and straight on", "Give simple directions"],
       vocab: "Directions",
-      grammar: ["Imperatives: завий, върви, спри", "Prepositions: до, срещу, зад"],
-      sample: { words: [["наляво", "(to the) left"], ["надясно", "(to the) right"], ["направо", "straight on"]], sentences: [["Извинете, къде е гарата?", "Excuse me, where is the station?"], ["Завий наляво.", "Turn left."]] },
+      grammar: ["Commands: завий, върви, спри (polite: завийте, вървете, спрете)", "Prepositions: на ъгъла, срещу"],
+      fact: "Bulgaria's national stadium in Sofia is named after Васил Левски, the country's great national hero.",
       lessons: [
-        { id: "u24l1", title: "Left and right", type: "words", status: "planned", plan: "Introduce: наляво, надясно, направо, ъгъл, улица" },
-        { id: "u24l2", title: "Excuse me, where is…?", type: "words", status: "planned", plan: "Practise: Завий наляво." },
-        { id: "u24l3", title: "Find the stadium", type: "sentences", status: "planned", plan: "Apply: guide a friend to the stadium" },
-        { id: "u24boss", title: "Directions review", type: "boss", status: "planned", plan: "Review: places in town (Unit 23)" }
+        { id: "u24l1", title: "Left and right", type: "words", words: ["left", "right", "straight", "corner", "street"], sentences: ["t_shopleft", "t_longstreet"], tips: ["tip_directions"] },
+        { id: "u24l2", title: "Excuse me, where is…?", type: "words", words: ["excuseme", "turn", "gocmd", "stop", "opposite"], sentences: ["t_wherepark", "t_stopred"], tips: ["tip_command"] },
+        { id: "u24l3", title: "Find the stadium", type: "sentences", sentences: ["s_wherestadium", "s_goright", "s_oncorner", "s_oppschool"] },
+        { id: "u24boss", title: "Super Navigator", type: "boss" }
       ]
     },
     {
