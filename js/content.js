@@ -329,7 +329,19 @@ window.CONTENT = {
     onfoot:     { bg: "пеша", en: "on foot", pic: "🥾", say: "pe-SHA", hint: "Like 'pedestrian' – someone on foot." },
     car:        { bg: "кола", en: "car", pic: "🚗", say: "ko-LA", hint: "Not the drink – a car!" },
     drive:      { bg: "карам", en: "I drive / I ride", pic: "🛞", say: "KA-ram", hint: "Think 'car' – карам!" },
-    wait:       { bg: "чакам", en: "I wait", pic: "⏳", say: "CHA-kam", hint: "CHAt while you wait – CHA-kam!" }
+    wait:       { bg: "чакам", en: "I wait", pic: "⏳", say: "CHA-kam", hint: "CHAt while you wait – CHA-kam!" },
+
+    // ---------- Unit 26: Travel & tickets ----------
+    suitcase:   { bg: "куфар", en: "suitcase", pic: "🧳", say: "KOO-far" },
+    passport:   { bg: "паспорт", en: "passport", pic: "🛂", say: "PAS-port", hint: "Same as 'passport'!" },
+    holiday:    { bg: "ваканция", en: "holiday", pic: "🏝️", say: "va-KAN-tsi-ya", hint: "Like 'vacation'!" },
+    photo:      { bg: "снимка", en: "photo", pic: "📷", say: "SNEEM-ka" },
+    sunglasses: { bg: "слънчеви очила", en: "sunglasses", pic: "😎", say: "SLUHN-che-vi o-chi-LA", hint: "слънце (sun) + очила (glasses)!" },
+    ticket:     { bg: "билет", en: "ticket", pic: "🎫", say: "bi-LET" },
+    plane:      { bg: "самолет", en: "plane", pic: "✈️", say: "sa-mo-LET", hint: "сам (by itself) + лети (flies) – it flies by itself!" },
+    airport:    { bg: "летище", en: "airport", pic: "🛫", say: "le-TEE-shte", hint: "From лети (flies) – where planes fly from." },
+    travel:     { bg: "пътувам", en: "I travel", pic: "🌍", say: "puh-TOO-vam", hint: "From път – a road or a journey." },
+    city:       { bg: "град", en: "town / city", pic: "🌆", say: "grad", hint: "Like Belgrade – the 'white city'!" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -575,7 +587,17 @@ window.CONTENT = {
     s_walkschool:     { bg: "Ходя на училище пеша.", en: "I walk to school.", gap: "пеша" },
     s_busnine:        { bg: "Чакам автобус номер девет.", en: "I'm waiting for bus number nine.", gap: "девет" },
     s_sofiametro:     { bg: "В София има метро.", en: "There's an underground in Sofia.", gap: "метро" },
-    s_seabytrain:     { bg: "Отиваме на море с влак.", en: "We're going to the seaside by train.", gap: "влак" }
+    s_seabytrain:     { bg: "Отиваме на море с влак.", en: "We're going to the seaside by train.", gap: "влак" },
+
+    // Unit 26
+    t_heavycase:      { bg: "Куфарът е много тежък.", en: "The suitcase is very heavy." },
+    t_wherepassport:  { bg: "Къде е паспортът?", en: "Where is the passport?" },
+    t_ticketsofia:    { bg: "Един билет за София, моля.", en: "One ticket to Sofia, please." },
+    t_flyplane:       { bg: "Летим със самолет!", en: "We're flying by plane!" },
+    s_twotickets:     { bg: "Два билета за Варна, моля.", en: "Two tickets to Varna, please.", gap: "билета" },
+    s_seasummer:      { bg: "Отиваме на море през лятото.", en: "We're going to the seaside in the summer.", gap: "море" },
+    s_bigairport:     { bg: "Летището е много голямо.", en: "The airport is very big.", gap: "голямо" },
+    s_loveholiday:    { bg: "Обичам ваканцията!", en: "I love the holidays!", gap: "ваканцията" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -611,6 +633,8 @@ window.CONTENT = {
     tip_command: { title: "Telling someone what to do", text: "Commands are short: завий! (turn!) · върви! (go!) · спри! (stop!). To be polite, or to talk to more than one person, add -те: завийте, вървете, спрете." },
     tip_with: { title: "By bus, by train…", text: "To say how you travel, use с: с автобус · с влак · с метро · с кола. Before a word starting with с or з, it becomes със: със самолет (by plane). Walking is just пеша: ходя пеша (I walk)." },
     tip_drive: { title: "карам – drive or ride", text: "карам кола – I drive a car · карам колело – I ride a bike · Татко кара кола. – Dad drives a car." },
+    tip_for: { title: "за – for", text: "билет за Варна – a ticket to Varna (word for word: 'for Varna') · подарък за мама – a present for mum · Два билета за София, моля. – Two tickets to Sofia, please." },
+    tip_we: { title: "We're going!", text: "For family plans, use the 'we' form: отиваме – we're going · пътуваме – we travel · летим – we fly. You can leave out ние: Отиваме на море!" },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -836,7 +860,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Sections 2–5: Units 15–25 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Sections 2–5: Units 15–26 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -1008,13 +1032,13 @@ window.CONTENT = {
       description: "Buy tickets and talk about trips.",
       objectives: ["Buy a ticket", "Say where and when you're travelling", "Name things you pack"],
       vocab: "Travel and luggage",
-      grammar: ["за + place: билет за Варна", "Going to: отиваме на море"],
-      sample: { words: [["билет", "ticket"], ["куфар", "suitcase"], ["ваканция", "holiday"]], sentences: [["Един билет за Варна, моля.", "One ticket to Varna, please."], ["Отиваме на море.", "We're going to the seaside."]] },
+      grammar: ["за + place: билет за Варна", "'We' forms: отиваме, пътуваме, летим", "Counting form again: два билета"],
+      fact: "Varna and Burgas are Bulgaria's big cities on the Black Sea – in summer, lots of Bulgarian families head there for their ваканция!",
       lessons: [
-        { id: "u26l1", title: "Packing", type: "words", status: "planned", plan: "Introduce: билет, куфар, самолет, паспорт, ваканция" },
-        { id: "u26l2", title: "Tickets please", type: "words", status: "planned", plan: "Practise: Един билет за Варна, моля." },
-        { id: "u26l3", title: "Off to the seaside", type: "sentences", status: "planned", plan: "Apply: plan a trip to the Black Sea" },
-        { id: "u26boss", title: "Travel review", type: "boss", status: "planned", plan: "Review: swimming and the beach (Unit 7)" }
+        { id: "u26l1", title: "Packing", type: "words", words: ["suitcase", "passport", "holiday", "photo", "sunglasses"], sentences: ["t_heavycase", "t_wherepassport"], tips: ["tip_for"] },
+        { id: "u26l2", title: "Tickets please", type: "words", words: ["ticket", "plane", "airport", "travel", "city"], sentences: ["t_ticketsofia", "t_flyplane"], tips: ["tip_we"] },
+        { id: "u26l3", title: "Off to the seaside", type: "sentences", sentences: ["s_twotickets", "s_seasummer", "s_bigairport", "s_loveholiday"] },
+        { id: "u26boss", title: "World Traveller", type: "boss" }
       ]
     },
     {
