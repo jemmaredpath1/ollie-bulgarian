@@ -353,7 +353,20 @@ window.CONTENT = {
     pillow:     { bg: "възглавница", en: "pillow", pic: "☁️", say: "vuhz-GLAV-ni-tsa", hint: "From глава (head) – where you put your head!" },
     shower:     { bg: "душ", en: "shower", pic: "🚿", say: "doosh" },
     view:       { bg: "гледка", en: "view", pic: "🖼️", say: "GLED-ka", hint: "From гледам (I watch) – something to look at." },
-    quiet:      { bg: "тихо", en: "quiet", pic: "🤫", say: "TEE-ho", hint: "Shh – тихо!" }
+    quiet:      { bg: "тихо", en: "quiet", pic: "🤫", say: "TEE-ho", hint: "Shh – тихо!" },
+
+    // ---------- Unit 28: Weather & seasons ----------
+    sun:        { bg: "слънце", en: "sun", pic: "☀️", say: "SLUHN-tse", hint: "Remember слънчеви очила (sunglasses)?" },
+    rain:       { bg: "дъжд", en: "rain", pic: "🌧️", say: "duhzhd" },
+    snow:       { bg: "сняг", en: "snow", pic: "❄️", say: "snyag", hint: "Sounds a bit like 'snow'!" },
+    wind:       { bg: "вятър", en: "wind", pic: "🌬️", say: "VYA-tuhr" },
+    cloud:      { bg: "облак", en: "cloud", pic: "🌥️", say: "OB-lak" },
+    spring:     { bg: "пролет", en: "spring", pic: "🌷", say: "PRO-let" },
+    summer:     { bg: "лято", en: "summer", pic: "🍉", say: "LYA-to" },
+    autumn:     { bg: "есен", en: "autumn", pic: "🍂", say: "E-sen" },
+    winter:     { bg: "зима", en: "winter", pic: "⛄", say: "ZEE-ma" },
+    hot:        { bg: "горещо", en: "hot", pic: "🥵", say: "go-RESH-to", hint: "Remember горещ шоколад (hot chocolate)?" },
+    cold:       { bg: "студено", en: "cold", pic: "🥶", say: "stoo-DE-no" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -619,7 +632,17 @@ window.CONTENT = {
     s_havebooking:    { bg: "Имаме резервация.", en: "We have a booking.", gap: "резервация" },
     s_morepillow:     { bg: "Може ли още една възглавница?", en: "Could we have another pillow?", gap: "възглавница" },
     s_seaview:        { bg: "Стаята има гледка към морето.", en: "The room has a view of the sea.", gap: "гледка" },
-    s_wherelift:      { bg: "Къде е асансьорът?", en: "Where is the lift?", gap: "асансьорът" }
+    s_wherelift:      { bg: "Къде е асансьорът?", en: "Where is the lift?", gap: "асансьорът" },
+
+    // Unit 28
+    t_rainingtoday:   { bg: "Днес вали.", en: "It's raining today." },
+    t_lotsofsnow:     { bg: "Има много сняг!", en: "There's lots of snow!" },
+    t_coldwinter:     { bg: "Зимата е студена.", en: "Winter is cold." },
+    t_hotsummer:      { bg: "През лятото е горещо.", en: "It's hot in summer." },
+    s_sunnywarm:      { bg: "Днес е слънчево и топло.", en: "Today it's sunny and warm.", gap: "слънчево" },
+    s_willrain:       { bg: "Утре ще вали дъжд.", en: "Tomorrow it will rain.", gap: "ще" },
+    s_snowman:        { bg: "През зимата правим снежен човек.", en: "In winter we make a snowman.", gap: "зимата" },
+    s_autumnleaves:   { bg: "През есента листата са жълти.", en: "In autumn the leaves are yellow.", gap: "есента" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -659,6 +682,8 @@ window.CONTENT = {
     tip_we: { title: "We're going!", text: "For family plans, use the 'we' form: отиваме – we're going · пътуваме – we travel · летим – we fly. You can leave out ние: Отиваме на море!" },
     tip_have: { title: "имам – to have", text: "имам – I have · имаш – you have · има – he / she has · имаме – we have · имате – you have (more than one) · имат – they have" },
     tip_mayi: { title: "Asking politely", text: "Може ли…? is the polite way to ask for something: Може ли още една възглавница? (Could we have another pillow?) · Може ли ключа? (Can I have the key?) Add моля to be extra polite." },
+    tip_weather: { title: "No 'it' needed", text: "Weather sentences don't need 'it': Вали. – It's raining. · Вали сняг. – It's snowing. · Духа вятър. – It's windy. · Слънчево е. – It's sunny. · Студено е. – It's cold." },
+    tip_seasons: { title: "In summer, in winter…", text: "Use през + the season with 'the': през пролетта (in spring) · през лятото (in summer) · през есента (in autumn) · през зимата (in winter). Sneak peek: Утре ще вали. – Tomorrow it will rain. (ще = will)" },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -884,7 +909,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Sections 2–5: Units 15–27 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Sections 2–5: Units 15–28 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -1085,14 +1110,14 @@ window.CONTENT = {
       section: "s3",
       description: "Describe the weather and the seasons.",
       objectives: ["Describe today's weather", "Name the seasons", "Say what you do in each season"],
-      vocab: "Weather, seasons, months",
-      grammar: ["Sentences with no 'it': вали (it's raining), студено е (it's cold)", "Preview of ще: утре ще вали"],
-      sample: { words: [["дъжд", "rain"], ["сняг", "snow"], ["лято", "summer"]], sentences: [["Днес е горещо.", "It's hot today."], ["Вали сняг!", "It's snowing!"]] },
+      vocab: "Weather and seasons",
+      grammar: ["Sentences with no 'it': вали, студено е", "през + season: през лятото", "Preview of ще: утре ще вали"],
+      fact: "Bulgaria has four proper seasons – hot summers on the Black Sea and snowy mountain winters. Musala (2,925 m) is the highest peak in the whole Balkans!",
       lessons: [
-        { id: "u28l1", title: "What's the weather?", type: "words", status: "planned", plan: "Introduce: слънце, дъжд, сняг, вятър, лято, зима" },
-        { id: "u28l2", title: "Seasons", type: "words", status: "planned", plan: "Practise: Днес е горещо." },
-        { id: "u28l3", title: "Weather report", type: "sentences", status: "planned", plan: "Apply: give a weather report" },
-        { id: "u28boss", title: "Weather review", type: "boss", status: "planned", plan: "Review: clothes (Unit 17)" }
+        { id: "u28l1", title: "What's the weather?", type: "words", words: ["sun", "rain", "snow", "wind", "cloud"], sentences: ["t_rainingtoday", "t_lotsofsnow"], tips: ["tip_weather"] },
+        { id: "u28l2", title: "Seasons", type: "words", words: ["spring", "summer", "autumn", "winter", "hot", "cold"], sentences: ["t_coldwinter", "t_hotsummer"], tips: ["tip_seasons"] },
+        { id: "u28l3", title: "Weather report", type: "sentences", sentences: ["s_sunnywarm", "s_willrain", "s_snowman", "s_autumnleaves"] },
+        { id: "u28boss", title: "Weather Wizard", type: "boss" }
       ]
     },
     {
