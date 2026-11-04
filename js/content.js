@@ -269,7 +269,19 @@ window.CONTENT = {
     play:       { bg: "играя", en: "I play", pic: "🎲", say: "ig-RA-ya", hint: "A player is an играч – and he играе!" },
     watch:      { bg: "гледам", en: "I watch", pic: "📺", say: "GLE-dam", hint: "GLE-dam – I GLance at the TV!" },
     dinner:     { bg: "вечерям", en: "I have dinner", pic: "🍝", say: "ve-CHE-ryam", hint: "From вечер (evening) – the evening meal." },
-    gotobed:    { bg: "лягам си", en: "I go to bed", pic: "😴", say: "LYA-gam si" }
+    gotobed:    { bg: "лягам си", en: "I go to bed", pic: "😴", say: "LYA-gam si" },
+
+    // ---------- Unit 21: Likes & hobbies ----------
+    draw:       { bg: "рисувам", en: "I draw", pic: "🎨", say: "ri-SOO-vam" },
+    read:       { bg: "чета", en: "I read", pic: "📖", say: "che-TA" },
+    music:      { bg: "музика", en: "music", pic: "🎵", say: "MOO-zi-ka", hint: "Just like 'music'!" },
+    bike:       { bg: "колело", en: "bike", pic: "🚲", say: "ko-le-LO", hint: "колело also means 'wheel' – a bike is all about wheels!" },
+    game:       { bg: "игра", en: "game", pic: "🕹️", say: "ig-RA", hint: "играя = I play, игра = a game." },
+    dance:      { bg: "танцувам", en: "I dance", pic: "💃", say: "tan-TSOO-vam", hint: "Sounds like 'dance'!" },
+    sing:       { bg: "пея", en: "I sing", pic: "🎤", say: "PE-ya" },
+    hobby:      { bg: "хоби", en: "hobby", pic: "🎯", say: "HO-bi", hint: "Same as 'hobby'!" },
+    fun:        { bg: "забавно", en: "fun", pic: "🤪", say: "za-BAV-no" },
+    boring:     { bg: "скучно", en: "boring", pic: "🥱", say: "SKOOCH-no" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -465,7 +477,17 @@ window.CONTENT = {
     s_getupearly:     { bg: "Ставаш ли рано?", en: "Do you get up early?", gap: "Ставаш" },
     s_brotherwatches: { bg: "Брат ми гледа телевизия.", en: "My brother watches TV.", gap: "гледа" },
     s_dinnerseven:    { bg: "Ние вечеряме в седем.", en: "We have dinner at seven.", gap: "вечеряме" },
-    s_dogsleeps:      { bg: "Кучето спи в моята стая.", en: "The dog sleeps in my room.", gap: "спи" }
+    s_dogsleeps:      { bg: "Кучето спи в моята стая.", en: "The dog sleeps in my room.", gap: "спи" },
+
+    // Unit 21
+    t_lovereading:    { bg: "Обичам да чета.", en: "I love reading." },
+    t_bikepark:       { bg: "Карам колело в парка.", en: "I ride my bike in the park." },
+    t_sistersings:    { bg: "Сестра ми обича да пее.", en: "My sister loves singing." },
+    t_swimfun:        { bg: "Плуването е забавно!", en: "Swimming is fun!" },
+    s_likedoing:      { bg: "Какво обичаш да правиш?", en: "What do you like doing?", gap: "правиш" },
+    s_playminecraft:  { bg: "Обичам да играя Майнкрафт.", en: "I love playing Minecraft.", gap: "играя" },
+    s_nodance:        { bg: "Не обичам да танцувам.", en: "I don't like dancing.", gap: "танцувам" },
+    s_favhobby:       { bg: "Футболът е моето любимо хоби.", en: "Football is my favourite hobby.", gap: "любимо", note: "Check: natural? (любимо agrees with хоби, which is neuter)" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -491,6 +513,8 @@ window.CONTENT = {
     tip_present: { title: "Verbs change for each person", text: "аз ставам – I get up · ти ставаш – you get up · той / тя става – he / she gets up · ние ставаме – we get up · вие ставате – you get up (more than one) · те стават – they get up" },
     tip_se: { title: "Verbs with се and си", text: "Some verbs come with се or си, a bit like 'myself': мия се (I wash), обличам се (I get dressed), лягам си (I go to bed). се / си never starts a sentence: Мия се. or Аз се мия." },
     tip_play: { title: "Another verb pattern", text: "аз играя · ти играеш · той / тя играе · ние играем · вие играете · те играят. And one more: аз уча · ти учиш · той учи · ние учим · вие учите · те учат." },
+    tip_love_doing: { title: "I love doing…", text: "To say you love or like DOING something, use обичам да + verb: Обичам да чета (I love reading) · Обичам да играя (I love playing) · Не обичам да танцувам (I don't like dancing)." },
+    tip_fun: { title: "Is it fun?", text: "Забавно е! – It's fun! · Скучно е. – It's boring. · Харесва ми да рисувам. – I like drawing. · Кое е твоето любимо хоби? – What's your favourite hobby?" },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -716,7 +740,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Section 2 onwards – Units 15–20 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Section 2 onwards – Units 15–21 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -813,13 +837,13 @@ window.CONTENT = {
       description: "Talk about what you like doing.",
       objectives: ["Say what you like and don't like", "Talk about your hobbies", "Ask a friend what they like doing"],
       vocab: "Hobbies and free time",
-      grammar: ["харесва ми / не ми харесва", "обичам да + verb"],
-      sample: { words: [["рисувам", "I draw"], ["чета", "I read"], ["музика", "music"]], sentences: [["Обичам да играя Майнкрафт.", "I love playing Minecraft."], ["Какво обичаш да правиш?", "What do you like doing?"]] },
+      grammar: ["обичам да + verb: обичам да чета", "харесва ми / не ми харесва", "Neuter adjectives: забавно, скучно, любимо хоби"],
+      fact: "Bulgaria's famous folk dance is the хоро – everyone holds hands in a long line and dances together, especially at weddings and festivals!",
       lessons: [
-        { id: "u21l1", title: "Hobbies", type: "words", status: "planned", plan: "Introduce: игра, рисувам, чета, музика, колело" },
-        { id: "u21l2", title: "I like it!", type: "words", status: "planned", plan: "Practise: Обичам да играя Майнкрафт." },
-        { id: "u21l3", title: "Free time chat", type: "sentences", status: "planned", plan: "Apply: interview a friend about hobbies" },
-        { id: "u21boss", title: "Hobbies review", type: "boss", status: "planned", plan: "Review: football and swimming (Units 4 and 7)" }
+        { id: "u21l1", title: "Hobbies", type: "words", words: ["draw", "read", "music", "bike", "game"], sentences: ["t_lovereading", "t_bikepark"], tips: ["tip_love_doing"] },
+        { id: "u21l2", title: "I like it!", type: "words", words: ["dance", "sing", "hobby", "fun", "boring"], sentences: ["t_sistersings", "t_swimfun"], tips: ["tip_fun"] },
+        { id: "u21l3", title: "Free time chat", type: "sentences", sentences: ["s_likedoing", "s_playminecraft", "s_nodance", "s_favhobby"] },
+        { id: "u21boss", title: "Hobby Hero", type: "boss" }
       ]
     },
     {
