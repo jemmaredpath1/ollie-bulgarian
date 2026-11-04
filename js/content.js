@@ -378,7 +378,19 @@ window.CONTENT = {
     maybe:      { bg: "може би", en: "maybe", pic: "❔", say: "MO-zhe bee", hint: "може (can) + би (would) = maybe!" },
     sorry:      { bg: "съжалявам", en: "sorry", pic: "😔", say: "suh-zha-LYA-vam", hint: "Say it with a sad face: suh-zha-LYA-vam." },
     busy:       { bg: "зает", en: "busy", pic: "🗂️", say: "za-ET" },
-    great:      { bg: "страхотно", en: "great!", pic: "🤩", say: "stra-HOT-no" }
+    great:      { bg: "страхотно", en: "great!", pic: "🤩", say: "stra-HOT-no" },
+
+    // ---------- Unit 30: Asking for help ----------
+    help:       { bg: "помощ", en: "help", pic: "🛟", say: "PO-mosht" },
+    policecar:  { bg: "полиция", en: "the police", pic: "🚓", say: "po-LEE-tsi-ya", hint: "Like 'police'!" },
+    problem:    { bg: "проблем", en: "problem", pic: "⚠️", say: "prob-LEM", hint: "Same as 'problem'!" },
+    lost:       { bg: "изгубен", en: "lost", pic: "😵‍💫", say: "iz-GOO-ben" },
+    careful:    { bg: "внимание", en: "careful! / attention", pic: "🚧", say: "vni-MA-ni-e" },
+    ilost:      { bg: "изгубих", en: "I lost", pic: "🫥", say: "iz-GOO-bih", hint: "изгубих = I lost, изгубен = lost." },
+    ifound:     { bg: "намерих", en: "I found", pic: "🔎", say: "na-ME-rih", hint: "Remember 'Намерих диамант!' from Build & Mine?" },
+    helpme:     { bg: "помогнете ми", en: "help me (polite)", pic: "🆘", say: "po-mog-NE-te mee" },
+    scared:     { bg: "страх ме е", en: "I'm scared", pic: "😨", say: "STRAH me e", hint: "Word for word: 'fear is me'." },
+    call:       { bg: "обаждам се", en: "I call (on the phone)", pic: "☎️", say: "o-BAZH-dam se" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -664,7 +676,17 @@ window.CONTENT = {
     s_letspark:       { bg: "Хайде да отидем в парка!", en: "Let's go to the park!", gap: "отидем" },
     s_attime:         { bg: "В колко часа?", en: "At what time?", gap: "колко" },
     s_seeyoufive:     { bg: "Ще се видим в пет.", en: "See you at five.", gap: "видим" },
-    s_playtogether:   { bg: "Ще играем футбол заедно.", en: "We'll play football together.", gap: "заедно" }
+    s_playtogether:   { bg: "Ще играем футбол заедно.", en: "We'll play football together.", gap: "заедно" },
+
+    // Unit 30
+    t_dogranaway:     { bg: "Помощ! Кучето избяга!", en: "Help! The dog ran away!" },
+    t_imlost:         { bg: "Изгубен съм.", en: "I'm lost." },
+    t_foundkey:       { bg: "Намерих ключа!", en: "I found the key!" },
+    t_scareddark:     { bg: "Страх ме е от тъмното.", en: "I'm scared of the dark." },
+    s_canyouhelp:     { bg: "Можете ли да ми помогнете?", en: "Can you help me?", gap: "помогнете" },
+    s_lostphone:      { bg: "Изгубих си телефона.", en: "I've lost my phone.", gap: "телефона" },
+    s_callpolice:     { bg: "Обадете се на полицията!", en: "Call the police!", gap: "полицията" },
+    s_mumsnumber:     { bg: "Това е номерът на мама.", en: "This is mum's number.", gap: "номерът" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -708,6 +730,8 @@ window.CONTENT = {
     tip_seasons: { title: "In summer, in winter…", text: "Use през + the season with 'the': през пролетта (in spring) · през лятото (in summer) · през есента (in autumn) · през зимата (in winter). Sneak peek: Утре ще вали. – Tomorrow it will rain. (ще = will)" },
     tip_lets: { title: "Let's…!", text: "Хайде да + the 'we' form of a verb = Let's…! · Хайде да играем! – Let's play! · Хайде да отидем в парка! – Let's go to the park!" },
     tip_answers: { title: "Yes, no, maybe", text: "Yes: Да, разбира се! · Добре! · Страхотно! No, politely: Съжалявам, зает съм. (a boy) / заета съм (a girl). Not sure: Може би." },
+    tip_help: { title: "When you need help", text: "Помощ! – Help! · Внимание! – Careful! · Извинете, имам проблем. – Excuse me, I have a problem. · Изгубен съм. (a boy) / Изгубена съм. (a girl) – I'm lost." },
+    tip_pastpeek: { title: "A peek at the past", text: "изгубих – I lost · намерих – I found · Изгубих си телефона. – I've lost my phone. Short words for 'me' again: Помогнете ми! – Help me! · Обадете ми се. – Call me." },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -933,7 +957,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Sections 2–5: Units 15–29 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Sections 2–5: Units 15–30 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -1165,13 +1189,13 @@ window.CONTENT = {
       description: "Ask for help and explain a problem.",
       objectives: ["Ask for help politely", "Say what the problem is", "Understand simple instructions"],
       vocab: "Help and everyday problems",
-      grammar: ["Imperative + short pronoun: помогнете ми", "Past preview: изгубих (I lost)"],
-      sample: { words: [["помощ", "help"], ["изгубен", "lost"], ["извинете", "excuse me"]], sentences: [["Можете ли да ми помогнете?", "Can you help me?"], ["Изгубих си телефона.", "I've lost my phone."]] },
+      grammar: ["Polite commands + short pronoun: помогнете ми", "Past preview: изгубих, намерих", "Agreement: изгубен / изгубена"],
+      fact: "In Bulgaria, like everywhere in Europe, you can call 112 in an emergency – for the police, firefighters or an ambulance.",
       lessons: [
-        { id: "u30l1", title: "Help!", type: "words", status: "planned", plan: "Introduce: помощ, изгубен, полиция, проблем, извинете" },
-        { id: "u30l2", title: "What's wrong?", type: "words", status: "planned", plan: "Practise: Можете ли да ми помогнете?" },
-        { id: "u30l3", title: "Lost!", type: "sentences", status: "planned", plan: "Apply: you've lost your phone in town" },
-        { id: "u30boss", title: "Help review", type: "boss", status: "planned", plan: "Review: directions (Unit 24)" }
+        { id: "u30l1", title: "Help!", type: "words", words: ["help", "policecar", "problem", "lost", "careful"], sentences: ["t_dogranaway", "t_imlost"], tips: ["tip_help"] },
+        { id: "u30l2", title: "What's wrong?", type: "words", words: ["ilost", "ifound", "helpme", "scared", "call"], sentences: ["t_foundkey", "t_scareddark"], tips: ["tip_pastpeek"] },
+        { id: "u30l3", title: "Lost!", type: "sentences", sentences: ["s_canyouhelp", "s_lostphone", "s_callpolice", "s_mumsnumber"] },
+        { id: "u30boss", title: "Problem Solver", type: "boss" }
       ]
     },
     {
