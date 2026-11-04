@@ -746,7 +746,12 @@ window.CONTENT = {
   units: [
     {
       id: "u1", title: "Hello!", emoji: "👋", color: "green",
-      fact: "In Bulgaria, people NOD their head to say no and SHAKE it to say yes – the opposite of England!",
+      facts: [
+        "In Bulgaria, people NOD their head to say no and SHAKE it to say yes – the opposite of England!",
+        "Bulgarian is written in the Cyrillic alphabet, which was created in Bulgaria over 1,000 years ago.",
+        "Every year on 24 May, Bulgaria celebrates its alphabet and the brothers Saints Cyril and Methodius.",
+        "Bulgarians often greet friends with 'Здрасти!', a short and friendly way to say 'Hi!'"
+      ],
       section: "s1",
       description: "Say hello, goodbye, please and thank you.",
       objectives: ["Greet people at any time of day", "Say please, thank you, yes and no", "Ask 'How are you?' and answer"],
@@ -761,7 +766,12 @@ window.CONTENT = {
     },
     {
       id: "u2", title: "My Dog", emoji: "🐶", color: "brown",
-      fact: "Шаро (Sharo) is a classic Bulgarian name for a dog – a bit like 'Rover' in English.",
+      facts: [
+        "Шаро (Sharo) is a classic Bulgarian name for a dog – a bit like 'Rover' in English.",
+        "The Karakachan dog is an ancient Bulgarian breed of big, fluffy sheepdog that protects sheep from wolves and bears.",
+        "Bulgarian makes things small and cute with a 'little' ending: куче becomes кученце (puppy), like 'dog' and 'doggy'.",
+        "Bulgarians say a dog is a person's best friend too: Кучето е най-добрият приятел на човека."
+      ],
       section: "s1",
       description: "Talk about your dog and what it does.",
       objectives: ["Name a dog's body parts and toys", "Say what a dog does", "Say 'I have a dog'"],
@@ -776,7 +786,12 @@ window.CONTENT = {
     },
     {
       id: "u3", title: "Numbers", emoji: "🔢", color: "blue",
-      fact: "Bulgarians often shorten 'двадесет' (twenty) to 'двайсет' when they talk.",
+      facts: [
+        "Bulgarians often shorten 'двадесет' (twenty) to 'двайсет' when they talk.",
+        "In Bulgarian schools the best mark is 6, not 10! A 2 is a fail and a 6 means excellent.",
+        "Bulgaria's phone code is +359, so Bulgarian phone numbers from abroad start with those digits.",
+        "Bulgaria is divided into 28 regions, called области."
+      ],
       section: "s1",
       description: "Count from 0 to 10 and say football scores.",
       objectives: ["Count from 0 to 10", "Say a football score", "Say how many things you have"],
@@ -791,7 +806,12 @@ window.CONTENT = {
     },
     {
       id: "u4", title: "Football", emoji: "⚽", color: "red",
-      fact: "Bulgarian striker Hristo Stoichkov won the Ballon d'Or in 1994 – the award for the best footballer in the world!",
+      facts: [
+        "Bulgarian striker Hristo Stoichkov won the Ballon d'Or in 1994 – the award for the best footballer in the world!",
+        "At the 1994 World Cup in the USA, Bulgaria knocked out Germany and finished fourth in the world!",
+        "Dimitar Berbatov, a Bulgarian striker, played for Manchester United and Tottenham.",
+        "Bulgaria's biggest football rivalry is between two clubs from Sofia: Levski and CSKA."
+      ],
       section: "s1",
       description: "Talk about football, goals and teams.",
       objectives: ["Name things on a football pitch", "Say what you do: I kick, I win", "Cheer on your team"],
@@ -806,7 +826,12 @@ window.CONTENT = {
     },
     {
       id: "u5", title: "My Family", emoji: "👨‍👩‍👦", color: "pink",
-      fact: "In Bulgaria, lots of children spend their summer holidays with баба and дядо in the village!",
+      facts: [
+        "In Bulgaria, lots of children spend their summer holidays with баба and дядо in the village!",
+        "Bulgarian surnames change for girls: a boy might be Петров and his sister Петрова.",
+        "A Bulgarian's middle name usually comes from their dad's first name. If dad is Иван, his children are Иванов or Иванова.",
+        "Bulgarian has two words for uncle: чичо is your dad's brother and вуйчо is your mum's brother."
+      ],
       section: "s1",
       description: "Introduce your family and friends.",
       objectives: ["Name family members", "Say 'This is my…'", "Say who you love"],
@@ -821,7 +846,12 @@ window.CONTENT = {
     },
     {
       id: "u6", title: "Colours", emoji: "🎨", color: "purple",
-      fact: "The Bulgarian flag is бяло, зелено и червено – white, green and red! Colour words change their ending to match the thing: червен отбор, червена топка.",
+      facts: [
+        "The Bulgarian flag is бяло, зелено и червено – white, green and red! Colour words change their ending to match the thing: червен отбор, червена топка.",
+        "On the Bulgarian flag, white stands for peace, green for the land and red for courage.",
+        "Red and white are the colours of the мартеница, the little woollen decorations Bulgarians wear in March for good health.",
+        "Bulgaria's Rose Valley grows pink roses for rose oil, and Bulgaria makes a huge share of the world's rose oil."
+      ],
       section: "s1",
       description: "Name colours and describe things.",
       objectives: ["Name 10 colours", "Describe a team kit", "Notice how colour words change their ending"],
@@ -836,7 +866,12 @@ window.CONTENT = {
     },
     {
       id: "u7", title: "Swimming", emoji: "🏊", color: "teal",
-      fact: "Bulgaria has a long coast on the Black Sea – Черно море! Famous beaches include Sunny Beach and Golden Sands.",
+      facts: [
+        "Bulgaria has a long coast on the Black Sea – Черно море! Famous beaches include Sunny Beach and Golden Sands.",
+        "The Black Sea is less salty than most seas, because big rivers like the Danube flow into it.",
+        "Bulgaria has hundreds of natural hot springs, and some towns have warm outdoor pools you can swim in all year round.",
+        "In 2007, Bulgarian swimmer Petar Stoychev set a record for the fastest swim across the English Channel."
+      ],
       section: "s1",
       description: "Talk about swimming, the pool and the sea.",
       objectives: ["Talk about the pool and the beach", "Say how fast you swim", "Say what you do in the water"],
@@ -851,7 +886,12 @@ window.CONTENT = {
     },
     {
       id: "u8", title: "Build & Mine", emoji: "⛏️", color: "stone",
-      fact: "Bulgaria has thousands of caves! In Magura Cave there are paintings made by people thousands of years ago.",
+      facts: [
+        "Bulgaria has thousands of caves! In Magura Cave there are paintings made by people thousands of years ago.",
+        "Long ago the Thracians lived in Bulgaria and made amazing gold treasure. The Panagyurishte Treasure weighs over 6 kg!",
+        "Some of the oldest gold jewellery in the world was found near Varna, in graves more than 6,000 years old.",
+        "Rila Monastery, high in the mountains, has thick stone walls like a fortress."
+      ],
       section: "s1",
       description: "Build, dig and explore with Minecraft-style words.",
       objectives: ["Name blocks, tools and creatures", "Say what you build and dig", "Describe a cave adventure"],
@@ -866,7 +906,12 @@ window.CONTENT = {
     },
     {
       id: "u9", title: "Animals", emoji: "🦁", color: "green",
-      fact: "Bulgarian dogs say 'бау-бау', cats say 'мяу' and roosters say 'кукуригу'!",
+      facts: [
+        "Bulgarian dogs say 'бау-бау', cats say 'мяу' and roosters say 'кукуригу'!",
+        "Brown bears, wolves and golden jackals all live in Bulgaria's forests and mountains.",
+        "When Bulgarians see their first stork in spring, tradition says they take off their мартеница and tie it to a tree.",
+        "A huge bird migration route passes over Bulgaria's coast, and hundreds of thousands of storks and eagles fly over every year."
+      ],
       section: "s1",
       description: "Name animals on the farm and in the wild.",
       objectives: ["Name 10 animals", "Say what animals do", "Describe an animal"],
@@ -881,7 +926,12 @@ window.CONTENT = {
     },
     {
       id: "u10", title: "Food & Drink", emoji: "🍎", color: "orange",
-      fact: "Bulgarian yoghurt is famous all over the world. A helpful bacterium in it is even named after Bulgaria: Lactobacillus bulgaricus!",
+      facts: [
+        "Bulgarian yoghurt is famous all over the world. A helpful bacterium in it is even named after Bulgaria: Lactobacillus bulgaricus!",
+        "On New Year's Eve, Bulgarians hide little lucky charms inside a banitsa. Whoever finds one gets that luck!",
+        "Шопска салата is Bulgaria's famous salad: tomatoes, cucumber, peppers and grated white cheese. Its colours match the flag!",
+        "On hot summer days, Bulgarians love таратор, a cold soup made of yoghurt, cucumber and dill."
+      ],
       section: "s1",
       description: "Ask for your favourite food and drink.",
       objectives: ["Name snacks and favourite foods", "Ask for food politely", "Say something is tasty"],
@@ -903,7 +953,12 @@ window.CONTENT = {
       objectives: ["Say your name and age", "Say where you're from and where you live", "Ask a new friend their name and age"],
       vocab: "Introducing yourself",
       grammar: ["съм with all the pronouns: аз съм, ти си, той е…", "казвам се – 'I am called'"],
-      fact: "Bulgarians celebrate 'name days' (имен ден): a party on the day of the saint who shares your name!",
+      facts: [
+        "Bulgarians celebrate 'name days' (имен ден): a party on the day of the saint who shares your name!",
+        "About 8 million people around the world speak Bulgarian.",
+        "Иван and Мария are among the most common names in Bulgaria.",
+        "Bulgarians say their age as 'I am on ten years': Аз съм на десет години."
+      ],
       lessons: [
         { id: "u11l1", title: "My name is…", type: "words", words: ["callme", "boy", "girl", "youare", "years"], sentences: ["t_myname", "t_boy"], tips: ["tip_sam"] },
         { id: "u11l2", title: "Where I'm from", type: "words", words: ["from", "england", "bulgaria", "live", "speak"], sentences: ["t_fromeng", "t_speakbg"], tips: ["tip_reading"] },
@@ -918,7 +973,12 @@ window.CONTENT = {
       objectives: ["Ask questions with кой, какво, къде, кога and защо", "Say 'I don't know' and 'I don't understand'", "Ask yes/no questions with ли"],
       vocab: "Question words and short answers",
       grammar: ["Questions and negation: не знам", "Yes/no questions with ли: Имаш ли…?"],
-      fact: "Careful with nodding in Bulgaria – a nod can mean 'no'! If you're not sure, say да or не out loud.",
+      facts: [
+        "Careful with nodding in Bulgaria – a nod can mean 'no'! If you're not sure, say да or не out loud.",
+        "To be polite to grown-ups they don't know, Bulgarians say вие (the 'you' for more than one person) instead of ти.",
+        "Most Bulgarian question words start with к (кой, какво, къде, кога, колко), a bit like 'wh' in English.",
+        "If a Bulgarian didn't hear you, they might say 'Моля?', which here means 'Pardon?'"
+      ],
       lessons: [
         { id: "u12l1", title: "Who, what, where?", type: "words", words: ["who", "what", "where", "when", "why"], sentences: ["t_wheredog", "t_whohe"], tips: ["tip_questions"] },
         { id: "u12l2", title: "I don't know!", type: "words", words: ["howmany", "this", "know", "understand", "youhave"], sentences: ["t_whatthis", "t_dontknow"], tips: ["tip_ne_li"] },
@@ -933,7 +993,12 @@ window.CONTENT = {
       objectives: ["Name 10 everyday things", "Say where something is (in, on, under)", "Tell masculine, feminine and neuter words apart, and add 'the'"],
       vocab: "School bag and bedroom objects",
       grammar: ["Noun gender: masculine, feminine, neuter", "'The' on the end: книгата, леглото, столът", "в, на, под – in, on, under"],
-      fact: "In Bulgaria, the school year starts on 15 September – and children bring flowers for their teacher!",
+      facts: [
+        "In Bulgaria, the school year starts on 15 September – and children bring flowers for their teacher!",
+        "Bulgarian has no word for 'a', but it sticks 'the' onto the end of words: книга, книгата.",
+        "In Bulgarian primary schools, children usually keep the same class teacher for their first four years.",
+        "Телефон sounds almost the same in lots of languages, because it was made from Greek words meaning 'far' and 'sound'."
+      ],
       lessons: [
         { id: "u13l1", title: "In my bag", type: "words", words: ["bag", "book", "pencil", "phone", "clock"], sentences: ["t_myphone", "t_bookbag"], tips: ["tip_gender"] },
         { id: "u13l2", title: "In my room", type: "words", words: ["chair", "door", "window", "bed", "key"], sentences: ["t_keychair", "t_closedoor"], tips: ["tip_article"] },
@@ -948,7 +1013,12 @@ window.CONTENT = {
       objectives: ["Count from 11 to 20", "Say how old people are", "Do simple sums out loud"],
       vocab: "Numbers 11–20",
       grammar: ["How 11–19 are built: един-на-десет", "Counting form: два молива"],
-      fact: "Bulgaria started using the euro in January 2026. Before that, money was counted in лева and стотинки.",
+      facts: [
+        "Bulgaria started using the euro in January 2026. Before that, money was counted in лева and стотинки.",
+        "A football team has единадесет (eleven) players on the pitch.",
+        "Bulgaria joined the European Union in 2007.",
+        "The Bulgarian alphabet has 30 letters, and you already know them all!"
+      ],
       lessons: [
         { id: "u14l1", title: "11 to 15", type: "words", words: ["n11", "n12", "n13", "n14", "n15"], sentences: ["t_eleven", "t_fifteendogs"], tips: ["tip_teens"] },
         { id: "u14l2", title: "16 to 20", type: "words", words: ["n16", "n17", "n18", "n19", "n20"], sentences: ["t_twentymin", "t_points"], tips: ["tip_counting"] },
@@ -965,7 +1035,12 @@ window.CONTENT = {
       objectives: ["Order a drink or a snack politely", "Ask 'Can I have…?'", "Say what you want to eat or drink"],
       vocab: "Drinks, snacks, polite requests",
       grammar: ["Може ли…? – Can I have…?", "един / една / едно – 'one' matches the word", "No 'to': искам да пия (I want to drink)"],
-      fact: "When Bulgarians hand you something, they often say 'Заповядайте!' – it means 'Here you are!' or 'Help yourself!'",
+      facts: [
+        "When Bulgarians hand you something, they often say 'Заповядайте!' – it means 'Here you are!' or 'Help yourself!'",
+        "Bulgarians love айрян, a cold drink of yoghurt mixed with water and a pinch of salt.",
+        "Боза is a thick, sweet Bulgarian drink made from grain. Lots of people have it with banitsa for breakfast.",
+        "Мурсалски чай is a herbal tea from the Rhodope mountains that Bulgarians drink to stay healthy."
+      ],
       lessons: [
         { id: "u15l1", title: "Drinks & snacks", type: "words", words: ["juice", "tea", "hotchoc", "cake", "sandwich"], sentences: ["t_onejuice", "t_tastycake"], tips: ["tip_one"] },
         { id: "u15l2", title: "Can I have…?", type: "words", words: ["canihave", "bill", "menu", "waiter", "drink"], sentences: ["t_menuplease", "t_drinktea"], tips: ["tip_da"] },
@@ -980,7 +1055,12 @@ window.CONTENT = {
       objectives: ["Name rooms and furniture", "Say where things are with в, на, под, до", "Describe your bedroom"],
       vocab: "Rooms and furniture",
       grammar: ["Prepositions: в, на, под, над, до, зад, между", "'The' revisited: стаята, кухнята", "'My' agreement: моят / моята / моето / моите"],
-      fact: "Lots of Bulgarian families have a вила – a little holiday house in the countryside or the mountains for weekends.",
+      facts: [
+        "Lots of Bulgarian families have a вила – a little holiday house in the countryside or the mountains for weekends.",
+        "Many Bulgarians live in tall blocks of flats, called блокове.",
+        "In Bulgarian villages, families used to hang strings of red peppers to dry in the sun outside their houses.",
+        "Plovdiv's Old Town has colourful houses from the 1800s, with upper floors that stick out over the street."
+      ],
       lessons: [
         { id: "u16l1", title: "Rooms", type: "words", words: ["room", "kitchen", "bathroom", "livingroom", "garden"], sentences: ["t_mumkitchen", "t_smallroom"], tips: ["tip_my"] },
         { id: "u16l2", title: "Where is it?", type: "words", words: ["under", "above", "nextto", "behind", "between"], sentences: ["t_catunder", "t_lampabove"], tips: ["tip_where"] },
@@ -995,7 +1075,12 @@ window.CONTENT = {
       objectives: ["Name everyday clothes", "Describe clothes by colour", "Say what you like and ask the price"],
       vocab: "Clothes and shops",
       grammar: ["Adjective agreement revisited: синя шапка, синьо яке, сини обувки", "харесва ми – 'it pleases me'", "Short pronouns: го, я, ги (it, them)"],
-      fact: "Bulgarian football fans call Levski Sofia 'сините' (the blues) and CSKA Sofia 'червените' (the reds) – after the colour of their kits!",
+      facts: [
+        "Bulgarian football fans call Levski Sofia 'сините' (the blues) and CSKA Sofia 'червените' (the reds) – after the colour of their kits!",
+        "Traditional Bulgarian folk costumes are covered in bright embroidery, with lots of red.",
+        "In Bulgaria you usually take your shoes off in someone's home, and they might give you slippers called пантофи.",
+        "Кукери wear huge furry costumes and big bells to scare away bad spirits in winter."
+      ],
       lessons: [
         { id: "u17l1", title: "Clothes", type: "words", words: ["tshirt", "shoes", "jacket", "hat", "trousers"], sentences: ["t_bluehat", "t_shoesunder"], tips: ["tip_colours2"] },
         { id: "u17l2", title: "What I like", type: "words", words: ["ilike", "idontlike", "newword", "old", "size"], sentences: ["t_likejacket", "t_dontlikehat"], tips: ["tip_like"] },
@@ -1010,7 +1095,12 @@ window.CONTENT = {
       objectives: ["Count in tens up to 100", "Understand prices in euro and cents", "Pay and ask how much something costs"],
       vocab: "Numbers 30–100, money and prices",
       grammar: ["Tens with и: двадесет и едно", "Counting form revisited: два цента", "Adjective agreement: евтина тениска"],
-      fact: "Bulgarian euro coins have their own designs – one shows the Madara Rider, a horseman carved into a cliff more than 1,000 years ago!",
+      facts: [
+        "Bulgarian euro coins have their own designs – one shows the Madara Rider, a horseman carved into a cliff more than 1,000 years ago!",
+        "Before the euro, Bulgaria's money was the лев, an old word for 'lion'!",
+        "100 стотинки made 1 лев, just like 100 cents make 1 euro.",
+        "Bulgaria was founded in the year 681 and has kept the same name ever since."
+      ],
       lessons: [
         { id: "u18l1", title: "Counting to 100", type: "words", words: ["n30", "n40", "n50", "n60", "n100"], sentences: ["t_thirtyfive", "t_hundredpoints"], tips: ["tip_tens"] },
         { id: "u18l2", title: "Prices", type: "words", words: ["euro", "cent", "money", "costs", "expensive", "cheap"], sentences: ["t_fiveeuro", "t_tooexpensive"], tips: ["tip_money"] },
@@ -1025,7 +1115,12 @@ window.CONTENT = {
       objectives: ["Say the days of the week", "Tell the time on the hour and half hour", "Say when something happens"],
       vocab: "Days, times, today and tomorrow",
       grammar: ["в / във + day: в събота, във вторник", "Часът е… – It's … o'clock", "Counting form again: в пет часа"],
-      fact: "The Bulgarian week starts on Monday – and the day names hide numbers: вторник comes from 'second', четвъртък from 'four' and петък from 'five'!",
+      facts: [
+        "The Bulgarian week starts on Monday – and the day names hide numbers: вторник comes from 'second', четвъртък from 'four' and петък from 'five'!",
+        "Bulgaria is two hours ahead of the UK: when it's 12 o'clock in London, it's 2 o'clock in Sofia.",
+        "Bulgarians write the date with the day first, like 15.09.2026.",
+        "Събота (Saturday) comes from the same old word as 'Sabbath'."
+      ],
       lessons: [
         { id: "u19l1", title: "Days of the week", type: "words", words: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"], sentences: ["t_satmatch", "t_lovefriday"], tips: ["tip_days"] },
         { id: "u19l2", title: "What time is it?", type: "words", words: ["today", "tomorrow", "yesterday", "hour", "half", "week"], sentences: ["t_whattime", "t_halfthree"], tips: ["tip_time"] },
@@ -1040,7 +1135,12 @@ window.CONTENT = {
       objectives: ["Describe your morning and evening", "Say when you do things", "Say what someone else does"],
       vocab: "Daily routine verbs",
       grammar: ["Present-tense patterns: аз ставам, ти ставаш, той става…", "Verbs with се / си: мия се, лягам си", "Second pattern: играя / играеш, уча / учиш"],
-      fact: "Some Bulgarian schools have two 'shifts' – one group of children goes to school in the morning and another in the afternoon!",
+      facts: [
+        "Some Bulgarian schools have two 'shifts' – one group of children goes to school in the morning and another in the afternoon!",
+        "Bulgarian summer holidays are long. For many children they last from late June until 15 September!",
+        "Before a meal, Bulgarians say 'Добър апетит!', which means 'Enjoy your meal!'",
+        "At bedtime Bulgarians say 'Лека нощ!' (Good night) and 'Приятни сънища!' (Sweet dreams)."
+      ],
       lessons: [
         { id: "u20l1", title: "Morning", type: "words", words: ["getup", "breakfast", "wash", "getdressed", "teeth"], sentences: ["t_upatseven", "t_dressfast"], tips: ["tip_present"] },
         { id: "u20l2", title: "After school", type: "words", words: ["study", "play", "watch", "dinner", "gotobed"], sentences: ["t_afterschool", "t_bedatnine"], tips: ["tip_se"] },
@@ -1055,7 +1155,12 @@ window.CONTENT = {
       objectives: ["Say what you like and don't like", "Talk about your hobbies", "Ask a friend what they like doing"],
       vocab: "Hobbies and free time",
       grammar: ["обичам да + verb: обичам да чета", "харесва ми / не ми харесва", "Neuter adjectives: забавно, скучно, любимо хоби"],
-      fact: "Bulgaria's famous folk dance is the хоро – everyone holds hands in a long line and dances together, especially at weddings and festivals!",
+      facts: [
+        "Bulgaria's famous folk dance is the хоро – everyone holds hands in a long line and dances together, especially at weddings and festivals!",
+        "Bulgarian folk music often uses tricky rhythms with 7 or 11 beats, which makes the dances fast and fun.",
+        "A Bulgarian folk song, sung by Valya Balkanska, was sent into space on the Voyager spacecraft in 1977!",
+        "Chess is popular in Bulgaria. Veselin Topalov became world chess champion in 2005."
+      ],
       lessons: [
         { id: "u21l1", title: "Hobbies", type: "words", words: ["draw", "read", "music", "bike", "game"], sentences: ["t_lovereading", "t_bikepark"], tips: ["tip_love_doing"] },
         { id: "u21l2", title: "I like it!", type: "words", words: ["dance", "sing", "hobby", "fun", "boring"], sentences: ["t_sistersings", "t_swimfun"], tips: ["tip_fun"] },
@@ -1070,7 +1175,12 @@ window.CONTENT = {
       objectives: ["Name common jobs", "Say what family members do", "Say what you want to be"],
       vocab: "Jobs and workplaces",
       grammar: ["Male and female job words: учител / учителка", "No 'a': Мама е лекар.", "искам да стана… – I want to become…"],
-      fact: "Hristo Stoichkov was a футболист – and later he became the треньор (coach) of Bulgaria's national team!",
+      facts: [
+        "Hristo Stoichkov was a футболист – and later he became the треньор (coach) of Bulgaria's national team!",
+        "Georgi Ivanov became the first Bulgarian in space in 1979.",
+        "John Atanasoff, whose father was Bulgarian, helped invent the first electronic digital computer.",
+        "Rose pickers in the Rose Valley start work at dawn, because the petals smell strongest early in the morning."
+      ],
       lessons: [
         { id: "u22l1", title: "Jobs", type: "words", words: ["teacher", "doctor", "firefighter", "footballer", "chef"], sentences: ["t_mumdoctor", "t_goodteacher"], tips: ["tip_jobs"] },
         { id: "u22l2", title: "What do they do?", type: "words", words: ["police", "vet", "pilot", "work", "become"], sentences: ["t_dadhospital", "t_becomevet"], tips: ["tip_become"] },
@@ -1085,7 +1195,12 @@ window.CONTENT = {
       objectives: ["Name places in town", "Say where you're going", "Ask if there's a place nearby"],
       vocab: "Places in town",
       grammar: ["отивам в / на…", "има / няма – there is / there isn't", "Questions with ли revisited: Има ли…?"],
-      fact: "Sofia, Bulgaria's capital, is one of the oldest cities in Europe. Its motto is 'Расте, но не старее' – 'It grows, but does not grow old'!",
+      facts: [
+        "Sofia, Bulgaria's capital, is one of the oldest cities in Europe. Its motto is 'Расте, но не старее' – 'It grows, but does not grow old'!",
+        "Plovdiv is one of the oldest cities in Europe, and its Roman theatre is still used for concerts.",
+        "Sofia sits right next to Vitosha mountain, so people can go hiking and skiing near the capital.",
+        "Veliko Tarnovo was once Bulgaria's capital. Its hilltop fortress, Tsarevets, has a sound and light show at night."
+      ],
       lessons: [
         { id: "u23l1", title: "Places", type: "words", words: ["shop", "park", "hospital", "station", "library"], sentences: ["t_bigshop", "t_trainstation"], tips: ["tip_going"] },
         { id: "u23l2", title: "Where are you going?", type: "words", words: ["going", "school", "cinema", "thereis", "thereisnt"], sentences: ["t_goingschool", "t_cinematown"], tips: ["tip_ima"] },
@@ -1100,7 +1215,12 @@ window.CONTENT = {
       objectives: ["Ask the way politely", "Understand left, right and straight on", "Give simple directions"],
       vocab: "Directions",
       grammar: ["Commands: завий, върви, спри (polite: завийте, вървете, спрете)", "Prepositions: на ъгъла, срещу"],
-      fact: "Bulgaria's national stadium in Sofia is named after Васил Левски, the country's great national hero.",
+      facts: [
+        "Bulgaria's national stadium in Sofia is named after Васил Левски, the country's great national hero.",
+        "Vasil Levski is called 'the Apostle of Freedom' and is one of Bulgaria's greatest heroes.",
+        "The Danube river makes up much of Bulgaria's northern border with Romania.",
+        "Bulgaria's neighbours are Romania, Serbia, North Macedonia, Greece and Turkey."
+      ],
       lessons: [
         { id: "u24l1", title: "Left and right", type: "words", words: ["left", "right", "straight", "corner", "street"], sentences: ["t_shopleft", "t_longstreet"], tips: ["tip_directions"] },
         { id: "u24l2", title: "Excuse me, where is…?", type: "words", words: ["excuseme", "turn", "gocmd", "stop", "opposite"], sentences: ["t_wherepark", "t_stopred"], tips: ["tip_command"] },
@@ -1115,7 +1235,12 @@ window.CONTENT = {
       objectives: ["Name kinds of transport", "Say how you get to places", "Understand stops and bus numbers"],
       vocab: "Public transport",
       grammar: ["с + transport: с автобус, със самолет", "пеша – on foot", "карам – drive / ride"],
-      fact: "Sofia's metro opened in 1998 – and while digging the tunnels, builders found the ruins of an ancient Roman town right under the city centre!",
+      facts: [
+        "Sofia's metro opened in 1998 – and while digging the tunnels, builders found the ruins of an ancient Roman town right under the city centre!",
+        "The Danube Bridge between Ruse in Bulgaria and Giurgiu in Romania has a road on top and a railway underneath.",
+        "A narrow little mountain railway winds through the Rila and Rhodope mountains between Septemvri and Dobrinishte.",
+        "Avramovo, on that mountain railway, is the highest railway station in the Balkans."
+      ],
       lessons: [
         { id: "u25l1", title: "Transport", type: "words", words: ["bus", "train", "metro", "taxi", "tram"], sentences: ["t_fasttrain", "t_buscoming"], tips: ["tip_with"] },
         { id: "u25l2", title: "How do you get there?", type: "words", words: ["busstop", "onfoot", "car", "drive", "wait"], sentences: ["t_waitstop", "t_mumcar"], tips: ["tip_drive"] },
@@ -1130,7 +1255,12 @@ window.CONTENT = {
       objectives: ["Buy a ticket", "Say where and when you're travelling", "Name things you pack"],
       vocab: "Travel and luggage",
       grammar: ["за + place: билет за Варна", "'We' forms: отиваме, пътуваме, летим", "Counting form again: два билета"],
-      fact: "Varna and Burgas are Bulgaria's big cities on the Black Sea – in summer, lots of Bulgarian families head there for their ваканция!",
+      facts: [
+        "Varna and Burgas are Bulgaria's big cities on the Black Sea – in summer, lots of Bulgarian families head there for their ваканция!",
+        "Nesebar is an ancient town on a tiny peninsula in the Black Sea, full of old churches.",
+        "The Seven Rila Lakes sit high in the mountains, and each one has a name, like 'The Eye' and 'The Kidney'.",
+        "Bulgaria's busiest airport is in Sofia, and Varna and Burgas have big airports for summer holidays."
+      ],
       lessons: [
         { id: "u26l1", title: "Packing", type: "words", words: ["suitcase", "passport", "holiday", "photo", "sunglasses"], sentences: ["t_heavycase", "t_wherepassport"], tips: ["tip_for"] },
         { id: "u26l2", title: "Tickets please", type: "words", words: ["ticket", "plane", "airport", "travel", "city"], sentences: ["t_ticketsofia", "t_flyplane"], tips: ["tip_we"] },
@@ -1145,7 +1275,12 @@ window.CONTENT = {
       objectives: ["Say you have a booking", "Ask about your room", "Ask for something you need"],
       vocab: "Hotels and holiday rooms",
       grammar: ["имам in full: имаме резервация", "Може ли…? revisited", "Problems: … не работи (… doesn't work)"],
-      fact: "In winter, Bulgarian mountain hotels fill up with skiers – Bansko and Borovets are famous ski resorts!",
+      facts: [
+        "In winter, Bulgarian mountain hotels fill up with skiers – Bansko and Borovets are famous ski resorts!",
+        "Borovets is Bulgaria's oldest ski resort. It started more than 100 years ago as a royal hunting spot.",
+        "Pamporovo, in the Rhodope mountains, is known as one of the sunniest ski resorts in Bulgaria.",
+        "Velingrad is called the spa capital of the Balkans because it has so many warm mineral springs."
+      ],
       lessons: [
         { id: "u27l1", title: "Check in", type: "words", words: ["hotel", "booking", "reception", "lift", "floor"], sentences: ["t_hotelsea", "t_thirdfloor"], tips: ["tip_have"] },
         { id: "u27l2", title: "Our room", type: "words", words: ["hotelbreakfast", "pillow", "shower", "view", "quiet"], sentences: ["t_breakfasteight", "t_showerbroken"], tips: ["tip_mayi"] },
@@ -1160,7 +1295,12 @@ window.CONTENT = {
       objectives: ["Describe today's weather", "Name the seasons", "Say what you do in each season"],
       vocab: "Weather and seasons",
       grammar: ["Sentences with no 'it': вали, студено е", "през + season: през лятото", "Preview of ще: утре ще вали"],
-      fact: "Bulgaria has four proper seasons – hot summers on the Black Sea and snowy mountain winters. Musala (2,925 m) is the highest peak in the whole Balkans!",
+      facts: [
+        "Bulgaria has four proper seasons – hot summers on the Black Sea and snowy mountain winters. Musala (2,925 m) is the highest peak in the whole Balkans!",
+        "The Belogradchik Rocks are giant red rock towers in north-west Bulgaria, shaped by wind and rain over millions of years.",
+        "Old stories say the Rhodope mountains were the home of Orpheus, the musician from Greek myths.",
+        "Bulgarians say Баба Марта (Granny March) is moody: when she smiles the sun shines, and when she's cross it snows!"
+      ],
       lessons: [
         { id: "u28l1", title: "What's the weather?", type: "words", words: ["sun", "rain", "snow", "wind", "cloud"], sentences: ["t_rainingtoday", "t_lotsofsnow"], tips: ["tip_weather"] },
         { id: "u28l2", title: "Seasons", type: "words", words: ["spring", "summer", "autumn", "winter", "hot", "cold"], sentences: ["t_coldwinter", "t_hotsummer"], tips: ["tip_seasons"] },
@@ -1175,7 +1315,12 @@ window.CONTENT = {
       objectives: ["Suggest doing something together", "Say yes or no politely", "Agree a time and place"],
       vocab: "Plans and invitations",
       grammar: ["Хайде да… – Let's…", "ще + verb for plans: ще играем", "Agreement again: зает / заета"],
-      fact: "Bulgarians use 'Хайде!' all the time – it can mean 'Let's go!', 'Come on!' and even 'Bye!'",
+      facts: [
+        "Bulgarians use 'Хайде!' all the time – it can mean 'Let's go!', 'Come on!' and even 'Bye!'",
+        "Bulgarians often call a party a купон.",
+        "When Bulgarians make a toast, they say 'Наздраве!', which means 'To your health!'",
+        "Bulgarians love saying 'Няма проблем!', which means 'No problem!'"
+      ],
       lessons: [
         { id: "u29l1", title: "Let's…!", type: "words", words: ["letsgo", "together", "free", "meetup", "later"], sentences: ["t_letsplay", "t_freetoday"], tips: ["tip_lets"] },
         { id: "u29l2", title: "Yes or no", type: "words", words: ["ofcourse", "maybe", "sorry", "busy", "great"], sentences: ["t_maybetomorrow", "t_sorrybusy"], tips: ["tip_answers"] },
@@ -1190,7 +1335,12 @@ window.CONTENT = {
       objectives: ["Ask for help politely", "Say what the problem is", "Understand simple instructions"],
       vocab: "Help and everyday problems",
       grammar: ["Polite commands + short pronoun: помогнете ми", "Past preview: изгубих, намерих", "Agreement: изгубен / изгубена"],
-      fact: "In Bulgaria, like everywhere in Europe, you can call 112 in an emergency – for the police, firefighters or an ambulance.",
+      facts: [
+        "In Bulgaria, like everywhere in Europe, you can call 112 in an emergency – for the police, firefighters or an ambulance.",
+        "Bulgaria's Mountain Rescue Service helps hikers and skiers who get lost or hurt in the mountains.",
+        "Saint Ivan of Rila is the patron saint of Bulgaria.",
+        "Pharmacies in Bulgaria have a green cross sign, so they're easy to spot if you need help."
+      ],
       lessons: [
         { id: "u30l1", title: "Help!", type: "words", words: ["help", "policecar", "problem", "lost", "careful"], sentences: ["t_dogranaway", "t_imlost"], tips: ["tip_help"] },
         { id: "u30l2", title: "What's wrong?", type: "words", words: ["ilost", "ifound", "helpme", "scared", "call"], sentences: ["t_foundkey", "t_scareddark"], tips: ["tip_pastpeek"] },

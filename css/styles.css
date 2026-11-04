@@ -659,6 +659,9 @@ h3 { margin: 0 0 10px; font-size: 19px; }
   width: 100%;
 }
 
+.fact-list { margin: 8px 0 0; padding-left: 20px; line-height: 1.5; }
+.fact-list li + li { margin-top: 6px; }
+
 /* ---------- Settings ---------- */
 .settings { gap: 12px; }
 .panel { background: var(--card); border: 2px solid var(--line); border-radius: var(--radius); padding: 16px; }

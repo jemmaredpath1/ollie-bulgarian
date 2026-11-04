@@ -326,10 +326,10 @@
       h('div', { class: 'cover-title' },
         h('div', { class: 'kicker' }, "Ollie's"),
         h('h1', {}, 'Bulgarian', h('br'), 'Adventure'),
-        h('p', { class: 'tagline' }, 'Football, Minecraft, swimming, dogs – learn real Bulgarian your way.')
+        h('p', { class: 'tagline' }, 'Football, Minecraft, swimming and dogs. Learn real Bulgarian your way!')
       ),
       h('div', { class: 'pills' },
-        h('span', { class: 'pill' }, `${C.units.length} units`),
+        h('span', { class: 'pill' }, `${C.units.filter(u => !u.planned).length} units`),
         h('span', { class: 'pill' }, `${Math.floor(totalWords / 10) * 10}+ words`),
         h('span', { class: 'pill' }, '🎤 Speaking'),
         h('span', { class: 'pill' }, '🏆 Boss rounds')
@@ -338,7 +338,7 @@
         h('div', { class: 'sidekick-dog' }, dog('happy', 110)),
         h('div', {},
           h('div', { class: 'sidekick-label' }, 'Choose your sidekick'),
-          h('p', { class: 'sidekick-text' }, 'Every adventure needs a partner. Your dog speaks Bulgarian – give it a name.')
+          h('p', { class: 'sidekick-text' }, 'Every adventure needs a partner. Your dog speaks Bulgarian, so give it a name!')
         )
       ),
       input,
@@ -545,7 +545,10 @@
           u.sample.words.map(([bg, en]) => h('li', {}, h('span', { class: 'bgw' }, bg), ` – ${en}`)),
           u.sample.sentences.map(([bg, en]) => h('li', {}, h('span', { class: 'bgw' }, bg), ` – ${en}`)))
       ) : null,
-      u.fact ? h('div', { class: 'fact' }, h('strong', {}, '🇧🇬 Did you know? '), u.fact) : null
+      (u.facts || []).length ? h('div', { class: 'fact' },
+        h('strong', {}, '🇧🇬 Did you know?'),
+        h('ul', { class: 'fact-list' }, u.facts.map(f => h('li', {}, f)))
+      ) : null
     ));
     heading.focus();
   }
@@ -1138,6 +1141,15 @@
   };
 
   // ================= Lesson complete =================
+  // Each lesson in a unit shows a different fact, and replays move on to the next one.
+  function pickFact(l) {
+    const facts = l.unit.facts || [];
+    if (!facts.length) return null;
+    if (l.type === 'review') return pick(facts);
+    const slot = l.unit.lessons.indexOf(l) + ((state.done[l.id] || {}).plays || 1) - 1;
+    return facts[slot % facts.length];
+  }
+
   function finishLesson() {
     const l = S.lesson;
     const scoredCount = S.right + S.wrong;
@@ -1162,6 +1174,7 @@
     saveState();
 
     const levelUp = level() > oldLevel;
+    const fact = pickFact(l);
     const unitDone = l.type === 'boss' && firstTime;
 
     (levelUp ? sfx.level : sfx.win)();
@@ -1180,7 +1193,7 @@
         h('div', { class: 'stat-card c-green' }, h('div', { class: 'stat-top' }, 'Correct'), h('div', { class: 'stat-val' }, `${accuracy}%`)),
         h('div', { class: 'stat-card c-red' }, h('div', { class: 'stat-top' }, 'Streak'), h('div', { class: 'stat-val' }, `🔥${currentStreak()}`))
       ),
-      (unitDone || Math.random() < 0.5) && l.unit.fact ? h('div', { class: 'fact' }, h('strong', {}, '🇧🇬 Did you know? '), l.unit.fact) : null,
+      fact ? h('div', { class: 'fact' }, h('strong', {}, '🇧🇬 Did you know? '), fact) : null,
       h('button', { class: 'btn big primary', onclick: () => { S = null; renderPath(); } }, 'Continue')
     ));
   }
