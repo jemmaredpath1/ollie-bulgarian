@@ -366,7 +366,19 @@ window.CONTENT = {
     autumn:     { bg: "есен", en: "autumn", pic: "🍂", say: "E-sen" },
     winter:     { bg: "зима", en: "winter", pic: "⛄", say: "ZEE-ma" },
     hot:        { bg: "горещо", en: "hot", pic: "🥵", say: "go-RESH-to", hint: "Remember горещ шоколад (hot chocolate)?" },
-    cold:       { bg: "студено", en: "cold", pic: "🥶", say: "stoo-DE-no" }
+    cold:       { bg: "студено", en: "cold", pic: "🥶", say: "stoo-DE-no" },
+
+    // ---------- Unit 29: Making plans ----------
+    letsgo:     { bg: "хайде", en: "let's / come on", pic: "🙌", say: "HAY-de", hint: "HAY-de – 'Hey, let's go!'" },
+    together:   { bg: "заедно", en: "together", pic: "👫", say: "za-ED-no" },
+    free:       { bg: "свободен", en: "free (not busy)", pic: "🕊️", say: "svo-BO-den" },
+    meetup:     { bg: "среща", en: "meeting / meet-up", pic: "🫂", say: "SRESH-ta" },
+    later:      { bg: "после", en: "later / afterwards", pic: "⏭️", say: "POS-le", hint: "Like 'post-' – after!" },
+    ofcourse:   { bg: "разбира се", en: "of course", pic: "👌", say: "raz-BEE-ra se" },
+    maybe:      { bg: "може би", en: "maybe", pic: "❔", say: "MO-zhe bee", hint: "може (can) + би (would) = maybe!" },
+    sorry:      { bg: "съжалявам", en: "sorry", pic: "😔", say: "suh-zha-LYA-vam", hint: "Say it with a sad face: suh-zha-LYA-vam." },
+    busy:       { bg: "зает", en: "busy", pic: "🗂️", say: "za-ET" },
+    great:      { bg: "страхотно", en: "great!", pic: "🤩", say: "stra-HOT-no" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -642,7 +654,17 @@ window.CONTENT = {
     s_sunnywarm:      { bg: "Днес е слънчево и топло.", en: "Today it's sunny and warm.", gap: "слънчево" },
     s_willrain:       { bg: "Утре ще вали дъжд.", en: "Tomorrow it will rain.", gap: "ще" },
     s_snowman:        { bg: "През зимата правим снежен човек.", en: "In winter we make a snowman.", gap: "зимата" },
-    s_autumnleaves:   { bg: "През есента листата са жълти.", en: "In autumn the leaves are yellow.", gap: "есента" }
+    s_autumnleaves:   { bg: "През есента листата са жълти.", en: "In autumn the leaves are yellow.", gap: "есента" },
+
+    // Unit 29
+    t_letsplay:       { bg: "Хайде да играем!", en: "Let's play!" },
+    t_freetoday:      { bg: "Свободен ли си днес?", en: "Are you free today?" },
+    t_maybetomorrow:  { bg: "Може би утре.", en: "Maybe tomorrow." },
+    t_sorrybusy:      { bg: "Съжалявам, зает съм.", en: "Sorry, I'm busy." },
+    s_letspark:       { bg: "Хайде да отидем в парка!", en: "Let's go to the park!", gap: "отидем" },
+    s_attime:         { bg: "В колко часа?", en: "At what time?", gap: "колко" },
+    s_seeyoufive:     { bg: "Ще се видим в пет.", en: "See you at five.", gap: "видим" },
+    s_playtogether:   { bg: "Ще играем футбол заедно.", en: "We'll play football together.", gap: "заедно" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -684,6 +706,8 @@ window.CONTENT = {
     tip_mayi: { title: "Asking politely", text: "Може ли…? is the polite way to ask for something: Може ли още една възглавница? (Could we have another pillow?) · Може ли ключа? (Can I have the key?) Add моля to be extra polite." },
     tip_weather: { title: "No 'it' needed", text: "Weather sentences don't need 'it': Вали. – It's raining. · Вали сняг. – It's snowing. · Духа вятър. – It's windy. · Слънчево е. – It's sunny. · Студено е. – It's cold." },
     tip_seasons: { title: "In summer, in winter…", text: "Use през + the season with 'the': през пролетта (in spring) · през лятото (in summer) · през есента (in autumn) · през зимата (in winter). Sneak peek: Утре ще вали. – Tomorrow it will rain. (ще = will)" },
+    tip_lets: { title: "Let's…!", text: "Хайде да + the 'we' form of a verb = Let's…! · Хайде да играем! – Let's play! · Хайде да отидем в парка! – Let's go to the park!" },
+    tip_answers: { title: "Yes, no, maybe", text: "Yes: Да, разбира се! · Добре! · Страхотно! No, politely: Съжалявам, зает съм. (a boy) / заета съм (a girl). Not sure: Може би." },
     tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
   },
 
@@ -909,7 +933,7 @@ window.CONTENT = {
       ]
     },
 
-    // ===== Sections 2–5: Units 15–28 are playable; the rest are PLANNED (outlines + unchecked samples) =====
+    // ===== Sections 2–5: Units 15–29 are playable; the rest are PLANNED (outlines + unchecked samples) =====
     {
       id: "u15", title: "At the café", emoji: "☕", color: "brown",
       section: "s2",
@@ -1126,13 +1150,13 @@ window.CONTENT = {
       description: "Suggest things to do and arrange to meet friends.",
       objectives: ["Suggest doing something together", "Say yes or no politely", "Agree a time and place"],
       vocab: "Plans and invitations",
-      grammar: ["Хайде да… – Let's…", "ще + verb for plans", "в колко часа? – at what time?"],
-      sample: { words: [["хайде", "let's / come on"], ["заедно", "together"], ["свободен", "free"]], sentences: [["Хайде да играем футбол!", "Let's play football!"], ["Ще се видим в пет.", "See you at five."]] },
+      grammar: ["Хайде да… – Let's…", "ще + verb for plans: ще играем", "Agreement again: зает / заета"],
+      fact: "Bulgarians use 'Хайде!' all the time – it can mean 'Let's go!', 'Come on!' and even 'Bye!'",
       lessons: [
-        { id: "u29l1", title: "Let's…!", type: "words", status: "planned", plan: "Introduce: хайде, заедно, свободен, среща, после" },
-        { id: "u29l2", title: "Yes or no", type: "words", status: "planned", plan: "Practise: Хайде да играем футбол!" },
-        { id: "u29l3", title: "Meet at the park", type: "sentences", status: "planned", plan: "Apply: arrange to meet a friend" },
-        { id: "u29boss", title: "Plans review", type: "boss", status: "planned", plan: "Review: days and time (Unit 19)" }
+        { id: "u29l1", title: "Let's…!", type: "words", words: ["letsgo", "together", "free", "meetup", "later"], sentences: ["t_letsplay", "t_freetoday"], tips: ["tip_lets"] },
+        { id: "u29l2", title: "Yes or no", type: "words", words: ["ofcourse", "maybe", "sorry", "busy", "great"], sentences: ["t_maybetomorrow", "t_sorrybusy"], tips: ["tip_answers"] },
+        { id: "u29l3", title: "Meet at the park", type: "sentences", sentences: ["s_letspark", "s_attime", "s_seeyoufive", "s_playtogether"] },
+        { id: "u29boss", title: "Party Planner", type: "boss" }
       ]
     },
     {
