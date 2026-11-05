@@ -337,7 +337,7 @@
   const coverTitle = kicker => h('div', { class: 'cover-title' },
     kicker,
     h('h1', {}, 'Bulgarian', h('br'), 'Adventure'),
-    h('p', { class: 'tagline' }, 'Football, Minecraft, swimming and dogs. Learn real Bulgarian your way!')
+    h('p', { class: 'tagline' }, 'Words, games and a puppy sidekick. Learn real Bulgarian one level at a time!')
   );
 
   function renderWelcome() {
