@@ -296,6 +296,9 @@
   }
 
   // ================= Screens =================
+  // Like el.append, but skips empty (null/false) parts instead of printing "null".
+  const add = (el, ...kids) => el.append(...kids.flat().filter(k => k != null && k !== false));
+
   function show(...nodes) {
     app.replaceChildren(...nodes);
     window.scrollTo(0, 0);
@@ -825,7 +828,7 @@
     // A new word: picture, sound, meaning and memory trick.
     teach(q, body, ctx) {
       const w = word(q.id);
-      body.append(
+      add(body, 
         h('div', { class: 'q-label new' }, '✨ New word!'),
         h('div', { class: 'teach-card' },
           h('div', { class: picClass('teach-pic', w.pic) }, w.pic),
@@ -844,7 +847,7 @@
 
     teachSentence(q, body, ctx) {
       const s = sentence(q.sid);
-      body.append(
+      add(body, 
         h('div', { class: 'q-label new' }, '💬 New sentence!'),
         h('div', { class: 'teach-card' },
           h('div', { class: 'teach-bg sentence' }, s.bg),
@@ -862,7 +865,7 @@
     // A short grammar note.
     tip(q, body, ctx) {
       const t = C.tips[q.tid];
-      body.append(
+      add(body, 
         h('div', { class: 'q-label new' }, '📝 Grammar tip'),
         h('div', { class: 'teach-card tip-card' },
           h('div', { class: 'tip-title' }, t.title),
@@ -877,12 +880,12 @@
     // See the Bulgarian word, tap the picture.
     picture(q, body, ctx) {
       const w = word(q.id);
-      body.append(
+      add(body, 
         h('div', { class: 'q-label' }, 'Tap the right picture'),
         h('div', { class: 'prompt' }, h('span', { class: 'prompt-bg' }, w.bg), speakerButtons(slow => sayWord(q.id, slow)))
       );
       const grid = choiceGrid(q.options, picLabel, ctx, null, 'pics');
-      body.append(grid);
+      add(body, grid);
       ctx.onCheck = () => { const ok = grid.chosen() === q.id; grid.lock(q.id); scored(ctx, ok, `${w.bg} = ${w.en}`, [q.id]); };
       setTimeout(() => sayWord(q.id), 250);
     },
@@ -890,13 +893,13 @@
     // Hear it (no text), tap the meaning.
     listen(q, body, ctx) {
       const w = word(q.id);
-      body.append(
+      add(body, 
         h('div', { class: 'q-label' }, '👂 What do you hear?'),
         h('div', { class: 'prompt' }, h('button', { class: 'btn-speaker huge', 'aria-label': 'Play sound', onclick: () => sayWord(q.id) }, '🔊'),
           h('button', { class: 'btn-speaker', 'aria-label': 'Play slowly', onclick: () => sayWord(q.id, true) }, '🐢'))
       );
       const grid = choiceGrid(q.options, picEnLabel, ctx);
-      body.append(grid);
+      add(body, grid);
       ctx.onCheck = () => { const ok = grid.chosen() === q.id; grid.lock(q.id); scored(ctx, ok, `${w.bg} = ${w.en}`, [q.id]); };
       setTimeout(() => sayWord(q.id), 250);
     },
@@ -904,12 +907,12 @@
     // Bulgarian → English.
     bg2en(q, body, ctx) {
       const w = word(q.id);
-      body.append(
+      add(body, 
         h('div', { class: 'q-label' }, 'What does this mean?'),
         h('div', { class: 'prompt' }, h('span', { class: 'prompt-bg' }, w.bg), speakerButtons(slow => sayWord(q.id, slow)))
       );
       const grid = choiceGrid(q.options, enLabel, ctx, null, 'list');
-      body.append(grid);
+      add(body, grid);
       ctx.onCheck = () => { const ok = grid.chosen() === q.id; grid.lock(q.id); scored(ctx, ok, `${w.bg} = ${w.en}`, [q.id]); };
       setTimeout(() => sayWord(q.id), 250);
     },
@@ -917,18 +920,18 @@
     // English → Bulgarian. Tapping an option says it.
     en2bg(q, body, ctx) {
       const w = word(q.id);
-      body.append(
+      add(body, 
         h('div', { class: 'q-label' }, 'How do you say this in Bulgarian?'),
         h('div', { class: 'prompt' }, h('span', { class: picClass('prompt-pic', w.pic) }, w.pic), h('span', { class: 'prompt-en' }, w.en))
       );
       const grid = choiceGrid(q.options, bgLabel, ctx, id => sayWord(id), 'list');
-      body.append(grid);
+      add(body, grid);
       ctx.onCheck = () => { const ok = grid.chosen() === q.id; grid.lock(q.id); scored(ctx, ok, `${w.en} = ${w.bg}`, [q.id]); };
     },
 
     // Match five pairs.
     pairs(q, body, ctx) {
-      body.append(h('div', { class: 'q-label' }, '🧩 Match the pairs'));
+      add(body, h('div', { class: 'q-label' }, '🧩 Match the pairs'));
       const left = h('div', { class: 'pair-col' });
       const right = h('div', { class: 'pair-col' });
       let sel = null; // { side, id, el }
@@ -973,7 +976,7 @@
         b.addEventListener('click', () => tapped('en', id, b));
         right.append(b);
       });
-      body.append(h('div', { class: 'pairs' }, left, right));
+      add(body, h('div', { class: 'pairs' }, left, right));
       ctx.footer.replaceChildren(h('div', { class: 'footer-hint' }, 'Tap a Bulgarian word, then its meaning'));
     },
 
@@ -984,7 +987,7 @@
       const line = h('div', { class: 'tile-line' });
       const bank = h('div', { class: 'tile-bank' });
 
-      body.append(
+      add(body, 
         h('div', { class: 'q-label' }, '🧱 Build the sentence in Bulgarian'),
         h('div', { class: 'prompt' }, h('span', { class: 'prompt-en' }, s.en),
           h('button', { class: 'btn-speaker', 'aria-label': 'Hear the sentence', onclick: () => saySentence(q.sid) }, '🔊')),
@@ -1027,7 +1030,7 @@
       const mic = h('button', { class: 'mic', 'aria-label': 'Tap and speak' }, '🎤');
       let tries = 0;
 
-      body.append(
+      add(body, 
         h('div', { class: 'q-label' }, '🗣️ Say it!'),
         h('div', { class: 'prompt column' },
           q.id ? h('span', { class: 'prompt-pic' }, item.pic) : null,
@@ -1130,12 +1133,12 @@
       const parts = s.bg.split(new RegExp(`(${s.gap})`));
       const shown = h('div', { class: 'gap-sentence' }, parts.map(p => p === s.gap ? blank : p));
 
-      body.append(
+      add(body, 
         h('div', { class: 'q-label' }, '✏️ Fill the gap'),
         h('div', { class: 'prompt column' }, shown, h('span', { class: 'prompt-en small' }, s.en))
       );
       const grid = choiceGrid(q.options, t => h('span', { class: 'bgw' }, t), ctx, t => { blank.textContent = t; speak(t); }, 'list');
-      body.append(grid);
+      add(body, grid);
       ctx.onCheck = () => {
         const ok = grid.chosen() === norm(s.gap);
         grid.lock(norm(s.gap));
@@ -1227,7 +1230,7 @@
     const exportProgress = () => {
       const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
       const a = h('a', { href: URL.createObjectURL(blob), download: `ollie-bulgarian-progress-${today()}.json` });
-      document.body.append(a); a.click(); a.remove();
+      document.add(body, a); a.click(); a.remove();
     };
 
     const reset = () => {
