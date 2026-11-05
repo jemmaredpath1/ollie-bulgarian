@@ -35,9 +35,9 @@
   }
   const isAbc = l => !!ABC && l.unit === ABC;
 
-  // ⚡ Speed Quiz: an optional 60-second round at the end of each unit. It sits beside
+  // ⚡ Speed Quiz: an optional 90-second round at the end of each unit. It sits beside
   // the lessons (never in LESSONS), so it can't lock anything or change lesson progress.
-  const QUIZ_SECONDS = 60;
+  const QUIZ_SECONDS = 90; // was 60, which was too short for Ollie
   const QUIZ_STARS = [6, 12, 18]; // right answers needed for 1, 2 and 3 stars
   (ABC ? [ABC] : []).concat(C.units).forEach(u => {
     if (!u.planned) u.quiz = { id: `${u.id}quiz`, type: 'quiz', title: 'Speed Quiz', unit: u };
@@ -488,7 +488,7 @@
   const quizLabel = (l, st) => !isQuiz(l) ? null
     : st === 'locked' ? 'Beat the Boss to unlock'
     : st === 'done' ? `Best: ${state.quiz[l.unit.id].best} ${starText(starsFor(state.quiz[l.unit.id].best))}`
-    : '60 seconds · bonus XP';
+    : `${QUIZ_SECONDS} seconds · bonus XP`;
 
   function renderPath(message) {
     document.title = `${possessive(playerName())} Bulgarian Adventure`;
@@ -1297,7 +1297,7 @@
     const pool = knownWordsUpTo(u.lessons.find(l => l.type === 'boss'));
     const tricky = u === ABC ? [] : reviewableWords().filter(id => !u.words.includes(id)).slice(0, 3);
     const qs = shuffle(u.words.concat(tricky)).map(id => wordQuestion(pick(typesFor(id)), id, pool));
-    while (qs.length < 60) shuffle(u.words).forEach(id => qs.push(wordQuestion(pick(typesFor(id)), id, pool)));
+    while (qs.length < QUIZ_SECONDS) shuffle(u.words).forEach(id => qs.push(wordQuestion(pick(typesFor(id)), id, pool)));
     return qs;
   }
 
