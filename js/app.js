@@ -1485,7 +1485,7 @@
       const medal = p => ['🥇', '🥈', '🥉'][p - 1] || String(p);
       board.replaceChildren();
       add(board,
-        rows.length > 1 || (me && me.xp > 0) ? null : h('p', { class: 'league-msg' }, 'You\'re the first one here this week! 🎉'),
+        rows.length === 1 && me && me.xp > 0 ? h('p', { class: 'league-msg' }, 'You\'re the first one here this week! 🎉') : null,
         me && !me.xp ? h('p', { class: 'league-msg' }, 'Finish a lesson to get on the board this week!') : null,
         h('ol', { class: 'league-list' }, rows.filter(r => r.xp > 0 || r.me).map(r =>
           h('li', { class: `league-row ${r.me ? 'me' : ''} ${r.pos <= 3 && r.xp > 0 ? 'top' : ''}` },
