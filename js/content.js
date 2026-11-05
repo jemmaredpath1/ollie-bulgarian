@@ -423,7 +423,58 @@ window.CONTENT = {
     ifound:     { bg: "намерих", en: "I found", pic: "🔎", say: "na-ME-rih", hint: "Remember 'Намерих диамант!' from Build & Mine?" },
     helpme:     { bg: "помогнете ми", en: "help me (polite)", pic: "🆘", say: "po-mog-NE-te mee" },
     scared:     { bg: "страх ме е", en: "I'm scared", pic: "😨", say: "STRAH me e", hint: "Word for word: 'fear is me'." },
-    call:       { bg: "обаждам се", en: "I call (on the phone)", pic: "☎️", say: "o-BAZH-dam se" }
+    call:       { bg: "обаждам се", en: "I call (on the phone)", pic: "☎️", say: "o-BAZH-dam se" },
+    // Units 31–35
+    head:        { bg: "глава", en: "head", pic: "🙆", say: "gla-VA" },
+    hand:        { bg: "ръка", en: "hand / arm", pic: "✋", say: "ruh-KA", hint: "One word for both hand and arm!" },
+    leg:         { bg: "крак", en: "leg / foot", pic: "🦶", say: "KRAK", hint: "One word for both leg and foot!" },
+    tooth:       { bg: "зъб", en: "tooth", pic: "🦷", say: "ZUB" },
+    mouth:       { bg: "уста", en: "mouth", pic: "👄", say: "us-TA" },
+    hurts:       { bg: "боли", en: "it hurts", pic: "🤕", say: "bo-LEE", hint: "Боли ме… – it hurts me…", picQuiz: false },
+    sick:        { bg: "болен", en: "ill / sick", pic: "🤒", say: "BO-len", hint: "болен (a boy) / болна (a girl)" },
+    fever:       { bg: "температура", en: "temperature (fever)", pic: "🌡️", say: "tem-pe-ra-TOO-ra", hint: "Same as 'temperature'!" },
+    pharmacy:    { bg: "аптека", en: "pharmacy", pic: "⚕️", say: "ap-TE-ka", hint: "Like 'apothecary', an old word for a chemist!" },
+    medicine:    { bg: "лекарство", en: "medicine", pic: "💊", say: "le-KAR-stvo", hint: "Лекар gives you лекарство!" },
+    hair:        { bg: "коса", en: "hair", pic: "💇", say: "ko-SA" },
+    eyes:        { bg: "очи", en: "eyes", pic: "👀", say: "o-CHEE", hint: "One eye is око, two are очи." },
+    beard:       { bg: "брада", en: "beard", pic: "🧔", say: "bra-DA" },
+    tall:        { bg: "висок", en: "tall", pic: "🦒", say: "vi-SOK", hint: "висок / висока / високо / високи – it changes to match!" },
+    shortp:      { bg: "нисък", en: "short (not tall)", pic: "🤏", say: "NEE-suk", hint: "The opposite of висок.", picQuiz: false },
+    long:        { bg: "дълъг", en: "long", pic: "🐍", say: "DUH-lug", hint: "дълъг / дълга / дълго / дълги" },
+    shorth:      { bg: "къс", en: "short (not long)", pic: "✂️", say: "KUS", hint: "For hair and things: къса коса – short hair.", picQuiz: false },
+    blond:       { bg: "рус", en: "blond", pic: "👱", say: "ROOS", hint: "руса коса – blond hair" },
+    moustache:   { bg: "мустаци", en: "moustache", pic: "🥸", say: "mus-TA-tsi", hint: "Like 'moustache'!" },
+    strong:      { bg: "силен", en: "strong", pic: "🏋️", say: "SEE-len" },
+    happy:       { bg: "щастлив", en: "happy", pic: "😄", say: "shtast-LEEV", hint: "щастлив (a boy) / щастлива (a girl)" },
+    sad:         { bg: "тъжен", en: "sad", pic: "😢", say: "TUH-zhen", hint: "тъжен / тъжна" },
+    tired:       { bg: "уморен", en: "tired", pic: "😩", say: "u-mo-REN" },
+    angry:       { bg: "ядосан", en: "angry", pic: "😠", say: "ya-DO-san" },
+    frightened:  { bg: "уплашен", en: "frightened", pic: "😱", say: "up-LA-shen" },
+    surprised:   { bg: "изненадан", en: "surprised", pic: "😲", say: "iz-ne-NA-dan" },
+    proud:       { bg: "горд", en: "proud", pic: "🦚", say: "GORD", hint: "Proud as a peacock!", picQuiz: false },
+    calm:        { bg: "спокоен", en: "calm", pic: "🧘", say: "spo-KO-en" },
+    bored:       { bg: "отегчен", en: "bored", pic: "😑", say: "o-teg-CHEN", hint: "Kids often say Скучно ми е – I'm bored." },
+    because:     { bg: "защото", en: "because", pic: "🔗", say: "za-SHTO-to", hint: "Защо? = Why? · Защото = because!", picQuiz: false },
+    ican:        { bg: "мога", en: "I can", pic: "🦸", say: "MO-ga", hint: "Мога да… – I can…", picQuiz: false },
+    icant:       { bg: "не мога", en: "I can't", pic: "🙅", say: "ne MO-ga", picQuiz: false },
+    must:        { bg: "трябва", en: "must / have to", pic: "❗", say: "TRYAB-va", hint: "Трябва да… – I must / I have to…", picQuiz: false },
+    homework:    { bg: "домашно", en: "homework", pic: "📓", say: "do-MASH-no", hint: "From дом – home. Home-work!" },
+    forbidden:   { bg: "забранено", en: "not allowed", pic: "⛔", say: "za-bra-NE-no" },
+    iclean:      { bg: "почиствам", en: "I clean / I tidy", pic: "🧹", say: "po-CHEEST-vam" },
+    ifeed:       { bg: "храня", en: "I feed", pic: "🍖", say: "HRA-nya", hint: "Храня кучето. – I feed the dog." },
+    walkdog:     { bg: "разхождам", en: "I walk (the dog)", pic: "🐕🚶", say: "raz-HOZH-dam", hint: "Разхождам кучето. Remember разходка – a walk?" },
+    ihelp:       { bg: "помагам", en: "I help", pic: "🙋", say: "po-MA-gam", hint: "Помощ! means Help!" },
+    allowed:     { bg: "разрешено", en: "allowed", pic: "✔️", say: "raz-re-SHE-no", hint: "The opposite of забранено.", picQuiz: false },
+    now:         { bg: "сега", en: "now", pic: "⏱️", say: "se-GA", hint: "Сега играя! – I'm playing now!", picQuiz: false },
+    ido:         { bg: "правя", en: "I do / I make", pic: "🛠️", say: "PRA-vya", hint: "Какво правиш? – What are you doing?", picQuiz: false },
+    listen:      { bg: "слушам", en: "I listen", pic: "🎧", say: "SLOO-sham" },
+    iwrite:      { bg: "пиша", en: "I write", pic: "✍️", say: "PEE-sha" },
+    cook:        { bg: "готвя", en: "I cook", pic: "👩‍🍳", say: "GOT-vya" },
+    think:       { bg: "мисля", en: "I think", pic: "🤔", say: "MEES-lya", hint: "Мисля, че… – I think that…" },
+    playmusic:   { bg: "свиря", en: "I play (music)", pic: "🎸", say: "SVEE-rya", hint: "For instruments: свиря на китара. For games and sport: играя!" },
+    cry:         { bg: "плача", en: "I cry", pic: "😭", say: "PLA-cha" },
+    lookfor:     { bg: "търся", en: "I look for", pic: "🔦", say: "TUR-sya", hint: "Търся топката. – I'm looking for the ball." },
+    laugh:       { bg: "смея се", en: "I laugh", pic: "😂", say: "SME-ya se" }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -712,7 +763,48 @@ window.CONTENT = {
     s_canyouhelp:     { bg: "Можете ли да ми помогнете?", en: "Can you help me?", gap: "помогнете", audio: "audio/s_canyouhelp.m4a" },
     s_lostphone:      { bg: "Изгубих си телефона.", en: "I've lost my phone.", gap: "телефона" },
     s_callpolice:     { bg: "Обадете се на полицията!", en: "Call the police!", gap: "полицията" },
-    s_mumsnumber:     { bg: "Това е номерът на мама.", en: "This is mum's number.", gap: "номерът" }
+    s_mumsnumber:     { bg: "Това е номерът на мама.", en: "This is mum's number.", gap: "номерът" },
+    // Units 31–35
+    t_dogfourlegs:     { bg: "Кучето има четири крака.", en: "The dog has four legs." },
+    t_brushteeth:      { bg: "Мия си зъбите.", en: "I'm brushing my teeth." },
+    t_headache:        { bg: "Боли ме главата.", en: "My head hurts." },
+    t_imsick:          { bg: "Болен съм.", en: "I'm ill." },
+    s_legache:         { bg: "Боли ме кракът.", en: "My leg hurts.", gap: "кракът" },
+    s_temperature:     { bg: "Имам температура.", en: "I've got a temperature.", gap: "температура" },
+    s_gotodoctor:      { bg: "Трябва да отидеш на лекар.", en: "You need to go to the doctor.", gap: "лекар" },
+    s_wherepharmacy:   { bg: "Къде е аптеката?", en: "Where is the pharmacy?", gap: "аптеката" },
+    t_tallbrother:     { bg: "Брат ми е висок.", en: "My brother is tall." },
+    t_longhair:        { bg: "Баба има дълга коса.", en: "Grandma has long hair." },
+    t_blondsister:     { bg: "Сестра ми има руса коса.", en: "My sister has blond hair." },
+    t_dadmoustache:    { bg: "Татко има мустаци.", en: "Dad has a moustache." },
+    s_browneyes:       { bg: "Тя има кафяви очи.", en: "She has brown eyes.", gap: "очи" },
+    s_shorthair:       { bg: "Той има къса коса.", en: "He has short hair.", gap: "къса" },
+    s_tallplayer:      { bg: "Футболистът е много висок.", en: "The footballer is very tall.", gap: "висок" },
+    s_strongdad:       { bg: "Татко ми е висок и силен.", en: "My dad is tall and strong.", gap: "силен" },
+    t_veryhappy:       { bg: "Днес съм много щастлив.", en: "Today I'm very happy." },
+    t_saddog:          { bg: "Кучето е тъжно.", en: "The dog is sad." },
+    t_howfeel:         { bg: "Как се чувстваш?", en: "How do you feel?" },
+    t_veryproud:       { bg: "Много съм горд!", en: "I'm very proud!" },
+    s_tiredfootball:   { bg: "Уморен съм, защото играх футбол.", en: "I'm tired because I played football.", gap: "защото" },
+    s_sadsister:       { bg: "Сестра ми е тъжна, защото е болна.", en: "My sister is sad because she's ill.", gap: "тъжна" },
+    s_happywin:        { bg: "Щастлив съм, защото спечелихме!", en: "I'm happy because we won!", gap: "Щастлив" },
+    s_boredrain:       { bg: "Отегчен съм, защото вали дъжд.", en: "I'm bored because it's raining.", gap: "Отегчен", note: "Check: would a child rather say 'Скучно ми е, защото вали'?" },
+    t_canswimfast:     { bg: "Мога да плувам бързо.", en: "I can swim fast." },
+    t_cantfindball:    { bg: "Не мога да намеря топката.", en: "I can't find the ball." },
+    t_mustbed:         { bg: "Трябва да си легна в девет.", en: "I have to go to bed at nine." },
+    t_helpmum:         { bg: "Помагам на мама.", en: "I help mum." },
+    s_homework:        { bg: "Трябва да си напиша домашното.", en: "I have to do my homework.", gap: "домашното" },
+    s_canplayout:      { bg: "Може ли да играя навън?", en: "Can I play outside?", gap: "играя" },
+    s_cleanroom:       { bg: "Трябва да почистя стаята си.", en: "I have to tidy my room.", gap: "стаята" },
+    s_noswim:          { bg: "Тук е забранено да се плува.", en: "No swimming here.", gap: "забранено", note: "Check: natural for a sign? Maybe 'Къпането забранено'." },
+    t_whatdoing:       { bg: "Какво правиш сега?", en: "What are you doing now?" },
+    t_listenmusic:     { bg: "Слушам музика.", en: "I'm listening to music." },
+    t_sisterpiano:     { bg: "Сестра ми свири на пиано.", en: "My sister is playing the piano." },
+    t_whycry:          { bg: "Защо плачеш?", en: "Why are you crying?" },
+    s_watchmatch:      { bg: "Гледам мач по телевизията.", en: "I'm watching a match on TV.", gap: "мач" },
+    s_scoresgoal:      { bg: "Петров вкарва гол!", en: "Petrov scores a goal!", gap: "гол" },
+    s_singdance:       { bg: "Всички пеят и танцуват.", en: "Everyone is singing and dancing.", gap: "пеят" },
+    s_wewait:          { bg: "Ние чакаме автобуса.", en: "We're waiting for the bus.", gap: "чакаме" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -762,7 +854,18 @@ window.CONTENT = {
     tip_answers: { title: "Yes, no, maybe", text: "Yes: Да, разбира се! · Добре! · Страхотно! No, politely: Съжалявам, зает съм. (a boy) / заета съм (a girl). Not sure: Може би." },
     tip_help: { title: "When you need help", text: "Помощ! – Help! · Внимание! – Careful! · Извинете, имам проблем. – Excuse me, I have a problem. · Изгубен съм. (a boy) / Изгубена съм. (a girl) – I'm lost." },
     tip_pastpeek: { title: "A peek at the past", text: "изгубих – I lost · намерих – I found · Изгубих си телефона. – I've lost my phone. Short words for 'me' again: Помогнете ми! – Help me! · Обадете ми се. – Call me." },
-    tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." }
+    tip_counting: { title: "Counting things", text: "After a number, masculine things take a special 'counting' ending: един молив, два молива, пет молива. For people, use the normal plural: пет играчи. If you get it wrong, people will still understand you!", note: "Check: simplified rule for the counting form." },
+    // Units 31–35
+    tip_hurts: { title: "What hurts?", text: "Боли ме главата. – My head hurts. · Боли ме кракът. – My leg hurts. · Боли ме зъбът. – My tooth hurts. · Word for word it's 'hurts me the head'!" },
+    tip_need: { title: "You need to…", text: "трябва да – need to / must: Трябва да пиеш вода. – You need to drink water. · Трябва да почиваш. – You need to rest. · Трябва да отидеш на лекар. – You need to go to the doctor." },
+    tip_agree: { title: "Words that match", text: "Describing words change to match who you're talking about: висок брат – a tall brother · висока сестра – a tall sister · високо дете – a tall child · високи хора – tall people" },
+    tip_hasfeature: { title: "He has, she has", text: "Use има to describe someone: Той има къса коса. – He has short hair. · Тя има сини очи. – She has blue eyes. · Татко има брада. – Dad has a beard." },
+    tip_feelagree: { title: "Boy or girl?", text: "Feelings change for boys and girls: щастлив / щастлива – happy · тъжен / тъжна – sad · уморен / уморена – tired · ядосан / ядосана – angry" },
+    tip_because: { title: "Why? Because!", text: "Защо? – Why? · защото – because · Уморен съм, защото играх футбол. – I'm tired because I played football." },
+    tip_canmust: { title: "Can and must", text: "Мога да плувам. – I can swim. · Не мога да плувам. – I can't swim. · Трябва да спя. – I must sleep. · Remember: да + verb, never 'to'!" },
+    tip_permission: { title: "Can I, please?", text: "Може ли да…? – May I…? / Can I…? · Може ли да играя навън? – Can I play outside? · Answers: Да, може! – Yes, you can! · Не, не може. – No, you can't." },
+    tip_now: { title: "Playing or play?", text: "Bulgarian has one present tense for both: играя = I play AND I'm playing. Add сега to make it 'right now': Сега играя. – I'm playing now." },
+    tip_presentfull: { title: "Everyone's doing it", text: "играя – I play · играеш – you play · играе – he / she plays · играем – we play · играете – you (all) play · играят – they play" }
   },
 
   sections: [
@@ -1408,12 +1511,17 @@ window.CONTENT = {
       objectives: ["Name parts of the body", "Say what hurts", "Ask for something at the pharmacy"],
       vocab: "Body, health, pharmacy",
       grammar: ["Боли ме… – it hurts (me)", "трябва да – you need to"],
-      sample: { words: [["глава", "head"], ["корем", "tummy"], ["аптека", "pharmacy"]], sentences: [["Боли ме главата.", "I've got a headache."], ["Трябва да пиеш вода.", "You need to drink water."]] },
+      facts: [
+        "Bulgarian yoghurt is famous for its healthy bacteria, called Lactobacillus bulgaricus – named after Bulgaria!",
+        "When someone sneezes, Bulgarians say 'Наздраве!' – 'to your health!' They say it when clinking glasses too.",
+        "Bulgaria has hundreds of warm mineral springs. People have bathed in them for their health since Roman times.",
+        "When they have a cold, many Bulgarians drink мурсалски чай – a herbal tea from the Rhodope mountains."
+      ],
       lessons: [
-        { id: "u31l1", title: "My body", type: "words", status: "planned", plan: "Introduce: глава, корем, ръка, крак, аптека" },
-        { id: "u31l2", title: "What hurts?", type: "words", status: "planned", plan: "Practise: Боли ме главата." },
-        { id: "u31l3", title: "At the pharmacy", type: "sentences", status: "planned", plan: "Apply: explain how you feel to a pharmacist" },
-        { id: "u31boss", title: "Health review", type: "boss", status: "planned", plan: "Review: asking for help (Unit 30)" }
+        { id: "u31l1", title: "My body", type: "words", words: ["head", "hand", "leg", "tooth", "mouth"], sentences: ["t_dogfourlegs", "t_brushteeth"] },
+        { id: "u31l2", title: "What hurts?", type: "words", words: ["hurts", "sick", "fever", "pharmacy", "medicine"], sentences: ["t_headache", "t_imsick"], tips: ["tip_hurts"] },
+        { id: "u31l3", title: "At the pharmacy", type: "sentences", sentences: ["s_legache", "s_temperature", "s_gotodoctor", "s_wherepharmacy"], tips: ["tip_need"] },
+        { id: "u31boss", title: "Health Hero", type: "boss" }
       ]
     },
     {
@@ -1423,12 +1531,17 @@ window.CONTENT = {
       objectives: ["Describe hair, eyes and height", "Describe a friend or a footballer", "Make describing words match the person"],
       vocab: "Appearance",
       grammar: ["Adjective agreement: висок / висока / високо / високи", "има + feature: има къса коса"],
-      sample: { words: [["висок", "tall"], ["коса", "hair"], ["очи", "eyes"]], sentences: [["Брат ми е висок.", "My brother is tall."], ["Тя има кафяви очи.", "She has brown eyes."]] },
+      facts: [
+        "Hristo Stoichkov, Bulgaria's most famous footballer, won the Ballon d'Or in 1994 as the best player in Europe.",
+        "Dimitar Berbatov, a tall and very calm Bulgarian striker, played for Tottenham and Manchester United.",
+        "Bulgarian describing words have four forms – for a boy, a girl, a thing and many: висок, висока, високо, високи.",
+        "In Bulgarian, someone with blond hair is русокос and someone with dark hair is чернокос – 'blond-haired' and 'black-haired'."
+      ],
       lessons: [
-        { id: "u32l1", title: "Faces", type: "words", status: "planned", plan: "Introduce: висок, нисък, коса, очи, брада" },
-        { id: "u32l2", title: "Tall or short?", type: "words", status: "planned", plan: "Practise: Тя има кафяви очи." },
-        { id: "u32l3", title: "Guess who!", type: "sentences", status: "planned", plan: "Apply: play 'Guess who?'" },
-        { id: "u32boss", title: "People review", type: "boss", status: "planned", plan: "Review: colours (Unit 6) and family (Unit 5)" }
+        { id: "u32l1", title: "Faces", type: "words", words: ["hair", "eyes", "beard", "tall", "shortp"], sentences: ["t_tallbrother", "t_longhair"], tips: ["tip_agree"] },
+        { id: "u32l2", title: "Tall or short?", type: "words", words: ["long", "shorth", "blond", "moustache", "strong"], sentences: ["t_blondsister", "t_dadmoustache"] },
+        { id: "u32l3", title: "Guess who!", type: "sentences", sentences: ["s_browneyes", "s_shorthair", "s_tallplayer", "s_strongdad"], tips: ["tip_hasfeature"] },
+        { id: "u32boss", title: "Guess Who Champion", type: "boss" }
       ]
     },
     {
@@ -1438,12 +1551,17 @@ window.CONTENT = {
       objectives: ["Say how you feel", "Ask how someone feels", "Say why with защото"],
       vocab: "Feelings",
       grammar: ["Agreement for boys and girls: щастлив / щастлива", "защото – because"],
-      sample: { words: [["щастлив", "happy"], ["тъжен", "sad"], ["уморен", "tired"]], sentences: [["Днес съм много щастлив.", "Today I'm very happy."], ["Уморен съм, защото играх футбол.", "I'm tired because I played football."]] },
+      facts: [
+        "In Bulgarian, 'I miss you' is 'Липсваш ми' – word for word, 'you are missing to me'.",
+        "Bulgarian has a handy way to say what you feel like doing: 'Не ми се спи' means 'I don't feel like sleeping'!",
+        "On 1 March (Баба Марта), Bulgarians give each other red-and-white martenitsi to wish health and happiness.",
+        "When something goes wrong, Bulgarians might say 'Няма страшно!' – 'No worries, it's not scary!'"
+      ],
       lessons: [
-        { id: "u33l1", title: "Happy or sad?", type: "words", status: "planned", plan: "Introduce: щастлив, тъжен, уморен, ядосан, уплашен" },
-        { id: "u33l2", title: "How do you feel?", type: "words", status: "planned", plan: "Practise: Днес съм много щастлив." },
-        { id: "u33l3", title: "Why?", type: "sentences", status: "planned", plan: "Apply: talk about your day's ups and downs" },
-        { id: "u33boss", title: "Feelings review", type: "boss", status: "planned", plan: "Review: describing people (Unit 32)" }
+        { id: "u33l1", title: "Happy or sad?", type: "words", words: ["happy", "sad", "tired", "angry", "frightened"], sentences: ["t_veryhappy", "t_saddog"], tips: ["tip_feelagree"] },
+        { id: "u33l2", title: "How do you feel?", type: "words", words: ["surprised", "proud", "calm", "bored", "because"], sentences: ["t_howfeel", "t_veryproud"] },
+        { id: "u33l3", title: "Why?", type: "sentences", sentences: ["s_tiredfootball", "s_sadsister", "s_happywin", "s_boredrain"], tips: ["tip_because"] },
+        { id: "u33boss", title: "Mood Master", type: "boss" }
       ]
     },
     {
@@ -1453,12 +1571,17 @@ window.CONTENT = {
       objectives: ["Say what you can and can't do", "Say what you must do", "Ask for permission"],
       vocab: "Abilities, rules, permission",
       grammar: ["мога да, трябва да, може ли да – Bulgarian uses да + verb instead of 'to …'"],
-      sample: { words: [["мога", "I can"], ["трябва", "must / have to"], ["домашно", "homework"]], sentences: [["Мога да плувам бързо.", "I can swim fast."], ["Трябва да си напиша домашното.", "I have to do my homework."]] },
+      facts: [
+        "The Bulgarian school year always starts on 15 September, with flowers for the teachers.",
+        "The best mark in a Bulgarian school is 6 (Отличен – excellent) and the lowest is 2.",
+        "Bulgarian children start first grade at about 7 years old.",
+        "The summer holiday in Bulgarian schools is long – younger pupils get about three months off!"
+      ],
       lessons: [
-        { id: "u34l1", title: "I can!", type: "words", status: "planned", plan: "Introduce: мога, трябва, може ли, карам колело, домашно" },
-        { id: "u34l2", title: "I have to…", type: "words", status: "planned", plan: "Practise: Мога да плувам бързо." },
-        { id: "u34l3", title: "Can I…?", type: "sentences", status: "planned", plan: "Apply: ask permission at home" },
-        { id: "u34boss", title: "Can & must review", type: "boss", status: "planned", plan: "Review: hobbies (Unit 21)" }
+        { id: "u34l1", title: "I can!", type: "words", words: ["ican", "icant", "must", "homework", "forbidden"], sentences: ["t_canswimfast", "t_cantfindball"], tips: ["tip_canmust"] },
+        { id: "u34l2", title: "I have to…", type: "words", words: ["iclean", "ifeed", "walkdog", "ihelp", "allowed"], sentences: ["t_mustbed", "t_helpmum"] },
+        { id: "u34l3", title: "Can I…?", type: "sentences", sentences: ["s_homework", "s_canplayout", "s_cleanroom", "s_noswim"], tips: ["tip_permission"] },
+        { id: "u34boss", title: "Can-Do Champion", type: "boss" }
       ]
     },
     {
@@ -1468,12 +1591,17 @@ window.CONTENT = {
       objectives: ["Say what you're doing now", "Say what others are doing", "Ask 'What are you doing?'"],
       vocab: "Everyday actions",
       grammar: ["One present tense for 'I play' and 'I'm playing'", "Full present: аз играя, ти играеш, той играе, ние играем, вие играете, те играят"],
-      sample: { words: [["сега", "now"], ["гледам", "I watch"], ["слушам", "I listen"]], sentences: [["Какво правиш сега?", "What are you doing now?"], ["Гледам мач.", "I'm watching a match."]] },
+      facts: [
+        "A goal in Bulgarian is гол – the word came from English!",
+        "Bulgarian has no '-ing' form: 'I play' and 'I'm playing' are both играя.",
+        "Bulgaria's national football stadium is the Vasil Levski Stadium in Sofia.",
+        "At the 1994 World Cup in the USA, Bulgaria beat Germany and reached the semi-finals!"
+      ],
       lessons: [
-        { id: "u35l1", title: "Now!", type: "words", status: "planned", plan: "Introduce: сега, правя, гледам, слушам, чакам" },
-        { id: "u35l2", title: "What are they doing?", type: "words", status: "planned", plan: "Practise: Какво правиш сега?" },
-        { id: "u35l3", title: "Live commentary", type: "sentences", status: "planned", plan: "Apply: commentate a football match" },
-        { id: "u35boss", title: "Present review", type: "boss", status: "planned", plan: "Review: football (Unit 4)" }
+        { id: "u35l1", title: "Now!", type: "words", words: ["now", "ido", "listen", "iwrite", "cook"], sentences: ["t_whatdoing", "t_listenmusic"], tips: ["tip_now"] },
+        { id: "u35l2", title: "What are they doing?", type: "words", words: ["think", "playmusic", "cry", "lookfor", "laugh"], sentences: ["t_sisterpiano", "t_whycry"], tips: ["tip_presentfull"] },
+        { id: "u35l3", title: "Live commentary", type: "sentences", sentences: ["s_watchmatch", "s_scoresgoal", "s_singdance", "s_wewait"] },
+        { id: "u35boss", title: "Live Commentator", type: "boss" }
       ]
     },
     {
