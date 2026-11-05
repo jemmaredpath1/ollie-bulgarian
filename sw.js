@@ -1,6 +1,6 @@
 // Offline support: always try the network first (so new words show up
 // straight away), and fall back to the saved copy when offline.
-const CACHE = 'ollie-bulgarian-v27';
+const CACHE = 'ollie-bulgarian-v28';
 const FILES = [
   './', 'index.html', 'css/styles.css', 'js/content.js', 'js/app.js',
   'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png'
@@ -17,7 +17,11 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET' || new URL(e.request.url).origin !== location.origin) return;
+  const url = new URL(e.request.url);
+  if (e.request.method !== 'GET' || url.origin !== location.origin) return;
+  // Recordings: let the browser fetch them itself. iPads ask for audio in pieces
+  // (range requests), which a cached whole file can't answer.
+  if (url.pathname.includes('/audio/')) return;
   e.respondWith(
     fetch(e.request)
       .then(res => {

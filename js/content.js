@@ -47,7 +47,7 @@ window.CONTENT = {
     bone:       { bg: "кокал", en: "bone", pic: "🦴", say: "KO-kal", hint: "A hungry dog CALLS for a KO-kal." },
     ball:       { bg: "топка", en: "ball", pic: "🎾", say: "TOP-ka", hint: "Throw the TOP-ka over the TOP of the fence!" },
     barks:      { bg: "лае", en: "barks", pic: "🐕💬", say: "LA-e" },
-    runs:       { bg: "бяга", en: "runs", pic: "🐕💨", say: "BYA-ga", hint: "The dog runs off: BYE-ga!" },
+    runs:       { bg: "бяга", en: "runs", pic: "🐕💨", say: "BYA-ga", hint: "The dog runs off: BYE-ga!", audio: "audio/runs.m4a" },
     big:        { bg: "голям", en: "big", pic: "🐘", say: "go-LYAM" },
     small:      { bg: "малък", en: "small", pic: "🐭", say: "MA-luhk" },
     walk:       { bg: "разходка", en: "walk", pic: "🦮", say: "raz-HOD-ka" },
@@ -92,7 +92,7 @@ window.CONTENT = {
     // ---------- Unit 6: Colours ----------
     red:        { bg: "червен", en: "red", pic: "🔴", say: "cher-VEN", hint: "cher-VEN – a red CHERry!" },
     blue:       { bg: "син", en: "blue", pic: "🔵", say: "sin", hint: "The blue sea can be SEEN from far away: син!" },
-    green:      { bg: "зелен", en: "green", pic: "🟢", say: "ze-LEN" },
+    green:      { bg: "зелен", en: "green", pic: "🟢", say: "ze-LEN", audio: "audio/green.m4a" },
     yellow:     { bg: "жълт", en: "yellow", pic: "🟡", say: "zhuhlt" },
     white:      { bg: "бял", en: "white", pic: "⚪", say: "byal" },
     black:      { bg: "черен", en: "black", pic: "⚫", say: "CHE-ren" },
@@ -182,7 +182,7 @@ window.CONTENT = {
     chair:      { bg: "стол", en: "chair", pic: "🪑", say: "stol", hint: "Sounds like 'stool' – a stool is a kind of chair!" },
     door:       { bg: "врата", en: "door", pic: "🚪", say: "vra-TA", hint: "Remember вратар, the goalkeeper who guards the врата?" },
     window:     { bg: "прозорец", en: "window", pic: "🪟", say: "pro-ZO-rets" },
-    bed:        { bg: "легло", en: "bed", pic: "🛏️", say: "leg-LO", hint: "You lie in your bed: leg-LO – put your LEGs LOw!" },
+    bed:        { bg: "легло", en: "bed", pic: "🛏️", say: "leg-LO", hint: "You lie in your bed: leg-LO – put your LEGs LOw!", audio: "audio/bed.m4a" },
     key:        { bg: "ключ", en: "key", pic: "🔑", say: "klyuch" },
 
     // ---------- Unit 14: Numbers 11–20 ----------
@@ -210,19 +210,19 @@ window.CONTENT = {
     drink:      { bg: "пия", en: "I drink", pic: "🥤", say: "PEE-ya" },
 
     // ---------- Unit 16: My home ----------
-    room:       { bg: "стая", en: "room", pic: "🧸", say: "STA-ya", hint: "Your стая is where your toys STAY!", picQuiz: false },
+    room:       { bg: "стая", en: "room", pic: "🧸", say: "STA-ya", hint: "Your стая is where your toys STAY!", picQuiz: false, audio: "audio/room.m4a" },
     kitchen:    { bg: "кухня", en: "kitchen", pic: "🍳", say: "KOOH-nya", hint: "Sounds a bit like 'cook-nya' – where you cook!" },
     bathroom:   { bg: "баня", en: "bathroom", pic: "🛁", say: "BA-nya", hint: "Sounds like 'banya' – a bath!" },
     livingroom: { bg: "хол", en: "living room", pic: "🛋️", say: "hol", hint: "Like a 'hall' where the family sits." },
     garden:     { bg: "градина", en: "garden", pic: "🌻", say: "gra-DEE-na", hint: "Sounds a bit like 'garden-a'!" },
-    under:      { bg: "под", en: "under", pic: "⬇️", say: "pod", picQuiz: false },
+    under:      { bg: "под", en: "under", pic: "⬇️", say: "pod", picQuiz: false, audio: "audio/under.m4a" },
     above:      { bg: "над", en: "above / over", pic: "⬆️", say: "nad", picQuiz: false },
-    nextto:     { bg: "до", en: "next to", pic: "↔️", say: "do", picQuiz: false },
-    behind:     { bg: "зад", en: "behind", pic: "🫣", say: "zad", hint: "зад sounds like 'sad' – hiding behind something!", picQuiz: false },
+    nextto:     { bg: "до", en: "next to", pic: "↔️", say: "do", picQuiz: false, audio: "audio/nextto.m4a" },
+    behind:     { bg: "зад", en: "behind", pic: "🫣", say: "zad", hint: "зад sounds like 'sad' – hiding behind something!", picQuiz: false, audio: "audio/behind.m4a" },
     between:    { bg: "между", en: "between", pic: "⏸️", say: "MEZH-doo", hint: "Like 'middle' – between two things.", picQuiz: false },
 
     // ---------- Unit 17: Clothes & shopping ----------
-    tshirt:     { bg: "тениска", en: "T-shirt", pic: "🎽", say: "TE-nis-ka", hint: "Tennis players wear a тениска!" },
+    tshirt:     { bg: "тениска", en: "T-shirt", pic: "🎽", say: "TE-nis-ka", hint: "Tennis players wear a тениска!", audio: "audio/tshirt.m4a" },
     shoes:      { bg: "обувки", en: "shoes", pic: "👟", say: "o-BOOV-ki" },
     jacket:     { bg: "яке", en: "jacket", pic: "🧥", say: "YA-ke", hint: "YA-ke sounds like 'jacket' with the end chopped off!" },
     hat:        { bg: "шапка", en: "hat / cap", pic: "🧢", say: "SHAP-ka", hint: "Your шапка gives your head a SHAPE!" },
@@ -281,7 +281,7 @@ window.CONTENT = {
     game:       { bg: "игра", en: "game", pic: "🕹️", say: "ig-RA", hint: "играя = I play, игра = a game." },
     dance:      { bg: "танцувам", en: "I dance", pic: "💃", say: "tan-TSOO-vam", hint: "Sounds like 'dance'!" },
     sing:       { bg: "пея", en: "I sing", pic: "🎤", say: "PE-ya" },
-    hobby:      { bg: "хоби", en: "hobby", pic: "🎯", say: "HO-bi", hint: "Same as 'hobby'!", picQuiz: false },
+    hobby:      { bg: "хоби", en: "hobby", pic: "🎯", say: "HO-bi", hint: "Same as 'hobby'!", picQuiz: false, audio: "audio/hobby.m4a" },
     fun:        { bg: "забавно", en: "fun", pic: "🤪", say: "za-BAV-no" },
     boring:     { bg: "скучно", en: "boring", pic: "🥱", say: "SKOOCH-no" },
 
@@ -348,7 +348,7 @@ window.CONTENT = {
     // ---------- Unit 27: At the hotel ----------
     hotel:      { bg: "хотел", en: "hotel", pic: "🏨", say: "ho-TEL", hint: "Same as 'hotel'!" },
     booking:    { bg: "резервация", en: "booking", pic: "🗒️", say: "re-zer-VA-tsi-ya", hint: "Like 'reservation'!", picQuiz: false },
-    reception:  { bg: "рецепция", en: "reception", pic: "🛎️", say: "re-TSEP-tsi-ya", hint: "Like 'reception'!" },
+    reception:  { bg: "рецепция", en: "reception", pic: "🛎️", say: "re-TSEP-tsi-ya", hint: "Like 'reception'!", audio: "audio/reception.m4a" },
     lift:       { bg: "асансьор", en: "lift", pic: "🛗", say: "a-san-SYOR", hint: "Like 'ascend' – it goes up!" },
     floor:      { bg: "етаж", en: "floor (level)", pic: "🏢", say: "e-TAZH", picQuiz: false },
     hotelbreakfast: { bg: "закуска", en: "breakfast", pic: "🥐", say: "za-KOOS-ka", hint: "Remember закусвам (I have breakfast)?" },
@@ -402,25 +402,23 @@ window.CONTENT = {
     s_fine:     { bg: "Добре, благодаря.", en: "Fine, thank you.", gap: "благодаря" },
     s_night:    { bg: "Лека нощ, мамо!", en: "Good night, mum!", gap: "нощ" },
 
-    s_havedog:  { bg: "Аз имам куче.", en: "I have a dog.", gap: "куче" },
+    s_havedog:  { bg: "Аз имам куче.", en: "I have a dog.", gap: "куче", audio: "audio/s_havedog.m4a" },
     s_barks:    { bg: "Кучето лае.", en: "The dog barks.", gap: "лае" },
-    s_runs:     { bg: "Кучето бяга бързо.", en: "The dog runs fast.", gap: "бяга" },
+    s_runs:     { bg: "Кучето бяга бързо.", en: "The dog runs fast.", gap: "бяга", audio: "audio/s_runs.m4a" },
     s_bone:     { bg: "Кучето иска кокал.", en: "The dog wants a bone.", gap: "кокал" },
 
     s_score:    { bg: "Резултатът е две на едно.", en: "The score is two–one.", gap: "две" },
     s_number:   { bg: "Моят номер е седем.", en: "My number is seven.", gap: "седем" },
-    s_twodogs:  { bg: "Имам две кучета.", en: "I have two dogs.", gap: "две" },
-    s_threeballs: { bg: "Имам три топки.", en: "I have three balls.", gap: "три" },
-
+    s_twodogs:  { bg: "Имам две кучета.", en: "I have two dogs.", gap: "две", audio: "audio/s_twodogs.m4a" },
+    s_threeballs: { bg: "Имам три топки.", en: "I have three balls.", gap: "три", audio: "audio/s_threeballs.m4a" },
     s_kick:     { bg: "Аз ритам топката.", en: "I kick the ball.", gap: "ритам" },
     s_play:     { bg: "Аз играя футбол.", en: "I play football.", gap: "футбол" },
     s_winning:  { bg: "Гол! Ние печелим!", en: "Goal! We are winning!", gap: "печелим" },
-    s_best:     { bg: "Нашият отбор е най-добрият.", en: "Our team is the best.", gap: "отбор" },
-
+    s_best:     { bg: "Нашият отбор е най-добрият.", en: "Our team is the best.", gap: "отбор", audio: "audio/s_best.m4a" },
     // Tiny sentences mixed into word lessons
     t_hisharo:  { bg: "Здравей, Шаро!", en: "Hello, Sharo!" },
     t_thanksmum:{ bg: "Благодаря, мамо!", en: "Thank you, mum!" },
-    t_yesplease:{ bg: "Да, моля.", en: "Yes, please." },
+    t_yesplease:{ bg: "Да, моля.", en: "Yes, please.", audio: "audio/t_yesplease.m4a" },
     t_nothanks: { bg: "Не, благодаря.", en: "No, thank you." },
     t_hasbone:  { bg: "Кучето има кокал.", en: "The dog has a bone." },
     t_paw:      { bg: "Това е лапа.", en: "This is a paw." },
@@ -453,7 +451,7 @@ window.CONTENT = {
     t_catsleeps:{ bg: "Котката спи.", en: "The cat is sleeping." },
     t_cowmoo:   { bg: "Кравата казва му!", en: "The cow says moo!" },
     t_bigbear:  { bg: "Мечката е голяма.", en: "The bear is big." },
-    t_birdflies:{ bg: "Птицата лети.", en: "The bird flies." },
+    t_birdflies:{ bg: "Птицата лети.", en: "The bird flies.", audio: "audio/t_birdflies.m4a" },
     t_lovebananas:{ bg: "Обичам банани.", en: "I love bananas." },
     t_milkplease:{ bg: "Мляко, моля.", en: "Milk, please." },
     t_wantpizza:{ bg: "Искам пица!", en: "I want pizza!" },
@@ -463,20 +461,18 @@ window.CONTENT = {
     s_brosis:   { bg: "Аз имам брат и сестра.", en: "I have a brother and a sister.", gap: "сестра" },
     s_granbanitsa:{ bg: "Моята баба прави баница.", en: "My grandma makes banitsa.", gap: "баба" },
     s_lovefamily:{ bg: "Обичам моето семейство.", en: "I love my family.", gap: "семейство" },
-    s_dadfootball:{ bg: "Татко играе футбол с мен.", en: "Dad plays football with me.", gap: "Татко" },
-
+    s_dadfootball:{ bg: "Татко играе футбол с мен.", en: "Dad plays football with me.", gap: "Татко", audio: "audio/s_dadfootball.m4a" },
     s_redteam:  { bg: "Моят отбор е червен.", en: "My team is red.", gap: "червен" },
     s_grass:    { bg: "Тревата е зелена.", en: "The grass is green.", gap: "зелена" },
-    s_bluekit:  { bg: "Имам син екип.", en: "I have a blue kit.", gap: "син" },
+    s_bluekit:  { bg: "Имам син екип.", en: "I have a blue kit.", gap: "син", audio: "audio/s_bluekit.m4a" },
     s_sun:      { bg: "Слънцето е жълто.", en: "The sun is yellow.", gap: "жълто" },
 
     s_loveswim: { bg: "Обичам да плувам.", en: "I love to swim.", gap: "плувам" },
     s_bigpool:  { bg: "Басейнът е голям.", en: "The pool is big.", gap: "голям" },
     s_swimsea:  { bg: "Аз плувам в морето.", en: "I swim in the sea.", gap: "морето" },
-    s_goggles:  { bg: "Къде са моите очила?", en: "Where are my goggles?", gap: "очила" },
-
+    s_goggles:  { bg: "Къде са моите очила?", en: "Where are my goggles?", gap: "очила", audio: "audio/s_goggles.m4a" },
     s_digpick:  { bg: "Аз копая с кирка.", en: "I dig with a pickaxe.", gap: "кирка" },
-    s_zombienight:{ bg: "Зомбито идва през нощта.", en: "The zombie comes at night.", gap: "нощта" },
+    s_zombienight:{ bg: "Зомбито идва през нощта.", en: "The zombie comes at night.", gap: "нощта", audio: "audio/s_zombienight.m4a" },
     s_stonehouse:{ bg: "Къщата е от камък.", en: "The house is made of stone.", gap: "камък" },
     s_cavediamonds:{ bg: "В пещерата има диаманти.", en: "There are diamonds in the cave.", gap: "диаманти" },
 
@@ -505,7 +501,7 @@ window.CONTENT = {
     t_whohe:          { bg: "Кой е той?", en: "Who is he?" },
     t_whatthis:       { bg: "Какво е това?", en: "What is this?" },
     t_dontknow:       { bg: "Не знам.", en: "I don't know." },
-    s_howmanydogs:    { bg: "Колко кучета имаш?", en: "How many dogs do you have?", gap: "Колко" },
+    s_howmanydogs:    { bg: "Колко кучета имаш?", en: "How many dogs do you have?", gap: "Колко", audio: "audio/s_howmanydogs.m4a" },
     s_whyrun:         { bg: "Защо бягаш?", en: "Why are you running?", gap: "Защо" },
     s_dontunderstand: { bg: "Не разбирам.", en: "I don't understand.", gap: "разбирам" },
     s_havebrother:    { bg: "Имаш ли брат?", en: "Do you have a brother?", gap: "ли" },
@@ -513,10 +509,10 @@ window.CONTENT = {
     // Unit 13
     t_myphone:        { bg: "Това е моят телефон.", en: "This is my phone." },
     t_bookbag:        { bg: "Книгата е в чантата.", en: "The book is in the bag." },
-    t_keychair:       { bg: "Ключът е на стола.", en: "The key is on the chair." },
-    t_closedoor:      { bg: "Затвори вратата, моля.", en: "Close the door, please." },
+    t_keychair:       { bg: "Ключът е на стола.", en: "The key is on the chair.", audio: "audio/t_keychair.m4a" },
+    t_closedoor:      { bg: "Затвори вратата, моля.", en: "Close the door, please.", audio: "audio/t_closedoor.m4a" },
     s_wherepencil:    { bg: "Къде е моят молив?", en: "Where is my pencil?", gap: "молив" },
-    s_underbed:       { bg: "Моливът е под леглото.", en: "The pencil is under the bed.", gap: "под" },
+    s_underbed:       { bg: "Моливът е под леглото.", en: "The pencil is under the bed.", gap: "под", audio: "audio/s_underbed.m4a" },
     s_twobooks:       { bg: "Имам две книги.", en: "I have two books.", gap: "книги" },
     s_windowopen:     { bg: "Прозорецът е отворен.", en: "The window is open.", gap: "отворен" },
 
@@ -542,24 +538,23 @@ window.CONTENT = {
 
     // Unit 16
     t_mumkitchen:     { bg: "Мама е в кухнята.", en: "Mum is in the kitchen." },
-    t_smallroom:      { bg: "Моята стая е малка.", en: "My room is small." },
+    t_smallroom:      { bg: "Моята стая е малка.", en: "My room is small.", audio: "audio/t_smallroom.m4a" },
     t_catunder:       { bg: "Котката е под масата.", en: "The cat is under the table." },
     t_lampabove:      { bg: "Лампата е над леглото.", en: "The lamp is above the bed." },
-    s_myroom:         { bg: "Това е моята стая.", en: "This is my room.", gap: "стая" },
+    s_myroom:         { bg: "Това е моята стая.", en: "This is my room.", gap: "стая", audio: "audio/s_myroom.m4a" },
     s_bednext:        { bg: "Леглото е до прозореца.", en: "The bed is next to the window.", gap: "до" },
     s_ballbehind:     { bg: "Топката е зад вратата.", en: "The ball is behind the door.", gap: "зад" },
     s_dogbetween:     { bg: "Кучето спи между стола и леглото.", en: "The dog is sleeping between the chair and the bed.", gap: "между" },
 
     // Unit 17
-    t_bluehat:        { bg: "Моята шапка е синя.", en: "My hat is blue." },
+    t_bluehat:        { bg: "Моята шапка е синя.", en: "My hat is blue.", audio: "audio/t_bluehat.m4a" },
     t_shoesunder:     { bg: "Обувките са под леглото.", en: "The shoes are under the bed." },
     t_likejacket:     { bg: "Харесва ми якето.", en: "I like the jacket." },
     t_dontlikehat:    { bg: "Не ми харесва тази шапка.", en: "I don't like this hat." },
-    s_blueshirt:      { bg: "Харесва ми синята тениска.", en: "I like the blue T-shirt.", gap: "синята" },
+    s_blueshirt:      { bg: "Харесва ми синята тениска.", en: "I like the blue T-shirt.", gap: "синята", audio: "audio/s_blueshirt.m4a" },
     s_jacketprice:    { bg: "Колко струва якето?", en: "How much is the jacket?", gap: "якето" },
     s_newshoes:       { bg: "Новите ми обувки са червени.", en: "My new shoes are red.", gap: "червени" },
-    s_iwantit:        { bg: "Тениската? Искам я!", en: "The T-shirt? I want it!", gap: "я", note: "Check: natural way to say 'I want it' about a T-shirt?" },
-
+    s_iwantit:        { bg: "Тениската? Искам я!", en: "The T-shirt? I want it!", gap: "я", note: "Check: natural way to say 'I want it' about a T-shirt?", audio: "audio/s_iwantit.m4a" },
     // Unit 18
     t_thirtyfive:     { bg: "Тридесет и пет.", en: "Thirty-five." },
     t_hundredpoints:  { bg: "Сто точки!", en: "A hundred points!" },
@@ -567,7 +562,7 @@ window.CONTENT = {
     t_tooexpensive:   { bg: "Много е скъпо!", en: "It's very expensive!" },
     s_twentyeuro:     { bg: "Имам двадесет евро.", en: "I have twenty euros.", gap: "двадесет" },
     s_ballcosts:      { bg: "Топката струва петнадесет евро.", en: "The ball costs fifteen euros.", gap: "струва" },
-    s_cheapshirt:     { bg: "Тази тениска е евтина.", en: "This T-shirt is cheap.", gap: "евтина" },
+    s_cheapshirt:     { bg: "Тази тениска е евтина.", en: "This T-shirt is cheap.", gap: "евтина", audio: "audio/s_cheapshirt.m4a" },
     s_paycard:        { bg: "Може ли да платя с карта?", en: "Can I pay by card?", gap: "карта" },
 
     // Unit 19
@@ -588,8 +583,7 @@ window.CONTENT = {
     s_getupearly:     { bg: "Ставаш ли рано?", en: "Do you get up early?", gap: "Ставаш" },
     s_brotherwatches: { bg: "Брат ми гледа телевизия.", en: "My brother watches TV.", gap: "гледа" },
     s_dinnerseven:    { bg: "Ние вечеряме в седем.", en: "We have dinner at seven.", gap: "вечеряме" },
-    s_dogsleeps:      { bg: "Кучето спи в моята стая.", en: "The dog sleeps in my room.", gap: "спи" },
-
+    s_dogsleeps:      { bg: "Кучето спи в моята стая.", en: "The dog sleeps in my room.", gap: "спи", audio: "audio/s_dogsleeps.m4a" },
     // Unit 21
     t_lovereading:    { bg: "Обичам да чета.", en: "I love reading." },
     t_bikepark:       { bg: "Карам колело в парка.", en: "I ride my bike in the park." },
@@ -598,8 +592,7 @@ window.CONTENT = {
     s_likedoing:      { bg: "Какво обичаш да правиш?", en: "What do you like doing?", gap: "правиш" },
     s_playminecraft:  { bg: "Обичам да играя Майнкрафт.", en: "I love playing Minecraft.", gap: "играя" },
     s_nodance:        { bg: "Не обичам да танцувам.", en: "I don't like dancing.", gap: "танцувам" },
-    s_favhobby:       { bg: "Футболът е моето любимо хоби.", en: "Football is my favourite hobby.", gap: "любимо", note: "Check: natural? (любимо agrees with хоби, which is neuter)" },
-
+    s_favhobby:       { bg: "Футболът е моето любимо хоби.", en: "Football is my favourite hobby.", gap: "любимо", note: "Check: natural? (любимо agrees with хоби, which is neuter)", audio: "audio/s_favhobby.m4a" },
     // Unit 22
     t_mumdoctor:      { bg: "Мама е лекар.", en: "Mum is a doctor." },
     t_goodteacher:    { bg: "Учителят е добър.", en: "The teacher is good." },
@@ -607,7 +600,7 @@ window.CONTENT = {
     t_becomevet:      { bg: "Искам да стана ветеринар.", en: "I want to become a vet." },
     s_whatbecome:     { bg: "Какъв искаш да станеш?", en: "What do you want to be?", gap: "станеш" },
     s_wantfootballer: { bg: "Искам да стана футболист.", en: "I want to become a footballer.", gap: "футболист" },
-    s_auntteacher:    { bg: "Леля ми е учителка.", en: "My aunt is a teacher.", gap: "учителка" },
+    s_auntteacher:    { bg: "Леля ми е учителка.", en: "My aunt is a teacher.", gap: "учителка", audio: "audio/s_auntteacher.m4a" },
     s_chefpizza:      { bg: "Готвачът прави пица.", en: "The chef makes pizza.", gap: "прави" },
 
     // Unit 23
@@ -667,7 +660,7 @@ window.CONTENT = {
     t_hotsummer:      { bg: "През лятото е горещо.", en: "It's hot in summer." },
     s_sunnywarm:      { bg: "Днес е слънчево и топло.", en: "Today it's sunny and warm.", gap: "слънчево" },
     s_willrain:       { bg: "Утре ще вали дъжд.", en: "Tomorrow it will rain.", gap: "ще" },
-    s_snowman:        { bg: "През зимата правим снежен човек.", en: "In winter we make a snowman.", gap: "зимата" },
+    s_snowman:        { bg: "През зимата правим снежен човек.", en: "In winter we make a snowman.", gap: "зимата", audio: "audio/s_snowman.m4a" },
     s_autumnleaves:   { bg: "През есента листата са жълти.", en: "In autumn the leaves are yellow.", gap: "есента" },
 
     // Unit 29
@@ -683,9 +676,9 @@ window.CONTENT = {
     // Unit 30
     t_dogranaway:     { bg: "Помощ! Кучето избяга!", en: "Help! The dog ran away!" },
     t_imlost:         { bg: "Изгубен съм.", en: "I'm lost." },
-    t_foundkey:       { bg: "Намерих ключа!", en: "I found the key!" },
+    t_foundkey:       { bg: "Намерих ключа!", en: "I found the key!", audio: "audio/t_foundkey.m4a" },
     t_scareddark:     { bg: "Страх ме е от тъмното.", en: "I'm scared of the dark." },
-    s_canyouhelp:     { bg: "Можете ли да ми помогнете?", en: "Can you help me?", gap: "помогнете" },
+    s_canyouhelp:     { bg: "Можете ли да ми помогнете?", en: "Can you help me?", gap: "помогнете", audio: "audio/s_canyouhelp.m4a" },
     s_lostphone:      { bg: "Изгубих си телефона.", en: "I've lost my phone.", gap: "телефона" },
     s_callpolice:     { bg: "Обадете се на полицията!", en: "Call the police!", gap: "полицията" },
     s_mumsnumber:     { bg: "Това е номерът на мама.", en: "This is mum's number.", gap: "номерът" }
