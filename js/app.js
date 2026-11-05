@@ -213,7 +213,7 @@
   document.addEventListener('pointerdown', unlockSpeech, { once: true });
 
   const sayWord = (id, slow) => { const w = word(id); speak(w.tts || w.bg, w.audio, slow); };
-  const saySentence = (id, slow) => { const s = sentence(id); speak(s.bg, s.audio, slow); };
+  const saySentence = (id, slow) => { const s = sentence(id); speak(s.tts || s.bg, s.audio, slow); };
 
   // ================= Listening to Ollie =================
   // Safari (iPad/iPhone) and Chrome have a built-in speech recogniser. If it
