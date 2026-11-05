@@ -385,7 +385,6 @@ h3 { margin: 0 0 10px; font-size: 19px; }
 .continue-label { font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; opacity: .85; }
 .continue-title { grid-column: 1; font-size: 17px; font-weight: 800; }
 .continue-go { grid-column: 2; grid-row: 1 / span 2; font-size: 22px; }
-.review-btn { margin: 0; white-space: nowrap; }
 
 .section-head {
   width: 100%;
@@ -472,6 +471,16 @@ h3 { margin: 0 0 10px; font-size: 19px; }
 .progress { flex: 1; height: 18px; background: var(--line); border-radius: 99px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--green); border-radius: 99px; transition: width .4s; box-shadow: inset 0 -5px 0 rgba(0,0,0,.08); }
 .combo { font-weight: 900; color: #ff8a3d; font-size: 18px; }
+
+/* ⚡ Speed Quiz */
+.quiz-timer .quiz-timer-fill { background: var(--yellow); transition: width .25s linear; }
+.quiz-score { font-weight: 900; color: var(--yellow); font-size: 20px; min-width: 48px; text-align: right; }
+.quiz-stars { font-size: 40px; letter-spacing: 4px; }
+.node.quiz { --c: var(--orange); --cd: var(--orange-dark); }
+.node.quiz.done { background: var(--c); box-shadow: 0 7px 0 var(--cd); color: #fff; }
+.node-stars { display: block; font-size: 13px; letter-spacing: 1px; }
+.finish-actions { display: flex; gap: 10px; width: 100%; }
+.finish-actions .btn { flex: 1; margin: 0; }
 
 .qbody { flex: 1; display: flex; flex-direction: column; gap: 14px; padding-bottom: 150px; }
 .q-label { font-size: 22px; font-weight: 900; margin-top: 6px; }
