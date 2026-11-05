@@ -54,10 +54,14 @@
     muted: false,
     speaking: true,  // "Say it!" exercises
     learnLetters: null, // true = show the alphabet unit; null = never asked (saves from before it existed)
-    quiz: {}            // unitId -> { best, plays } for the Speed Quiz
+    quiz: {},           // unitId -> { best, plays } for the Speed Quiz
+    playerName: null    // asked first on the cover; saves from before it existed were Ollie's
   });
 
   let state = loadState();
+  const playerName = () => state.playerName || 'Ollie';
+  // "Ollie's" – or "James's"; an empty name gives "Your".
+  const possessive = name => name ? `${name}'s` : 'Your';
 
   function loadState() {
     try {
@@ -329,8 +333,48 @@
     window.scrollTo(0, 0);
   }
 
-  // ---------- Welcome: name the dog ----------
+  // ---------- Welcome, part 1: what's your name? ----------
+  const coverTitle = kicker => h('div', { class: 'cover-title' },
+    kicker,
+    h('h1', {}, 'Bulgarian', h('br'), 'Adventure'),
+    h('p', { class: 'tagline' }, 'Football, Minecraft, swimming and dogs. Learn real Bulgarian your way!')
+  );
+
   function renderWelcome() {
+    document.title = 'Bulgarian Adventure';
+    const input = h('input', { class: 'name-input dark', maxlength: 16, placeholder: 'Type your name…', 'aria-label': 'Your name', autocomplete: 'off' });
+    const kicker = h('div', { class: 'kicker' }, possessive(''));
+    // The title becomes theirs as they type.
+    input.addEventListener('input', () => { kicker.textContent = possessive(input.value.trim()); });
+    const next = () => {
+      const name = input.value.trim();
+      if (!name) { input.focus(); input.classList.add('shake'); setTimeout(() => input.classList.remove('shake'), 400); return; }
+      state.playerName = name;
+      saveState();
+      sfx.tap();
+      renderDogName();
+    };
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') next(); });
+
+    const totalWords = Object.keys(C.words).length;
+    show(h('section', { class: 'screen welcome' },
+      h('div', { class: 'flag-stripe', 'aria-hidden': 'true' }, h('i'), h('i'), h('i')),
+      coverTitle(kicker),
+      h('div', { class: 'pills' },
+        h('span', { class: 'pill' }, `${C.units.filter(u => !u.planned).length} units`),
+        h('span', { class: 'pill' }, `${Math.floor(totalWords / 10) * 10}+ words`),
+        h('span', { class: 'pill' }, '🎤 Speaking'),
+        h('span', { class: 'pill' }, '🏆 Boss rounds')
+      ),
+      h('label', { class: 'sidekick-label', for: 'player-name' }, "What's your name?"),
+      Object.assign(input, { id: 'player-name' }),
+      h('button', { class: 'btn big start', onclick: next }, 'Next →')
+    ));
+    input.focus();
+  }
+
+  // ---------- Welcome, part 2: name the dog ----------
+  function renderDogName() {
     const input = h('input', { class: 'name-input dark', maxlength: 16, placeholder: 'Type a name…', 'aria-label': 'Dog name' });
     const chips = h('div', { class: 'chips' });
     const go = () => {
@@ -347,25 +391,14 @@
     ['Рекс', 'Макс', 'Шаро', 'Ракета', 'Тайфун'].forEach(n => chips.append(
       h('button', { class: 'chip', onclick: () => { input.value = n; input.dispatchEvent(new Event('input')); sfx.tap(); } }, n)));
 
-    const totalWords = Object.keys(C.words).length;
     show(h('section', { class: 'screen welcome' },
       h('div', { class: 'flag-stripe', 'aria-hidden': 'true' }, h('i'), h('i'), h('i')),
-      h('div', { class: 'cover-title' },
-        h('div', { class: 'kicker' }, "Ollie's"),
-        h('h1', {}, 'Bulgarian', h('br'), 'Adventure'),
-        h('p', { class: 'tagline' }, 'Football, Minecraft, swimming and dogs. Learn real Bulgarian your way!')
-      ),
-      h('div', { class: 'pills' },
-        h('span', { class: 'pill' }, `${C.units.filter(u => !u.planned).length} units`),
-        h('span', { class: 'pill' }, `${Math.floor(totalWords / 10) * 10}+ words`),
-        h('span', { class: 'pill' }, '🎤 Speaking'),
-        h('span', { class: 'pill' }, '🏆 Boss rounds')
-      ),
+      coverTitle(h('div', { class: 'kicker' }, possessive(playerName()))),
       h('div', { class: 'sidekick' },
         h('div', { class: 'sidekick-dog' }, dog('happy', 110)),
         h('div', {},
           h('div', { class: 'sidekick-label' }, 'Choose your sidekick'),
-          h('p', { class: 'sidekick-text' }, 'Every adventure needs a partner. Your dog speaks Bulgarian, so give it a name!')
+          h('p', { class: 'sidekick-text' }, `Every adventure needs a partner, ${playerName()}. Your dog speaks Bulgarian, so give it a name!`)
         )
       ),
       input,
@@ -383,7 +416,7 @@
       confetti();
       renderPath(learn
         ? `Бау! I'm ${name}, your sidekick. Let's start with the letters – you'll be reading in no time! ✏️`
-        : `Бау! I'm ${name}, your sidekick. Let's do this, Ollie! 💪`);
+        : `Бау! I'm ${name}, your sidekick. Let's do this, ${playerName()}! 💪`);
     };
     const option = (emoji, title, text, learn) => h('button', { class: 'read-option', onclick: () => choose(learn) },
       h('span', { class: 'read-emoji', 'aria-hidden': 'true' }, emoji),
@@ -406,11 +439,11 @@
 
   // ---------- Home: the lesson path ----------
   const greetings = () => [
-    `Бау! Ready, Ollie?`,
+    `Бау! Ready, ${playerName()}?`,
     `Next mission's waiting. Let's go!`,
     `One lesson a day keeps the streak alive 🔥`,
     `New words to unlock. Pick a lesson!`,
-    `Здравей, Оли! Let's level up 💪`
+    `Здравей, ${playerName()}! Let's level up 💪`
   ];
 
   // Where Ollie is up to: the first playable lesson he hasn't finished (-1 = all done).
@@ -443,6 +476,7 @@
     : '60 seconds · bonus XP';
 
   function renderPath(message) {
+    document.title = `${possessive(playerName())} Bulgarian Adventure`;
     const streak = currentStreak();
     const lvl = level();
     const xpInLevel = state.xp % XP_PER_LEVEL;
@@ -1340,7 +1374,7 @@
     confetti();
 
     const title = unitDone && isAbc(l) ? '✏️ Alphabet complete!' : unitDone ? `🏅 Unit ${unitNumber(l.unit)} complete!` : isReview ? 'Review complete! 🔁' : perfect ? 'Perfect lesson! 🌟' : 'Lesson complete!';
-    const dogLine = perfect ? `${state.dogName}: "Wow, no mistakes! Бау-бау!"` : `${state.dogName}: "Great work, Ollie!"`;
+    const dogLine = perfect ? `${state.dogName}: "Wow, no mistakes! Бау-бау!"` : `${state.dogName}: "Great work, ${playerName()}!"`;
 
     show(h('section', { class: 'screen finish' },
       h('h1', {}, title),
@@ -1361,6 +1395,7 @@
   function renderSettings() {
     findVoice();
     const nameInput = h('input', { class: 'name-input', maxlength: 16, value: state.dogName || '' });
+    const playerInput = h('input', { class: 'name-input', maxlength: 16, value: playerName(), 'aria-label': 'Your name' });
     const fileInput = h('input', { type: 'file', accept: 'application/json', class: 'hidden' });
 
     fileInput.addEventListener('change', () => {
@@ -1378,8 +1413,8 @@
 
     const exportProgress = () => {
       const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
-      const a = h('a', { href: URL.createObjectURL(blob), download: `ollie-bulgarian-progress-${today()}.json` });
-      document.add(body, a); a.click(); a.remove();
+      const a = h('a', { href: URL.createObjectURL(blob), download: `${playerName().toLowerCase().replace(/[^a-zа-я0-9]+/gi, '-')}-bulgarian-progress-${today()}.json` });
+      document.body.append(a); a.click(); a.remove();
     };
 
     const reset = () => {
@@ -1398,6 +1433,11 @@
       h('div', { class: 'lesson-top' },
         h('button', { class: 'icon-btn', 'aria-label': 'Back', onclick: () => renderPath() }, '←'),
         h('h2', {}, 'Settings')
+      ),
+      h('div', { class: 'panel' },
+        h('h3', {}, '🧒 Your name'),
+        playerInput,
+        h('button', { class: 'btn', onclick: () => { const n = playerInput.value.trim(); if (n) { state.playerName = n; saveState(); toast(`Hi, ${n}! 👋`); } } }, 'Save name')
       ),
       h('div', { class: 'panel' },
         h('h3', {}, '🐶 Dog name'),
@@ -1419,10 +1459,10 @@
           h('input', { type: 'checkbox', checked: abcOn(), onchange: e => { state.learnLetters = e.target.checked; saveState(); } }),
           ' ✏️ Show the alphabet unit (Unit 0)') : null,
         h('p', {}, Recognizer
-          ? '🎤 Speaking: this device can listen and check what Ollie says (if it understands Bulgarian; otherwise it records him to compare).'
-          : '🎤 Speaking: this browser can\'t check speech, so Ollie records himself and compares with the dog.'),
+          ? '🎤 Speaking: this device can listen and check what you say (if it understands Bulgarian; otherwise it records you to compare).'
+          : '🎤 Speaking: this browser can\'t check speech, so you record yourself and compare with the dog.'),
         voiceInfo,
-        h('button', { class: 'btn', onclick: () => speak('Здравей, Оли! Как си?') }, '▶️ Test the voice')
+        h('button', { class: 'btn', onclick: () => speak('Здравей! Как си?') }, '▶️ Test the voice')
       ),
       h('div', { class: 'panel' },
         h('h3', {}, '👩 For grown-ups'),
