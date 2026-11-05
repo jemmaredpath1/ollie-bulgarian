@@ -771,3 +771,17 @@ h3 { margin: 0 0 10px; font-size: 19px; }
 .league-name { font-weight: 800; font-size: 18px; min-width: 0; overflow-wrap: anywhere; }
 .league-you { color: var(--good-text); font-weight: 700; font-size: 15px; }
 .league-xp { font-weight: 800; color: var(--yellow); white-space: nowrap; }
+
+/* Finished units on the home path: small cards instead of the whole lesson trail */
+.done-grid { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0 4px; }
+.unit-card.done { border: 2px solid var(--c); border-bottom-width: 4px; background: rgba(255,255,255,.05); font-family: inherit; cursor: pointer; }
+.unit-card.done .unit-card-emoji { opacity: 1; }
+.unit-card.done:active { transform: translateY(2px); border-bottom-width: 2px; }
+.unit-card-quiz { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.quiz-count { font-weight: 800; color: var(--muted); font-size: 16px; white-space: nowrap; }
+/* Make "Your next lesson" stand out */
+.continue-card { padding: 14px 16px; box-shadow: 0 0 0 3px rgba(0,150,110,.25); }
+.continue-title { font-size: 19px; }
+.continue-go { width: 44px; height: 44px; border-radius: 50%; background: #fff; color: var(--green); display: grid; place-items: center; font-size: 20px; animation: go-pulse 1.6s ease-in-out infinite; }
+@keyframes go-pulse { 50% { transform: scale(1.12); } }
+@media (prefers-reduced-motion: reduce) { .continue-go { animation: none; } }

@@ -35,10 +35,11 @@
   }
   const isAbc = l => !!ABC && l.unit === ABC;
 
-  // ⚡ Speed Quiz: an optional 90-second round at the end of each unit. It sits beside
+  // ⚡ Speed Quiz: an optional round of 30 questions against a 90-second clock at the end of each unit. It sits beside
   // the lessons (never in LESSONS), so it can't lock anything or change lesson progress.
   const QUIZ_SECONDS = 90; // was 60, which was too short for Ollie
-  const QUIZ_STARS = [6, 12, 18]; // right answers needed for 1, 2 and 3 stars
+  const QUIZ_QUESTIONS = 30;
+  const QUIZ_STARS = [9, 18, 27]; // right answers needed for 1, 2 and 3 stars: 3 can be wrong for ⭐⭐⭐
   (ABC ? [ABC] : []).concat(C.units).forEach(u => {
     if (!u.planned) u.quiz = { id: `${u.id}quiz`, type: 'quiz', title: 'Speed Quiz', unit: u };
   });
@@ -488,7 +489,7 @@
   const quizLabel = (l, st) => !isQuiz(l) ? null
     : st === 'locked' ? 'Beat the Boss to unlock'
     : st === 'done' ? `Best: ${state.quiz[l.unit.id].best} ${starText(starsFor(state.quiz[l.unit.id].best))}`
-    : `${QUIZ_SECONDS} seconds · bonus XP`;
+    : `${QUIZ_QUESTIONS} questions · ${QUIZ_SECONDS} seconds`;
 
   function renderPath(message) {
     document.title = `${possessive(playerName())} Bulgarian Adventure`;
@@ -545,8 +546,23 @@
         return;
       }
 
+      // Finished units shrink to small cards, so the next lesson isn't buried under old ones.
+      let doneCards = null;
+      const flushDone = () => { if (doneCards) path.append(doneCards); doneCards = null; };
       const drawUnit = u => {
         const unitDone = !u.planned && u.lessons.every(l => isPlanned(l) || state.done[l.id]);
+        if (unitDone) {
+          const q = state.quiz[u.id];
+          doneCards = doneCards || h('div', { class: 'done-grid' });
+          doneCards.append(h('button', { class: `unit-card done c-${u.color}`, onclick: () => renderUnit(u),
+            'aria-label': `Unit ${unitNumber(u)}: ${u.title} – done. Open it to play again.` },
+            h('span', { class: 'unit-card-emoji', 'aria-hidden': 'true' }, u.emoji),
+            h('span', {}, h('span', { class: 'unit-label' }, `✅ Unit ${unitNumber(u)}`), h('span', { class: 'unit-card-title' }, u.title),
+              h('span', { class: 'unit-card-quiz' }, q ? starText(starsFor(q.best)) : '⚡ Quiz to play'))
+          ));
+          return;
+        }
+        flushDone();
         path.append(h('button', {
           class: `unit-banner c-${u.color} ${u.planned ? 'planned' : ''}`,
           onclick: () => renderUnit(u),
@@ -579,6 +595,7 @@
       };
       if (si === 0 && abcOn()) drawUnit(ABC);
       units.filter(u => !u.planned).forEach(drawUnit);
+      flushDone();
 
       const later = units.filter(u => u.planned);
       if (later.length) {
@@ -595,7 +612,7 @@
     // Continue where you left off, or practise earlier words.
     const actions = h('div', { class: 'home-actions' },
       next ? h('button', { class: 'continue-card', onclick: () => startLesson(next) },
-        h('span', { class: 'continue-label' }, Object.keys(state.done).length ? 'Continue' : 'Start here'),
+        h('span', { class: 'continue-label' }, Object.keys(state.done).length ? 'Your next lesson' : 'Start here'),
         h('span', { class: 'continue-title' }, `${next.unit.emoji} Unit ${unitNumber(next.unit)} · ${next.title}`),
         h('span', { class: 'continue-go', 'aria-hidden': 'true' }, '▶')
       ) : null,
@@ -859,7 +876,8 @@
         S.quiz
           ? h('div', { class: 'progress quiz-timer' }, h('div', { class: 'progress-fill quiz-timer-fill', style: `width:${quizLeft() / (QUIZ_SECONDS * 10)}%` }))
           : h('div', { class: 'progress' }, h('div', { class: 'progress-fill', style: `width:${pct}%` })),
-        S.quiz ? h('div', { class: 'quiz-score', 'aria-label': 'Score' }, `⚡${S.right}`) : null,
+        S.quiz ? h('div', { class: 'quiz-count', 'aria-label': 'Question' }, `${S.right + S.wrong + 1}/${QUIZ_QUESTIONS}`) : null,
+        S.quiz ? h('div', { class: 'quiz-score', 'aria-label': 'Right answers' }, `⚡${S.right}`) : null,
         S.combo >= 3 ? h('div', { class: 'combo' }, `🔥${S.combo}`) : null
       ),
       body, footer
@@ -909,8 +927,8 @@
     } else {
       sfx.wrong();
       S.wrong++; S.combo = 0;
-      // Try it again later in the lesson.
-      S.queue.push(Object.assign({}, S.q, { options: S.q.options && shuffle(S.q.options), tiles: S.q.tiles && shuffle(S.q.tiles) }));
+      // Try it again later in the lesson (the Speed Quiz just moves on).
+      if (!S.quiz) S.queue.push(Object.assign({}, S.q, { options: S.q.options && shuffle(S.q.options), tiles: S.q.tiles && shuffle(S.q.tiles) }));
     }
     feedback(ctx, correct, answerText);
   }
@@ -1297,8 +1315,8 @@
     const pool = knownWordsUpTo(u.lessons.find(l => l.type === 'boss'));
     const tricky = u === ABC ? [] : reviewableWords().filter(id => !u.words.includes(id)).slice(0, 3);
     const qs = shuffle(u.words.concat(tricky)).map(id => wordQuestion(pick(typesFor(id)), id, pool));
-    while (qs.length < QUIZ_SECONDS) shuffle(u.words).forEach(id => qs.push(wordQuestion(pick(typesFor(id)), id, pool)));
-    return qs;
+    while (qs.length < QUIZ_QUESTIONS) shuffle(u.words).forEach(id => qs.push(wordQuestion(pick(typesFor(id)), id, pool)));
+    return qs.slice(0, QUIZ_QUESTIONS);
   }
 
   let quizTimer = null;
@@ -1306,7 +1324,7 @@
 
   function startQuiz(quiz) {
     sfx.tap();
-    toast(`⚡ ${QUIZ_SECONDS} seconds – go, go, go!`);
+    toast(`⚡ ${QUIZ_QUESTIONS} questions, ${QUIZ_SECONDS} seconds – go!`);
     S = { lesson: quiz, quiz: true, queue: quizQuestions(quiz.unit), done: 0, right: 0, wrong: 0, combo: 0, q: null,
           endsAt: Date.now() + QUIZ_SECONDS * 1000 };
     clearInterval(quizTimer);
@@ -1343,7 +1361,7 @@
     if (newBest) confetti();
 
     show(h('section', { class: 'screen finish' },
-      h('h1', {}, newBest && prev.plays ? '⚡ New best score!' : "⚡ Time's up!"),
+      h('h1', {}, newBest && prev.plays ? '⚡ New best score!' : S.queue.length ? "⚡ Time's up!" : '⚡ Quiz complete!'),
       dog('happy party', 140),
       h('div', { class: 'quiz-stars', 'aria-label': `${stars} of 3 stars` }, starText(stars)),
       h('p', { class: 'lead' }, stars === 3
@@ -1351,7 +1369,7 @@
         : `${state.dogName}: "Get ${QUIZ_STARS[stars]} right for ${'⭐'.repeat(stars + 1)}. Go again?"`),
       levelUp ? h('div', { class: 'levelup' }, `⬆️ LEVEL UP! You're now level ${level()}!`) : null,
       h('div', { class: 'stats' },
-        h('div', { class: 'stat-card c-green' }, h('div', { class: 'stat-top' }, 'Score'), h('div', { class: 'stat-val' }, `⚡${score}`)),
+        h('div', { class: 'stat-card c-green' }, h('div', { class: 'stat-top' }, 'Score'), h('div', { class: 'stat-val' }, `⚡${score}/${QUIZ_QUESTIONS}`)),
         h('div', { class: 'stat-card c-blue' }, h('div', { class: 'stat-top' }, 'Best'), h('div', { class: 'stat-val' }, String(state.quiz[u.id].best))),
         h('div', { class: 'stat-card c-yellow' }, h('div', { class: 'stat-top' }, 'XP'), h('div', { class: 'stat-val' }, `+${earned}`))
       ),
