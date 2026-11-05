@@ -587,7 +587,9 @@
     });
 
     if (firstOpen === -1) {
-      path.append(h('div', { class: 'more-soon' }, '🎉 You finished every lesson that\'s ready! More units are on the way…'));
+      path.append(h('div', { class: 'more-soon' }, C.units.some(u => u.planned)
+        ? '🎉 You finished every lesson that\'s ready! More units are on the way…'
+        : `🏆 You finished the WHOLE course, ${playerName()}! Браво! Keep your streak going with the ⚡ Speed Quizzes.`));
     }
 
     // Continue where you left off, or practise earlier words.

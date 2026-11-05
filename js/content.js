@@ -525,7 +525,88 @@ window.CONTENT = {
     after:       { bg: "след", en: "after", pic: "🔜", say: "SLED", picQuiz: false },
     whilst:      { bg: "докато", en: "while (during)", pic: "🤹", say: "DO-ka-to", picQuiz: false },
     first:       { bg: "първо", en: "first", pic: "☝️", say: "PUR-vo", picQuiz: false },
-    finally:     { bg: "накрая", en: "at the end / finally", pic: "🏁", say: "na-KRA-ya", picQuiz: false }
+    finally:     { bg: "накрая", en: "at the end / finally", pic: "🏁", say: "na-KRA-ya", picQuiz: false },
+    // Units 41–48
+    onceupon:    { bg: "имало едно време", en: "once upon a time", pic: "🏰", say: "EE-ma-lo ed-NO VRE-me", hint: "Every Bulgarian fairy tale starts like this!", picQuiz: false },
+    suddenly:    { bg: "изведнъж", en: "suddenly", pic: "⚡", say: "iz-ved-NUSH", picQuiz: false },
+    once:        { bg: "веднъж", en: "once / one time", pic: "🔂", say: "ved-NUSH", hint: "веднъж – once · два пъти – twice", picQuiz: false },
+    afterthat:   { bg: "след това", en: "after that", pic: "🪜", say: "SLED to-VA", picQuiz: false },
+    fairytale:   { bg: "приказка", en: "fairy tale", pic: "🧚", say: "PREE-kaz-ka" },
+    tell:        { bg: "разказвам", en: "I tell (a story)", pic: "📜", say: "raz-KAZ-vam", hint: "разказвам приказка – I tell a fairy tale" },
+    ishouted:    { bg: "извиках", en: "I shouted", pic: "📢", say: "iz-VEE-kah" },
+    igotscared:  { bg: "уплаших се", en: "I got scared", pic: "🙀", say: "oo-PLA-shih se" },
+    ranaway:     { bg: "избяга", en: "(he / she / it) ran away", pic: "🏃💨", say: "iz-BYA-ga" },
+    happened:    { bg: "случи се", en: "(it) happened", pic: "💥", say: "SLOO-chi se", hint: "Какво се случи? – What happened?", picQuiz: false },
+    usually:     { bg: "обикновено", en: "usually", pic: "🔁", say: "o-bik-NO-ve-no", picQuiz: false },
+    always:      { bg: "винаги", en: "always", pic: "♾️", say: "VEE-na-gi", picQuiz: false },
+    sometimes:   { bg: "понякога", en: "sometimes", pic: "🌗", say: "po-NYA-ko-ga", picQuiz: false },
+    never:       { bg: "никога", en: "never", pic: "🚷", say: "NEE-ko-ga", hint: "никога не – never: Никога не закъснявам.", picQuiz: false },
+    often:       { bg: "често", en: "often", pic: "🔄🔄", say: "CHES-to", picQuiz: false },
+    everyday:    { bg: "всеки ден", en: "every day", pic: "🔆", say: "VSE-ki DEN", picQuiz: false },
+    iwrote:      { bg: "написах", en: "I wrote (and finished)", pic: "📝✅", say: "na-PEE-sah", hint: "пиша – I write · написах – I wrote it (all done!)", picQuiz: false },
+    iateall:     { bg: "изядох", en: "I ate (it all) up", pic: "🍜", say: "iz-YA-doh", hint: "ям – I eat · изядох – I ate it all!" },
+    iread:       { bg: "прочетох", en: "I read (to the end)", pic: "📗", say: "pro-CHE-toh", hint: "чета – I read · прочетох – I read it all", picQuiz: false },
+    ifinished:   { bg: "свърших", en: "I finished", pic: "🔚", say: "SVUR-shih", hint: "Свърших! – Done!", picQuiz: false },
+    maths:       { bg: "математика", en: "maths", pic: "➗", say: "ma-te-MA-ti-ka", hint: "Like 'mathematics'!" },
+    english:     { bg: "английски", en: "English", pic: "🇬🇧", say: "an-GLEES-ki", picQuiz: false },
+    history:     { bg: "история", en: "history", pic: "🏺", say: "is-TO-ri-ya", hint: "Like 'history'! It also means 'a story'." },
+    geography:   { bg: "география", en: "geography", pic: "🌐", say: "ge-o-GRA-fi-ya" },
+    breaktime:   { bg: "междучасие", en: "break time", pic: "🔔", say: "mezh-doo-CHA-si-e", hint: "между (between) + час (lesson)" },
+    mark:        { bg: "оценка", en: "mark / grade", pic: "🅰️", say: "o-TSEN-ka", picQuiz: false },
+    test:        { bg: "контролно", en: "test (at school)", pic: "🖊️", say: "kon-TROL-no", picQuiz: false },
+    textbook:    { bg: "учебник", en: "textbook", pic: "📘", say: "oo-CHEB-nik" },
+    timetable:   { bg: "програма", en: "timetable", pic: "📑", say: "pro-GRA-ma", picQuiz: false },
+    desk:        { bg: "чин", en: "school desk", pic: "🧑‍🎓", say: "CHIN" },
+    computer:    { bg: "компютър", en: "computer", pic: "💻", say: "kom-PYOO-tur" },
+    message:     { bg: "съобщение", en: "message", pic: "✉️", say: "su-ob-SHTE-ni-e" },
+    internet:    { bg: "интернет", en: "internet", pic: "📡", say: "IN-ter-net" },
+    password:    { bg: "парола", en: "password", pic: "🔐", say: "pa-RO-la" },
+    battery:     { bg: "батерия", en: "battery", pic: "🔋", say: "ba-TE-ri-ya" },
+    screen:      { bg: "екран", en: "screen", pic: "🖥️", say: "ek-RAN" },
+    charge:      { bg: "зареждам", en: "I charge (a phone)", pic: "🔌", say: "za-REZH-dam" },
+    video:       { bg: "видео", en: "video", pic: "📹", say: "VEE-de-o" },
+    tablet:      { bg: "таблет", en: "tablet", pic: "📲", say: "tab-LET" },
+    download:    { bg: "изтеглям", en: "I download", pic: "⏬", say: "iz-TEG-lyam", picQuiz: false },
+    forest:      { bg: "гора", en: "forest", pic: "🌲", say: "go-RA" },
+    mountain:    { bg: "планина", en: "mountain(s)", pic: "⛰️", say: "pla-ni-NA" },
+    river:       { bg: "река", en: "river", pic: "🛶", say: "re-KA" },
+    lake:        { bg: "езеро", en: "lake", pic: "🦢", say: "E-ze-ro" },
+    waterfall:   { bg: "водопад", en: "waterfall", pic: "🏞️💧", say: "vo-do-PAD", hint: "вода (water) + пада (falls)!" },
+    peak:        { bg: "връх", en: "peak / summit", pic: "🏔️", say: "VRUH" },
+    meadow:      { bg: "поляна", en: "meadow", pic: "🌼", say: "po-LYA-na" },
+    tent:        { bg: "палатка", en: "tent", pic: "🏕️", say: "pa-LAT-ka" },
+    hike:        { bg: "поход", en: "hike", pic: "🧗‍♂️", say: "PO-hod" },
+    campfire:    { bg: "огън", en: "fire / campfire", pic: "🔥", say: "O-gun" },
+    film:        { bg: "филм", en: "film", pic: "🎥", say: "FILM" },
+    song:        { bg: "песен", en: "song", pic: "🎶", say: "PE-sen" },
+    concert:     { bg: "концерт", en: "concert", pic: "🎻", say: "kon-TSERT" },
+    theatre:     { bg: "театър", en: "theatre", pic: "🎪", say: "te-A-tur" },
+    cartoon:     { bg: "анимация", en: "cartoon / animation", pic: "🦄", say: "a-ni-MA-tsi-ya" },
+    singer:      { bg: "певец", en: "singer", pic: "👩‍🎤", say: "pe-VETS", hint: "певец – singer (man) · певица – singer (woman)" },
+    band:        { bg: "група", en: "band / group", pic: "🥁", say: "GROO-pa" },
+    actor:       { bg: "актьор", en: "actor", pic: "🎞️", say: "ak-TYOR" },
+    series:      { bg: "сериал", en: "TV series", pic: "📼", say: "se-ri-AL" },
+    stage:       { bg: "сцена", en: "stage", pic: "🎙️", say: "STSE-na", hint: "на сцената – on stage" },
+    celebration: { bg: "празник", en: "holiday / celebration", pic: "🎊", say: "PRAZ-nik" },
+    martenitsa:  { bg: "мартеница", en: "martenitsa (red & white charm)", pic: "🧶", say: "mar-TE-ni-tsa" },
+    christmas:   { bg: "Коледа", en: "Christmas", pic: "🎄", say: "KO-le-da" },
+    easter:      { bg: "Великден", en: "Easter", pic: "🥚", say: "ve-LEEK-den" },
+    newyear:     { bg: "Нова година", en: "New Year", pic: "🎆", say: "NO-va go-DEE-na" },
+    present:     { bg: "подарък", en: "present / gift", pic: "🎁", say: "po-DA-ruk" },
+    candle:      { bg: "свещ", en: "candle", pic: "🕯️", say: "SVESHT" },
+    horo:        { bg: "хоро", en: "horo (circle dance)", pic: "🫶", say: "ho-RO", hint: "We 'play' it: играем хоро!" },
+    nameday:     { bg: "имен ден", en: "name day", pic: "💐", say: "EE-men DEN", picQuiz: false },
+    wish:        { bg: "пожелавам", en: "I wish (someone something)", pic: "🌠", say: "po-zhe-LA-vam", picQuiz: false },
+    inmyopinion: { bg: "според мен", en: "in my opinion", pic: "🗨️", say: "spo-RED MEN", picQuiz: false },
+    agree:       { bg: "съгласен съм", en: "I agree", pic: "🤜🤛", say: "sug-LA-sen sum", hint: "A girl says: съгласна съм", picQuiz: false },
+    disagree:    { bg: "не съм съгласен", en: "I don't agree", pic: "🙅‍♂️", say: "ne sum sug-LA-sen", picQuiz: false },
+    youreright:  { bg: "прав си", en: "you're right", pic: "💯", say: "PRAV si", hint: "Прав си – to a boy · Права си – to a girl", picQuiz: false },
+    actually:    { bg: "всъщност", en: "actually", pic: "😮", say: "VSUSHT-nost", picQuiz: false },
+    sure:        { bg: "сигурен", en: "sure", pic: "🫡", say: "SEE-goo-ren", hint: "Сигурен ли си? – Are you sure?", picQuiz: false },
+    important:   { bg: "важно", en: "important", pic: "🚨", say: "VAZH-no", picQuiz: false },
+    however:     { bg: "обаче", en: "however / but", pic: "🫤", say: "o-BA-che", picQuiz: false },
+    really:      { bg: "наистина", en: "really / truly", pic: "‼️", say: "na-EES-ti-na", picQuiz: false },
+    true:        { bg: "вярно", en: "true / right", pic: "☑️", say: "VYAR-no", hint: "Вярно ли? – Really? Is that true?", picQuiz: false }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -896,7 +977,72 @@ window.CONTENT = {
     s_whenrains:       { bg: "Когато вали, играя Майнкрафт.", en: "When it rains, I play Minecraft.", gap: "Когато" },
     s_thinkwin:        { bg: "Мисля, че ще спечелим.", en: "I think we'll win.", gap: "че" },
     s_afterschool:     { bg: "След училище разхождам кучето.", en: "After school I walk the dog.", gap: "След" },
-    s_ireadhesleeps:   { bg: "Аз чета, а брат ми спи.", en: "I'm reading, while my brother is sleeping.", gap: "а" }
+    s_ireadhesleeps:   { bg: "Аз чета, а брат ми спи.", en: "I'm reading, while my brother is sleeping.", gap: "а" },
+    // Units 41–48
+    t_onceupondog:     { bg: "Имало едно време едно куче.", en: "Once upon a time there was a dog." },
+    t_suddenlyrain:    { bg: "Изведнъж заваля.", en: "Suddenly it started to rain." },
+    t_shoutedname:     { bg: "Извиках името му.", en: "I shouted his name." },
+    t_whathappened:    { bg: "Какво се случи?", en: "What happened?" },
+    s_firstpark:       { bg: "Първо отидохме в парка.", en: "First we went to the park.", gap: "отидохме" },
+    s_dogranaway:      { bg: "Изведнъж кучето избяга!", en: "Suddenly the dog ran away!", gap: "избяга" },
+    s_lookedeverywhere: { bg: "След това го търсихме навсякъде.", en: "After that we looked for him everywhere.", gap: "търсихме" },
+    s_foundbench:      { bg: "Накрая го намерихме под пейката.", en: "In the end we found him under the bench.", gap: "намерихме" },
+    t_usuallybanitsa:  { bg: "Обикновено ям баница.", en: "I usually eat banitsa." },
+    t_atewhole:        { bg: "Изядох цялата баница!", en: "I ate the whole banitsa!" },
+    t_alwayswalk:      { bg: "Винаги разхождам кучето.", en: "I always walk the dog." },
+    t_finishedhomework: { bg: "Свърших домашното!", en: "I finished my homework!" },
+    s_everydayread:    { bg: "Всеки ден чета книга.", en: "Every day I read a book.", gap: "чета" },
+    s_readwhole:       { bg: "Вчера прочетох цялата книга.", en: "Yesterday I read the whole book.", gap: "прочетох" },
+    s_sometimespizza:  { bg: "Понякога ядем пица.", en: "Sometimes we eat pizza.", gap: "Понякога" },
+    s_nevertired:      { bg: "Кучето никога не е уморено.", en: "The dog is never tired.", gap: "никога" },
+    t_mathslesson:     { bg: "Имам час по математика.", en: "I have a maths lesson." },
+    t_goodenglish:     { bg: "Добър съм по английски.", en: "I'm good at English." },
+    t_lovebreak:       { bg: "Обичам междучасието!", en: "I love break time!" },
+    t_newtextbook:     { bg: "Това е новият ми учебник.", en: "This is my new textbook." },
+    s_gotsix:          { bg: "Получих шестица по история!", en: "I got a six in history!", gap: "шестица" },
+    s_testgeography:   { bg: "Утре имаме контролно по география.", en: "Tomorrow we have a geography test.", gap: "контролно" },
+    s_forgottextbook:  { bg: "Забравих си учебника.", en: "I forgot my textbook.", gap: "учебника" },
+    s_firstlesson:     { bg: "Първият час е английски.", en: "The first lesson is English.", gap: "час" },
+    t_writeme:         { bg: "Пиши ми после.", en: "Message me later." },
+    t_nobattery:       { bg: "Телефонът ми няма батерия.", en: "My phone has no battery." },
+    t_videotablet:     { bg: "Гледам видео на таблета.", en: "I'm watching a video on the tablet." },
+    t_passwordsecret:  { bg: "Паролата е тайна!", en: "The password is a secret!" },
+    s_callme:          { bg: "Обади ми се довечера.", en: "Call me this evening.", gap: "Обади" },
+    s_downloadedgame:  { bg: "Изтеглих нова игра.", en: "I downloaded a new game.", gap: "Изтеглих" },
+    s_nointernet:      { bg: "Няма интернет!", en: "There's no internet!", gap: "интернет" },
+    s_chargephone:     { bg: "Трябва да заредя телефона.", en: "I need to charge the phone.", gap: "заредя" },
+    t_goingmountains:  { bg: "Отиваме на планина.", en: "We're going to the mountains." },
+    t_bearsforest:     { bg: "В гората има мечки.", en: "There are bears in the forest." },
+    t_coldlake:        { bg: "Езерото е студено.", en: "The lake is cold." },
+    t_warmfire:        { bg: "Огънят е топъл.", en: "The fire is warm." },
+    s_sevenlakes:      { bg: "В Рила има седем езера.", en: "There are seven lakes in Rila.", gap: "езера" },
+    s_sleeptent:       { bg: "Спим в палатка.", en: "We sleep in a tent.", gap: "палатка" },
+    s_climbedpeak:     { bg: "Изкачихме върха!", en: "We climbed to the top!", gap: "върха" },
+    s_riverforest:     { bg: "Реката тече през гората.", en: "The river flows through the forest.", gap: "Реката" },
+    t_greatfilm:       { bg: "Гледах страхотен филм.", en: "I watched a great film." },
+    t_favsong:         { bg: "Това е любимата ми песен.", en: "This is my favourite song." },
+    t_listenedmusic:   { bg: "Слушах музика.", en: "I listened to music." },
+    t_funnyactor:      { bg: "Актьорът е много смешен.", en: "The actor is very funny." },
+    s_concerttonight:  { bg: "Довечера ходим на концерт.", en: "Tonight we're going to a concert.", gap: "концерт" },
+    s_favfilm:         { bg: "Кой е любимият ти филм?", en: "What's your favourite film?", gap: "филм" },
+    s_bandsong:        { bg: "Групата изпя нова песен.", en: "The band sang a new song.", gap: "песен" },
+    s_recommendseries: { bg: "Препоръчвам този сериал!", en: "I recommend this series!", gap: "сериал" },
+    t_happybirthday:   { bg: "Честит рожден ден!", en: "Happy birthday!" },
+    t_happyholiday:    { bg: "Честит празник!", en: "Happy holiday!" },
+    t_merrychristmas:  { bg: "Весела Коледа!", en: "Merry Christmas!" },
+    t_happynewyear:    { bg: "Честита Нова година!", en: "Happy New Year!" },
+    s_firstmarch:      { bg: "На първи март носим мартеници.", en: "On 1 March we wear martenitsi.", gap: "мартеници" },
+    s_eastereggs:      { bg: "На Великден боядисваме яйца.", en: "At Easter we paint eggs.", gap: "яйца" },
+    s_everyonehoro:    { bg: "Всички играят хоро.", en: "Everyone is dancing the horo.", gap: "хоро" },
+    s_wishhealth:      { bg: "Пожелавам ти здраве и щастие!", en: "I wish you health and happiness!", gap: "Пожелавам" },
+    t_footballbest:    { bg: "Според мен футболът е най-хубавият спорт.", en: "In my opinion football is the best sport." },
+    t_agreewithyou:    { bg: "Съгласен съм с теб.", en: "I agree with you." },
+    t_youreright:      { bg: "Прав си!", en: "You're right!" },
+    t_reallygood:      { bg: "Наистина е добре.", en: "It's really good." },
+    s_disagreeswim:    { bg: "Не съм съгласен, защото плуването е по-забавно.", en: "I don't agree, because swimming is more fun.", gap: "съгласен" },
+    s_actuallyeasy:    { bg: "Всъщност е лесно.", en: "Actually, it's easy.", gap: "Всъщност" },
+    s_importantteam:   { bg: "Важно е да играем като отбор.", en: "It's important to play as a team.", gap: "Важно" },
+    s_notsure:         { bg: "Не съм сигурен, но мисля, че е вярно.", en: "I'm not sure, but I think it's true.", gap: "сигурен" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -968,7 +1114,24 @@ window.CONTENT = {
     tip_prefer: { title: "I prefer…", text: "предпочитам – I prefer: Предпочитам футбол. – I prefer football. · Предпочитам да плувам. – I prefer to swim. · Какво предпочиташ? – What do you prefer?" },
     tip_so: { title: "So or because?", text: "затова – so / that's why: Вали, затова играем вкъщи. – It's raining, so we play at home. · защото – because: Играем вкъщи, защото вали. – We play at home because it's raining." },
     tip_link: { title: "Joining words", text: "и – and · но – but · или – or · а – and / while, for a contrast: Аз чета, а брат ми спи. – I'm reading, while my brother is sleeping." },
-    tip_when: { title: "When? When…", text: "кога? – when? (a question) · когато – when (joining two ideas): Когато вали, играя Майнкрафт. · че – that: Мисля, че ще спечелим. – I think (that) we'll win." }
+    tip_when: { title: "When? When…", text: "кога? – when? (a question) · когато – when (joining two ideas): Когато вали, играя Майнкрафт. · че – that: Мисля, че ще спечелим. – I think (that) we'll win." },
+    // Units 41–48
+    tip_storyorder: { title: "Story order", text: "първо – first · после / след това – then, after that · изведнъж – suddenly · накрая – in the end" },
+    tip_wedid: { title: "We did it!", text: "In a story about 'we', add -ме: отидохме – we went · търсихме – we looked for · намерихме – we found. For he / she / it there's no -х: избяга – he ran away · заваля – it started to rain" },
+    tip_aspect: { title: "Verb pairs", text: "Many Bulgarian verbs come in pairs: one for doing something again and again, one for doing it once, right to the end: пиша / напиша – write · чета / прочета – read · ям / изям – eat (all up)" },
+    tip_howoften: { title: "How often?", text: "винаги – always · обикновено – usually · често – often · понякога – sometimes · никога не – never: Никога не закъснявам. – I'm never late." },
+    tip_po: { title: "A lesson in…", text: "по + subject: час по математика – a maths lesson · контролно по история – a history test · Добър съм по английски. – I'm good at English. (A girl says: Добра съм…) · час means 'hour' AND 'school lesson'." },
+    tip_marks: { title: "Top marks", text: "Bulgarian school marks go from 2 to 6: шестица (6) – excellent · петица (5) – very good · четворка (4) – good · двойка (2) – fail. Получих шестица! – I got a six!" },
+    tip_writeme: { title: "Write to me!", text: "ми = (to) me: Пиши ми! – Write to me! · Обади ми се! – Call me! · Изпрати ми снимка! – Send me a photo!" },
+    tip_safe: { title: "Stay safe online", text: "Никога не казвай паролата си! – Never tell anyone your password! · Не пиши на непознати. – Don't message strangers. · Питай мама или татко. – Ask Mum or Dad." },
+    tip_inon: { title: "In or on?", text: "в гората – in the forest · в реката – in the river · в палатката – in the tent · на планина – (off) to the mountains · на поход – on a hike" },
+    tip_naturemany: { title: "One, lots", text: "езеро → езера – lakes · планина → планини – mountains · река → реки – rivers · гора → гори – forests" },
+    tip_watchedlistened: { title: "Watched & listened", text: "гледам → гледах – I watch → I watched · слушам → слушах – I listen → I listened · Гледах страхотен филм. – I watched a great film." },
+    tip_rateit: { title: "Rate it!", text: "Страхотен е! – It's great! · Супер е! – It's super! · Не ми хареса. – I didn't like it. · Беше скучно. – It was boring." },
+    tip_chestit: { title: "Честит, честита, честито", text: "Честит changes to match the word after it: Честит рожден ден! (ден – he) · Честита Нова година! (година – she) · Честито! – Congratulations!" },
+    tip_onday: { title: "On 1 March", text: "на + date: на първи март – on 1 March · на Коледа – at Christmas · на Великден – at Easter · на рождения ми ден – on my birthday" },
+    tip_opinion: { title: "What do you think?", text: "Според мен… – In my opinion… · Мисля, че… – I think that… · Какво мислиш? – What do you think? · Прав си. – You're right." },
+    tip_boygirl: { title: "Boy or girl?", text: "съгласен / съгласна – agreeing · прав / права – right · сигурен / сигурна – sure: Съгласна съм. – I agree (girl) · Не съм сигурен. – I'm not sure (boy)" }
   },
 
   sections: [
@@ -1814,12 +1977,17 @@ window.CONTENT = {
       objectives: ["Tell a story in order", "Use first, then, in the end", "Say what happened suddenly"],
       vocab: "Story words",
       grammar: ["Past tense revisited", "Order words: първо, после, накрая"],
-      sample: { words: [["първо", "first"], ["после", "then / afterwards"], ["изведнъж", "suddenly"]], sentences: [["Първо отидохме в парка.", "First we went to the park."], ["Изведнъж кучето избяга!", "Suddenly the dog ran away!"]] },
+      facts: [
+        "Bulgarian fairy tales start with 'Имало едно време…' – 'Once upon a time there was…'.",
+        "Хитър Петър (Clever Peter) is a famous Bulgarian folk hero who always outsmarts greedy and boastful people.",
+        "Ivan Vazov is called the 'Patriarch of Bulgarian literature'. His novel 'Под игото' (Under the Yoke) is read in every Bulgarian school.",
+        "Many Bulgarian fairy tales end with '…и заживели щастливо' – '…and they lived happily ever after'."
+      ],
       lessons: [
-        { id: "u41l1", title: "Once upon a time", type: "words", status: "planned", plan: "Introduce: първо, после, накрая, изведнъж, веднъж" },
-        { id: "u41l2", title: "And then…", type: "words", status: "planned", plan: "Practise: Първо отидохме в парка." },
-        { id: "u41l3", title: "My story", type: "sentences", status: "planned", plan: "Apply: tell the story of a lost dog" },
-        { id: "u41boss", title: "Story review", type: "boss", status: "planned", plan: "Review: what I did (Unit 36)" }
+        { id: "u41l1", title: "Once upon a time", type: "words", words: ["onceupon", "suddenly", "once", "afterthat", "fairytale"], sentences: ["t_onceupondog", "t_suddenlyrain"], tips: ["tip_storyorder"] },
+        { id: "u41l2", title: "And then…", type: "words", words: ["tell", "ishouted", "igotscared", "ranaway", "happened"], sentences: ["t_shoutedname", "t_whathappened"] },
+        { id: "u41l3", title: "The lost dog", type: "sentences", sentences: ["s_firstpark", "s_dogranaway", "s_lookedeverywhere", "s_foundbench"], tips: ["tip_wedid"] },
+        { id: "u41boss", title: "Storyteller", type: "boss" }
       ]
     },
     {
@@ -1829,12 +1997,17 @@ window.CONTENT = {
       objectives: ["Say what you usually do", "Say what you did once and finished", "Notice verb pairs like пиша / напиша"],
       vocab: "Habits and finished actions",
       grammar: ["Gentle introduction to verb aspect: пиша / напиша, ям / изям", "обикновено, винаги, понякога"],
-      sample: { words: [["обикновено", "usually"], ["винаги", "always"], ["понякога", "sometimes"]], sentences: [["Обикновено ям баница.", "I usually eat banitsa."], ["Изядох цялата баница!", "I ate the whole banitsa!"]] },
+      facts: [
+        "Bulgarian verbs come in pairs, like пиша / напиша. Russian, Polish and Czech do this too!",
+        "A Bulgarian saying: 'Повторението е майка на знанието' – 'Repetition is the mother of knowledge.' That's why we practise every day!",
+        "Another saying: 'Капка по капка – вир става' – 'Drop by drop, a pool is made.' A little every day really adds up.",
+        "Many Bulgarian children spend part of their summer holidays with their grandparents in the village – на село."
+      ],
       lessons: [
-        { id: "u42l1", title: "Usually…", type: "words", status: "planned", plan: "Introduce: обикновено, винаги, понякога, пиша / напиша" },
-        { id: "u42l2", title: "Finished!", type: "words", status: "planned", plan: "Practise: Обикновено ям баница." },
-        { id: "u42l3", title: "Verb pairs", type: "sentences", status: "planned", plan: "Apply: compare your normal Saturday with last Saturday" },
-        { id: "u42boss", title: "Aspect review", type: "boss", status: "planned", plan: "Review: telling a story (Unit 41)" }
+        { id: "u42l1", title: "Usually…", type: "words", words: ["usually", "always", "sometimes", "never", "often"], sentences: ["t_usuallybanitsa", "t_alwayswalk"], tips: ["tip_howoften"] },
+        { id: "u42l2", title: "Finished!", type: "words", words: ["everyday", "iwrote", "iateall", "iread", "ifinished"], sentences: ["t_atewhole", "t_finishedhomework"], tips: ["tip_aspect"] },
+        { id: "u42l3", title: "Verb pairs", type: "sentences", sentences: ["s_everydayread", "s_readwhole", "s_sometimespizza", "s_nevertired"] },
+        { id: "u42boss", title: "Habit Hero", type: "boss" }
       ]
     },
     {
@@ -1844,12 +2017,17 @@ window.CONTENT = {
       objectives: ["Name school subjects", "Talk about your timetable", "Say what you're good at"],
       vocab: "School",
       grammar: ["по + subject: урок по математика", "добър съм по… – I'm good at…"],
-      sample: { words: [["математика", "maths"], ["история", "history"], ["междучасие", "break time"]], sentences: [["Имам урок по математика.", "I have a maths lesson."], ["Добър съм по английски.", "I'm good at English."]] },
+      facts: [
+        "Bulgarian school marks go from 2 (fail) to 6 (excellent) – so a шестица (six) is the best you can get!",
+        "The first Bulgarian school to teach in Bulgarian (not Greek) opened in Gabrovo in 1835.",
+        "Sofia University, Bulgaria's oldest university, was founded in 1888.",
+        "A Bulgarian school lesson (час) lasts about 40 minutes, and the breaks between lessons are called междучасия."
+      ],
       lessons: [
-        { id: "u43l1", title: "Subjects", type: "words", status: "planned", plan: "Introduce: математика, английски, история, час, домашно" },
-        { id: "u43l2", title: "My timetable", type: "words", status: "planned", plan: "Practise: Добър съм по английски." },
-        { id: "u43l3", title: "Good at…", type: "sentences", status: "planned", plan: "Apply: describe your school day" },
-        { id: "u43boss", title: "School review", type: "boss", status: "planned", plan: "Review: everyday things (Unit 13) and days (Unit 19)" }
+        { id: "u43l1", title: "Subjects", type: "words", words: ["maths", "english", "history", "geography", "breaktime"], sentences: ["t_mathslesson", "t_goodenglish"], tips: ["tip_po"] },
+        { id: "u43l2", title: "My timetable", type: "words", words: ["mark", "test", "textbook", "timetable", "desk"], sentences: ["t_lovebreak", "t_newtextbook"], tips: ["tip_marks"] },
+        { id: "u43l3", title: "Good at…", type: "sentences", sentences: ["s_gotsix", "s_testgeography", "s_forgottextbook", "s_firstlesson"] },
+        { id: "u43boss", title: "Top of the Class", type: "boss" }
       ]
     },
     {
@@ -1859,12 +2037,17 @@ window.CONTENT = {
       objectives: ["Talk about phones, games and computers", "Write a short message", "Understand simple online words"],
       vocab: "Technology",
       grammar: ["Short pronouns revisited: обади ми се, пиши ми", "Imperatives revisited"],
-      sample: { words: [["компютър", "computer"], ["съобщение", "message"], ["интернет", "internet"]], sentences: [["Пиши ми после.", "Message me later."], ["Телефонът ми няма батерия.", "My phone has no battery."]] },
+      facts: [
+        "Bulgarians answer the phone with 'Ало?' – just like 'Hello?'.",
+        "The @ sign has a funny Bulgarian name: кльомба (a squiggle) – or маймунско а, 'monkey A'!",
+        "Bulgarian-born engineer Peter Petroff helped create one of the world's first digital wristwatches.",
+        "In the 2000s, many Bulgarian neighbourhoods built their own little internet networks – that's one reason internet in Bulgaria is fast today."
+      ],
       lessons: [
-        { id: "u44l1", title: "Gadgets", type: "words", status: "planned", plan: "Introduce: компютър, съобщение, игра, интернет, парола" },
-        { id: "u44l2", title: "Online", type: "words", status: "planned", plan: "Practise: Пиши ми после." },
-        { id: "u44l3", title: "Send a message", type: "sentences", status: "planned", plan: "Apply: message a friend about a game" },
-        { id: "u44boss", title: "Tech review", type: "boss", status: "planned", plan: "Review: hobbies (Unit 21)" }
+        { id: "u44l1", title: "Gadgets", type: "words", words: ["computer", "message", "internet", "password", "battery"], sentences: ["t_writeme", "t_nobattery"], tips: ["tip_writeme"] },
+        { id: "u44l2", title: "Online", type: "words", words: ["screen", "charge", "video", "tablet", "download"], sentences: ["t_videotablet", "t_passwordsecret"], tips: ["tip_safe"] },
+        { id: "u44l3", title: "Send a message", type: "sentences", sentences: ["s_callme", "s_downloadedgame", "s_nointernet", "s_chargephone"] },
+        { id: "u44boss", title: "Tech Wizard", type: "boss" }
       ]
     },
     {
@@ -1874,12 +2057,17 @@ window.CONTENT = {
       objectives: ["Name things in nature", "Describe a walk or a camping trip", "Talk about Bulgaria's mountains"],
       vocab: "Nature",
       grammar: ["Prepositions revisited: в гората, на планината", "Plurals revisited"],
-      sample: { words: [["гора", "forest"], ["планина", "mountain"], ["река", "river"]], sentences: [["Отиваме на планина.", "We're going to the mountains."], ["В гората има мечки.", "There are bears in the forest."]] },
+      facts: [
+        "About a third of Bulgaria is covered in forest.",
+        "Bulgaria has three national parks: Rila, Pirin and the Central Balkan.",
+        "Devetashka Cave is so enormous that scenes from a Hollywood action film were shot inside it.",
+        "Prohodna Cave has two eye-shaped holes in its roof, called 'Очите на Бога' – 'the Eyes of God'."
+      ],
       lessons: [
-        { id: "u45l1", title: "Forest & mountain", type: "words", status: "planned", plan: "Introduce: гора, планина, река, езеро, цвете" },
-        { id: "u45l2", title: "Rivers & lakes", type: "words", status: "planned", plan: "Practise: В гората има мечки." },
-        { id: "u45l3", title: "Camping trip", type: "sentences", status: "planned", plan: "Apply: plan a hike in the Rila mountains" },
-        { id: "u45boss", title: "Nature review", type: "boss", status: "planned", plan: "Review: animals (Unit 9) and weather (Unit 28)" }
+        { id: "u45l1", title: "Forest & mountain", type: "words", words: ["forest", "mountain", "river", "lake", "waterfall"], sentences: ["t_goingmountains", "t_bearsforest"], tips: ["tip_naturemany"] },
+        { id: "u45l2", title: "Let's go camping", type: "words", words: ["peak", "meadow", "tent", "hike", "campfire"], sentences: ["t_coldlake", "t_warmfire"], tips: ["tip_inon"] },
+        { id: "u45l3", title: "Into the Rila mountains", type: "sentences", sentences: ["s_sevenlakes", "s_sleeptent", "s_climbedpeak", "s_riverforest"] },
+        { id: "u45boss", title: "Mountain Explorer", type: "boss" }
       ]
     },
     {
@@ -1889,12 +2077,17 @@ window.CONTENT = {
       objectives: ["Talk about films, music and games", "Say what you watched or listened to", "Give a simple opinion"],
       vocab: "Entertainment",
       grammar: ["Past tense revisited: гледах, слушах", "харесва ми revisited"],
-      sample: { words: [["филм", "film"], ["песен", "song"], ["концерт", "concert"]], sentences: [["Гледах страхотен филм.", "I watched a great film."]] },
+      facts: [
+        "Bulgarian folk music uses tricky rhythms with 7, 9 or even 11 beats. Try clapping to a рученица – it has 7!",
+        "The Bulgarian bagpipe is called a гайда, and it's traditionally made from a whole goatskin.",
+        "The Bulgarian women's choir 'Le Mystère des Voix Bulgares' won a Grammy award in 1990.",
+        "The Nu Boyana film studios near Sofia have been used to make big Hollywood action films."
+      ],
       lessons: [
-        { id: "u46l1", title: "Films & music", type: "words", status: "planned", plan: "Introduce: филм, песен, концерт, театър, анимация" },
-        { id: "u46l2", title: "What did you watch?", type: "words", status: "planned", plan: "Practise: Гледах страхотен филм." },
-        { id: "u46l3", title: "Review it!", type: "sentences", status: "planned", plan: "Apply: review your favourite film" },
-        { id: "u46boss", title: "Fun review", type: "boss", status: "planned", plan: "Review: likes (Unit 21)" }
+        { id: "u46l1", title: "Films & music", type: "words", words: ["film", "song", "concert", "theatre", "cartoon"], sentences: ["t_greatfilm", "t_favsong"], tips: ["tip_watchedlistened"] },
+        { id: "u46l2", title: "Stars", type: "words", words: ["singer", "band", "actor", "series", "stage"], sentences: ["t_listenedmusic", "t_funnyactor"] },
+        { id: "u46l3", title: "Review it!", type: "sentences", sentences: ["s_concerttonight", "s_favfilm", "s_bandsong", "s_recommendseries"], tips: ["tip_rateit"] },
+        { id: "u46boss", title: "Movie Critic", type: "boss" }
       ]
     },
     {
@@ -1904,12 +2097,17 @@ window.CONTENT = {
       objectives: ["Name Bulgarian celebrations", "Wish people well", "Explain a tradition like martenitsi"],
       vocab: "Celebrations and customs",
       grammar: ["Честит / Честита / Честито – agreement in wishes", "на + date: на първи март"],
-      sample: { words: [["празник", "holiday / celebration"], ["мартеница", "martenitsa"], ["Коледа", "Christmas"]], sentences: [["Честит рожден ден!", "Happy birthday!"], ["На първи март носим мартеници.", "On 1 March we wear martenitsi."]] },
+      facts: [
+        "3 March is Bulgaria's national day (Liberation Day). It marks the year 1878, when Bulgaria became free again.",
+        "At Easter, Bulgarians knock painted eggs together. The egg that doesn't crack is the champion, called the борак!",
+        "On Christmas Eve (Бъдни вечер), families eat an odd number of dishes with no meat – often 7, 9 or 11.",
+        "On Еньовден (24 June), people pick herbs at sunrise, because they say the herbs are extra healing that day."
+      ],
       lessons: [
-        { id: "u47l1", title: "Celebrations", type: "words", status: "planned", plan: "Introduce: празник, рожден ден, мартеница, Коледа, Великден" },
-        { id: "u47l2", title: "Happy birthday!", type: "words", status: "planned", plan: "Practise: Честит рожден ден!" },
-        { id: "u47l3", title: "Baba Marta", type: "sentences", status: "planned", plan: "Apply: explain Baba Marta day to a friend" },
-        { id: "u47boss", title: "Traditions review", type: "boss", status: "planned", plan: "Review: family (Unit 5) and food (Unit 10)" }
+        { id: "u47l1", title: "Celebrations", type: "words", words: ["celebration", "martenitsa", "christmas", "easter", "newyear"], sentences: ["t_happybirthday", "t_merrychristmas"], tips: ["tip_chestit"] },
+        { id: "u47l2", title: "Happy birthday!", type: "words", words: ["present", "candle", "horo", "nameday", "wish"], sentences: ["t_happyholiday", "t_happynewyear"] },
+        { id: "u47l3", title: "Baba Marta", type: "sentences", sentences: ["s_firstmarch", "s_eastereggs", "s_everyonehoro", "s_wishhealth"], tips: ["tip_onday"] },
+        { id: "u47boss", title: "Party Planner", type: "boss" }
       ]
     },
     {
@@ -1919,12 +2117,17 @@ window.CONTENT = {
       objectives: ["Give your opinion", "Agree and disagree politely", "Explain why you think so"],
       vocab: "Opinions and discussion",
       grammar: ["мисля, че… – I think that…", "според мен – in my opinion", "съгласен / съгласна съм"],
-      sample: { words: [["мисля", "I think"], ["според мен", "in my opinion"], ["съгласен", "agreeing"]], sentences: [["Според мен футболът е най-хубавият спорт.", "In my opinion football is the best sport."], ["Съгласен съм с теб.", "I agree with you."]] },
+      facts: [
+        "A Bulgarian saying: 'Две глави мислят по-добре от една' – 'Two heads think better than one.'",
+        "'Който пита, не греши' – 'Whoever asks doesn't go wrong.' Asking questions is how you learn!",
+        "'Всяко чудо за три дни' – 'Every wonder lasts three days' – means people soon forget about a big fuss.",
+        "You've reached the last unit! A Bulgarian would say: 'Браво! Ти си шампион!'"
+      ],
       lessons: [
-        { id: "u48l1", title: "I think…", type: "words", status: "planned", plan: "Introduce: мисля, според мен, съгласен, прав, всъщност" },
-        { id: "u48l2", title: "Agree or disagree?", type: "words", status: "planned", plan: "Practise: Съгласен съм с теб." },
-        { id: "u48l3", title: "Debate!", type: "sentences", status: "planned", plan: "Apply: debate 'football vs swimming'" },
-        { id: "u48boss", title: "Final review", type: "boss", status: "planned", plan: "Review: reasons (Unit 39) and linking (Unit 40)" }
+        { id: "u48l1", title: "I think…", type: "words", words: ["inmyopinion", "agree", "disagree", "youreright", "actually"], sentences: ["t_footballbest", "t_agreewithyou"], tips: ["tip_opinion"] },
+        { id: "u48l2", title: "Agree or disagree?", type: "words", words: ["sure", "important", "however", "really", "true"], sentences: ["t_youreright", "t_reallygood"], tips: ["tip_boygirl"] },
+        { id: "u48l3", title: "Debate!", type: "sentences", sentences: ["s_disagreeswim", "s_actuallyeasy", "s_importantteam", "s_notsure"] },
+        { id: "u48boss", title: "Grand Champion", type: "boss" }
       ]
     }
   ]
