@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Voice Check</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#14213D">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Grown-up page for checking the computer voice – not linked from the game. */
+    body { background: var(--bg); color: var(--ink); font-family: var(--font); margin: 0; }
+    .vc { max-width: 760px; margin: 0 auto; padding: 16px 16px 120px; }
+    .vc h1 { font-size: 26px; margin: 8px 0 4px; }
+    .vc p { color: var(--muted); line-height: 1.45; margin: 6px 0; }
+    .voice-note { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; margin: 12px 0; font-size: 15px; }
+    .voice-note.warn { border-color: var(--red); color: var(--bad-text); }
+    .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0; position: sticky; top: 0; background: var(--bg); padding: 8px 0; z-index: 2; }
+    .bar select, .bar label { font: inherit; font-size: 16px; color: var(--ink); }
+    .bar select { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; max-width: 100%; }
+    .bar label { display: flex; gap: 6px; align-items: center; font-size: 15px; color: var(--muted); }
+    .vc .btn { width: auto; margin: 0; }
+    .rows { list-style: none; padding: 0; margin: 0; }
+    .row { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 10px 12px; margin: 8px 0; }
+    .row.playing { border-color: var(--yellow); }
+    .row.ok { border-color: var(--green); }
+    .row.rec { border-color: var(--red); }
+    .row.hidden { display: none; }
+    .plays { display: flex; gap: 6px; }
+    .plays button, .marks button { font-size: 20px; width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line); background: #22355c; color: var(--ink); cursor: pointer; }
+    .marks { display: flex; gap: 6px; }
+    .marks button { opacity: .45; }
+    .row.ok .mark-ok, .row.rec .mark-rec { opacity: 1; background: #2c4878; }
+    .words { min-width: 0; }
+    .bg { font-size: 20px; font-weight: 700; }
+    .en { color: var(--muted); font-size: 15px; }
+    .meta { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .meta code { color: var(--ink); }
+    .meta .mine { color: var(--good-text); }
+    .summary { position: fixed; left: 0; right: 0; bottom: 0; background: var(--navy); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; justify-content: center; z-index: 3; }
+    .summary span { font-size: 15px; }
+    textarea.copy { width: 100%; min-height: 90px; margin-top: 8px; background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 10px; font: 14px ui-monospace, monospace; padding: 8px; }
+    @media (max-width: 520px) {
+      .row { grid-template-columns: 1fr auto; }
+      .plays { grid-column: 1 / -1; }
+    }
+  </style>
+</head>
+<body>
+  <main class="vc">
+    <h1>🔊 Voice check</h1>
+    <p>Tap ▶ to hear how the game's computer voice says each word. Mark 👍 if it sounds right, or 🎙️ if you'd like to record it yourself. Your marks are saved on this device.</p>
+    <p><strong>Use this on Ollie's iPad or phone:</strong> each device has its own computer voice, so check on the one he plays on.</p>
+    <div id="voice" class="voice-note">Looking for a Bulgarian voice…</div>
+
+    <div class="bar">
+      <select id="unit" aria-label="Unit"></select>
+      <button class="btn small primary" id="playall">▶ Play all</button>
+      <label><input type="checkbox" id="hide"> Hide marked</label>
+    </div>
+
+    <ul class="rows" id="rows"></ul>
+    <div id="copybox"></div>
+  </main>
+
+  <div class="summary">
+    <span id="counts"></span>
+    <button class="btn small" id="copy">📋 Copy 🎙️ list for Claude</button>
+  </div>
+
+  <script src="js/content.js"></script>
+  <script>
+  (() => {
+    const C = window.CONTENT;
+    const KEY = 'ollie-bulgarian-voicecheck';
+    let marks = {};
+    try { marks = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+    const save = () => { try { localStorage.setItem(KEY, JSON.stringify(marks)); } catch (e) {} };
+
+    // Same voice and speeds as the game.
+    let voice = null;
+    const voiceBox = document.getElementById('voice');
+    function findVoice() {
+      if (!('speechSynthesis' in window)) { voiceBox.textContent = 'This browser has no computer voice.'; voiceBox.className = 'voice-note warn'; return; }
+      voice = speechSynthesis.getVoices().find(v => /^bg/i.test(v.lang)) || null;
+      voiceBox.textContent = voice
+        ? `Voice on this device: ${voice.name} (${voice.lang})`
+        : '⚠️ No Bulgarian voice found on this device yet. If this stays, the game will sound wrong here – check on another device.';
+      voiceBox.className = voice ? 'voice-note' : 'voice-note warn';
+    }
+    if ('speechSynthesis' in window) { findVoice(); speechSynthesis.addEventListener?.('voiceschanged', findVoice); }
+
+    function say(text, slow, onEnd) {
+      if (!('speechSynthesis' in window)) return onEnd && onEnd();
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'bg-BG';
+      if (voice) u.voice = voice;
+      u.rate = slow ? 0.5 : 0.85;
+      if (onEnd) { u.onend = onEnd; u.onerror = onEnd; }
+      speechSynthesis.speak(u);
+    }
+
+    // Every word and sentence in the playable lessons, unit by unit.
+    const units = C.units.map((u, i) => {
+      const ready = u.lessons.filter(l => l.status !== 'planned');
+      const wids = [...new Set(ready.flatMap(l => l.words || []))];
+      const sids = [...new Set(ready.flatMap(l => l.sentences || []))];
+      return { n: i + 1, u, items: [...wids.map(id => ({ id, ...C.words[id] })), ...sids.map(id => ({ id, ...C.sentences[id] }))] };
+    }).filter(x => x.items.length);
+
+    const unitSel = document.getElementById('unit');
+    unitSel.append(new Option('All units', 'all'));
+    units.forEach(x => unitSel.append(new Option(`Unit ${x.n}: ${x.u.title} ${x.u.emoji}`, x.n)));
+    try { unitSel.value = localStorage.getItem(KEY + '-unit') || '1'; } catch (e) { unitSel.value = '1'; }
+
+    const rowsEl = document.getElementById('rows');
+    const hide = document.getElementById('hide');
+    let playing = null;
+
+    function el(tag, attrs, ...kids) {
+      const e = document.createElement(tag);
+      Object.assign(e, attrs || {});
+      kids.filter(k => k != null).forEach(k => e.append(k));
+      return e;
+    }
+
+    function render() {
+      stopAll();
+      rowsEl.replaceChildren();
+      const shown = unitSel.value === 'all' ? units : units.filter(x => String(x.n) === unitSel.value);
+      shown.forEach(x => {
+        if (unitSel.value === 'all') rowsEl.append(el('li', {}, el('h2', { textContent: `Unit ${x.n}: ${x.u.title} ${x.u.emoji}` })));
+        x.items.forEach(item => {
+          const row = el('li', { className: 'row' });
+          row.dataset.id = item.id;
+          const setMark = m => {
+            marks[item.id] = marks[item.id] === m ? undefined : m;
+            if (!marks[item.id]) delete marks[item.id];
+            save(); paint(row, item.id); counts();
+          };
+          row.append(
+            el('div', { className: 'plays' },
+              el('button', { textContent: '▶', title: 'Computer voice', onclick: () => say(item.bg, false) }),
+              el('button', { textContent: '🐢', title: 'Computer voice, slow', onclick: () => say(item.bg, true) }),
+              item.audio ? el('button', { textContent: '🎧', title: 'Your recording', onclick: () => { speechSynthesis.cancel(); new Audio(item.audio).play(); } }) : null
+            ),
+            el('div', { className: 'words' },
+              el('div', { className: 'bg', textContent: item.bg }),
+              el('div', { className: 'en', textContent: item.en }),
+              el('div', { className: 'meta' }, 'File name: ', el('code', { textContent: item.id }),
+                item.audio ? el('span', { className: 'mine', textContent: ' · ✅ your recording is in the game' }) : null)
+            ),
+            el('div', { className: 'marks' },
+              el('button', { className: 'mark-ok', textContent: '👍', title: 'Sounds right', onclick: () => setMark('ok') }),
+              el('button', { className: 'mark-rec', textContent: '🎙️', title: 'I need to record this', onclick: () => setMark('rec') })
+            )
+          );
+          paint(row, item.id);
+          rowsEl.append(row);
+        });
+      });
+      counts();
+    }
+
+    function paint(row, id) {
+      row.classList.toggle('ok', marks[id] === 'ok');
+      row.classList.toggle('rec', marks[id] === 'rec');
+      row.classList.toggle('hidden', hide.checked && !!marks[id]);
+    }
+
+    function counts() {
+      const all = units.flatMap(x => x.items);
+      const rec = all.filter(i => marks[i.id] === 'rec').length;
+      const ok = all.filter(i => marks[i.id] === 'ok').length;
+      document.getElementById('counts').textContent = `🎙️ ${rec} to record · 👍 ${ok} fine · ${all.length - rec - ok} not checked`;
+    }
+
+    // Plays each row in turn so you can just listen along.
+    const playBtn = document.getElementById('playall');
+    function stopAll() {
+      playing = null;
+      if ('speechSynthesis' in window) speechSynthesis.cancel();
+      document.querySelectorAll('.row.playing').forEach(r => r.classList.remove('playing'));
+      playBtn.textContent = '▶ Play all';
+    }
+    playBtn.onclick = () => {
+      if (playing) return stopAll();
+      const rows = [...rowsEl.querySelectorAll('.row:not(.hidden)')];
+      const token = playing = {};
+      playBtn.textContent = '⏹ Stop';
+      const next = i => {
+        if (playing !== token) return;
+        document.querySelectorAll('.row.playing').forEach(r => r.classList.remove('playing'));
+        if (i >= rows.length) return stopAll();
+        const row = rows[i];
+        row.classList.add('playing');
+        row.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        say(row.querySelector('.bg').textContent, false, () => setTimeout(() => next(i + 1), 900));
+      };
+      next(0);
+    };
+
+    unitSel.onchange = () => { try { localStorage.setItem(KEY + '-unit', unitSel.value); } catch (e) {} render(); };
+    hide.onchange = () => rowsEl.querySelectorAll('.row').forEach(r => paint(r, r.dataset.id));
+
+    document.getElementById('copy').onclick = async () => {
+      const lines = units.map(x => {
+        const ids = x.items.filter(i => marks[i.id] === 'rec').map(i => `${i.id} (${i.bg})`);
+        return ids.length ? `Unit ${x.n}: ${ids.join(', ')}` : null;
+      }).filter(Boolean);
+      const text = lines.length ? `Computer voice is wrong for these – I'll record them:\n${lines.join('\n')}` : 'Nothing marked 🎙️ yet.';
+      const box = document.getElementById('copybox');
+      try {
+        await navigator.clipboard.writeText(text);
+        box.replaceChildren(el('p', { textContent: '✅ Copied! Paste it into your chat with Claude.' }));
+      } catch (e) {
+        const ta = el('textarea', { className: 'copy', value: text, readOnly: true });
+        box.replaceChildren(el('p', { textContent: 'Copy this and paste it into your chat with Claude:' }), ta);
+        ta.select();
+      }
+      box.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    render();
+  })();
+  </script>
+</body>
+</html>
