@@ -55,7 +55,9 @@
     speaking: true,  // "Say it!" exercises
     learnLetters: null, // true = show the alphabet unit; null = never asked (saves from before it existed)
     quiz: {},           // unitId -> { best, plays } for the Speed Quiz
-    playerName: null    // asked first on the cover; saves from before it existed were Ollie's
+    playerName: null,   // asked first on the cover; saves from before it existed were Ollie's
+    week: null,         // { start: Monday (UTC), xp } – XP earned this week, for the league
+    league: null        // set once a grown-up OKs joining the weekly league
   });
 
   let state = loadState();
@@ -84,6 +86,19 @@
   }
 
   const level = () => Math.floor(state.xp / XP_PER_LEVEL) + 1;
+
+  // Weeks start on Monday (UTC), the same as the league's.
+  function weekStart() {
+    const d = new Date();
+    d.setUTCHours(0, 0, 0, 0);
+    d.setUTCDate(d.getUTCDate() - (d.getUTCDay() + 6) % 7);
+    return d.toISOString().slice(0, 10);
+  }
+  const weekXp = () => state.week && state.week.start === weekStart() ? state.week.xp : 0;
+  function addXp(n) {
+    state.xp += n;
+    state.week = { start: weekStart(), xp: weekXp() + n };
+  }
 
   // ================= Little helpers =================
   function h(tag, props, ...kids) {
@@ -488,6 +503,7 @@
         h('div', { class: 'xpbar' }, h('div', { class: 'xpfill', style: `width:${xpInLevel}%` })),
         h('span', { class: 'xp-num' }, `${state.xp} XP`)
       ),
+      LEAGUE ? h('button', { class: 'icon-btn', 'aria-label': 'Weekly league', onclick: () => renderLeague() }, '🏆') : null,
       h('button', { class: 'icon-btn', 'aria-label': 'Settings', onclick: renderSettings }, '⚙️')
     );
 
@@ -1313,10 +1329,11 @@
     const earned = Math.min(score, 20) + (newBest ? 10 : 0);
 
     const oldLevel = level();
-    state.xp += earned;
+    addXp(earned);
     state.quiz[u.id] = { best: Math.max(prev.best, score), plays: prev.plays + 1 };
     playedToday();
     saveState();
+    leagueSync();
 
     const levelUp = level() > oldLevel;
     const stars = starsFor(score);
@@ -1362,7 +1379,7 @@
     const earned = isReview ? 5 + (perfect ? 5 : 0) : 10 + (perfect ? 5 : 0) + (l.type === 'boss' ? 10 : 0);
 
     const oldLevel = level();
-    state.xp += earned;
+    addXp(earned);
     if (!isReview) {
       const prev = state.done[l.id] || { best: 0, plays: 0 };
       state.done[l.id] = { best: Math.max(prev.best, accuracy), plays: prev.plays + 1 };
@@ -1370,6 +1387,7 @@
 
     playedToday();
     saveState();
+    leagueSync();
 
     const levelUp = level() > oldLevel;
     const fact = pickFact(l);
@@ -1393,6 +1411,191 @@
       ),
       fact ? h('div', { class: 'fact' }, h('strong', {}, '🇧🇬 Did you know? '), fact) : null,
       h('button', { class: 'btn big primary', onclick: () => { S = null; renderPath(); } }, 'Continue')
+    ));
+  }
+
+  // ================= 🏆 Weekly league =================
+  // Opt-in, with a grown-up's OK. Others only ever see a first name or nickname, a flag
+  // and this week's XP: no messages, no contact. The database rules are in tools/league-setup.sql.
+  const LEAGUE = window.LEAGUE_CONFIG && window.LEAGUE_CONFIG.url ? window.LEAGUE_CONFIG : null;
+
+  const COUNTRIES = [
+    ['GB', 'United Kingdom'], ['BG', 'Bulgaria'], ['IE', 'Ireland'], ['US', 'United States'], ['CA', 'Canada'],
+    ['AU', 'Australia'], ['NZ', 'New Zealand'], ['ZA', 'South Africa'], ['IT', 'Italy'], ['ES', 'Spain'],
+    ['FR', 'France'], ['DE', 'Germany'], ['NL', 'Netherlands'], ['BE', 'Belgium'], ['LU', 'Luxembourg'],
+    ['AT', 'Austria'], ['CH', 'Switzerland'], ['PT', 'Portugal'], ['GR', 'Greece'], ['CY', 'Cyprus'],
+    ['MT', 'Malta'], ['TR', 'Turkey'], ['RO', 'Romania'], ['MK', 'North Macedonia'], ['RS', 'Serbia'],
+    ['HR', 'Croatia'], ['SI', 'Slovenia'], ['MD', 'Moldova'], ['UA', 'Ukraine'], ['PL', 'Poland'],
+    ['CZ', 'Czechia'], ['SK', 'Slovakia'], ['HU', 'Hungary'], ['DK', 'Denmark'], ['SE', 'Sweden'],
+    ['NO', 'Norway'], ['FI', 'Finland'], ['IS', 'Iceland'], ['EE', 'Estonia'], ['LV', 'Latvia'],
+    ['LT', 'Lithuania'], ['IL', 'Israel'], ['AE', 'United Arab Emirates'], ['IN', 'India'], ['SG', 'Singapore'],
+    ['JP', 'Japan'], ['KR', 'South Korea'], ['CN', 'China'], ['BR', 'Brazil'], ['AR', 'Argentina'], ['MX', 'Mexico']
+  ];
+  const flag = cc => cc ? String.fromCodePoint(...[...cc].map(c => 0x1F1A5 + c.charCodeAt(0))) : '🌍';
+
+  // Same rules as the database: letters only (no numbers, so no phone numbers or links), no rude words.
+  const RUDE = /(fuck|fuk|shit|bitch|cunt|dick|cock|penis|vagina|pussy|piss|wank|twat|slut|whore|bastard|bollock|arse|nazi|hitler|rape|porn|sex|nigg|fag|retard|хуй|пизд|еба|ебе|курв|педал|шиба|путка|гъз)/;
+  const nameOk = n => /^\p{L}[\p{L} '-]{1,19}$/u.test(n) && !RUDE.test(n.toLowerCase());
+  const firstName = () => playerName().trim().split(/\s+/)[0];
+
+  const NICK_A = ['Brave', 'Speedy', 'Happy', 'Clever', 'Sunny', 'Mighty', 'Lucky', 'Jolly', 'Super', 'Cosmic', 'Fuzzy', 'Zippy'];
+  const NICK_B = ['Fox', 'Bear', 'Hedgehog', 'Owl', 'Wolf', 'Tiger', 'Panda', 'Dolphin', 'Eagle', 'Otter', 'Lynx', 'Stork'];
+  const randomNick = () => `${pick(NICK_A)} ${pick(NICK_B)}`;
+  const leagueName = lg => lg.useNick ? lg.nick : firstName();
+
+  function randomId() {
+    if (crypto.randomUUID) return crypto.randomUUID();
+    const b = crypto.getRandomValues(new Uint8Array(16));
+    b[6] = (b[6] & 15) | 64; b[8] = (b[8] & 63) | 128;
+    const x = [...b].map(v => v.toString(16).padStart(2, '0')).join('');
+    return `${x.slice(0, 8)}-${x.slice(8, 12)}-${x.slice(12, 16)}-${x.slice(16, 20)}-${x.slice(20)}`;
+  }
+  const randomSecret = () => [...crypto.getRandomValues(new Uint8Array(24))].map(v => v.toString(16).padStart(2, '0')).join('');
+
+  async function leagueCall(fn, args) {
+    const headers = { 'Content-Type': 'application/json', apikey: LEAGUE.key };
+    if (LEAGUE.key.startsWith('eyJ')) headers.Authorization = `Bearer ${LEAGUE.key}`; // older-style Supabase keys
+    const res = await fetch(`${LEAGUE.url}/rest/v1/rpc/${fn}`, { method: 'POST', headers, body: JSON.stringify(args) });
+    const text = await res.text();
+    if (!res.ok) throw new Error(/name not allowed/.test(text) ? 'name' : 'net');
+    return text ? JSON.parse(text) : null;
+  }
+
+  const submitScore = lg => leagueCall('league_submit',
+    { p_id: lg.id, p_secret: lg.secret, p_name: leagueName(lg), p_country: lg.country, p_xp: weekXp() });
+
+  // Sends this week's XP after each lesson. Offline? It catches up next time.
+  function leagueSync() {
+    if (LEAGUE && state.league) submitScore(state.league).catch(() => {});
+  }
+
+  const daysLeft = () => {
+    const end = new Date(weekStart() + 'T00:00:00Z').getTime() + 7 * 864e5;
+    return Math.max(1, Math.ceil((end - Date.now()) / 864e5));
+  };
+
+  function renderLeague() {
+    if (!state.league) return renderLeagueJoin();
+    const lg = state.league;
+    const board = h('div', { class: 'league-board' }, h('p', { class: 'league-msg' }, 'Loading this week\'s league…'));
+    const days = daysLeft();
+
+    const load = () => submitScore(lg).catch(() => {}).then(() => leagueCall('league_board', { p_id: lg.id })).then(rows => {
+      const me = rows.find(r => r.me);
+      const medal = p => ['🥇', '🥈', '🥉'][p - 1] || String(p);
+      board.replaceChildren();
+      add(board,
+        rows.length > 1 || (me && me.xp > 0) ? null : h('p', { class: 'league-msg' }, 'You\'re the first one here this week! 🎉'),
+        me && !me.xp ? h('p', { class: 'league-msg' }, 'Finish a lesson to get on the board this week!') : null,
+        h('ol', { class: 'league-list' }, rows.filter(r => r.xp > 0 || r.me).map(r =>
+          h('li', { class: `league-row ${r.me ? 'me' : ''} ${r.pos <= 3 && r.xp > 0 ? 'top' : ''}` },
+            h('span', { class: 'league-pos' }, r.xp > 0 ? medal(r.pos) : '–'),
+            h('span', { class: 'league-flag', 'aria-hidden': 'true' }, flag(r.country)),
+            h('span', { class: 'league-name' }, r.name, r.me ? h('span', { class: 'league-you' }, ' (you)') : null),
+            h('span', { class: 'league-xp' }, `${r.xp} XP`))))
+      );
+      if (me && me.xp > 0 && me.pos <= 3) confetti();
+    }).catch(() => {
+      board.replaceChildren(
+        h('p', { class: 'league-msg' }, '📡 Can\'t reach the league right now. Check the internet and try again.'),
+        h('button', { class: 'btn', onclick: () => { board.replaceChildren(h('p', { class: 'league-msg' }, 'Loading…')); load(); } }, '🔄 Try again'));
+    });
+
+    const leave = () => {
+      if (!confirm('Leave the league? Your name and score will be removed from the board.')) return;
+      leagueCall('league_leave', { p_id: lg.id, p_secret: lg.secret })
+        .then(() => { state.league = null; saveState(); toast('👋 You\'ve left the league'); renderPath(); })
+        .catch(() => toast('📡 Couldn\'t reach the league. Try again when you\'re online.'));
+    };
+
+    show(h('section', { class: 'screen league' },
+      h('div', { class: 'lesson-top' },
+        h('button', { class: 'icon-btn', 'aria-label': 'Back', onclick: () => renderPath() }, '←'),
+        h('h2', {}, '🏆 Weekly League')
+      ),
+      h('div', { class: 'league-head' },
+        h('div', { class: 'stat-card c-yellow' }, h('div', { class: 'stat-top' }, 'This week'), h('div', { class: 'stat-val' }, `${weekXp()} XP`)),
+        h('div', { class: 'stat-card c-blue' }, h('div', { class: 'stat-top' }, 'Ends in'), h('div', { class: 'stat-val' }, `${days} day${days === 1 ? '' : 's'}`))
+      ),
+      h('p', { class: 'league-note' }, 'Everyone starts at 0 every Monday. Earn XP in lessons and quizzes to climb!'),
+      board,
+      h('p', { class: 'league-note' }, `You show as ${leagueName(lg)} ${flag(lg.country)}. Only names, flags and XP are shown – no chatting.`),
+      h('div', { class: 'finish-actions' },
+        h('button', { class: 'btn', onclick: () => renderLeagueJoin(lg) }, '✏️ Change name or flag'),
+        h('button', { class: 'btn danger-outline', onclick: leave }, '🚪 Leave the league'))
+    ));
+    load();
+  }
+
+  // Joining (or changing how you appear): name or nickname, a flag, and a grown-up's OK.
+  function renderLeagueJoin(current) {
+    const nameFine = nameOk(firstName());
+    const pickState = { useNick: current ? current.useNick : !nameFine, nick: (current && current.nick) || randomNick(), country: current ? current.country : '' };
+    const fresh = { id: randomId(), secret: randomSecret() }; // the same id if joining needs a retry
+    const preview = h('div', { class: 'league-preview' });
+    const showPreview = () => { preview.textContent = `You'll show as: ${leagueName(pickState)} ${flag(pickState.country)}`; };
+
+    const nameBtn = h('button', { class: 'read-option', disabled: !nameFine, onclick: () => choose(false) },
+      h('span', { class: 'read-emoji', 'aria-hidden': 'true' }, '🧒'),
+      h('span', {}, h('span', { class: 'read-title' }, `My name: ${firstName()}`),
+        h('span', { class: 'read-text' }, nameFine ? 'Just your first name.' : 'This name can\'t be used here – pick a nickname instead.')));
+    const nickTitle = h('span', { class: 'read-title' });
+    const nickBtn = h('button', { class: 'read-option', onclick: () => choose(true) },
+      h('span', { class: 'read-emoji', 'aria-hidden': 'true' }, '🎭'),
+      h('span', {}, nickTitle, h('span', { class: 'read-text' }, 'Stay secret! Tap 🎲 for a different one.')));
+    const reroll = h('button', { class: 'btn small', onclick: () => { pickState.nick = randomNick(); choose(true); sfx.tap(); } }, '🎲 New nickname');
+    function choose(useNick) {
+      pickState.useNick = useNick;
+      nickTitle.textContent = `A nickname: ${pickState.nick}`;
+      nameBtn.classList.toggle('on', !useNick);
+      nickBtn.classList.toggle('on', useNick);
+      showPreview();
+    }
+
+    const country = h('select', { class: 'league-select', 'aria-label': 'Country',
+      onchange: e => { pickState.country = e.target.value; showPreview(); } },
+      h('option', { value: '' }, '🌍 Prefer not to say'),
+      COUNTRIES.slice().sort((a, b) => a[1].localeCompare(b[1])).map(([cc, n]) => h('option', { value: cc }, `${flag(cc)} ${n}`)));
+    country.value = pickState.country;
+
+    const grownUp = h('input', { type: 'checkbox', checked: !!current });
+    const join = h('button', { class: 'btn big primary', disabled: !current, onclick: () => {
+      const lg = Object.assign(current || fresh, pickState);
+      join.disabled = true;
+      submitScore(lg).then(() => {
+        state.league = lg;
+        saveState();
+        sfx.win();
+        toast(current ? '✅ Saved!' : `🏆 Welcome to the league, ${leagueName(lg)}!`);
+        renderLeague();
+      }).catch(e => {
+        join.disabled = false;
+        toast(e.message === 'name' ? '⚠️ That name isn\'t allowed. Try a nickname!' : '📡 Couldn\'t reach the league. Are you online?');
+      });
+    } }, current ? 'Save' : 'Join the league!');
+    grownUp.addEventListener('change', () => { join.disabled = !grownUp.checked; });
+
+    choose(pickState.useNick);
+    show(h('section', { class: 'screen league' },
+      h('div', { class: 'lesson-top' },
+        h('button', { class: 'icon-btn', 'aria-label': 'Back', onclick: () => current ? renderLeague() : renderPath() }, '←'),
+        h('h2', {}, current ? '✏️ How you appear' : '🏆 Weekly League')
+      ),
+      current ? null : dogSays(`Race other Bulgarian learners! Earn XP this week and climb the board. Everyone starts again on Monday.`, 'happy', 84),
+      h('h3', { class: 'league-q' }, 'How should others see you?'),
+      nameBtn, nickBtn, reroll,
+      h('h3', { class: 'league-q' }, 'Where are you playing from?'),
+      country,
+      preview,
+      current ? null : h('div', { class: 'panel league-safe' },
+        h('h3', {}, '👩 For grown-ups'),
+        h('ul', {},
+          h('li', {}, 'Other players only see a first name or nickname, a flag and this week\'s XP.'),
+          h('li', {}, 'No messages, chat or contact of any kind. No email or account needed.'),
+          h('li', {}, 'Rude names are blocked, and anyone can be removed from the board.'),
+          h('li', {}, 'You can leave at any time, which deletes the name and score.'))),
+      current ? null : h('label', { class: 'switch league-ok' }, grownUp, ' A grown-up says it\'s OK for me to join'),
+      join
     ));
   }
 

@@ -1,8 +1,8 @@
 // Offline support: always try the network first (so new words show up
 // straight away), and fall back to the saved copy when offline.
-const CACHE = 'ollie-bulgarian-v35';
+const CACHE = 'ollie-bulgarian-v36';
 const FILES = [
-  './', 'index.html', 'css/styles.css', 'js/content.js', 'js/app.js',
+  './', 'index.html', 'css/styles.css', 'js/content.js', 'js/league-config.js', 'js/app.js',
   'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png'
 ];
 
