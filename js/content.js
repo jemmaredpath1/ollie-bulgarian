@@ -474,7 +474,58 @@ window.CONTENT = {
     playmusic:   { bg: "свиря", en: "I play (music)", pic: "🎸", say: "SVEE-rya", hint: "For instruments: свиря на китара. For games and sport: играя!" },
     cry:         { bg: "плача", en: "I cry", pic: "😭", say: "PLA-cha" },
     lookfor:     { bg: "търся", en: "I look for", pic: "🔦", say: "TUR-sya", hint: "Търся топката. – I'm looking for the ball." },
-    laugh:       { bg: "смея се", en: "I laugh", pic: "😂", say: "SME-ya se" }
+    laugh:       { bg: "смея се", en: "I laugh", pic: "😂", say: "SME-ya se" },
+    // Units 36–40
+    iwas:        { bg: "бях", en: "I was", pic: "◀️", say: "BYAH", hint: "Past forms often end in -х: бях, играх, спах.", picQuiz: false },
+    iplayed:     { bg: "играх", en: "I played", pic: "🎮⏪", say: "ee-GRAH", hint: "играя – I play · играх – I played" },
+    iwent:       { bg: "ходих", en: "I went", pic: "🚶⏪", say: "HO-dih", picQuiz: false },
+    isaw:        { bg: "видях", en: "I saw", pic: "👁️", say: "vi-DYAH" },
+    iate:        { bg: "ядох", en: "I ate", pic: "🍽️", say: "YA-doh" },
+    iwatched:    { bg: "гледах", en: "I watched", pic: "🍿", say: "GLE-dah", hint: "гледам – I watch · гледах – I watched" },
+    islept:      { bg: "спах", en: "I slept", pic: "💤", say: "SPAH" },
+    ibought:     { bg: "купих", en: "I bought", pic: "🛍️", say: "KOO-pih" },
+    imade:       { bg: "направих", en: "I did / I made", pic: "🏗️", say: "na-PRA-vih", picQuiz: false },
+    lastweek:    { bg: "миналата седмица", en: "last week", pic: "📅⏪", say: "MEE-na-la-ta SED-mi-tsa", picQuiz: false },
+    will:        { bg: "ще", en: "will", pic: "🔮", say: "SHTE", hint: "ще + verb: ще играя – I will play", picQuiz: false },
+    wont:        { bg: "няма да", en: "won't", pic: "✖️", say: "NYA-ma da", hint: "няма да + verb: няма да ходя – I won't go", picQuiz: false },
+    soon:        { bg: "скоро", en: "soon", pic: "⌛", say: "SKO-ro", picQuiz: false },
+    nextweek:    { bg: "следващата седмица", en: "next week", pic: "📅⏩", say: "SLED-va-shta-ta SED-mi-tsa", picQuiz: false },
+    dayaftertomorrow: { bg: "вдругиден", en: "the day after tomorrow", pic: "📆", say: "VDROO-gi-den", hint: "утре – tomorrow · вдругиден – the day after!", picQuiz: false },
+    camp:        { bg: "лагер", en: "camp", pic: "⛺", say: "LA-ger" },
+    hope:        { bg: "надявам се", en: "I hope", pic: "🤞", say: "na-DYA-vam se" },
+    dream:       { bg: "мечтая", en: "I dream (of)", pic: "💭", say: "mech-TA-ya", hint: "мечта – a dream" },
+    trip:        { bg: "екскурзия", en: "school trip / outing", pic: "🚍", say: "eks-KOOR-zi-ya", hint: "Like 'excursion'!" },
+    rest:        { bg: "почивам си", en: "I rest / I relax", pic: "⛱️", say: "po-CHEE-vam si" },
+    bigger:      { bg: "по-голям", en: "bigger", pic: "🐳", say: "po-go-LYAM", hint: "по- means 'more': голям → по-голям", picQuiz: false },
+    smaller:     { bg: "по-малък", en: "smaller", pic: "🐣", say: "po-MA-luk", picQuiz: false },
+    faster:      { bg: "по-бърз", en: "faster", pic: "🐆", say: "po-BURZ", picQuiz: false },
+    slower:      { bg: "по-бавен", en: "slower", pic: "🦥", say: "po-BA-ven", picQuiz: false },
+    taller:      { bg: "по-висок", en: "taller", pic: "🦕", say: "po-vi-SOK", picQuiz: false },
+    best:        { bg: "най-добър", en: "the best", pic: "🥇", say: "nay-do-BUR", hint: "най- means 'most': най-добър – the best", picQuiz: false },
+    better:      { bg: "по-добър", en: "better", pic: "📈", say: "po-do-BUR", picQuiz: false },
+    worst:       { bg: "най-лош", en: "the worst", pic: "🗑️", say: "nay-LOSH", picQuiz: false },
+    same:        { bg: "същият", en: "the same", pic: "🟰", say: "SUSH-ti-yat", hint: "същият / същата / същото – it changes to match!", picQuiz: false },
+    different:   { bg: "различен", en: "different", pic: "🔀", say: "raz-LEE-chen", picQuiz: false },
+    prefer:      { bg: "предпочитам", en: "I prefer", pic: "⚖️", say: "pred-po-CHEE-tam", picQuiz: false },
+    thatswhy:    { bg: "затова", en: "that's why / so", pic: "↪️", say: "za-to-VA", hint: "затова = so · защото = because", picQuiz: false },
+    choose:      { bg: "избирам", en: "I choose", pic: "👈", say: "iz-BEE-ram" },
+    decide:      { bg: "решавам", en: "I decide", pic: "🧭", say: "re-SHA-vam", picQuiz: false },
+    instead:     { bg: "вместо", en: "instead of", pic: "🔄", say: "VMES-to", picQuiz: false },
+    interesting: { bg: "интересно", en: "interesting", pic: "🧐", say: "in-te-RES-no", hint: "Like 'interesting'!" },
+    difficult:   { bg: "трудно", en: "difficult", pic: "🧗", say: "TROOD-no" },
+    easy:        { bg: "лесно", en: "easy", pic: "🧁", say: "LES-no", hint: "Лесно е! – It's easy (peasy)!" },
+    dangerous:   { bg: "опасно", en: "dangerous", pic: "🌋", say: "o-PAS-no" },
+    useful:      { bg: "полезно", en: "useful", pic: "🧰", say: "po-LEZ-no", picQuiz: false },
+    but:         { bg: "но", en: "but", pic: "🔃", say: "NO", picQuiz: false },
+    or:          { bg: "или", en: "or", pic: "🌓", say: "EE-li", hint: "Чай или сок? – Tea or juice?", picQuiz: false },
+    whenlink:    { bg: "когато", en: "when (joining ideas)", pic: "🕰️", say: "ko-GA-to", hint: "кога? asks 'when?' · когато joins: Когато вали…", picQuiz: false },
+    that:        { bg: "че", en: "that (I think that…)", pic: "💬", say: "CHE", hint: "Мисля, че… – I think that…", picQuiz: false },
+    andwhile:    { bg: "а", en: "and / while (a contrast)", pic: "🆚", say: "A", hint: "Аз чета, а брат ми спи. – I read, while my brother sleeps.", picQuiz: false },
+    before:      { bg: "преди", en: "before", pic: "🔙", say: "pre-DEE", picQuiz: false },
+    after:       { bg: "след", en: "after", pic: "🔜", say: "SLED", picQuiz: false },
+    whilst:      { bg: "докато", en: "while (during)", pic: "🤹", say: "DO-ka-to", picQuiz: false },
+    first:       { bg: "първо", en: "first", pic: "☝️", say: "PUR-vo", picQuiz: false },
+    finally:     { bg: "накрая", en: "at the end / finally", pic: "🏁", say: "na-KRA-ya", picQuiz: false }
   },
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
@@ -804,7 +855,48 @@ window.CONTENT = {
     s_watchmatch:      { bg: "Гледам мач по телевизията.", en: "I'm watching a match on TV.", gap: "мач" },
     s_scoresgoal:      { bg: "Петров вкарва гол!", en: "Petrov scores a goal!", gap: "гол" },
     s_singdance:       { bg: "Всички пеят и танцуват.", en: "Everyone is singing and dancing.", gap: "пеят" },
-    s_wewait:          { bg: "Ние чакаме автобуса.", en: "We're waiting for the bus.", gap: "чакаме" }
+    s_wewait:          { bg: "Ние чакаме автобуса.", en: "We're waiting for the bus.", gap: "чакаме" },
+    // Units 36–40
+    t_yesterdayfootball: { bg: "Вчера играх футбол.", en: "Yesterday I played football." },
+    t_sawbigdog:       { bg: "Видях голямо куче.", en: "I saw a big dog." },
+    t_watchedfilm:     { bg: "Гледах филм.", en: "I watched a film." },
+    t_slepttill:       { bg: "Спах до десет.", en: "I slept until ten." },
+    s_wewereseaside:   { bg: "Бяхме на море.", en: "We were at the seaside.", gap: "Бяхме" },
+    s_boughtball:      { bg: "Купих нова топка.", en: "I bought a new ball.", gap: "Купих" },
+    s_lastweekpool:    { bg: "Миналата седмица ходих на басейн.", en: "Last week I went to the pool.", gap: "ходих" },
+    s_whatweekend:     { bg: "Какво прави през уикенда?", en: "What did you do at the weekend?", gap: "уикенда" },
+    t_tomorrowswim:    { bg: "Утре ще плувам.", en: "Tomorrow I will swim." },
+    t_summersoon:      { bg: "Лятото идва скоро.", en: "Summer is coming soon." },
+    t_hopewin:         { bg: "Надявам се да спечелим.", en: "I hope we win." },
+    t_wellgocamp:      { bg: "Ще ходим на лагер.", en: "We will go to camp." },
+    s_wontschool:      { bg: "Утре няма да ходя на училище.", en: "Tomorrow I won't go to school.", gap: "няма" },
+    s_nextweekmatch:   { bg: "Следващата седмица ще играем мач.", en: "Next week we will play a match.", gap: "ще" },
+    s_dreamfootballer: { bg: "Мечтая да стана футболист.", en: "I dream of becoming a footballer.", gap: "Мечтая" },
+    s_summersea:       { bg: "През лятото ще ходим на море.", en: "In the summer we'll go to the seaside.", gap: "море" },
+    t_elephantbigger:  { bg: "Слонът е по-голям от кучето.", en: "The elephant is bigger than the dog." },
+    t_snailslower:     { bg: "Охлювът е по-бавен от мен.", en: "The snail is slower than me." },
+    t_youbest:         { bg: "Ти си най-добрият!", en: "You're the best!" },
+    t_shoesdifferent:  { bg: "Тези обувки са различни.", en: "These shoes are different." },
+    s_lionstronger:    { bg: "Лъвът е по-силен от котката.", en: "The lion is stronger than the cat.", gap: "по-силен" },
+    s_bestfootballer:  { bg: "Кой е най-добрият футболист?", en: "Who is the best footballer?", gap: "най-добрият" },
+    s_carfaster:       { bg: "Колата е по-бърза от колелото.", en: "The car is faster than the bike.", gap: "по-бърза" },
+    s_sameball:        { bg: "Имаме същата топка!", en: "We have the same ball!", gap: "същата" },
+    t_preferswim:      { bg: "Предпочитам плуване.", en: "I prefer swimming." },
+    t_chooseblue:      { bg: "Избирам синия екип.", en: "I choose the blue kit." },
+    t_mathshard:       { bg: "Математиката е трудна.", en: "Maths is difficult." },
+    t_thatseasy:       { bg: "Това е лесно!", en: "That's easy!" },
+    s_preferfun:       { bg: "Предпочитам плуване, защото е забавно.", en: "I prefer swimming because it's fun.", gap: "Предпочитам" },
+    s_rainsohome:      { bg: "Вали, затова играем вкъщи.", en: "It's raining, so we're playing at home.", gap: "затова" },
+    s_pizzainstead:    { bg: "Ще взема пица вместо паста.", en: "I'll have pizza instead of pasta.", gap: "вместо" },
+    s_whychoose:       { bg: "Защо избра това? Защото е интересно.", en: "Why did you choose this? Because it's interesting.", gap: "интересно" },
+    t_footballnottennis: { bg: "Обичам футбол, но не обичам тенис.", en: "I love football, but I don't love tennis." },
+    t_teaorjuice:      { bg: "Чай или сок?", en: "Tea or juice?" },
+    t_firstbreakfast:  { bg: "Първо закуска, после училище.", en: "First breakfast, then school." },
+    t_washbeforelunch: { bg: "Мия си ръцете преди обяд.", en: "I wash my hands before lunch." },
+    s_whenrains:       { bg: "Когато вали, играя Майнкрафт.", en: "When it rains, I play Minecraft.", gap: "Когато" },
+    s_thinkwin:        { bg: "Мисля, че ще спечелим.", en: "I think we'll win.", gap: "че" },
+    s_afterschool:     { bg: "След училище разхождам кучето.", en: "After school I walk the dog.", gap: "След" },
+    s_ireadhesleeps:   { bg: "Аз чета, а брат ми спи.", en: "I'm reading, while my brother is sleeping.", gap: "а" }
   },
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
@@ -865,7 +957,18 @@ window.CONTENT = {
     tip_canmust: { title: "Can and must", text: "Мога да плувам. – I can swim. · Не мога да плувам. – I can't swim. · Трябва да спя. – I must sleep. · Remember: да + verb, never 'to'!" },
     tip_permission: { title: "Can I, please?", text: "Може ли да…? – May I…? / Can I…? · Може ли да играя навън? – Can I play outside? · Answers: Да, може! – Yes, you can! · Не, не може. – No, you can't." },
     tip_now: { title: "Playing or play?", text: "Bulgarian has one present tense for both: играя = I play AND I'm playing. Add сега to make it 'right now': Сега играя. – I'm playing now." },
-    tip_presentfull: { title: "Everyone's doing it", text: "играя – I play · играеш – you play · играе – he / she plays · играем – we play · играете – you (all) play · играят – they play" }
+    tip_presentfull: { title: "Everyone's doing it", text: "играя – I play · играеш – you play · играе – he / she plays · играем – we play · играете – you (all) play · играят – they play" },
+    // Units 36–40
+    tip_pastx: { title: "Listen for -х!", text: "Most past forms for 'I' end in -х: играх – I played · гледах – I watched · спах – I slept · бях – I was · ходих – I went" },
+    tip_pastwe: { title: "We did it!", text: "For 'we', add -ме: играхме – we played · бяхме – we were · видяхме – we saw · ходихме – we went" },
+    tip_will: { title: "Will", text: "ще + verb = will: ще играя – I will play · ще играеш – you will play · ще играем – we will play · Утре ще плувам. – Tomorrow I will swim." },
+    tip_wont: { title: "Won't", text: "няма да + verb = won't: Няма да ходя. – I won't go. · Няма да вали. – It won't rain. · Утре няма да ходя на училище. – Tomorrow I won't go to school." },
+    tip_more: { title: "Bigger, faster", text: "по- = more, and от = than: голям – big · по-голям – bigger · бърз – fast · по-бърз – faster · Лъвът е по-силен от котката. – The lion is stronger than the cat." },
+    tip_most: { title: "The best!", text: "най- = most: най-голям – the biggest · най-бърз – the fastest · най-добър – the best · Ти си най-добрият! – You're the best!" },
+    tip_prefer: { title: "I prefer…", text: "предпочитам – I prefer: Предпочитам футбол. – I prefer football. · Предпочитам да плувам. – I prefer to swim. · Какво предпочиташ? – What do you prefer?" },
+    tip_so: { title: "So or because?", text: "затова – so / that's why: Вали, затова играем вкъщи. – It's raining, so we play at home. · защото – because: Играем вкъщи, защото вали. – We play at home because it's raining." },
+    tip_link: { title: "Joining words", text: "и – and · но – but · или – or · а – and / while, for a contrast: Аз чета, а брат ми спи. – I'm reading, while my brother is sleeping." },
+    tip_when: { title: "When? When…", text: "кога? – when? (a question) · когато – when (joining two ideas): Когато вали, играя Майнкрафт. · че – that: Мисля, че ще спечелим. – I think (that) we'll win." }
   },
 
   sections: [
@@ -1611,12 +1714,17 @@ window.CONTENT = {
       objectives: ["Say what you did yesterday", "Talk about a trip or a match", "Ask 'What did you do?'"],
       vocab: "Past events",
       grammar: ["Common past forms: бях, играх, ходих, видях", "вчера – yesterday"],
-      sample: { words: [["вчера", "yesterday"], ["бях", "I was"], ["видях", "I saw"]], sentences: [["Вчера играх футбол.", "Yesterday I played football."], ["Бяхме на море.", "We were at the seaside."]] },
+      facts: [
+        "Bulgaria is one of Europe's oldest countries – it has had the same name since the year 681!",
+        "The oldest gold treasure in the world, about 6,500 years old, was found near Varna in Bulgaria.",
+        "Plovdiv is one of the oldest cities in Europe – people have lived there for about 6,000 years.",
+        "Bulgarian has a special past tense for things you only heard about: 'Той играл' means 'he played (so they say)'."
+      ],
       lessons: [
-        { id: "u36l1", title: "Yesterday", type: "words", status: "planned", plan: "Introduce: вчера, бях, играх, ходих, видях" },
-        { id: "u36l2", title: "Where were you?", type: "words", status: "planned", plan: "Practise: Вчера играх футбол." },
-        { id: "u36l3", title: "My weekend", type: "sentences", status: "planned", plan: "Apply: tell a friend about your weekend" },
-        { id: "u36boss", title: "Past review", type: "boss", status: "planned", plan: "Review: my day (Unit 20)" }
+        { id: "u36l1", title: "Yesterday", type: "words", words: ["iwas", "iplayed", "iwent", "isaw", "iate"], sentences: ["t_yesterdayfootball", "t_sawbigdog"], tips: ["tip_pastx"] },
+        { id: "u36l2", title: "Where were you?", type: "words", words: ["iwatched", "islept", "ibought", "imade", "lastweek"], sentences: ["t_watchedfilm", "t_slepttill"] },
+        { id: "u36l3", title: "My weekend", type: "sentences", sentences: ["s_wewereseaside", "s_boughtball", "s_lastweekpool", "s_whatweekend"], tips: ["tip_pastwe"] },
+        { id: "u36boss", title: "Time Traveller", type: "boss" }
       ]
     },
     {
@@ -1626,12 +1734,17 @@ window.CONTENT = {
       objectives: ["Say what you will do", "Talk about the weekend or the summer", "Say what you won't do"],
       vocab: "Plans and the future",
       grammar: ["ще + verb: ще играя", "няма да – won't: няма да ходя"],
-      sample: { words: [["ще", "will"], ["скоро", "soon"], ["следващата седмица", "next week"]], sentences: [["Утре ще плувам.", "Tomorrow I will swim."], ["Няма да ходя на училище.", "I won't go to school."]] },
+      facts: [
+        "Bulgaria started using the euro on 1 January 2026, saying goodbye to its old money, the lev.",
+        "On New Year's Day, Bulgarian children tap grown-ups on the back with a decorated stick called a сурвачка to wish them luck for the year ahead.",
+        "Bulgarians like to say 'Утре е нов ден' – 'Tomorrow is a new day.'",
+        "Bulgarian ski resorts like Bansko and Borovets are busy from about December to April."
+      ],
       lessons: [
-        { id: "u37l1", title: "Tomorrow", type: "words", status: "planned", plan: "Introduce: ще, утре, следващата седмица, лятото, скоро" },
-        { id: "u37l2", title: "This summer", type: "words", status: "planned", plan: "Practise: Утре ще плувам." },
-        { id: "u37l3", title: "Won't!", type: "sentences", status: "planned", plan: "Apply: plan your summer holiday" },
-        { id: "u37boss", title: "Future review", type: "boss", status: "planned", plan: "Review: making plans (Unit 29)" }
+        { id: "u37l1", title: "Tomorrow", type: "words", words: ["will", "wont", "soon", "nextweek", "dayaftertomorrow"], sentences: ["t_tomorrowswim", "t_summersoon"], tips: ["tip_will"] },
+        { id: "u37l2", title: "This summer", type: "words", words: ["camp", "hope", "dream", "trip", "rest"], sentences: ["t_hopewin", "t_wellgocamp"] },
+        { id: "u37l3", title: "Won't!", type: "sentences", sentences: ["s_wontschool", "s_nextweekmatch", "s_dreamfootballer", "s_summersea"], tips: ["tip_wont"] },
+        { id: "u37boss", title: "Future Planner", type: "boss" }
       ]
     },
     {
@@ -1641,12 +1754,17 @@ window.CONTENT = {
       objectives: ["Compare two things", "Say which is the best", "Compare footballers or animals"],
       vocab: "Comparisons",
       grammar: ["по- (more): по-голям – bigger", "най- (most): най-голям – biggest", "от – than"],
-      sample: { words: [["по-голям", "bigger"], ["най-добър", "best"], ["от", "than"]], sentences: [["Лъвът е по-силен от котката.", "The lion is stronger than the cat."], ["Кой е най-добрият футболист?", "Who is the best footballer?"]] },
+      facts: [
+        "Musala (2,925 m) in the Rila mountains is the highest peak in the whole Balkans.",
+        "The Danube, Europe's second-longest river, forms most of Bulgaria's border with Romania.",
+        "The Iskar is the longest river that flows only through Bulgaria. It even runs through Sofia!",
+        "Bulgaria's Black Sea coast is about 380 km long – full of sandy beaches."
+      ],
       lessons: [
-        { id: "u38l1", title: "Bigger, faster", type: "words", status: "planned", plan: "Introduce: по-голям, по-бърз, най-добър, от" },
-        { id: "u38l2", title: "The best!", type: "words", status: "planned", plan: "Practise: Лъвът е по-силен от котката." },
-        { id: "u38l3", title: "Top trumps", type: "sentences", status: "planned", plan: "Apply: a Top Trumps-style game" },
-        { id: "u38boss", title: "Comparing review", type: "boss", status: "planned", plan: "Review: animals (Unit 9)" }
+        { id: "u38l1", title: "Bigger, faster", type: "words", words: ["bigger", "smaller", "faster", "slower", "taller"], sentences: ["t_elephantbigger", "t_snailslower"], tips: ["tip_more"] },
+        { id: "u38l2", title: "The best!", type: "words", words: ["best", "better", "worst", "same", "different"], sentences: ["t_youbest", "t_shoesdifferent"], tips: ["tip_most"] },
+        { id: "u38l3", title: "Top trumps", type: "sentences", sentences: ["s_lionstronger", "s_bestfootballer", "s_carfaster", "s_sameball"] },
+        { id: "u38boss", title: "Top Trumps Champion", type: "boss" }
       ]
     },
     {
@@ -1656,12 +1774,17 @@ window.CONTENT = {
       objectives: ["Say why with защото", "Say what you prefer", "Give a reason for a choice"],
       vocab: "Reasons and preferences",
       grammar: ["защото – because", "предпочитам – I prefer"],
-      sample: { words: [["защото", "because"], ["предпочитам", "I prefer"], ["затова", "that's why"]], sentences: [["Предпочитам плуване, защото е забавно.", "I prefer swimming because it's fun."]] },
+      facts: [
+        "A classic Bulgarian breakfast is баница (a cheesy pastry) with боза, a thick, sweet malt drink.",
+        "Many Bulgarians celebrate their имен ден (name day), the saint's day of their name, as much as their birthday!",
+        "When something is neither one thing nor the other, Bulgarians say 'Ни риба, ни рак' – 'neither fish nor crayfish'.",
+        "A Bulgarian saying: 'Бързата работа – срам за майстора' – rushed work shames the craftsman. Take your time to choose!"
+      ],
       lessons: [
-        { id: "u39l1", title: "Because…", type: "words", status: "planned", plan: "Introduce: защото, предпочитам, затова, по-добре" },
-        { id: "u39l2", title: "I prefer…", type: "words", status: "planned", plan: "Practise: Предпочитам плуване, защото е забавно." },
-        { id: "u39l3", title: "Choose and explain", type: "sentences", status: "planned", plan: "Apply: choose a holiday and explain why" },
-        { id: "u39boss", title: "Reasons review", type: "boss", status: "planned", plan: "Review: comparing (Unit 38)" }
+        { id: "u39l1", title: "Because…", type: "words", words: ["prefer", "thatswhy", "choose", "decide", "instead"], sentences: ["t_preferswim", "t_chooseblue"], tips: ["tip_prefer"] },
+        { id: "u39l2", title: "I prefer…", type: "words", words: ["interesting", "difficult", "easy", "dangerous", "useful"], sentences: ["t_mathshard", "t_thatseasy"] },
+        { id: "u39l3", title: "Choose and explain", type: "sentences", sentences: ["s_preferfun", "s_rainsohome", "s_pizzainstead", "s_whychoose"], tips: ["tip_so"] },
+        { id: "u39boss", title: "Decision Maker", type: "boss" }
       ]
     },
     {
@@ -1671,12 +1794,17 @@ window.CONTENT = {
       objectives: ["Join sentences with и, но and или", "Use когато (when) and че (that)", "Say a longer sentence about yourself"],
       vocab: "Linking words",
       grammar: ["и, а, но, или", "когато – when; че – that", "Preview: който / която – who / which"],
-      sample: { words: [["но", "but"], ["когато", "when"], ["че", "that"]], sentences: [["Когато вали, играя Майнкрафт.", "When it rains, I play Minecraft."], ["Мисля, че ще спечелим.", "I think we'll win."]] },
+      facts: [
+        "Bulgarian is one of the oldest written Slavic languages – people were writing books in it over 1,000 years ago.",
+        "The tiny word 'а' can mean 'and', 'but' or 'while' – one letter, lots of jobs!",
+        "Some Bulgarian words are made by joining two: самолет (plane) is само (self) + лет (flying) – a 'self-flyer'!",
+        "Rila Monastery, founded over 1,000 years ago in the Rila mountains, is a UNESCO World Heritage Site."
+      ],
       lessons: [
-        { id: "u40l1", title: "And, but, or", type: "words", status: "planned", plan: "Introduce: но, или, когато, че, а" },
-        { id: "u40l2", title: "When…", type: "words", status: "planned", plan: "Practise: Когато вали, играя Майнкрафт." },
-        { id: "u40l3", title: "Longer sentences", type: "sentences", status: "planned", plan: "Apply: describe your perfect day in 3 long sentences" },
-        { id: "u40boss", title: "Linking review", type: "boss", status: "planned", plan: "Review: reasons (Unit 39)" }
+        { id: "u40l1", title: "And, but, or", type: "words", words: ["but", "or", "whenlink", "that", "andwhile"], sentences: ["t_footballnottennis", "t_teaorjuice"], tips: ["tip_link"] },
+        { id: "u40l2", title: "When…", type: "words", words: ["before", "after", "whilst", "first", "finally"], sentences: ["t_firstbreakfast", "t_washbeforelunch"], tips: ["tip_when"] },
+        { id: "u40l3", title: "Longer sentences", type: "sentences", sentences: ["s_whenrains", "s_thinkwin", "s_afterschool", "s_ireadhesleeps"] },
+        { id: "u40boss", title: "Sentence Builder", type: "boss" }
       ]
     },
     {

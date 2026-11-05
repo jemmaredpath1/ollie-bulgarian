@@ -1239,8 +1239,13 @@
     gap(q, body, ctx) {
       const s = sentence(q.sid);
       const blank = h('span', { class: 'blank' }, '____');
-      const parts = s.bg.split(new RegExp(`(${s.gap})`));
-      const shown = h('div', { class: 'gap-sentence' }, parts.map(p => p === s.gap ? blank : p));
+      // Blank out the gap as a whole word only, so 'а' doesn't hit the 'а' inside 'брат'.
+      let blanked = false;
+      const shown = h('div', { class: 'gap-sentence' }, s.bg.split(' ').flatMap((w, i) => {
+        const core = w.replace(/[.,!?]/g, '');
+        const piece = !blanked && core === s.gap ? (blanked = true, [blank, w.slice(core.length)]) : [w];
+        return i ? [' ', ...piece] : piece;
+      }));
 
       add(body, 
         h('div', { class: 'q-label' }, '✏️ Fill the gap'),
