@@ -33,7 +33,7 @@ window.CONTENT = {
     night:      { bg: "лека нощ", en: "good night", pic: "🌙", say: "LE-ka nosht", hint: "'Nosht' sounds like 'not' – it's NOT daytime!" },
     thanks:     { bg: "благодаря", en: "thank you", pic: "🙏", say: "bla-go-dar-YA", hint: "Blah… go… dare ya… THANKS!", picQuiz: false },
     please:     { bg: "моля", en: "please", pic: "🥺", say: "MO-lya", hint: "Imagine a little mole saying 'MO-lya, please!'", picQuiz: false },
-    yes:        { bg: "да", en: "yes", pic: "👍", say: "da", hint: "'Da' sounds like 'yeah'. Bulgarians SHAKE their head for yes!" },
+    yes:        { bg: "да", en: "yes", pic: "👍", say: "da", audio: "audio/yes.m4a", hint: "'Da' sounds like 'yeah'. Bulgarians SHAKE their head for yes!" },
     no:         { bg: "не", en: "no", pic: "👎", say: "ne", hint: "'Ne' sounds like 'nay'. Bulgarians NOD their head for no!" },
     iam:        { bg: "аз съм", en: "I am", pic: "🪪", say: "az suhm", picQuiz: false },
     howareyou:  { bg: "как си", en: "how are you", pic: "🙂❓", say: "kak see", picQuiz: false },
