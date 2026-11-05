@@ -245,6 +245,19 @@ h3 { margin: 0 0 10px; font-size: 19px; }
 }
 .welcome .chip { background: transparent; border-color: rgba(255,255,255,.25); color: #fff; }
 .welcome .chip.on { background: var(--yellow); border-color: var(--yellow); color: var(--navy); }
+/* Welcome part 2: can you read the letters yet? */
+.read-option {
+  display: flex; align-items: center; gap: 14px; width: 100%; text-align: left;
+  background: rgba(255,255,255,.07); border: 2px solid rgba(255,255,255,.18); border-bottom-width: 5px;
+  border-radius: 20px; padding: 16px; margin-top: 12px; color: #fff; font: inherit; cursor: pointer;
+}
+.read-option:hover, .read-option:focus-visible { border-color: var(--yellow); }
+.read-option:active { transform: translateY(3px); border-bottom-width: 2px; }
+.read-emoji { font-size: 40px; flex: none; }
+.read-title { display: block; font-size: 20px; font-weight: 900; }
+.read-text { display: block; margin-top: 2px; font-size: 15px; color: #c9d4ea; line-height: 1.35; }
+.read-note { text-align: center; color: var(--muted); font-size: 14px; margin: 14px 0 0; }
+
 .btn.start {
   background: var(--yellow);
   border-color: var(--yellow-dark);

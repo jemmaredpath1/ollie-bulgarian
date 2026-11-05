@@ -26,6 +26,37 @@
 
 window.CONTENT = {
   words: {
+    // ---- The alphabet (optional Unit 0). tts = what the computer voice says (the letter's name).
+    abc_a: { bg: "А а", en: "a (as in car)", pic: "🦈", say: "a", tts: "а", hint: "А for акула – shark!", picQuiz: false, letter: true },
+    abc_b: { bg: "Б б", en: "b", pic: "🎈", say: "buh", tts: "бъ", hint: "Б for балон – balloon!", picQuiz: false, letter: true },
+    abc_v: { bg: "В в", en: "v", pic: "🚂", say: "vuh", tts: "въ", hint: "Looks like an English B, but it's a V! В for влак – train.", picQuiz: false, letter: true },
+    abc_g: { bg: "Г г", en: "g (as in go)", pic: "🍄", say: "guh", tts: "гъ", hint: "Г for гъба – mushroom!", picQuiz: false, letter: true },
+    abc_d: { bg: "Д д", en: "d", pic: "🦖", say: "duh", tts: "дъ", hint: "Д for динозавър – dinosaur!", picQuiz: false, letter: true },
+    abc_e: { bg: "Е е", en: "e (as in pet)", pic: "🦔", say: "e", tts: "е", hint: "Е for еж – hedgehog!", picQuiz: false, letter: true },
+    abc_zh: { bg: "Ж ж", en: "zh (as in treasure)", pic: "🐸", say: "zhuh", tts: "жъ", hint: "Ж looks like a bug with lots of legs. Ж for жаба – frog!", picQuiz: false, letter: true },
+    abc_z: { bg: "З з", en: "z", pic: "🦓", say: "zuh", tts: "зъ", hint: "Looks like a 3! З for зебра – zebra.", picQuiz: false, letter: true },
+    abc_i: { bg: "И и", en: "ee (as in see)", pic: "🎮", say: "ee", tts: "и", hint: "Looks like a back-to-front N. И for игра – game!", picQuiz: false, letter: true },
+    abc_y: { bg: "Й й", en: "y (as in yes)", pic: "🪀", say: "ee KRAT-ko", tts: "и кратко", hint: "И with a little hat! Й for йо-йо – yo-yo.", picQuiz: false, letter: true },
+    abc_k: { bg: "К к", en: "k", pic: "🌵", say: "kuh", tts: "къ", hint: "К for кактус – cactus!", picQuiz: false, letter: true },
+    abc_l: { bg: "Л л", en: "l", pic: "🍋", say: "luh", tts: "лъ", hint: "Л for лимон – lemon!", picQuiz: false, letter: true },
+    abc_m: { bg: "М м", en: "m", pic: "🐜", say: "muh", tts: "мъ", hint: "М for мравка – ant!", picQuiz: false, letter: true },
+    abc_n: { bg: "Н н", en: "n", pic: "👃", say: "nuh", tts: "нъ", hint: "Looks like an H, but it's an N! Н for нос – nose.", picQuiz: false, letter: true },
+    abc_o: { bg: "О о", en: "o (as in hot)", pic: "🐙", say: "o", tts: "о", hint: "О for октопод – octopus!", picQuiz: false, letter: true },
+    abc_p: { bg: "П п", en: "p", pic: "🐧", say: "puh", tts: "пъ", hint: "П looks like a goalpost! П for пингвин – penguin.", picQuiz: false, letter: true },
+    abc_r: { bg: "Р р", en: "r (rolled)", pic: "🚀", say: "ruh", tts: "ръ", hint: "Looks like a P, but it's an R! Р for ракета – rocket.", picQuiz: false, letter: true },
+    abc_s: { bg: "С с", en: "s", pic: "🦉", say: "suh", tts: "съ", hint: "Looks like a C, but it's an S! С for сова – owl.", picQuiz: false, letter: true },
+    abc_t: { bg: "Т т", en: "t", pic: "🐯", say: "tuh", tts: "тъ", hint: "Т for тигър – tiger!", picQuiz: false, letter: true },
+    abc_u: { bg: "У у", en: "oo (as in moon)", pic: "👂", say: "oo", tts: "у", hint: "Looks like a Y, but it's OO! У for ухо – ear.", picQuiz: false, letter: true },
+    abc_f: { bg: "Ф ф", en: "f", pic: "🦩", say: "fuh", tts: "фъ", hint: "Ф for фламинго – flamingo!", picQuiz: false, letter: true },
+    abc_h: { bg: "Х х", en: "h (as in loch)", pic: "🚁", say: "huh", tts: "хъ", hint: "Looks like an X, but it's an H! Х for хеликоптер – helicopter.", picQuiz: false, letter: true },
+    abc_ts: { bg: "Ц ц", en: "ts (as in cats)", pic: "🌸", say: "tsuh", tts: "цъ", hint: "Ц for цвете – flower!", picQuiz: false, letter: true },
+    abc_ch: { bg: "Ч ч", en: "ch (as in chip)", pic: "☂️", say: "chuh", tts: "чъ", hint: "Ч looks like a 4! Ч for чадър – umbrella.", picQuiz: false, letter: true },
+    abc_sh: { bg: "Ш ш", en: "sh (as in ship)", pic: "🍫", say: "shuh", tts: "шъ", hint: "Ш looks like a garden fork. Ш for шоколад – chocolate!", picQuiz: false, letter: true },
+    abc_sht: { bg: "Щ щ", en: "sht (as in ashtray)", pic: "😁", say: "shtuh", tts: "щъ", hint: "Ш with a little tail! Щ for щастлив – happy.", picQuiz: false, letter: true },
+    abc_uh: { bg: "Ъ ъ", en: "uh (as in sofa)", pic: "🧩", say: "uh", tts: "ъ", hint: "Ъ is in пъзел – puzzle!", picQuiz: false, letter: true },
+    abc_soft: { bg: "Ь ь", en: "soft sign (ьо = yo)", pic: "🎭", say: "er MA-luk", tts: "ер малък", hint: "Ь never starts a word. It makes О say YO: актьор – actor.", picQuiz: false, letter: true },
+    abc_yu: { bg: "Ю ю", en: "yu (as in you)", pic: "✊", say: "yu", tts: "ю", hint: "Ю for юмрук – fist!", picQuiz: false, letter: true },
+    abc_ya: { bg: "Я я", en: "ya (as in yard)", pic: "🍓", say: "ya", tts: "я", hint: "Looks like a back-to-front R. Я for ягода – strawberry!", picQuiz: false, letter: true },
     // ---------- Unit 1: Hello! ----------
     hello:      { bg: "здравей", en: "hello", pic: "👋", say: "zdra-VEY", hint: "Shout it like a cheer: hoo-RAY, zdra-VEY!" },
     bye:        { bg: "чао", en: "bye", pic: "🚶💨", say: "CHA-o", hint: "Just like 'ciao' in Italian!" },
@@ -686,6 +717,10 @@ window.CONTENT = {
 
   // Short grammar notes shown at the start of a lesson (and on the unit page).
   tips: {
+    tip_abc_easy: { title: "Easy friends", text: "These letters look AND sound like English: А · Е · К · М · О · Т" },
+    tip_abc_twins: { title: "Tricky twins", text: "Careful! These look like English letters but make a different sound: В = v · Н = n · Р = r · С = s · У = oo · Х = h" },
+    tip_abc_rule: { title: "The golden rule", text: "Bulgarian is read exactly as it's written. Each letter always makes the same sound, so once you know the letters you can read any word!" },
+    tip_abc_combo: { title: "One letter, two sounds", text: "Some letters do the job of two English letters: Ж = zh · Ц = ts · Ч = ch · Ш = sh · Щ = sht · Ю = yu · Я = ya" },
     tip_sam: { title: "The verb съм (to be)", text: "аз съм – I am · ти си – you are · той / тя / то е – he / she / it is · ние сме – we are · вие сте – you are (more than one person, or polite) · те са – they are" },
     tip_reading: { title: "Reading help", text: "In the grey 'say' line, CAPITALS show the stressed part: zdra-VEY. ъ sounds like the 'u' in 'but', щ sounds like 'sht', and ж like the 's' in 'treasure'. When you don't need the 'say' line any more, switch it off in Settings." },
     tip_questions: { title: "Question words", text: "кой – who · какво – what · къде – where · кога – when · защо – why · колко – how many / how much. They go at the start of the question, just like in English." },
@@ -738,6 +773,29 @@ window.CONTENT = {
     { id: "s5", title: "More independent Bulgarian", description: "Stories, school, technology, nature, culture, traditions and opinions." }
   ],
 
+  // Optional "Unit 0" for players who can't read Cyrillic yet. Only shown if they choose it.
+  alphabet: {
+    id: "abc", title: "The Alphabet", emoji: "✏️", color: "teal",
+    facts: [
+      "The Cyrillic alphabet was created in Bulgaria over 1,000 years ago, by students of the brothers Cyril and Methodius.",
+      "About 250 million people use Cyrillic letters today, in countries like Bulgaria, Serbia, Ukraine and Russia.",
+      "The Bulgarian alphabet has 30 letters – four more than English!",
+      "When Bulgaria joined the European Union, Cyrillic became its third alphabet. Look for ЕВРО on euro banknotes!"
+    ],
+    section: "s1",
+    description: "Learn the 30 letters and their sounds, so you can read Bulgarian.",
+    objectives: ["Know the sound every letter makes", "Spot the 'tricky twins' that look English but aren't", "Read new words letter by letter"],
+    vocab: "The 30 letters of the Bulgarian alphabet",
+    grammar: ["Every letter always makes the same sound"],
+    lessons: [
+      { id: "abc1", title: "Easy friends", type: "words", words: ["abc_a", "abc_e", "abc_k", "abc_m", "abc_o", "abc_t"], tips: ["tip_abc_rule", "tip_abc_easy"] },
+      { id: "abc2", title: "Tricky twins", type: "words", words: ["abc_v", "abc_n", "abc_r", "abc_s", "abc_u", "abc_h"], tips: ["tip_abc_twins"] },
+      { id: "abc3", title: "New shapes", type: "words", words: ["abc_b", "abc_g", "abc_d", "abc_z", "abc_i", "abc_y"] },
+      { id: "abc4", title: "More new shapes", type: "words", words: ["abc_l", "abc_p", "abc_f", "abc_ts", "abc_ch"] },
+      { id: "abc5", title: "Super sounds", type: "words", words: ["abc_zh", "abc_sh", "abc_sht", "abc_uh", "abc_soft", "abc_yu", "abc_ya"], tips: ["tip_abc_combo"] },
+      { id: "abcboss", title: "Alphabet Boss", type: "boss" }
+    ]
+  },
   units: [
     {
       id: "u1", title: "Hello!", emoji: "👋", color: "green",

@@ -22,7 +22,18 @@
     u.words = playable.flatMap(l => l.words || []);
     u.sentences = playable.flatMap(l => l.sentences || []);
   });
-  const unitNumber = u => C.units.indexOf(u) + 1;
+  const unitNumber = u => C.units.indexOf(u) + 1; // the alphabet isn't in C.units, so it's Unit 0
+
+  // The optional alphabet ("Unit 0") has its own short chain of lessons. It never
+  // locks the main course and only shows for players who said they can't read Cyrillic yet.
+  const ABC = C.alphabet;
+  if (ABC) {
+    ABC.lessons.forEach(l => { l.unit = ABC; });
+    ABC.planned = false;
+    ABC.words = ABC.lessons.flatMap(l => l.words || []);
+    ABC.sentences = [];
+  }
+  const isAbc = l => !!ABC && l.unit === ABC;
 
   // ================= Saved progress =================
   const freshState = () => ({
@@ -30,7 +41,8 @@
     done: {},     // lessonId -> { best: accuracy %, plays }
     words: {},    // wordId -> { right, wrong }
     muted: false,
-    speaking: true   // "Say it!" exercises
+    speaking: true,  // "Say it!" exercises
+    learnLetters: null // true = show the alphabet unit; null = never asked (saves from before it existed)
   });
 
   let state = loadState();
@@ -169,7 +181,7 @@
   }
   document.addEventListener('pointerdown', unlockSpeech, { once: true });
 
-  const sayWord = (id, slow) => { const w = word(id); speak(w.bg, w.audio, slow); };
+  const sayWord = (id, slow) => { const w = word(id); speak(w.tts || w.bg, w.audio, slow); };
   const saySentence = (id, slow) => { const s = sentence(id); speak(s.bg, s.audio, slow); };
 
   // ================= Listening to Ollie =================
@@ -179,6 +191,7 @@
   let recognitionWorks = !!Recognizer;
   const speakingOn = () => state.speaking !== false;
   const showSay = () => state.showSay !== false;
+  const abcOn = () => !!ABC && state.learnLetters === true;
 
   // Recognisers often write numbers as digits ("35"), so turn them back into words.
   const ONES = ['нула', 'едно', 'две', 'три', 'четири', 'пет', 'шест', 'седем', 'осем', 'девет'];
@@ -313,9 +326,8 @@
       if (!name) { input.focus(); input.classList.add('shake'); setTimeout(() => input.classList.remove('shake'), 400); return; }
       state.dogName = name;
       saveState();
-      sfx.win();
-      confetti();
-      renderPath(`Бау! I'm ${name}, your sidekick. Let's do this, Ollie! 💪`);
+      sfx.tap();
+      renderReadingChoice(name);
     };
     input.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
     input.addEventListener('input', () => chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c.textContent === input.value)));
@@ -350,6 +362,36 @@
     ));
   }
 
+  // ---------- Welcome, part 2: can you read the letters yet? ----------
+  function renderReadingChoice(name) {
+    const choose = learn => {
+      state.learnLetters = learn;
+      saveState();
+      sfx.win();
+      confetti();
+      renderPath(learn
+        ? `Бау! I'm ${name}, your sidekick. Let's start with the letters – you'll be reading in no time! ✏️`
+        : `Бау! I'm ${name}, your sidekick. Let's do this, Ollie! 💪`);
+    };
+    const option = (emoji, title, text, learn) => h('button', { class: 'read-option', onclick: () => choose(learn) },
+      h('span', { class: 'read-emoji', 'aria-hidden': 'true' }, emoji),
+      h('span', {}, h('span', { class: 'read-title' }, title), h('span', { class: 'read-text' }, text)));
+
+    show(h('section', { class: 'screen welcome' },
+      h('div', { class: 'flag-stripe', 'aria-hidden': 'true' }, h('i'), h('i'), h('i')),
+      h('div', { class: 'sidekick' },
+        h('div', { class: 'sidekick-dog' }, dog('happy', 110)),
+        h('div', {},
+          h('div', { class: 'sidekick-label' }, `${name} has a question`),
+          h('p', { class: 'sidekick-text' }, 'Can you read Bulgarian letters like these? Куче, топка, футбол.')
+        )
+      ),
+      option('📖', 'Yes, I can read them', 'Jump straight into Unit 1.', false),
+      option('✏️', "No, I'm new to these letters", 'Start with the alphabet: 30 letters in 6 quick lessons.', true),
+      h('p', { class: 'read-note' }, 'You can change this any time in Settings ⚙️')
+    ));
+  }
+
   // ---------- Home: the lesson path ----------
   const greetings = () => [
     `Бау! Ready, Ollie?`,
@@ -365,6 +407,7 @@
   function lessonStatus(l) {
     if (isPlanned(l)) return 'planned';
     if (state.done[l.id]) return 'done';
+    if (isAbc(l)) { const i = ABC.lessons.indexOf(l); return i === 0 || state.done[ABC.lessons[i - 1].id] ? 'available' : 'locked'; }
     const first = firstOpenIndex();
     return first === -1 || LESSONS.indexOf(l) <= first ? 'available' : 'locked';
   }
@@ -393,7 +436,10 @@
     );
 
     const firstOpen = firstOpenIndex();
-    const next = LESSONS[firstOpen];
+    // New letter-learners start with the alphabet (Unit 1 stays open too). Anyone
+    // already into the main course keeps continuing from where they are.
+    const mainStarted = LESSONS.some(l => state.done[l.id]);
+    const next = (abcOn() && !mainStarted && ABC.lessons.find(l => !state.done[l.id])) || LESSONS[firstOpen];
     const path = h('div', { class: 'path' });
     const offsets = [0, 1, 2, 1, 0, -1, -2, -1];
     let n = 0;
@@ -427,7 +473,7 @@
         return;
       }
 
-      units.filter(u => !u.planned).forEach(u => {
+      const drawUnit = u => {
         const unitDone = !u.planned && u.lessons.every(l => isPlanned(l) || state.done[l.id]);
         path.append(h('button', {
           class: `unit-banner c-${u.color} ${u.planned ? 'planned' : ''}`,
@@ -457,7 +503,9 @@
             h('div', { class: 'node-title' }, l.title)
           ));
         });
-      });
+      };
+      if (si === 0 && abcOn()) drawUnit(ABC);
+      units.filter(u => !u.planned).forEach(drawUnit);
 
       const later = units.filter(u => u.planned);
       if (later.length) {
@@ -569,6 +617,10 @@
   // ================= Building a lesson =================
   // Words Ollie has met up to (and including) this lesson — used for distractors.
   function knownWordsUpTo(lesson) {
+    if (isAbc(lesson)) {
+      const i = ABC.lessons.indexOf(lesson);
+      return lesson.type === 'words' ? ABC.lessons.slice(0, i + 1).flatMap(l => l.words || []) : ABC.words;
+    }
     const idx = LESSONS.indexOf(lesson);
     const met = LESSONS.slice(0, idx + 1).flatMap(l => l.words || []);
     // Boss and sentence lessons can use the whole unit; word lessons only what's been taught.
@@ -579,10 +631,11 @@
     const c = word(correctId);
     let cands = pool.filter(id => id !== correctId && word(id).en !== c.en && word(id).pic !== c.pic);
     if (cands.length < n) {
-      cands = cands.concat(Object.keys(C.words).filter(id => id !== correctId && !cands.includes(id) && word(id).pic !== c.pic));
+      // Letters only ever mix with letters, and words with words.
+      cands = cands.concat(Object.keys(C.words).filter(id => id !== correctId && !cands.includes(id) && word(id).pic !== c.pic && !word(id).letter === !c.letter));
     }
     // Mostly pick words from the same lesson (other days, other numbers…) so you can't guess by topic.
-    const siblings = LESSONS.filter(l => (l.words || []).includes(correctId)).flatMap(l => l.words);
+    const siblings = LESSONS.concat(ABC ? ABC.lessons : []).filter(l => (l.words || []).includes(correctId)).flatMap(l => l.words);
     const close = shuffle(cands.filter(id => siblings.includes(id))).slice(0, n - 1);
     return close.concat(shuffle(cands.filter(id => !close.includes(id))).slice(0, n - close.length));
   }
@@ -644,7 +697,7 @@
       });
       const mixed = shuffle(later).slice(0, 3);
       mixed.splice(1, 0, pairsQuestion(shuffle(lesson.words), pool));
-      if (speakingOn()) mixed.push({ type: 'speak', id: pick(lesson.words) });
+      if (speakingOn() && !isAbc(lesson)) mixed.push({ type: 'speak', id: pick(lesson.words) });
       qs.push(...mixed);
       // Finish with a couple of tiny sentences made from the new words.
       (lesson.sentences || []).forEach(sid => {
@@ -665,12 +718,12 @@
       }
     } else { // boss
       const u = lesson.unit;
-      shuffle(u.words).slice(0, 7).forEach(id => qs.push(wordQuestion(pick(typesFor(id)), id, pool)));
+      shuffle(u.words).slice(0, isAbc(lesson) ? 12 : 7).forEach(id => qs.push(wordQuestion(pick(typesFor(id)), id, pool)));
       shuffle(u.sentences).slice(0, 3).forEach(sid => qs.push(tilesQuestion(sid, lesson)));
       // Bring back a few words from earlier units too.
       const earlier = pool.filter(id => !u.words.includes(id));
       shuffle(earlier).slice(0, 3).forEach(id => qs.push(wordQuestion(pick(typesFor(id)), id, pool)));
-      if (speakingOn()) qs.push({ type: 'speak', id: pick(u.words) });
+      if (speakingOn() && !isAbc(lesson)) qs.push({ type: 'speak', id: pick(u.words) });
       const mixed = shuffle(qs);
       mixed.push(pairsQuestion(shuffle(u.words), pool));
       return mixed;
@@ -829,7 +882,7 @@
     teach(q, body, ctx) {
       const w = word(q.id);
       add(body, 
-        h('div', { class: 'q-label new' }, '✨ New word!'),
+        h('div', { class: 'q-label new' }, w.letter ? '✏️ New letter!' : '✨ New word!'),
         h('div', { class: 'teach-card' },
           h('div', { class: picClass('teach-pic', w.pic) }, w.pic),
           h('div', { class: 'teach-bg' }, w.bg),
@@ -894,11 +947,11 @@
     listen(q, body, ctx) {
       const w = word(q.id);
       add(body, 
-        h('div', { class: 'q-label' }, '👂 What do you hear?'),
+        h('div', { class: 'q-label' }, w.letter ? '👂 Which letter do you hear?' : '👂 What do you hear?'),
         h('div', { class: 'prompt' }, h('button', { class: 'btn-speaker huge', 'aria-label': 'Play sound', onclick: () => sayWord(q.id) }, '🔊'),
           h('button', { class: 'btn-speaker', 'aria-label': 'Play slowly', onclick: () => sayWord(q.id, true) }, '🐢'))
       );
-      const grid = choiceGrid(q.options, picEnLabel, ctx);
+      const grid = w.letter ? choiceGrid(q.options, bgLabel, ctx, null, 'list') : choiceGrid(q.options, picEnLabel, ctx);
       add(body, grid);
       ctx.onCheck = () => { const ok = grid.chosen() === q.id; grid.lock(q.id); scored(ctx, ok, `${w.bg} = ${w.en}`, [q.id]); };
       setTimeout(() => sayWord(q.id), 250);
@@ -908,7 +961,7 @@
     bg2en(q, body, ctx) {
       const w = word(q.id);
       add(body, 
-        h('div', { class: 'q-label' }, 'What does this mean?'),
+        h('div', { class: 'q-label' }, w.letter ? 'What sound does this letter make?' : 'What does this mean?'),
         h('div', { class: 'prompt' }, h('span', { class: 'prompt-bg' }, w.bg), speakerButtons(slow => sayWord(q.id, slow)))
       );
       const grid = choiceGrid(q.options, enLabel, ctx, null, 'list');
@@ -921,7 +974,7 @@
     en2bg(q, body, ctx) {
       const w = word(q.id);
       add(body, 
-        h('div', { class: 'q-label' }, 'How do you say this in Bulgarian?'),
+        h('div', { class: 'q-label' }, w.letter ? 'Which letter makes this sound?' : 'How do you say this in Bulgarian?'),
         h('div', { class: 'prompt' }, h('span', { class: picClass('prompt-pic', w.pic) }, w.pic), h('span', { class: 'prompt-en' }, w.en))
       );
       const grid = choiceGrid(q.options, bgLabel, ctx, id => sayWord(id), 'list');
@@ -977,7 +1030,7 @@
         right.append(b);
       });
       add(body, h('div', { class: 'pairs' }, left, right));
-      ctx.footer.replaceChildren(h('div', { class: 'footer-hint' }, 'Tap a Bulgarian word, then its meaning'));
+      ctx.footer.replaceChildren(h('div', { class: 'footer-hint' }, word(q.ids[0]).letter ? 'Tap a letter, then its sound' : 'Tap a Bulgarian word, then its meaning'));
     },
 
     // Build the sentence from word tiles.
@@ -1190,7 +1243,7 @@
     (levelUp ? sfx.level : sfx.win)();
     confetti();
 
-    const title = unitDone ? `🏅 Unit ${unitNumber(l.unit)} complete!` : isReview ? 'Review complete! 🔁' : perfect ? 'Perfect lesson! 🌟' : 'Lesson complete!';
+    const title = unitDone && isAbc(l) ? '✏️ Alphabet complete!' : unitDone ? `🏅 Unit ${unitNumber(l.unit)} complete!` : isReview ? 'Review complete! 🔁' : perfect ? 'Perfect lesson! 🌟' : 'Lesson complete!';
     const dogLine = perfect ? `${state.dogName}: "Wow, no mistakes! Бау-бау!"` : `${state.dogName}: "Great work, Ollie!"`;
 
     show(h('section', { class: 'screen finish' },
@@ -1266,6 +1319,9 @@
         h('label', { class: 'switch' },
           h('input', { type: 'checkbox', checked: showSay(), onchange: e => { state.showSay = e.target.checked; saveState(); } }),
           ' Show pronunciation help ("say: zdra-VEY")'),
+        ABC ? h('label', { class: 'switch' },
+          h('input', { type: 'checkbox', checked: abcOn(), onchange: e => { state.learnLetters = e.target.checked; saveState(); } }),
+          ' ✏️ Show the alphabet unit (Unit 0)') : null,
         h('p', {}, Recognizer
           ? '🎤 Speaking: this device can listen and check what Ollie says (if it understands Bulgarian; otherwise it records him to compare).'
           : '🎤 Speaking: this browser can\'t check speech, so Ollie records himself and compares with the dog.'),

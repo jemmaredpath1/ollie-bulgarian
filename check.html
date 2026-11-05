@@ -103,11 +103,11 @@
     }
 
     // Every word and sentence in the playable lessons, unit by unit.
-    const units = C.units.map((u, i) => {
+    const units = (C.alphabet ? [C.alphabet] : []).concat(C.units).map(u => {
       const ready = u.lessons.filter(l => l.status !== 'planned');
       const wids = [...new Set(ready.flatMap(l => l.words || []))];
       const sids = [...new Set(ready.flatMap(l => l.sentences || []))];
-      return { n: i + 1, u, items: [...wids.map(id => ({ id, ...C.words[id] })), ...sids.map(id => ({ id, ...C.sentences[id] }))] };
+      return { n: C.units.indexOf(u) + 1, u, items: [...wids.map(id => ({ id, ...C.words[id] })), ...sids.map(id => ({ id, ...C.sentences[id] }))] };
     }).filter(x => x.items.length);
 
     const unitSel = document.getElementById('unit');
@@ -135,6 +135,7 @@
         x.items.forEach(item => {
           const row = el('li', { className: 'row' });
           row.dataset.id = item.id;
+          row.dataset.say = item.tts || item.bg;
           const setMark = m => {
             marks[item.id] = marks[item.id] === m ? undefined : m;
             if (!marks[item.id]) delete marks[item.id];
@@ -142,8 +143,8 @@
           };
           row.append(
             el('div', { className: 'plays' },
-              el('button', { textContent: '▶', title: 'Computer voice', onclick: () => say(item.bg, false) }),
-              el('button', { textContent: '🐢', title: 'Computer voice, slow', onclick: () => say(item.bg, true) }),
+              el('button', { textContent: '▶', title: 'Computer voice', onclick: () => say(item.tts || item.bg, false) }),
+              el('button', { textContent: '🐢', title: 'Computer voice, slow', onclick: () => say(item.tts || item.bg, true) }),
               item.audio ? el('button', { textContent: '🎧', title: 'Your recording', onclick: () => { speechSynthesis.cancel(); new Audio(item.audio).play(); } }) : null
             ),
             el('div', { className: 'words' },
@@ -197,7 +198,7 @@
         const row = rows[i];
         row.classList.add('playing');
         row.scrollIntoView({ block: 'center', behavior: 'smooth' });
-        say(row.querySelector('.bg').textContent, false, () => setTimeout(() => next(i + 1), 900));
+        say(row.dataset.say, false, () => setTimeout(() => next(i + 1), 900));
       };
       next(0);
     };
