@@ -882,17 +882,19 @@
     const screen = h('section', { class: 'screen lesson' },
       h('div', { class: 'lesson-top' },
         h('button', { class: 'icon-btn', 'aria-label': 'Quit lesson', onclick: quitLesson }, '✕'),
-        S.quiz
-          ? h('div', { class: 'progress quiz-timer' }, h('div', { class: 'progress-fill quiz-timer-fill', style: `width:${quizLeft() / (QUIZ_SECONDS * 10)}%` }))
-          : h('div', { class: 'progress' }, h('div', { class: 'progress-fill', style: `width:${pct}%` })),
+        h('div', { class: 'progress-wrap' },
+          S.combo >= 3 ? h('div', { class: 'combo-tag' }, `🔥 COMBO ×${S.combo}`) : null,
+          S.quiz
+            ? h('div', { class: 'progress quiz-timer' }, h('div', { class: 'progress-fill quiz-timer-fill', style: `width:${quizLeft() / (QUIZ_SECONDS * 10)}%` }))
+            : h('div', { class: `progress ${S.combo >= 5 ? 'gold' : ''}` }, h('div', { class: 'progress-fill', style: `width:${pct}%` }))),
         S.quiz ? h('div', { class: 'quiz-count', 'aria-label': 'Question' }, `${S.right + S.wrong + 1}/${QUIZ_QUESTIONS}`) : null,
         S.quiz ? h('div', { class: 'quiz-score', 'aria-label': 'Right answers' }, `⚡${S.right}`) : null,
-        S.combo >= 3 ? h('div', { class: 'combo' }, `🔥${S.combo}`) : null
       ),
       body, footer
     );
 
     RENDER[q.type](q, body, ctx);
+    if (q.retry) body.prepend(h('div', { class: 'retry-tag' }, '🔁 Have another go!'));
     show(screen);
   }
 
@@ -932,12 +934,11 @@
     if (correct) {
       sfx.right();
       S.right++; S.done++; S.combo++;
-      if (S.combo === 3 || S.combo === 5 || S.combo === 8) toast(`🔥 ${S.combo} in a row!`);
     } else {
       sfx.wrong();
       S.wrong++; S.combo = 0;
       // Try it again later in the lesson (the Speed Quiz just moves on).
-      if (!S.quiz) S.queue.push(Object.assign({}, S.q, { options: S.q.options && shuffle(S.q.options), tiles: S.q.tiles && shuffle(S.q.tiles) }));
+      if (!S.quiz) S.queue.push(Object.assign({}, S.q, { retry: true, options: S.q.options && shuffle(S.q.options), tiles: S.q.tiles && shuffle(S.q.tiles) }));
     }
     feedback(ctx, correct, answerText);
   }
@@ -1309,13 +1310,33 @@
     }
   };
 
-  // Playing anything today keeps the streak going.
+  // Playing anything today keeps the streak going. The day's first finish earns the 🔥 screen.
+  let streakToShow = false;
   function playedToday() {
     const t = today();
     if (state.lastDay !== t) {
       state.streak = state.lastDay === yesterday() ? state.streak + 1 : 1;
       state.lastDay = t;
+      streakToShow = true;
     }
+  }
+  const leaveFinish = () => { S = null; if (streakToShow) renderStreak(); else renderPath(); };
+
+  function renderStreak() {
+    streakToShow = false;
+    const n = state.streak;
+    sfx.level();
+    confetti();
+    show(h('section', { class: 'screen finish streak-screen' },
+      h('div', { class: 'streak-flame', 'aria-hidden': 'true' }, '🔥'),
+      h('div', { class: 'streak-num' }, String(n)),
+      h('div', { class: 'streak-label' }, n === 1 ? 'day streak!' : 'days in a row!'),
+      dogSays(n === 1
+        ? `Day one, ${playerName()}! Play again tomorrow and watch your flame grow.`
+        : n % 7 === 0 ? `${n / 7} whole week${n === 7 ? '' : 's'} in a row! Бау-бау, you're a star! 🌟`
+        : `Бау! Great work, ${playerName()}. Come back tomorrow to make it ${n + 1}! 🔥`, 'happy party', 84),
+      h('button', { class: 'btn big primary', onclick: () => renderPath() }, 'Continue')
+    ));
   }
 
   // ================= ⚡ Speed Quiz =================
@@ -1384,7 +1405,7 @@
       ),
       h('div', { class: 'finish-actions' },
         h('button', { class: 'btn big', onclick: () => startQuiz(u.quiz) }, '⚡ Play again'),
-        h('button', { class: 'btn big primary', onclick: () => { S = null; renderPath(); } }, 'Continue'))
+        h('button', { class: 'btn big primary', onclick: leaveFinish }, 'Continue'))
     ));
   }
 
@@ -1439,7 +1460,7 @@
         h('div', { class: 'stat-card c-red' }, h('div', { class: 'stat-top' }, 'Streak'), h('div', { class: 'stat-val' }, `🔥${currentStreak()}`))
       ),
       fact ? h('div', { class: 'fact' }, h('strong', {}, '🇧🇬 Did you know? '), fact) : null,
-      h('button', { class: 'btn big primary', onclick: () => { S = null; renderPath(); } }, 'Continue')
+      h('button', { class: 'btn big primary', onclick: leaveFinish }, 'Continue')
     ));
   }
 
