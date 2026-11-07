@@ -182,24 +182,30 @@
   }
 
   let currentAudio = null;
+  // Stops whatever is talking – a recording or the computer voice – so sounds never overlap.
+  function stopSpeech() {
+    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
+  }
   function speak(text, audioFile, slow) {
     if (state.muted || !text) return;
-    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+    stopSpeech();
     if (audioFile) {
-      currentAudio = new Audio(audioFile);
-      currentAudio.playbackRate = slow ? 0.75 : 1;
-      currentAudio.play().catch(() => speakTTS(text, slow));
+      const a = currentAudio = new Audio(audioFile);
+      // Safari resets playbackRate when a file loads, so set the default rate too.
+      a.defaultPlaybackRate = a.playbackRate = slow ? 0.6 : 1;
+      a.preservesPitch = a.webkitPreservesPitch = true;
+      a.play().catch(() => { if (currentAudio === a) speakTTS(text, slow); });
       return;
     }
     speakTTS(text, slow);
   }
   function speakTTS(text, slow) {
     if (!('speechSynthesis' in window)) return;
-    speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
     u.lang = 'bg-BG';
     if (bgVoice) u.voice = bgVoice;
-    u.rate = slow ? 0.5 : 0.85;
+    u.rate = slow ? 0.4 : 0.85;
     speechSynthesis.speak(u);
   }
   // iPad/iPhone only allow speech that starts from a tap, so "warm up" the voice on one.
@@ -213,6 +219,8 @@
   }
   document.addEventListener('pointerdown', unlockSpeech, { once: true });
 
+  // A question says its word a moment after it appears – unless you've already moved on.
+  const sayLater = (q, fn) => setTimeout(() => { if (S && S.q === q) fn(); }, 250);
   const sayWord = (id, slow) => { const w = word(id); speak(w.tts || w.bg, w.audio, slow); };
   const saySentence = (id, slow) => { const s = sentence(id); speak(s.tts || s.bg, s.audio, slow); };
 
@@ -841,6 +849,7 @@
   }
 
   function nextQuestion() {
+    stopSpeech();
     if (S.quiz && (S.over || Date.now() >= S.endsAt)) return finishQuiz();
     S.q = S.queue.shift();
     if (!S.q) return S.quiz ? finishQuiz() : finishLesson();
@@ -987,7 +996,7 @@
       ctx.checkBtn.textContent = 'Got it!';
       ctx.ready();
       ctx.onCheck = () => { sfx.tap(); S.done++; nextQuestion(); };
-      setTimeout(() => sayWord(q.id), 250);
+      sayLater(q, () => sayWord(q.id));
     },
 
     teachSentence(q, body, ctx) {
@@ -1004,7 +1013,7 @@
       ctx.checkBtn.textContent = 'Got it!';
       ctx.ready();
       ctx.onCheck = () => { sfx.tap(); S.done++; nextQuestion(); };
-      setTimeout(() => saySentence(q.sid), 250);
+      sayLater(q, () => saySentence(q.sid));
     },
 
     // A short grammar note.
@@ -1032,7 +1041,7 @@
       const grid = choiceGrid(q.options, picLabel, ctx, null, 'pics');
       add(body, grid);
       ctx.onCheck = () => { const ok = grid.chosen() === q.id; grid.lock(q.id); scored(ctx, ok, `${w.bg} = ${w.en}`, [q.id]); };
-      setTimeout(() => sayWord(q.id), 250);
+      sayLater(q, () => sayWord(q.id));
     },
 
     // Hear it (no text), tap the meaning.
@@ -1046,7 +1055,7 @@
       const grid = w.letter ? choiceGrid(q.options, bgLabel, ctx, null, 'list') : choiceGrid(q.options, picEnLabel, ctx);
       add(body, grid);
       ctx.onCheck = () => { const ok = grid.chosen() === q.id; grid.lock(q.id); scored(ctx, ok, `${w.bg} = ${w.en}`, [q.id]); };
-      setTimeout(() => sayWord(q.id), 250);
+      sayLater(q, () => sayWord(q.id));
     },
 
     // Bulgarian → English.
@@ -1059,7 +1068,7 @@
       const grid = choiceGrid(q.options, enLabel, ctx, null, 'list');
       add(body, grid);
       ctx.onCheck = () => { const ok = grid.chosen() === q.id; grid.lock(q.id); scored(ctx, ok, `${w.bg} = ${w.en}`, [q.id]); };
-      setTimeout(() => sayWord(q.id), 250);
+      sayLater(q, () => sayWord(q.id));
     },
 
     // English → Bulgarian. Tapping an option says it.
@@ -1268,7 +1277,7 @@
           });
         };
       }
-      setTimeout(() => say(false), 250);
+      sayLater(q, () => say(false));
     },
 
     // Fill the missing word.
