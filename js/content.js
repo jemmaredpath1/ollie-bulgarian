@@ -58,8 +58,8 @@ window.CONTENT = {
     abc_yu: { bg: "Ю ю", en: "yu (as in you)", pic: "✊", say: "yu", tts: "ю", hint: "Ю for юмрук – fist!", picQuiz: false, letter: true },
     abc_ya: { bg: "Я я", en: "ya (as in yard)", pic: "🍓", say: "ya", tts: "я", hint: "Looks like a back-to-front R. Я for ягода – strawberry!", picQuiz: false, letter: true },
     // ---------- Unit 1: Hello! ----------
-    hello:      { bg: "здравей", en: "hello", pic: "👋", say: "zdra-VEY", hint: "Shout it like a cheer: hoo-RAY, zdra-VEY!" },
-    bye:        { bg: "чао", en: "bye", pic: "🚶💨", say: "CHA-o", hint: "Just like 'ciao' in Italian!" },
+    hello:      { bg: "здравей", en: "hello", pic: "😃👋", say: "zdra-VEY", hint: "Shout it like a cheer: hoo-RAY, zdra-VEY!" },
+    bye:        { bg: "чао", en: "bye", pic: "👋🚪", say: "CHA-o", hint: "Just like 'ciao' in Italian!" },
     morning:    { bg: "добро утро", en: "good morning", pic: "🌅", say: "dob-RO OO-tro" },
     night:      { bg: "лека нощ", en: "good night", pic: "🌙", say: "LE-ka nosht", hint: "'Nosht' sounds like 'not' – it's NOT daytime!" },
     thanks:     { bg: "благодаря", en: "thank you", pic: "🙏", say: "bla-go-dar-YA", hint: "Blah… go… dare ya… THANKS!", picQuiz: false },
@@ -78,10 +78,10 @@ window.CONTENT = {
     bone:       { bg: "кокал", en: "bone", pic: "🦴", say: "KO-kal", hint: "A hungry dog CALLS for a KO-kal." },
     ball:       { bg: "топка", en: "ball", pic: "🎾", say: "TOP-ka", hint: "Throw the TOP-ka over the TOP of the fence!" },
     barks:      { bg: "лае", en: "barks", pic: "🐕💬", say: "LA-e" },
-    runs:       { bg: "бяга", en: "runs", pic: "🐕💨", say: "ByA-ga", hint: "The dog runs off: BYE-ga!", audio: "audio/runs.m4a" },
+    runs:       { bg: "бяга", en: "runs", pic: "🏃‍♂️💨", say: "ByA-ga", hint: "The dog runs off: BYE-ga!", audio: "audio/runs.m4a" },
     big:        { bg: "голям", en: "big", pic: "🐘", say: "go-LyAM" },
     small:      { bg: "малък", en: "small", pic: "🐭", say: "MA-luhk" },
-    walk:       { bg: "разходка", en: "walk", pic: "🦮", say: "raz-HOD-ka" },
+    walk:       { bg: "разходка", en: "walk", pic: "🌳🚶", say: "raz-HOD-ka" },
 
     // ---------- Unit 3: Numbers ----------
     one:        { bg: "едно", en: "one", pic: "1️⃣", say: "ed-NO" },
@@ -535,7 +535,7 @@ window.CONTENT = {
     tell:        { bg: "разказвам", en: "I tell (a story)", pic: "📜", say: "raz-KAZ-vam", hint: "разказвам приказка – I tell a fairy tale" },
     ishouted:    { bg: "извиках", en: "I shouted", pic: "📢", say: "iz-VEE-kah" },
     igotscared:  { bg: "уплаших се", en: "I got scared", pic: "🙀", say: "oo-PLA-shih se" },
-    ranaway:     { bg: "избяга", en: "(he / she / it) ran away", pic: "🏃💨", say: "iz-ByA-ga" },
+    ranaway:     { bg: "избяга", en: "(he / she / it) ran away", pic: "🐕💨", say: "iz-ByA-ga" },
     happened:    { bg: "случи се", en: "(it) happened", pic: "💥", say: "SLOO-chi se", hint: "Какво се случи? – What happened?", picQuiz: false },
     usually:     { bg: "обикновено", en: "usually", pic: "🔁", say: "o-bik-NO-ve-no", picQuiz: false },
     always:      { bg: "винаги", en: "always", pic: "♾️", say: "VEE-na-gi", picQuiz: false },
