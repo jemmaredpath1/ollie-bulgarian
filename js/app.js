@@ -48,8 +48,16 @@
   const starText = n => '⭐'.repeat(n) + '☆'.repeat(3 - n);
 
   // ================= Saved progress =================
+  // Children's progress is the most precious thing in the game. Rules:
+  //  • Never rename a lesson, word or unit id: progress is saved against them.
+  //    If one really must change, add it to RENAMED so saves follow it.
+  //  • A change to the shape of the save bumps SAVE_VERSION and adds a step to upgradeSave().
+  const SAVE_VERSION = 1;
+  const BACKUP_KEY = `${STORE_KEY}-backup`;
+  const RENAMED = {}; // oldId: 'newId'
+
   const freshState = () => ({
-    version: 1, dogName: null, xp: 0, streak: 0, lastDay: null,
+    version: SAVE_VERSION, dogName: null, xp: 0, streak: 0, lastDay: null,
     done: {},     // lessonId -> { best: accuracy %, plays }
     words: {},    // wordId -> { right, wrong }
     muted: false,
@@ -61,20 +69,50 @@
     league: null        // set once a grown-up OKs joining the weekly league
   });
 
+  let saveLocked = false; // true if the save came from a NEWER version of the game – never overwrite it
   let state = loadState();
   const playerName = () => state.playerName || 'Ollie';
   // "Ollie's" – or "James's"; an empty name gives "Your".
   const possessive = name => name ? `${name}'s` : 'Your';
 
-  function loadState() {
+  // Brings any older save up to date. Each future version adds one step here.
+  function upgradeSave(s) {
+    // e.g. if (s.version === 1) { …change the shape…; s.version = 2; }
+    for (const [from, to] of Object.entries(RENAMED)) {
+      ['done', 'words', 'quiz'].forEach(k => {
+        if (s[k] && s[k][from] && !s[k][to]) { s[k][to] = s[k][from]; delete s[k][from]; }
+      });
+    }
+    return Object.assign(freshState(), s, { version: SAVE_VERSION });
+  }
+
+  // A spare copy of yesterday's save, kept once a day, in case an update ever goes wrong.
+  function keepBackup(raw) {
     try {
-      const s = JSON.parse(localStorage.getItem(STORE_KEY));
-      if (s && s.version === 1) return Object.assign(freshState(), s);
-    } catch (e) { /* storage unavailable or corrupt */ }
+      const b = JSON.parse(localStorage.getItem(BACKUP_KEY) || 'null');
+      const d = new Date(); const day = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+      if (!b || b.day !== day) localStorage.setItem(BACKUP_KEY, JSON.stringify({ day, save: raw }));
+    } catch (e) { /* ignore */ }
+  }
+
+  function loadState() {
+    let raw = null;
+    try { raw = localStorage.getItem(STORE_KEY); } catch (e) { return freshState(); }
+    if (!raw) return freshState();
+    let s;
+    try { s = JSON.parse(raw); } catch (e) { s = null; }
+    if (s && typeof s.version === 'number' && s.version <= SAVE_VERSION) {
+      keepBackup(raw);
+      return upgradeSave(s);
+    }
+    // Unreadable or from a newer game: keep it safe instead of starting over on top of it.
+    try { localStorage.setItem(`${STORE_KEY}-unreadable-${Date.now()}`, raw); } catch (e) { /* ignore */ }
+    saveLocked = s && s.version > SAVE_VERSION;
     return freshState();
   }
 
   function saveState() {
+    if (saveLocked) return;
     try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* ignore */ }
   }
 
@@ -1661,8 +1699,8 @@
       if (!f) return;
       f.text().then(txt => {
         const s = JSON.parse(txt);
-        if (!s || s.version !== 1) throw new Error('bad file');
-        state = Object.assign(freshState(), s);
+        if (!s || typeof s.version !== 'number' || s.version > SAVE_VERSION) throw new Error('bad file');
+        state = upgradeSave(s);
         saveState();
         toast('✅ Progress restored!');
         renderSettings();
