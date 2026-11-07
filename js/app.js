@@ -1,4 +1,4 @@
-// Ollie's Bulgarian Adventure — game engine.
+// Bulgarian Adventure — game engine.
 // Content lives in content.js; this file only knows how to play it.
 (() => {
   'use strict';
@@ -37,7 +37,7 @@
 
   // ⚡ Speed Quiz: an optional round of 30 questions against a 90-second clock at the end of each unit. It sits beside
   // the lessons (never in LESSONS), so it can't lock anything or change lesson progress.
-  const QUIZ_SECONDS = 90; // was 60, which was too short for Ollie
+  const QUIZ_SECONDS = 90; // was 60, which was too short for young players
   const QUIZ_QUESTIONS = 30;
   const QUIZ_STARS = [9, 18, 27]; // right answers needed for 1, 2 and 3 stars: 3 can be wrong for ⭐⭐⭐
   (ABC ? [ABC] : []).concat(C.units).forEach(u => {
@@ -64,15 +64,15 @@
     speaking: true,  // "Say it!" exercises
     learnLetters: null, // true = show the alphabet unit; null = never asked (saves from before it existed)
     quiz: {},           // unitId -> { best, plays } for the Speed Quiz
-    playerName: null,   // asked first on the cover; saves from before it existed were Ollie's
+    playerName: null,   // asked first on the cover (older saves are asked once, on their next visit)
     week: null,         // { start: Monday (UTC), xp } – XP earned this week, for the league
     league: null        // set once a grown-up OKs joining the weekly league
   });
 
   let saveLocked = false; // true if the save came from a NEWER version of the game – never overwrite it
   let state = loadState();
-  const playerName = () => state.playerName || 'Ollie';
-  // "Ollie's" – or "James's"; an empty name gives "Your".
+  const playerName = () => state.playerName || 'friend';
+  // "Mia's" – or "James's"; an empty name gives "Your".
   const possessive = name => name ? `${name}'s` : 'Your';
 
   // Brings any older save up to date. Each future version adds one step here.
@@ -262,7 +262,7 @@
   const sayWord = (id, slow) => { const w = word(id); speak(w.tts || w.bg, w.audio, slow); };
   const saySentence = (id, slow) => { const s = sentence(id); speak(s.tts || s.bg, s.audio, slow); };
 
-  // ================= Listening to Ollie =================
+  // ================= Listening to the player =================
   // Safari (iPad/iPhone) and Chrome have a built-in speech recogniser. If it
   // can't do Bulgarian, we fall back to "record & compare".
   const Recognizer = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -323,7 +323,7 @@
     return r;
   }
 
-  // Record a few seconds of Ollie's voice so he can compare it with the dog's.
+  // Record a few seconds of the player's voice so they can compare it with the dog's.
   let micStream = null;
   async function recordClip(seconds = 3) {
     micStream = micStream || await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -402,7 +402,8 @@
     h('p', { class: 'tagline' }, 'Words, games and a puppy sidekick. Learn real Bulgarian one level at a time!')
   );
 
-  function renderWelcome() {
+  // Older saves (from before the game asked) see this once, then carry on where they were.
+  function renderWelcome(after = renderDogName) {
     document.title = 'Bulgarian Adventure';
     const input = h('input', { class: 'name-input dark', maxlength: 16, placeholder: 'Type your name…', 'aria-label': 'Your name', autocomplete: 'off' });
     const kicker = h('div', { class: 'kicker' }, possessive(''));
@@ -414,7 +415,7 @@
       state.playerName = name;
       saveState();
       sfx.tap();
-      renderDogName();
+      after();
     };
     input.addEventListener('keydown', e => { if (e.key === 'Enter') next(); });
 
@@ -508,7 +509,7 @@
     `Здравей, ${playerName()}! Let's level up 💪`
   ];
 
-  // Where Ollie is up to: the first playable lesson he hasn't finished (-1 = all done).
+  // Where the player is up to: the first playable lesson not yet finished (-1 = all done).
   const firstOpenIndex = () => LESSONS.findIndex(l => !state.done[l.id]);
 
   function lessonStatus(l) {
@@ -750,7 +751,7 @@
   }
 
   // ================= Building a lesson =================
-  // Words Ollie has met up to (and including) this lesson — used for distractors.
+  // Words the player has met up to (and including) this lesson — used for distractors.
   function knownWordsUpTo(lesson) {
     if (isAbc(lesson)) {
       const i = ABC.lessons.indexOf(lesson);
@@ -792,7 +793,7 @@
     return { type: 'pairs', ids: list };
   }
 
-  // Single Bulgarian words Ollie has met so far — spare tiles and gap options come from these.
+  // Single Bulgarian words the player has met so far — spare tiles and gap options come from these.
   function knownTokens(lesson) {
     const units = C.units.slice(0, C.units.indexOf(lesson.unit) + 1);
     const fromSentences = units.flatMap(u => u.sentences.flatMap(sid => tokens(sentence(sid).bg)));
@@ -1215,7 +1216,7 @@
       };
     },
 
-    // "Say it!" – Ollie says the word out loud.
+    // "Say it!" – the player says the word out loud.
     speak(q, body, ctx) {
       const item = q.id ? word(q.id) : sentence(q.sid);
       const say = slow => q.id ? sayWord(q.id, slow) : saySentence(q.sid, slow);
@@ -1784,5 +1785,5 @@
   }
 
   // ================= Start =================
-  state.dogName ? renderPath() : renderWelcome();
+  state.dogName ? (state.playerName ? renderPath() : renderWelcome(() => renderPath())) : renderWelcome();
 })();

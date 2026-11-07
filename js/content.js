@@ -21,7 +21,7 @@
 //  played and never counts towards progress. Remove the status (and
 //  add words/sentences) to make it playable.
 //
-//  ⚠️ All content needs checking by Jemma before Ollie plays.
+//  ⚠️ All content is checked by a Bulgarian speaker before release.
 // ============================================================
 
 window.CONTENT = {
@@ -187,7 +187,7 @@ window.CONTENT = {
     youare:     { bg: "ти си", en: "you are", pic: "👉", say: "tee see", picQuiz: false },
     years:      { bg: "години", en: "years (old)", pic: "🎂", say: "go-DEE-ni" },
     from:       { bg: "от", en: "from", pic: "📍", say: "ot", picQuiz: false },
-    england:    { bg: "Англия", en: "England", pic: "💂", say: "AN-gli-ya", note: "Assumes Ollie lives in England – change if not." },
+    england:    { bg: "Англия", en: "England", pic: "💂", say: "AN-gli-ya", note: "Assumes the player lives in England – each language version should swap this." },
     bulgaria:   { bg: "България", en: "Bulgaria", pic: "🇧🇬", say: "buhl-GA-ri-ya" },
     live:       { bg: "живея", en: "I live", pic: "🏡", say: "zhi-VE-ya" },
     speak:      { bg: "говоря", en: "I speak", pic: "🗣️", say: "go-vo-RyA" },
@@ -611,7 +611,7 @@ window.CONTENT = {
 
   // Sentences: "gap" is the word hidden in fill-the-gap questions.
   sentences: {
-    s_hi:       { bg: "Здравей! Аз съм Оли.", en: "Hi! I am Ollie.", gap: "съм" },
+    s_hi:       { bg: "Здравей! Аз съм Ники.", en: "Hi! I am Niki.", gap: "съм" },
     s_how:      { bg: "Как си?", en: "How are you?" },
     s_fine:     { bg: "Добре, благодаря.", en: "Fine, thank you.", gap: "благодаря" },
     s_night:    { bg: "Лека нощ, мамо!", en: "Good night, mum!", gap: "нощ" },
@@ -701,7 +701,7 @@ window.CONTENT = {
     s_hungry:   { bg: "Гладен съм!", en: "I'm hungry!", gap: "Гладен" },
 
     // Unit 11
-    t_myname:         { bg: "Казвам се Оли.", en: "My name is Ollie." },
+    t_myname:         { bg: "Казвам се Мила.", en: "My name is Mila." },
     t_boy:            { bg: "Аз съм момче.", en: "I am a boy." },
     t_fromeng:        { bg: "Аз съм от Англия.", en: "I am from England." },
     t_speakbg:        { bg: "Говоря малко български.", en: "I speak a little Bulgarian." },
